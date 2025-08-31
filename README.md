@@ -1,4 +1,4 @@
-# 42 School 🏴‍☠️
+# 42 School 💻✨
 
 This repository tracks my journey as a **42 student**, from the fundamentals of C and Unix to advanced topics like algorithms, graphics, and system programming.  
 It’s a place to keep all projects, exercises, and experiments while progressing through the 42 curriculum.
