@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 00:40:03 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/05 00:49:28 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,19 @@ int	main(int argc, char **argv)
 	{
 		ptr = ft_strcpy(dest, argv[1]);
 		printf("strcpy: %s\n", ptr);
+	}
+	return (0);
+}
+	
+int	main(int argc, char **argv)
+{
+	char	*ptr;
+	char	dest[20] = "Hello ";
+
+	if (argc == 2)
+	{
+		ptr = ft_strcat(dest, argv[1]);
+		printf("strcat: %s\n", ptr);
 	}
 	return (0);
 }*/
