@@ -1,0 +1,28 @@
+• memset
+• bzero
+• memcpy
+• memccpy
+• memmove
+• memchr
+• memcmp
+• strlen - x
+• strdup - x
+• strcpy - x
+• strncpy - x
+• strcat - x
+• strncat
+• strlcat
+• strchr
+• strrchr
+• strstr
+• strnstr
+• strcmp
+• strncmp
+• atoi
+• isalpha
+• isdigit
+• isalnum
+• isascii
+• isprint
+• toupper
+• tolower

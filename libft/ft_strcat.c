@@ -6,13 +6,13 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:41:08 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 00:51:26 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/05 00:53:03 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, const char *src)
 {
 	size_t	i;
 	size_t	j;
