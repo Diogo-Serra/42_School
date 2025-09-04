@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 00:02:47 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/05 00:26:11 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdlib.h>
 
 size_t	ft_strlen(const char *s);
 char	*ft_strcpy(char *dest, const char *src);
