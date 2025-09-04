@@ -6,17 +6,19 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 22:02:53 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 00:27:08 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/05 00:39:24 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src) {
+char	*ft_strcpy(char *dest, const char *src) 
+{
 	size_t	i;
 
 	i = 0;
-	while (src[i] != '\0') {
+	while (src[i] != '\0') 
+	{
 		dest[i] = src[i];
 		i++;
 	}

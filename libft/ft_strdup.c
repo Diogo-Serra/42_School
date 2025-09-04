@@ -6,13 +6,14 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:25:03 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 00:37:34 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/05 00:39:32 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s) {
+char	*ft_strdup(const char *s) 
+{
 	char	*dest;
 	size_t	i;
 	size_t	len;
@@ -22,7 +23,8 @@ char	*ft_strdup(const char *s) {
 	if (!dest)
 		return (NULL);
 	i = 0;
-	while (i <= len) {
+	while (i <= len) 
+	{
 		dest[i] = s[i];
 		i++;
 	}

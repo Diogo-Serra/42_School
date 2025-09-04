@@ -6,13 +6,14 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:03:30 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 00:27:15 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/05 00:39:36 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s) {
+size_t	ft_strlen(const char *s) 
+{
 	size_t	i;
 
 	i = 0;
