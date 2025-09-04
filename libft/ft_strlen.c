@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/04 18:19:41 by diserra          ###   ########.fr       */
+/*   Created: 2025/09/04 18:03:30 by diserra           #+#    #+#             */
+/*   Updated: 2025/09/04 18:19:18 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-#include <stddef.h>
-#include <stdio.h>
-
-size_t	ft_strlen(const char *string);
-
-#endif
-
-
-/* Tests
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *string)
 {
-	int	result;
+	int	i;
 
-	if (argc == 2)
-	{
-		result = ft_strlen(argv[1]);
-		printf("strlen: %d\n", result);
-	}
-	return (0);
-}*/
+	i = 0;
+	while (string[i] != '\0')
+		i++;
+	return (i);
+}
