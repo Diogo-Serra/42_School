@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:03:30 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/04 18:19:18 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/04 23:36:19 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *string)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (string[i] != '\0')
