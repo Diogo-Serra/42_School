@@ -6,12 +6,11 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:41:08 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 00:50:07 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/05 00:51:26 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strcat(char *dest, char *src)
 {
