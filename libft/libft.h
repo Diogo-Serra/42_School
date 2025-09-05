@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 01:50:57 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/05 13:59:01 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		ft_isdigit(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_isalnum(int c);
+int		ft_atoi(const char *s);
 
 #endif /* LIBFT_H */
 
