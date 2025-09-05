@@ -11,8 +11,8 @@
 • strncpy - x
 • strcat - x
 • strncat - x
-• strlcat
-• strchr
+• strlcat - x
+• strchr - x
 • strrchr
 • strstr
 • strnstr
