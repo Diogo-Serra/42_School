@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 13:59:27 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 14:37:52 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/05 14:39:59 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 		i++;
 	}
 	dest[dlen] = '\0';
-
+	return (dlen + slen);
 }
