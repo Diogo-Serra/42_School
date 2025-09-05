@@ -10,19 +10,19 @@
 • strcpy - x
 • strncpy - x
 • strcat - x
-• strncat
+• strncat - x
 • strlcat
 • strchr
 • strrchr
 • strstr
 • strnstr
-• strcmp
-• strncmp
-• atoi
-• isalpha
-• isdigit
-• isalnum
-• isascii
-• isprint
-• toupper
-• tolower
+• strcmp - x
+• strncmp - x
+• atoi - x
+• isalpha - x
+• isdigit - x
+• isalnum - x
+• isascii - x
+• isprint - x
+• toupper - x
+• tolower - x
