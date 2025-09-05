@@ -6,33 +6,32 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 13:59:27 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 14:39:59 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/05 14:42:42 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	dlen;
 	size_t	slen;
 	size_t	i;
 
-	dlen = 0;
-	while (dlen < size && dest[dlen] != '\0')
-		dlen++;
-	slen = 0;
-	while (src[slen] != '\0')
-		slen++;
-	if (dlen = size)
-		return (dlen + slen);
-	i = 0;
-	while (src[i] != '\0' && dlen + i + 1 < size)
-	{
-		dest[dlen] = src[i];
-		dlen++;
-		i++;
-	}
-	dest[dlen] = '\0';
-	return (dlen + slen);
+    while (dlen < dstsize && dst[dlen] != '\0')
+        dlen++;
+    while (src[slen] != '\0')
+        slen++;
+
+    if (dlen == dstsize)
+        return (dstsize + slen);          /* no room to append */
+
+    /* bytes available including space for the NUL */
+    while (src[i] != '\0' && i + 1 < (dstsize - dlen))
+    {
+        dst[dlen + i] = src[i];
+        i++;
+    }
+    dst[dlen + i] = '\0';
+    return (dlen + slen);     
 }
