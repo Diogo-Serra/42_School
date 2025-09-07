@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 18:07:47 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/07 16:59:30 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_isalnum(int c);
 int		ft_atoi(const char *s);
+void	*memset(void *s, int c, size_t n);
+void	bzero(void *s, size_t n);
 
 #endif /* LIBFT_H */
 
