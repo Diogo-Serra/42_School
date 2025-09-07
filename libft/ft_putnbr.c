@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 23:30:09 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/07 23:31:56 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/07 23:35:38 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ void	ft_putnbr(int n)
 
 	digit = n;
 	if (digit < 0)
+	{
+		write(1, "-", 1);
 		digit = -digit;
+	}
 	if (digit >= 10)
 	{
 		ft_putnbr(digit % 10);
 	}
-	c = (digit / 10) + '0';
-	write(1, &digit, 1);
+	c = (digit % 10) + '0';
+	write(1, &c, 1);
 }
