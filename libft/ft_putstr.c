@@ -6,10 +6,11 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 23:28:24 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/07 23:34:52 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/07 23:39:05 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <unistd.h>
 
 void	ft_putstr(char const *s)
