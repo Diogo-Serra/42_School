@@ -1,8 +1,8 @@
-• memset
-• bzero
-• memcpy
-• memccpy
-• memmove
+• memset - x
+• bzero - x
+• memcpy - x
+• memccpy - x
+• memmove - x
 • memchr
 • memcmp
 • strlen - x
@@ -13,9 +13,9 @@
 • strncat - x
 • strlcat - x
 • strchr - x
-• strrchr - x
+• strrchr - x 
 • strstr - x
-• strnstr
+• strnstr - x
 • strcmp - x
 • strncmp - x
 • atoi - x
