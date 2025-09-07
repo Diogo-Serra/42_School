@@ -6,9 +6,13 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 17:17:14 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/07 17:19:05 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/07 17:22:10 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+{
+
+}
