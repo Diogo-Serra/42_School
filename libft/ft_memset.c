@@ -6,7 +6,22 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 16:24:51 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/07 16:24:51 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/07 16:43:01 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+void	*memset(void *s, int c, size_t n)
+{
+	unsigned char *p = (unsigned char) *s;
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		p[i] = (unsigned char) c;
+		i++;
+	}
+	return (s);
+}
