@@ -3,8 +3,8 @@
 • memcpy - x
 • memccpy - x
 • memmove - x
-• memchr
-• memcmp
+• memchr - x
+• memcmp - x
 • strlen - x
 • strdup - x
 • strcpy - x
