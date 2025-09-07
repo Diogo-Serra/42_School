@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 16:50:29 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/07 17:22:41 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/07 17:42:13 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char 	*p;
+	unsigned char	*p;
 	size_t			i;
 
 	p = (unsigned char *) s;
