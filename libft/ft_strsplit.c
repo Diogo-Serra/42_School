@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 18:29:23 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 18:50:35 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:01:20 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ static int	fill_words(char **tab, char const *s, char c, size_t w)
 			i++;
 		tab[j] = ft_strsub(s, (unsigned int)k, i - k);
 		if (!tab[j])
-			return (free_tab(tab, j) == NULL);
+		{
+			free_tab(tab, j);
+			return (0);
+		}
 		j++;
 	}
 	return (1);

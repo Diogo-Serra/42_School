@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 23:28:24 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 14:10:48 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:06:07 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	ft_putstr(char const *s)
 	if (!s)
 		return ;
 	i = 0;
-	while (s[i] != '\0')
-	{
-		write(1, &s[i], 1);
+	while (s)
 		i++;
-	}
+	write(1, s, ft_strlen(s));
 }
