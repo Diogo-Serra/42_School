@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 16:06:37 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 16:06:58 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 16:20:49 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_putendl(char const *s)
 {
-
+	if (!s)
+		return ;
+	ft_putstr(s);
+	ft_putchar('\n');
 }
