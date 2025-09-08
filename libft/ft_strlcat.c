@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 13:59:27 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 17:23:34 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 18:00:19 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t dlen;
-	size_t slen;
-	size_t i;
+	size_t	dlen;
+	size_t	slen;
+	size_t	i;
 
 	dlen = 0;
 	while (dlen < size && dst[dlen] != '\0')
