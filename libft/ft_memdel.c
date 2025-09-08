@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:34:24 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 14:34:48 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 14:43:34 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_memdel(void **ap)
 {
-
+	if (!ap || !*ap)
+		return ;
+	free (*ap);
+	*ap = NULL;
 }

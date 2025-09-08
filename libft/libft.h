@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 14:11:45 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 14:43:32 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	ft_putchar(char c);
 void	ft_putnbr(int n);
 void	ft_putstr(char const *s);
 void	*ft_memalloc(size_t size);
+void	ft_memdel(void **ap);
 
 #endif /* LIBFT_H */
 
