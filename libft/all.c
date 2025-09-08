@@ -414,7 +414,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:34:24 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 14:43:34 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:33:40 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -424,7 +424,7 @@ void	ft_memdel(void **ap)
 {
 	if (!ap || !*ap)
 		return ;
-	free (*ap);
+	free(*ap);
 	*ap = NULL;
 }
 
@@ -531,7 +531,7 @@ void	ft_putchar(char c)
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 16:32:13 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 16:33:44 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:32:53 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -540,7 +540,7 @@ void	ft_putchar(char c)
 
 void	ft_putchar_fd(char c, int fd)
 {
-	(void) write(fd, &c, 1);
+	(void)write(fd, &c, 1);
 }
 
 /* ===== ft_putendl.c ===== */
@@ -577,7 +577,7 @@ void	ft_putendl(char const *s)
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 16:40:15 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 16:45:26 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:33:02 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -593,8 +593,8 @@ void	ft_putendl_fd(char const *s, int fd)
 	i = 0;
 	while (s[i])
 		i++;
-	(void) write(fd, s, i);
-	(void) write(fd, "\n", 1);
+	(void)write(fd, s, i);
+	(void)write(fd, "\n", 1);
 }
 
 /* ===== ft_putnbr.c ===== */
@@ -674,7 +674,7 @@ void	ft_putnbr_fd(int n, int fd)
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 23:28:24 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 19:14:49 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:33:26 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -688,7 +688,7 @@ void	ft_putstr(char const *s)
 	if (!s)
 		return ;
 	len = ft_strlen(s);
-	(void) write(1, s, len);
+	(void)write(1, s, len);
 }
 
 /* ===== ft_putstr_fd.c ===== */
@@ -701,7 +701,7 @@ void	ft_putstr(char const *s)
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 16:34:39 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 16:39:42 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:33:19 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -717,7 +717,7 @@ void	ft_putstr_fd(char const *s, int fd)
 	i = 0;
 	while (s[i])
 		i++;
-	(void) write(fd, s, i);
+	(void)write(fd, s, i);
 }
 
 /* ===== ft_strcat.c ===== */
