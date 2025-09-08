@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 16:40:15 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 16:41:27 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 16:45:26 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,13 @@
 
 void	ft_putendl_fd(char const *s, int fd)
 {
+	size_t	i;
 
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+		i++;
+	(void) write(fd, s, i);
+	(void) write(fd, "\n", 1);
 }
