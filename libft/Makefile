@@ -10,6 +10,10 @@ ARFLAGS := rcs
 RM      := rm -f
 INCDIR  := .
 
+# --------------------------------------------------------------------------- #
+# Sources                                                                     #
+# --------------------------------------------------------------------------- #
+
 SRCS := \
 	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	ft_isprint.c ft_itoa.c ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
@@ -23,6 +27,10 @@ SRCS := \
 	ft_strtrim.c ft_tolower.c ft_toupper.c
 
 OBJS := $(SRCS:.c=.o)
+
+# --------------------------------------------------------------------------- #
+# Rules                                                                       #
+# --------------------------------------------------------------------------- #
 
 .PHONY: all clean fclean re
 
