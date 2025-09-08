@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:02:05 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 14:28:08 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:24:20 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memalloc(size_t size)
 	unsigned char	*pc;
 	size_t			i;
 
-	p = malloc(size);
+	p = (void *)malloc(size);
 	if (!p)
 		return (NULL);
 	pc = p;

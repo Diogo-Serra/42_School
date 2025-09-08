@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:25:03 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/05 00:50:42 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:24:50 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s)
 	size_t	len;
 
 	len = ft_strlen(s);
-	dest = malloc(len + 1);
+	dest = (char *)malloc(len + 1);
 	if (!dest)
 		return (NULL);
 	i = 0;
