@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 16:46:32 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 16:52:34 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 16:56:02 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void ft_putnbr_fd(int n, int fd)
 	{
 		ft_putnbr_fd((int) (nb / 10), fd);
 	}
-	ft_putchar_fd(((char)(nb % 10) + '0'), fd);
+	ft_putchar_fd((char)((nb % 10) + '0'), fd);
 }
