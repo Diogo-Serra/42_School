@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 16:03:08 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 16:08:18 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 int		ft_strequ(char const *s1, char const *s2);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+void	ft_putendl(char const *s);
 
 #endif /* LIBFT_H */
 
