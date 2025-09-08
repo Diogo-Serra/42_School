@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 16:32:13 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 16:33:44 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:32:53 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	(void) write(fd, &c, 1);
+	(void)write(fd, &c, 1);
 }

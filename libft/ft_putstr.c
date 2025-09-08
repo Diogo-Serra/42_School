@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 23:28:24 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 19:14:49 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:33:26 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	ft_putstr(char const *s)
 	if (!s)
 		return ;
 	len = ft_strlen(s);
-	(void) write(1, s, len);
+	(void)write(1, s, len);
 }
