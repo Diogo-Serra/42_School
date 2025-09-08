@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:59:34 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 15:06:09 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 15:06:38 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_strclr(char *s)
 	size_t	i;
 
 	if (!s)
-		return (NULL);
+		return ;
 	i = 0;
 	while (s[i])
 		s[i++] = '\0';
