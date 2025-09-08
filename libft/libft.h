@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 18:00:26 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 18:02:30 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,6 @@ void	ft_putendl(char const *s);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif /* LIBFT_H */
