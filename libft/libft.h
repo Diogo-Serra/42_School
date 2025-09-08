@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 14:59:11 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 15:07:11 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
 char	*ft_strnew(size_t size);
 void	ft_strdel(char **as);
+void	ft_strclr(char *s);
 
 #endif /* LIBFT_H */
 
