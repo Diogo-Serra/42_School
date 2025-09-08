@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft_memalloc.c                                   :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:02:05 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 14:10:22 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 14:28:08 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void	*p;
-	size_t	i;
+	void			*p;
+	unsigned char	*pc;
+	size_t			i;
 
 	p = malloc(size);
 	if (!p)
 		return (NULL);
+	pc = p;
 	i = 0;
 	while (i < size)
-	{
-		((unsigned char *)p)[i] = 0;
-		i++;
-	}
+		pc[i++] = 0;
 	return (p);
 }
