@@ -6,15 +6,13 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 19:02:41 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:19:53 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
-# include <stdlib.h>
 # include <string.h>
 
 /* =========================================================*/
