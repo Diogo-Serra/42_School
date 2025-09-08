@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 23:28:24 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 19:06:07 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 19:14:49 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 void	ft_putstr(char const *s)
 {
-	size_t	i;
+	size_t	len;
 
 	if (!s)
 		return ;
-	i = 0;
-	while (s)
-		i++;
-	write(1, s, ft_strlen(s));
+	len = ft_strlen(s);
+	(void) write(1, s, len);
 }
