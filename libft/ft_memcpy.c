@@ -6,19 +6,19 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 17:05:53 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/07 19:03:30 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 17:26:14 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char		*d;
 	const unsigned char	*s;
 	size_t				i;
 
-	d = (unsigned char *) dest;
+	d = (unsigned char *) dst;
 	s = (const unsigned char *) src;
 	i = 0;
 	while (i < n)
@@ -26,5 +26,5 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		d[i] = s[i];
 		i++;
 	}
-	return (dest);
+	return (dst);
 }

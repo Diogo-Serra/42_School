@@ -6,27 +6,27 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:41:08 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/07 19:03:32 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 17:27:22 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strcat(char *dst, const char *src)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	while (dest[i] != '\0')
+	while (dst[i] != '\0')
 		i++;
 	j = 0;
 	while (src[j] != '\0')
 	{
-		dest[i] = src[j];
+		dst[i] = src[j];
 		i++;
 		j++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	dst[i] = '\0';
+	return (dst);
 }
