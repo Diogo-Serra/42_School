@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:05:58 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 18:02:30 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/08 18:53:27 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,9 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 int		ft_strequ(char const *s1, char const *s2);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	**ft_strsplit(char const *s, char c);
+char	*ft_strtrim(char const *s);
+char	*ft_itoa(int n);
 
 /* =========================================================*/
 /* 10) I/O (stdout convenience)                             */
