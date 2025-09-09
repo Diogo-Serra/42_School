@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 23:51:01 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 17:27:06 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/09 22:10:21 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ char	*ft_strncpy(char *dst, const char *src, size_t n)
 		i++;
 	}
 	while (i < n)
-	{
-		dst[i] = '\0';
-		i++;
-	}
+		dst[i++] = '\0';
 	return (dst);
 }
