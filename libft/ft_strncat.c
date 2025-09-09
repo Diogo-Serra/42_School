@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:54:25 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/08 17:27:49 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/09 22:09:42 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@ char	*ft_strncat(char *dst, const char *src, size_t n)
 		i++;
 	j = 0;
 	while (src[j] != '\0' && j < n)
-	{
-		dst[i] = src[j];
-		i++;
-		j++;
-	}
+		dst[i++] = src[j++];
 	dst[i] = '\0';
 	return (dst);
 }
