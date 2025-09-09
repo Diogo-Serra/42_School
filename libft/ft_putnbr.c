@@ -6,12 +6,11 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 23:30:09 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/09 22:01:19 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/09 22:04:17 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putnbr(int n)
 {
@@ -27,5 +26,5 @@ void	ft_putnbr(int n)
 	if (nb >= 10)
 		ft_putnbr((int)(nb / 10));
 	c = (nb % 10) + '0';
-	write(1, &c, 1);
+	ft_putchar(c);
 }
