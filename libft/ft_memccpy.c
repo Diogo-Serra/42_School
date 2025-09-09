@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 17:17:14 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/09 21:56:29 by diserra          ###   ########.fr       */
+/*   Updated: 2025/09/09 21:57:14 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	unsigned char	ch;
 	size_t			i;
 
-	d = (unsigned char *) dst;
-	s = (unsigned char *) src;
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
 	ch = (unsigned char) c;
 	i = 0;
 	while (i < n)
