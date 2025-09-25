@@ -13,8 +13,8 @@ It’s a place to keep all projects, exercises, and experiments while progressin
 - **So Long / FdF / MiniRT** → First steps into graphics and game engines.  
 - **Push Swap** → Sorting algorithms & stack manipulation.  
 - **Philosophers** → Multithreading and concurrency.  
-- …and many more upcoming projects.  
-
+- …and many more upcoming projects.
+  
 ---
 
 ## 🎯 Goals
