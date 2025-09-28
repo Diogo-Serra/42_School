@@ -14,7 +14,7 @@ It’s a place to keep all projects, exercises, and experiments while progressin
 - **Push Swap** → Sorting algorithms & stack manipulation.  
 - **Philosophers** → Multithreading and concurrency.  
 - …and many more upcoming projects.
-  
+
 ---
 
 ## 🎯 Goals
