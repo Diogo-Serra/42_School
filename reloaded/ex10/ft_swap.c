@@ -6,25 +6,23 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 21:32:55 by diserra           #+#    #+#             */
-/*   Updated: 2025/10/13 21:49:04 by diserra          ###   ########.fr       */
+/*   Updated: 2025/10/13 21:50:08 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-
-void	ft_putnbr(int n)
-{
-	char	c;
-
-	c = (n % 10) + '0';
-	write(1, &c, 1);
-}
 
 void	ft_swap(int *a, int *b)
 {
 	*a = *a + *b;
 	*b = *a - *b;
 	*a = *a - *b;
+}
+/*
+void	ft_putnbr(int n)
+{
+	char	c;
+
+	c = (n % 10) + '0';
+	write(1, &c, 1);
 }
 
 int	main(void)
@@ -41,4 +39,4 @@ int	main(void)
 	ft_putnbr(a);
 	ft_putnbr(b);
 	write(1, "\n", 1);
-}
+}*/
