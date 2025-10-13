@@ -6,20 +6,25 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 21:32:55 by diserra           #+#    #+#             */
-/*   Updated: 2025/10/13 21:35:57 by diserra          ###   ########.fr       */
+/*   Updated: 2025/10/13 21:49:04 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_putnbr(int n)
 {
+	char	c;
+
+	c = (n % 10) + '0';
 	write(1, &c, 1);
 }
 
-void ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
-
+	*a = *a + *b;
+	*b = *a - *b;
+	*a = *a - *b;
 }
 
 int	main(void)
@@ -27,11 +32,13 @@ int	main(void)
 	int	a;
 	int	b;
 
-	ft_putchar(a);
-	ft_putchar(b);
+	a = 2;
+	b = 4;
+	ft_putnbr(a);
+	ft_putnbr(b);
 	write(1, "\n", 1);
-	ft_swap(a, b);
-	ft_putchar(a);
-	ft_putchar(b);
+	ft_swap(&a, &b);
+	ft_putnbr(a);
+	ft_putnbr(b);
 	write(1, "\n", 1);
 }
