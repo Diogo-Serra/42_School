@@ -6,7 +6,7 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:13:14 by diserra           #+#    #+#             */
-/*   Updated: 2025/10/13 20:31:14 by diserra          ###   ########.fr       */
+/*   Updated: 2025/10/13 20:31:46 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_print_numbers(void)
 	}
 	write(1, "\n", 1);
 }
-
+/*
 int	main(void)
 {
 	ft_print_numbers();
-}
+}*/
