@@ -6,11 +6,11 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 22:38:36 by diserra           #+#    #+#             */
-/*   Updated: 2025/10/13 22:46:39 by diserra          ###   ########.fr       */
+/*   Updated: 2025/10/13 22:47:03 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_recursive_factorial(int nb)
+int	ft_recursive_factorial(int nb)
 {
 	if (nb < 0)
 		return (0);
