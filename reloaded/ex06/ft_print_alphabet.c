@@ -6,13 +6,13 @@
 /*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 18:52:47 by diserra           #+#    #+#             */
-/*   Updated: 2025/10/13 19:12:05 by diserra          ###   ########.fr       */
+/*   Updated: 2025/10/13 20:29:12 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_print_alphabet(void)
+void	ft_print_alphabet(void)
 {
 	char	letter;
 
