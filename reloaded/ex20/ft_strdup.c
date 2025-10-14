@@ -1,28 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 17:43:42 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/14 17:48:31 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/14 19:20:53 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/14 21:01:14 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_is_negative(int n)
+int	ft_strlen(char *src)
 {
-	if (n < 0)
-		write(1, "N", 1);
-	if (n >= 0)
-		write(1, "P", 1);
+	int	i;
+
+	i = 0;
+	while (src[i])
+	{
+		write(1, &src[i], 1);
+	}
+	return (i);
 }
-/*
-int	main(void)
+
+char *ft_strdup(char *src)
 {
-	ft_is_negative(10);
-	ft_is_negative(-5);
-	ft_is_negative(0);
-}*/
+    char	*dest;
+	int		i;
+	int		len;
+
+	len = ft_strlen(src);
+	dest = (char *)malloc(len + 1);
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (i <= len)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	return (dest);
+}

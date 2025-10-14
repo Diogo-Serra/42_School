@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
+/*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 22:38:36 by diserra           #+#    #+#             */
-/*   Updated: 2025/10/13 22:47:03 by diserra          ###   ########.fr       */
+/*   Created: 2025/10/14 17:44:17 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/14 17:50:23 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

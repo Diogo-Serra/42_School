@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
+/*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 20:13:14 by diserra           #+#    #+#             */
-/*   Updated: 2025/10/13 20:31:46 by diserra          ###   ########.fr       */
+/*   Created: 2025/10/14 17:43:33 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/14 17:48:00 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

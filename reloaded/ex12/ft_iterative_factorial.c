@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
+/*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 22:01:19 by diserra           #+#    #+#             */
-/*   Updated: 2025/10/13 22:37:49 by diserra          ###   ########.fr       */
+/*   Created: 2025/10/14 17:44:11 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/14 17:50:04 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
