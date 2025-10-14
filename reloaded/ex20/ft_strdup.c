@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:20:53 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/14 23:47:09 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/14 23:54:20 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ size_t	ft_strlen(const char *src)
 	return (i);
 }
 
-char *ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
-    char		*dest;
+	char		*dest;
 	size_t		i;
 	size_t		len;
 
