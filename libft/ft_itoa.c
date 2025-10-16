@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
+/*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/08 18:25:50 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/12 18:55:17 by diserra          ###   ########.fr       */
+/*   Created: 2025/10/16 08:28:32 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/16 08:28:34 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	intlen(long n)
+size_t	intlen(long n)
 {
 	size_t	l;
 
