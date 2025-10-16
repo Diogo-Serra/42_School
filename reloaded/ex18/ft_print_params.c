@@ -6,22 +6,19 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:44:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/14 19:18:12 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/15 13:26:20 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
 
 int	main(int argc, char **argv)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
+	if (argc <= 1)
+		return (0);
 	i = 1;
 	while (i < argc)
 	{

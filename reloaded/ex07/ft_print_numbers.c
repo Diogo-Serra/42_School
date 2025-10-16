@@ -6,26 +6,20 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:43:33 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/14 17:48:00 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/16 08:12:01 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
 void	ft_print_numbers(void)
 {
-	char	digit;
+	char	c;
 
-	digit = '0';
-	while (digit <= '9')
+	c = '0';
+	while (c <= '9')
 	{
-		write(1, &digit, 1);
-		digit++;
+		ft_putchar(c);
+		c++;
 	}
-	write(1, "\n", 1);
 }
-/*
-int	main(void)
-{
-	ft_print_numbers();
-}*/

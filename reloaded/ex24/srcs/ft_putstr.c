@@ -5,20 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 17:44:32 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/15 13:25:53 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/15 11:38:40 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/15 11:39:41 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {
-	if (!str)
-		return ;
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		ft_putchar(*str);
-		str++;
+		write(1, &str[i], 1);
+		i++;
 	}
 }

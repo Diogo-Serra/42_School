@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 17:44:32 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/15 13:25:53 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/15 11:47:26 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/15 12:57:12 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+int	ft_count_if(char **tab, int (*f)(char*))
 {
-	if (!str)
-		return ;
-	while (*str)
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (tab[i] != 0)
 	{
-		ft_putchar(*str);
-		str++;
+		if (f(tab[i]) != 0)
+			count++;
+		i++;
 	}
+	return (count);
 }

@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 17:44:32 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/15 13:25:53 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/15 11:38:46 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/15 11:40:03 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+int	ft_strlen(char *str)
 {
-	if (!str)
-		return ;
-	while (*str)
-	{
-		ft_putchar(*str);
-		str++;
-	}
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

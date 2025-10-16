@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 17:44:32 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/15 13:25:53 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/15 11:42:13 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/15 11:58:02 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
-	if (!str)
-		return ;
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (i < length)
 	{
-		ft_putchar(*str);
-		str++;
+		f(tab[i]);
+		i++;
 	}
 }

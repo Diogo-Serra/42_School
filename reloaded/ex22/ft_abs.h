@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 17:44:32 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/15 13:25:53 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/15 11:17:27 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/15 11:18:57 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#ifndef FT_ABS_H
+# define FT_ABS_H
 
-void	ft_putstr(char *str)
-{
-	if (!str)
-		return ;
-	while (*str)
-	{
-		ft_putchar(*str);
-		str++;
-	}
-}
+# define ABS(Value) ((Value) < 0 ? -(Value) : (Value))
+
+#endif

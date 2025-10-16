@@ -6,11 +6,11 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:15:29 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/14 19:19:22 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:14:38 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
 {
@@ -19,10 +19,9 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		write(1, &str[i], 1);
+		ft_putchar(str[i]);
 		i++;
 	}
-	write(1, "\n", 1);
 }
 
 int	ft_strcmp(char *s1, char *s2)
@@ -37,9 +36,11 @@ int	ft_strcmp(char *s1, char *s2)
 
 void	ft_swap(char **a, char **b)
 {
-	**a = **a + **b;
-	**b = **a - **b;
-	**a = **a - **b;
+	char	*tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
 int	main(int argc, char **argv)
@@ -47,26 +48,26 @@ int	main(int argc, char **argv)
 	int	i;
 	int	j;
 
-	if (argc > 1)
+	if (argc <= 1)
+		return (0);
+	i = 1;
+	while (i < argc - 1)
 	{
-		i = 1;
-		while (i < argc - 1)
+		j = i + 1;
+		while (j < argc)
 		{
-			j = i + 1;
-			while (j < argc)
-			{
-				if (ft_strcmp(argv[i], argv[j]) > 0)
-					ft_swap(&argv[i], &argv[j]);
-				j++;
-			}
-			i++;
+			if (ft_strcmp(argv[i], argv[j]) > 0)
+				ft_swap(&argv[i], &argv[j]);
+			j++;
 		}
-		i = 1;
-		while (i < argc)
-		{
-			ft_putstr(argv[i]);
-			i++;
-		}
+		i++;
+	}
+	i = 1;
+	while (i < argc)
+	{
+		ft_putstr(argv[i]);
+		ft_putchar('\n');
+		i++;
 	}
 	return (0);
 }

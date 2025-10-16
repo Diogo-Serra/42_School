@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 17:44:32 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/15 13:25:53 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/15 11:38:43 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/15 11:39:54 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <stdio.h>
 
-void	ft_putstr(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	if (!str)
-		return ;
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		ft_putchar(*str);
-		str++;
+		if (s1[i] != s2[i])
+		{
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+		}
+		i++;
 	}
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }
