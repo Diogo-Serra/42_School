@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
+/*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:25:03 by diserra           #+#    #+#             */
-/*   Updated: 2025/09/14 21:52:31 by diserra          ###   ########.fr       */
+/*   Updated: 2025/10/16 08:22:50 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,4 @@ char	*ft_strdup(const char *s)
 		i++;
 	}
 	return (dest);
-}	
+}
