@@ -29,14 +29,6 @@ Unix • Linux • macOS
 
 ---
 
-### 🌱 What’s Next
-
-- Finish **Libft** and get the first Common Core badge  
-- Move on to **Born2beroot** (virtualization & sysadmin)  
-- Begin **ft_printf** and **get_next_line**
-
----
-
 ### 📫 Connect
 
 <a href="https://profile.intra.42.fr/users/diogo-serra"><img src="https://img.shields.io/badge/42_Profile-diogo--serra-2ecc71?style=for-the-badge" alt="42 Profile"/></a>  
