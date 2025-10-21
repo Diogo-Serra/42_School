@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:35:29 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/20 12:52:05 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/21 14:09:32 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	const char	ch = (char)c;
+	char		ch;
 	size_t		i;
 
 	i = 0;
-	while (s[i] != '\0')
+	ch = (const char)c;
+	while (s[i])
 	{
 		if (s[i] == ch)
 			return ((char *)&s[i]);

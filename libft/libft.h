@@ -6,16 +6,19 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/20 17:57:32 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/21 17:30:24 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
-# include <stddef.h>
-# include <unistd.h>
+#  include <stdlib.h>
+#  include <stddef.h>
+#  include <unistd.h>
+#  include <stdio.h>
+#  include <limits.h>
+#  include <stdint.h>
 
 /* =========================================================*/
 /* 1) C-string length, duplication, and copy                */
@@ -64,6 +67,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
 
 /* =========================================================*/

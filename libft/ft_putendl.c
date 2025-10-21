@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 08:26:03 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/21 13:08:49 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/16 08:34:05 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/20 13:16:14 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_putendl(char const *s)
 {
-	return ((c >= '0' && c <= '9')
-		|| (c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z'));
+	if (!s)
+		return ;
+	ft_putstr(s);
+	ft_putchar('\n');
 }
