@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:05:25 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/21 19:10:52 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/22 00:06:48 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,51 +15,55 @@
 int	main(void)
 {
 	char 	s1[] = "Hello";
-	char 	*s2;
+	char	s2[] = "Hello";
+	char	s3[] = "HellO";
+	char	s4[50];
 	int		num = 42;
-	char	s3[] = "Hello";
+	char 	*p1;
+	//char 	*p2;
+	//size_t result;
 
-	size_t result;
-
-	result = ft_atoi(s1);
+	ft_atoi(s1);
 	printf("atoi - OK\n");
 
 	ft_bzero(s1, ft_strlen(s1));
 	printf("bzero - OK\n");
 
-	s2 = (char *)ft_calloc(ft_strlen(s1), sizeof(char));
-		if (!s2)
+	p1 = (char *)ft_calloc(ft_strlen(s1), sizeof(char));
+		if (!p1)
 			printf("Error on calloc\n");
 		printf("calloc - OK\n");
-	free(s2);
+	free(p1);
 
-	result = ft_isalnum('4');
+	ft_isalnum('4');
 /*	if (result == 1)
 		printf("Yes\n");
 	else
 		printf("No\n");*/
 	printf("isalnum - OK\n");
-	
-	result = (size_t)ft_isalpha('A');
+	ft_isalpha('A');
 	printf("isalpha - OK\n");
-	
-	result = (size_t)ft_isascii('A');
+	(size_t)ft_isascii('A');
 	printf("isascii - OK\n");
-
-	result = (size_t)ft_isdigit('A');
+	(size_t)ft_isdigit('A');
 	printf("isdigit - OK\n");
-	
-	result = (size_t)ft_isprint('A');
+	ft_isprint('A');
 	printf("isprint - OK\n");
-
-	s2 = ft_itoa(num);
+	
+	ft_itoa(num);
 	printf("itoa - OK\n");
-
-	s2 = ft_memchr(s3, 'l', ft_strlen(s3));
+	
+	ft_memchr(s3, 'l', ft_strlen(s3));
 	printf("memchr - OK\n");
 
-	result = (int)ft_memcmp(s1, s3, ft_);
+	(size_t)ft_memcmp(s2, s3, ft_strlen(s2));
+	printf("memcmp - OK\n");
+	
+	ft_memcpy(s4, s3, ft_strlen(s3));
+	printf("memcpy - OK\n");
 
 	
+
+
 	return (0);
 }
