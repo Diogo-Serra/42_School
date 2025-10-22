@@ -6,49 +6,40 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:28:32 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/16 08:28:34 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/22 19:32:29 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	intlen(long n)
-{
-	size_t	l;
-
-	l = (n <= 0);
-	while (n)
-	{
-		l++;
-		n /= 10;
-	}
-	return (l);
-}
-
 char	*ft_itoa(int n)
 {
-	long	nb;
-	size_t	len;
-	size_t	i;
 	char	*s;
+	char	num[11]; 
+	int		data[3];
 
-	nb = n;
-	len = intlen(nb);
-	s = (char *)malloc(len + 1);
-	if (!s)
-		return (NULL);
-	s[len] = '\0';
-	if (nb < 0)
-		nb = -nb;
-	i = len;
-	if (nb == 0)
-		s[--i] = '0';
-	while (nb)
+	data[0] = 10; 
+	data[1] = (n >= 0) - (n < 0);
+	while (n)
 	{
-		s[--i] = (char)('0' + (nb % 10));
-		nb /= 10;
+		num[data[0]--] = (n % 10) + '0';
+		n /= 10;
 	}
-	if (n < 0)
-		s[0] = '-';
-	return (s);
+	if (data[1] < 0)
+		num[data[0]--] = '-'; 
+	data[2] = 10 - data[0];
+	s = ft_calloc(data[2] + 1, sizeof(char));
+	if (!s)	
+		return (NULL);
+	data[0] = 10;
+	while (data[2]--)
+		s[data[2]] = num[data[0]--];
+	return(s);
 }
+int	main(void)
+{
+	char *p = ft_itoa(42);
+	printf("%s", p);
+	return (free(p), 0);
+}
+

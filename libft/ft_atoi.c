@@ -6,33 +6,52 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:24:43 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/20 12:53:15 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/22 17:47:47 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	better_atoi(const char *s)
+{
+	int	res;
+	int	sgn;
+
+
+	sgn = 1;
+	res = 0;
+	while ((*s == ' ') || (*s >= 9 && *s <= 13))
+		s++;
+	if (*s == '+' || *s++ == '-')
+		sgn = (*(s - 1) == '+') - (*(s - 1) == '-');
+	while (*s >= '0' && *s <= '9')
+		res = (res * 10) + (*s++ - '0');
+	return (res * sgn);
+}
+
 int	ft_atoi(const char *s)
 {
-	size_t	i;
 	long	res;
 	int		sign;
 
 	sign = 1;
 	res = 0;
-	i = 0;
-	while ((s[i] == ' ') || (s[i] >= 9 && s[i] <= 13))
-		i++;
-	if (s[i] == '-' || s[i] == '+')
+	while ((*s == ' ') || (*s >= 9 && *s <= 13))
+		s++;
+	if (*s == '-' || *s == '+')
 	{
-		if (s[i] == '-')
-			sign = -1;
-		i++;
+		if (*s++ == '-')
+			sign = -sign;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		res = (res * 10) + (s[i] - '0');
-		i++;
-	}
+	while (*s >= '0' && *s <= '9')
+		res = (res * 10) + (*s++ - '0');
 	return ((int)(res * sign));
+}
+
+int	main(void)
+{
+	int result = ft_atoi("42");
+	int	better_result = better_atoi("48");
+	printf("atoi: %d | better: %d\n", result, better_result);
+	return (0);
 }

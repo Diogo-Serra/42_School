@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 14:25:57 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/21 18:02:36 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/22 17:50:57 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (!ptr)
 		return (NULL);
 	while (--total)
-		*((unsigned char *)ptr + total) = '\0';
+		*((unsigned char *)ptr + total) = 0;
 	return (ptr);
 }

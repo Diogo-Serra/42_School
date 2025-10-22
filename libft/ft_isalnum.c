@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:26:03 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/21 13:08:49 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/22 17:52:49 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	return ((c >= '0' && c <= '9')
-		|| (c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z'));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

@@ -6,19 +6,19 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/21 17:30:24 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/22 16:28:00 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#  include <stdlib.h>
-#  include <stddef.h>
-#  include <unistd.h>
-#  include <stdio.h>
-#  include <limits.h>
-#  include <stdint.h>
+# include <stdlib.h>
+# include <stddef.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <limits.h>
+# include <stdint.h>
 
 /* =========================================================*/
 /* 1) C-string length, duplication, and copy                */
