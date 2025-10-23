@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:37:43 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/23 23:22:57 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/24 00:39:00 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static size_t	ft_wordlen(const char *src, char c)
 
 static int	ft_nwords(const char *src, char c)
 {
-	size_t	i;
+	int		i;
 	int		words;
 
 	i = 0;
@@ -42,63 +42,104 @@ static int	ft_nwords(const char *src, char c)
 	return (words);
 }
 
-static void	free_table(char **tab, int filled)
+static void	*free_heap(char **tab)
 {
-	while (filled >= 0)
-		free(tab[filled--]);
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
 	free(tab);
+	return (NULL);
 }
 
 char	**ft_split(const char *src, char sep)
 {
 	char	**tab;
-	const char	*p;
-	int		nwords;
-	int		i;
+	size_t	i;
+	size_t	nwords;
 	size_t	lenwords;
 
 	if (!src)
 		return (NULL);
 	i = 0;
-	p = src;
 	nwords = ft_nwords(src, sep);
-	tab = ft_calloc((size_t)nwords + 1, sizeof(char *));
+	tab = ft_calloc(nwords + 1, sizeof(char *));
 	if (!tab)
 		return (NULL);
 	while (i < nwords)
 	{
-		while (*p && *p == sep)
-			p++;
-		lenwords = ft_wordlen(p, sep);
+		while (*src && *src == sep)
+			src++;
+		lenwords = ft_wordlen(src, sep);
 		tab[i] = ft_calloc(lenwords + 1, sizeof(char));
 		if (!tab[i])
-		{
-			free_table(tab, i - 1);
-			return (NULL);
-		}
-		ft_memcpy(tab[i], p, lenwords);
-		tab[i][lenwords] = '\0';
-		p += lenwords;
-		i++;
+			return (free_heap(tab));
+		ft_memcpy(tab[i], src, lenwords);
+		tab[i++][lenwords] = '\0';
+		src += lenwords;
 	}
 	return (tab);
 }
 
-int main(void)
+int	main(void)
 {
-	char	source[] = "Teste 1 2 3";
-	char	sep = ' ';
 	char	**split;
-	int		words;
-	int		i;
 
-	i = 0;
-	words = ft_nwords(source, sep);
-	split = ft_split(source, sep);
-	while (i < words)
-		printf("%s\n", split[i++]);
-	while (i >= 0)
-		free(split[i--]);
-	free(split);
+	printf("--- Test 1: Basic ---\n");
+	split = ft_split("Teste 1 2 3", ' ');
+	if (split)
+	{
+		for (int i = 0; split[i]; i++)
+			printf("'%s'\n", split[i]);
+		free_heap(split);
+	}
+	printf("\n--- Test 2: Edge spaces ---\n");
+	split = ft_split("  leading and trailing spaces  ", ' ');
+	if (split)
+	{
+		for (int i = 0; split[i]; i++)
+			printf("'%s'\n", split[i]);
+		free_heap(split);
+	}
+	printf("\n--- Test 3: Multiple spaces ---\n");
+	split = ft_split("word1   word2", ' ');
+	if (split)
+	{
+		for (int i = 0; split[i]; i++)
+			printf("'%s'\n", split[i]);
+		free_heap(split);
+	}
+	printf("\n--- Test 4: Empty string ---\n");
+	split = ft_split("", ' ');
+	if (split)
+	{
+		printf("Result array is not NULL. Word count: ");
+		int count = 0;
+		while(split[count]) count++;
+		printf("%d\n", count);
+		if (split[0] == NULL)
+			printf("First element is NULL, as expected.\n");
+		free_heap(split);
+	}
+	printf("\n--- Test 5: String with only separators ---\n");
+	split = ft_split("       ", ' ');
+	if (split)
+	{
+		printf("Result array is not NULL. Word count: ");
+		int count = 0;
+		while(split[count]) count++;
+		printf("%d\n", count);
+		if (split[0] == NULL)
+			printf("First element is NULL, as expected.\n");
+		free_heap(split);
+	}
+	printf("\n--- Test 6: NULL input ---\n");
+	split = ft_split(NULL, ' ');
+	if (!split)
+		printf("Result is NULL as expected.\n");
 	return (0);
 }
