@@ -6,13 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:37:43 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/23 17:17:12 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/23 19:46:36 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_wordlen(const char *src, char c)
+static size_t	ft_wordlen(const char *src, char c)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	ft_wordlen(const char *src, char c)
 	return (i);
 }
 
-int	ft_nwords(const char *src, char c)
+static int	ft_nwords(const char *src, char c)
 {
 	size_t	i;
 	int		words;
@@ -36,13 +36,13 @@ int	ft_nwords(const char *src, char c)
 	while (src[i])
 	{
 		if (src[i] != c && (i == 0 || src[i - 1] == c))
-            words++;
-        i++;
+			words++;
+		i++;
 	}
 	return (words);
 }
 
-char	*ft_strnchr(const char *s, int c)
+static char	*ft_strnchr(const char *s, int c)
 {
 	char		ch;
 	size_t		i;
@@ -51,8 +51,10 @@ char	*ft_strnchr(const char *s, int c)
 	ch = (const char)c;
 	while (s[i])
 	{
-		if (s[i] == ch && s[i + 1] != ch)
+		if (s[0] != c)
 			return ((char *)&s[i]);
+		if (s[i] == ch && s[i + 1] != ch)
+			return ((char *)&s[i + 1]);
 		i++;
 	}
 	return ((char *)s);
@@ -64,38 +66,25 @@ char	**ft_split(const char *src, char c)
 	char	*next;
 	int		nwords;
 	int		i;
+	size_t	lenwords;
 
-	i = 0;
 	if (!src)
 		return (NULL);
-	nwords = ft_nwords(src, c);
-	tab = ft_calloc(nwords + 1, sizeof(char));
+	i = 0;
+	next = ft_strnchr(src, (int)c);
+	nwords = ft_nwords(next, c);
+	tab = ft_calloc((size_t)nwords, sizeof(char *));
 	if (!tab)
 		return (NULL);
-	next = ft_strnchr(src, (int)c);
-	while (i <= nwords)
+	while (i < nwords)
 	{
-		tab[i] = calloc((size_t)ft_wordlen + 1, sizeof(char));
-		ft_memcpy(tab[i], next, ft_wordlen(next, c));
-		nwords--;
-		i++;
+		lenwords = ft_wordlen(next, c);
+		tab[i] = ft_calloc(lenwords, sizeof(char));
+		if (!tab)
+			return (NULL);
+		ft_memcpy(tab[i++], next, lenwords);
+		next += lenwords;
+		next = ft_strnchr(next, (int)c);
 	}
 	return (tab);
-}
-
-int	main(void)
-{
-	char	**tab;
-	char	*src = "Hello World Escola 42";
-	char	sep = ' ';
-	int		nwords;
-	int		i;
-
-	nwords = ft_nwords(src, sep);
-	tab = ft_split(src, sep);
-	i = 0;
-	while (i <= nwords)
-		printf("%s\n", tab[i++]);
-	free(tab);
-	return (0);
 }
