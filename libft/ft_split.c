@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:37:43 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/23 19:46:36 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/23 23:22:57 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,17 @@ static int	ft_nwords(const char *src, char c)
 	return (words);
 }
 
-static char	*ft_strnchr(const char *s, int c)
+static void	free_table(char **tab, int filled)
 {
-	char		ch;
-	size_t		i;
-
-	i = 0;
-	ch = (const char)c;
-	while (s[i])
-	{
-		if (s[0] != c)
-			return ((char *)&s[i]);
-		if (s[i] == ch && s[i + 1] != ch)
-			return ((char *)&s[i + 1]);
-		i++;
-	}
-	return ((char *)s);
+	while (filled >= 0)
+		free(tab[filled--]);
+	free(tab);
 }
 
-char	**ft_split(const char *src, char c)
+char	**ft_split(const char *src, char sep)
 {
 	char	**tab;
-	char	*next;
+	const char	*p;
 	int		nwords;
 	int		i;
 	size_t	lenwords;
@@ -71,20 +60,45 @@ char	**ft_split(const char *src, char c)
 	if (!src)
 		return (NULL);
 	i = 0;
-	next = ft_strnchr(src, (int)c);
-	nwords = ft_nwords(next, c);
-	tab = ft_calloc((size_t)nwords, sizeof(char *));
+	p = src;
+	nwords = ft_nwords(src, sep);
+	tab = ft_calloc((size_t)nwords + 1, sizeof(char *));
 	if (!tab)
 		return (NULL);
 	while (i < nwords)
 	{
-		lenwords = ft_wordlen(next, c);
-		tab[i] = ft_calloc(lenwords, sizeof(char));
-		if (!tab)
+		while (*p && *p == sep)
+			p++;
+		lenwords = ft_wordlen(p, sep);
+		tab[i] = ft_calloc(lenwords + 1, sizeof(char));
+		if (!tab[i])
+		{
+			free_table(tab, i - 1);
 			return (NULL);
-		ft_memcpy(tab[i++], next, lenwords);
-		next += lenwords;
-		next = ft_strnchr(next, (int)c);
+		}
+		ft_memcpy(tab[i], p, lenwords);
+		tab[i][lenwords] = '\0';
+		p += lenwords;
+		i++;
 	}
 	return (tab);
+}
+
+int main(void)
+{
+	char	source[] = "Teste 1 2 3";
+	char	sep = ' ';
+	char	**split;
+	int		words;
+	int		i;
+
+	i = 0;
+	words = ft_nwords(source, sep);
+	split = ft_split(source, sep);
+	while (i < words)
+		printf("%s\n", split[i++]);
+	while (i >= 0)
+		free(split[i--]);
+	free(split);
+	return (0);
 }
