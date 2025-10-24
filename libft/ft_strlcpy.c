@@ -6,13 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 14:36:57 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/21 13:23:14 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/24 01:15:14 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	srclen;

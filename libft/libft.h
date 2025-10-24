@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/22 16:28:00 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/24 01:17:00 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 /* 1) C-string length, duplication, and copy                */
 /* =========================================================*/
 size_t	ft_strlen(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	*ft_strdup(const char *s);
 
 /* =========================================================*/
@@ -82,15 +83,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
 
 /* =========================================================*/
-/* 10) I/O (stdout convenience)                             */
-/* =========================================================*/
-void	ft_putendl(char const *s);
-
-/* =========================================================*/
-/* 11) I/O (file descriptor variants)                       */
+/* 10) I/O (file descriptor variants)                       */
 /* =========================================================*/
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char const *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
 
 #endif /* LIBFT_H */
