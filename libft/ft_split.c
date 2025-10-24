@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:37:43 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 00:39:00 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/24 00:39:58 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,63 +83,4 @@ char	**ft_split(const char *src, char sep)
 		src += lenwords;
 	}
 	return (tab);
-}
-
-int	main(void)
-{
-	char	**split;
-
-	printf("--- Test 1: Basic ---\n");
-	split = ft_split("Teste 1 2 3", ' ');
-	if (split)
-	{
-		for (int i = 0; split[i]; i++)
-			printf("'%s'\n", split[i]);
-		free_heap(split);
-	}
-	printf("\n--- Test 2: Edge spaces ---\n");
-	split = ft_split("  leading and trailing spaces  ", ' ');
-	if (split)
-	{
-		for (int i = 0; split[i]; i++)
-			printf("'%s'\n", split[i]);
-		free_heap(split);
-	}
-	printf("\n--- Test 3: Multiple spaces ---\n");
-	split = ft_split("word1   word2", ' ');
-	if (split)
-	{
-		for (int i = 0; split[i]; i++)
-			printf("'%s'\n", split[i]);
-		free_heap(split);
-	}
-	printf("\n--- Test 4: Empty string ---\n");
-	split = ft_split("", ' ');
-	if (split)
-	{
-		printf("Result array is not NULL. Word count: ");
-		int count = 0;
-		while(split[count]) count++;
-		printf("%d\n", count);
-		if (split[0] == NULL)
-			printf("First element is NULL, as expected.\n");
-		free_heap(split);
-	}
-	printf("\n--- Test 5: String with only separators ---\n");
-	split = ft_split("       ", ' ');
-	if (split)
-	{
-		printf("Result array is not NULL. Word count: ");
-		int count = 0;
-		while(split[count]) count++;
-		printf("%d\n", count);
-		if (split[0] == NULL)
-			printf("First element is NULL, as expected.\n");
-		free_heap(split);
-	}
-	printf("\n--- Test 6: NULL input ---\n");
-	split = ft_split(NULL, ' ');
-	if (!split)
-		printf("Result is NULL as expected.\n");
-	return (0);
 }
