@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:24:43 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/23 23:22:44 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/25 23:36:50 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	ft_atoi(const char *s)
 {
-	long	res;
-	int		sign;
+	int	nb;
+	int	sg;
 
-	sign = 1;
-	res = 0;
+	nb = 0;
+	sg = 1;
 	while ((*s == 32) || (*s >= 9 && *s <= 13))
 		s++;
 	if (*s == '-' || *s == '+')
 	{
 		if (*s++ == '-')
-			sign = -sign;
+			sg *= -1;
 	}
 	while (*s >= '0' && *s <= '9')
-		res = (res * 10) + (*s++ - '0');
-	return ((long)(res * sign));
+		nb = (nb * 10) + (*s++ - '0');
+	return (sg * nb);
 }
