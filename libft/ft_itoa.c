@@ -6,52 +6,35 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:28:32 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 14:22:09 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/26 00:22:19 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_len(int n)
-{
-	int	len;
-
-	len = 0;
-	if (n <= 0)
-		len++;
-	while (n != 0)
-	{
-		n = n / 10;
-		len++;
-	}
-	return (len);
-}
-
 char	*ft_itoa(int n)
 {
+	char	arr[12];
 	char	*out;
-	int		len;
 	long	nb;
+	int		i;
 
 	nb = n;
-	len = get_len(nb);
-	out = (char *)malloc(sizeof(char) * (len + 1));
+	i = sizeof(arr) - 1;
+	if (nb == 0)
+		arr[--i] = '0';
+	if (n < 0)
+		nb *= -1;
+	while (nb)
+	{
+		arr[--i] = (nb % 10) + '0';
+		nb /= 10;
+	}
+	if (n < 0)
+		arr[--i] = '-';
+	out = (char *)ft_calloc((sizeof(arr) - i) + 1, sizeof(char));
 	if (!out)
 		return (NULL);
-	out[len] = '\0';
-	len--;
-	if (nb == 0)
-		out[0] = '0';
-	if (nb < 0)
-	{
-		out[0] = '-';
-		nb = -nb;
-	}
-	while (nb > 0)
-	{
-		out[len] = (nb % 10) + '0';
-		nb = nb / 10;
-		len--;
-	}
+	ft_memcpy(out, arr + i, sizeof(arr) - i);
 	return (out);
 }
