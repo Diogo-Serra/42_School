@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:31:31 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/21 14:34:17 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/26 00:28:34 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*p1;
-	const unsigned char	*p2;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
-	p1 = (const unsigned char *)s1;
-	p2 = (const unsigned char *)s2;
+	p1 = (unsigned char *)s1;
+	p2 = (unsigned char *)s2;
 	while (n--)
 	{
 		if (*p1 != *p2)

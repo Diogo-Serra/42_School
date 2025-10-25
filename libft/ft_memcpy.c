@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:31:41 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 01:22:29 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/26 00:29:40 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char		*d;
-	const unsigned char	*s;
+	unsigned char		*s;
 
 	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
+	s = (unsigned char *)src;
 	while (n--)
 		*d++ = *s++;
 	return (dst);
