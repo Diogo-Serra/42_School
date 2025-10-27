@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   struc.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 08:34:14 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/27 14:41:28 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/27 14:30:13 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/27 14:40:06 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-void	ft_putnbr_fd(int n, int fd)
+typedef struct s_Player
 {
-	char	arr[12];
-	long	nb;
-	size_t	i;
+	int		x;
+	char	c;
+}	t_player;
 
-	nb = n;
-	i = sizeof(arr) - 1;
-	if (nb < 0)
-		nb = -nb;
-	while (nb >= 0)
-	{
-		ft_putchar_fd((nb % 10) + '0', fd);
-		nb /= 10;
-	}
-	if (n < 0)
-		ft_putchar_fd('-', fd);
+t_player	*db(void)
+{
+	static t_player	data;
+
+	return (&data);
+}
+
+int	main(void)
+{
+	db()->x = 5;
+	printf("%d\n", db()->x);
+	return (0);
 }
