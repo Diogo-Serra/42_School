@@ -5,22 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 18:52:55 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/27 18:56:17 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/27 18:46:00 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/27 18:50:48 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	count;
-
-	count = 0;
-	while (lst)
-	{
-		count++;
-		lst = lst->next;
-	}
-	return (count);
+	if (!lst || !new)
+		return (NULL);
+	new->next;
+	*lst = new;
 }
