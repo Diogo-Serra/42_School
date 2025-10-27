@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 01:17:00 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/27 17:45:18 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 # include <stdio.h>
 # include <limits.h>
 # include <stdint.h>
+
+/* =========================================================*/
+/* Bonus) List                                              */
+/* =========================================================*/
+typedef struct s_list
+{
+void	*content;
+struct	s_list
+} t_list;
 
 /* =========================================================*/
 /* 1) C-string length, duplication, and copy                */
