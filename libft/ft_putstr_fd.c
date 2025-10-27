@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:34:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/20 13:16:10 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/27 13:14:57 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	ft_putstr_fd(char const *s, int fd)
 	i = 0;
 	while (s[i])
 		i++;
-	(void)write(fd, s, i);
+	write(fd, s, i);
 }
