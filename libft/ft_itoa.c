@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:17:31 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/28 13:44:48 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:02:38 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_itoa(int n)
 	long	nb;
 	int		i;
 
-	nb = n;
-	i = sizeof(arr) - 1;
+	nb = (long)n;
+	i = 10;
 	if (nb < 0)
 		nb *= -1;
 	if (nb == 0)
@@ -32,9 +32,9 @@ char	*ft_itoa(int n)
 	}
 	if (n < 0)
 		arr[--i] = '-';
-	out = ft_calloc(i + 1, sizeof(char));
+	out = ft_calloc((10 - i) + 1, sizeof(char));
 	if (!out)
 		return (NULL);
-	ft_memcpy(out, arr + i, i);
+	ft_memcpy(out, arr + i, 10 - i);
 	return (out);
 }

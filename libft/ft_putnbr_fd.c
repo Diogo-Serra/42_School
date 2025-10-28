@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:34:14 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/28 13:58:16 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/28 13:58:47 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putnbr_fd(int n, int fd)
 	char	arr[11];
 	long	i[2];
 
-	i[0] = (long) sizeof(arr) - 1;
+	i[0] = 10;
 	i[1] = (long)n;
 	if (i[1] < 0)
 		i[1] *= -1;
@@ -30,6 +30,6 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n < 0)
 		arr[--i[0]] = '-';
-	while (i[0] < (long) sizeof(arr) - 1)
+	while (i[0] < 10)
 		write(fd, &arr[i[0]++], 1);
 }
