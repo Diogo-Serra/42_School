@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 14:25:57 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/28 13:45:35 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/29 11:45:53 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (size != 0 && nmemb > SIZE_MAX / size)
 		return (NULL);
 	total = nmemb * size;
-	if (nmemb == 0 || size == 0)
-		total = 1;
 	ptr = malloc(total);
 	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, total);
+		return (NULL);	
+	if (total)
+		ft_bzero(ptr, total);
 	return (ptr);
 }
