@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:36:36 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/21 15:24:35 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/30 01:19:05 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*out;
 	size_t	slen;
 	size_t	n;
-	size_t	i;
-	char	*out;
 
 	if (!s)
 		return (NULL);
@@ -28,15 +27,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		n = slen - start;
 	else
 		n = len;
-	out = (char *)malloc(n + 1);
+	out = (char *)ft_calloc(n + 1, sizeof(char));
 	if (!out)
 		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		out[i] = s[start + i];
-		i++;
-	}
-	out[n] = '\0';
+	ft_memcpy(out, s + start, n);
 	return (out);
 }
