@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:56:42 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/20 18:06:13 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/30 01:11:29 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (end > start && ft_strchr(set, s1[end - 1]))
 		end--;
 	len = end - start;
-	out = (char *)malloc(len + 1);
+	out = (char *)ft_calloc(len + 1, sizeof(char));
 	if (!out)
 		return (NULL);
 	ft_memcpy(out, s1 + start, len);
-	out[len] = '\0';
 	return (out);
 }
