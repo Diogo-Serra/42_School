@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:44:31 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/21 14:10:31 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/30 17:10:19 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 	size_t		i;
 
 	i = 0;
-	ch = (const char)c;
+	ch = (char)c;
 	while (s[i])
 		i++;
 	if (s[i] == ch)
