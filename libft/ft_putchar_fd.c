@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:32:56 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/20 13:16:16 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/30 01:37:17 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	(void)write(fd, &c, 1);
+	write(fd, &c, 1);
 }
