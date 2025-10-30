@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:37:43 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/30 00:59:37 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/30 01:25:40 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static size_t	ft_wordlen(const char *src, char c)
 	return (i);
 }
 
-static int	ft_nwords(const char *src, char c)
+static size_t	ft_nwords(const char *src, char c)
 {
-	int		i;
-	int		words;
+	size_t	i;
+	size_t	words;
 
 	i = 0;
 	words = 0;
@@ -44,7 +44,7 @@ static int	ft_nwords(const char *src, char c)
 
 static void	*free_heap(char **tab)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (tab[i])
@@ -67,7 +67,7 @@ char	**ft_split(const char *src, char sep)
 		return (NULL);
 	i = 0;
 	nwords = ft_nwords(src, sep);
-	tab = ft_calloc(nwords + 1, sizeof(char *));
+	tab = (char **)ft_calloc(nwords + 1, sizeof(char *));
 	if (!tab)
 		return (NULL);
 	while (i < nwords)
@@ -75,10 +75,10 @@ char	**ft_split(const char *src, char sep)
 		while (*src && *src == sep)
 			src++;
 		lenwords = ft_wordlen(src, sep);
-		tab[i] = ft_calloc(lenwords + 1, sizeof(char));
+		tab[i] = (char *)ft_calloc(lenwords + 1, sizeof(char));
 		if (!tab[i])
 			return (free_heap(tab));
-		ft_memcpy(tab[i], src, lenwords);
+		ft_memcpy(tab[i++], src, lenwords);
 		src += lenwords;
 	}
 	return (tab);

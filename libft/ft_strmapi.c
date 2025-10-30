@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:43:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/27 15:22:10 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/30 01:26:54 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s || !f)
 		return (NULL);
 	len = ft_strlen(s);
-	out = ft_calloc((len + 1), sizeof(char));
+	out = (char *)ft_calloc((len + 1), sizeof(char));
 	if (!out)
 		return (NULL);
 	i = 0;
