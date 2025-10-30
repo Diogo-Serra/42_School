@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:37:43 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/24 00:39:58 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/30 00:59:37 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ char	**ft_split(const char *src, char sep)
 		if (!tab[i])
 			return (free_heap(tab));
 		ft_memcpy(tab[i], src, lenwords);
-		tab[i++][lenwords] = '\0';
 		src += lenwords;
 	}
 	return (tab);
