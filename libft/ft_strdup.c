@@ -6,28 +6,24 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:23:37 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/28 13:52:23 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/30 00:22:30 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "string.h"
 
 char	*ft_strdup(const char *s)
 {
-	char	*dest;
-	size_t	i;
-
-	i = 0;
-	while (*(s + i))
-		i++;
-	dest = ft_calloc(i + 1, sizeof(char));
-	if (!dest)
+	char	*dup;
+	size_t	lenSrc;
+	
+	if (!s)
 		return (NULL);
-	i = 0;
-	while (*(s + i))
-	{
-		*(dest + i) = *(s + i);
-		i++;
-	}
-	return (dest);
+	lenSrc = ft_strlen(s);
+	dup = ft_calloc(lenSrc + 1, sizeof(char));
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s, lenSrc);
+	return (dup);
 }
