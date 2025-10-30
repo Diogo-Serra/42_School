@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/30 21:01:18 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/10/30 21:32:13 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # include <unistd.h>
-# include <limits.h>
+# include <stdint.h>
 # include <stdlib.h>
 # include <stddef.h>
 

@@ -6,14 +6,14 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/20 17:53:08 by diosoare          #+#    #+#              #
-#    Updated: 2025/10/28 16:56:24 by diosoare         ###   ########.fr        #
+#    Updated: 2025/10/30 21:48:06 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME     := libft.a
 
 CC       := cc
-CFLAGS   := -Wall -Wextra -Werror
+CFLAGS   := -Wall -Wextra -Werror -I.
 AR       := ar
 ARFLAGS  := rcs
 RM       := rm -f
@@ -29,11 +29,14 @@ SRCS := \
 	ft_putendl_fd.c ft_putnbr_fd.c 
 
 BONUS_SRCS := \
-    ft_lstsize.c ft_lstadd_front.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
+    ft_lstsize.c ft_lstadd_front.c ft_lstadd_back.c ft_lstdelone.c \
     ft_lstiter.c ft_lstmap.c ft_lstclear.c ft_lstnew.c ft_lstlast.c
 
 OBJS := $(SRCS:.c=.o)
 BONUS_OBJS := $(BONUS_SRCS:.c=.o)
+
+%.o: %.c libft.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # **************************************************************************** #
 
@@ -45,9 +48,6 @@ $(NAME): $(OBJS)
 bonus: $(OBJS) $(BONUS_OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(BONUS_OBJS)
 
-%.o: %.c libft.h
-	$(CC) $(CFLAGS) -I . -c $< -o $@
-
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
 
@@ -56,4 +56,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all bonus clean fclean re
