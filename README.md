@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏫 42 School – Common Core Journey
+<img src="https://github.com/Diogo-Serra/42_School/blob/main/badges/42banner.png" alt="42 badge" width="100"/>
 
 ---
 
