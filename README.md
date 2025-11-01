@@ -28,7 +28,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cmake/cmake-original.svg" width="30" height="30" alt="Make"/> • 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="30" height="30" alt="Git"/> • 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gcc/gcc-original.svg" width="30" height="30" alt="GCC"/> • 
-  <img src="https://simpleicons.org/icons/valgrind.svg" width="30" height="30" alt="Valgrind"/> • 
+  <img src="https://img.shields.io/badge/Valgrind-007ACC?style=for-the-badge&logo=terminal&logoColor=white" width="70" height="30" alt="Valgrind"/> • 
   <img src="https://simpleicons.org/icons/gnu.svg" width="30" height="30" alt="GDB"/> • 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg" width="30" height="30" alt="Vim"/> • 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="30" height="30" alt="VS Code"/> • 
