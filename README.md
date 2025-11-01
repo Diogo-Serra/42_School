@@ -22,8 +22,20 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 
 ### 🧰 Tech & Tools
 
-C • Bash • Make • Git • GCC • Valgrind • GDB • Vim • VS Code  
-Unix • Linux • macOS  
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="30" height="30" alt="C"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" width="30" height="30" alt="Bash"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cmake/cmake-original.svg" width="30" height="30" alt="Make"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="30" height="30" alt="Git"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gcc/gcc-original.svg" width="30" height="30" alt="GCC"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/valgrind/valgrind-original.svg" width="30" height="30" alt="Valgrind"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gdb/gdb-plain.svg" width="30" height="30" alt="GDB"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg" width="30" height="30" alt="Vim"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="30" height="30" alt="VS Code"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unix/unix-original.svg" width="30" height="30" alt="Unix"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="30" height="30" alt="Linux"/> • 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" width="30" height="30" alt="macOS"/>
+</p>
 
 ---
 
