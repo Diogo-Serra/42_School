@@ -11,7 +11,7 @@
 | Project | Status | Badge |
 |----------|---------|-------|
 | [**42 Reloaded**](https://github.com/Diogo-Serra/42_School/tree/main/reloaded) | ✅ Completed | ![Completed](https://img.shields.io/badge/Completed-success?style=flat&color=2ecc71) |
-| [**Libft**](https://github.com/Diogo-Serra/42_School/tree/main/libft) | ✅ Completed | <img src="(https://github.com/Diogo-Serra/42_School/blob/main/badges/libftm.png)" alt="42 badge" width="150"/>
+| [**Libft**](https://github.com/Diogo-Serra/42_School/tree/main/libft) | ✅ Completed | <img src="https://github.com/Diogo-Serra/42_School/blob/main/badges/libftm.png" alt="42 badge" width="150"/>
 | [**Born2beroot**](https://github.com/Diogo-Serra/42_School/tree/main/born2beroot) | 🔧 In Progress | ![In Progress](https://img.shields.io/badge/In%20Progress-yellow?style=flat&color=f1c40f) |
 
 ---
