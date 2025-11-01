@@ -15,7 +15,7 @@
 
 ### 📚 About
 
-This repository documents my journey through the **42 Common Core**, from foundational C projects to advanced Unix and networking challenges.  
+This repository documents my journey through the **42 Common Core**, from foundational C projects to advanced Unix.  
 Each project follows the school's philosophy: *learn by doing, fail fast, and build resilience through autonomy.*
 
 ---
