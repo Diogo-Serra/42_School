@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/Diogo-Serra/42_School/blob/main/badges/42banner.png" alt="42 badge" width="100"/>
+<img src="https://github.com/Diogo-Serra/42_School/blob/main/badges/42banner.png" alt="42 badge" width="100%"/>
 
 ---
 
