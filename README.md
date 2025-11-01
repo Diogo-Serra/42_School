@@ -10,8 +10,7 @@
 |:-------:|:-----:|
 | [**42 Reloaded**](https://github.com/Diogo-Serra/42_School/tree/main/reloaded) | <img src="https://github.com/ayogun/42-project-badges/blob/main/badges/volunteerm.png?raw=true" alt="42 badge" width="100"/> |
 | [**Libft**](https://github.com/Diogo-Serra/42_School/tree/main/libft) | <img src="https://github.com/Diogo-Serra/42_School/blob/main/badges/libftm.png" alt="42 badge" width="100"/> |
-| [**Born2beroot**](https://github.com/Diogo-Serra/42_School/tree/main/born2beroot) | ![In Progress](https://img.shields.io/badge/In%20Progress-yellow?style=flat&color=f1c40f) |
-
+| [**Born2beroot**](https://github.com/Diogo-Serra/42_School/tree/main/born2beroot) | ![In Progress](https://img.shields.io/badge/IN%20PROGRESS-building-ff6b35?style=flat-square&logo=git&logoColor=white) |
 ---
 
 ### 📚 About
