@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diserra <diserra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 08:24:43 by diosoare          #+#    #+#             */
-/*   Updated: 2025/10/30 18:05:11 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/02 03:33:55 by diserra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
+
 
 int	ft_atoi(const char *s)
 {
@@ -29,4 +31,11 @@ int	ft_atoi(const char *s)
 	while (*s >= '0' && *s <= '9')
 		number = (number * 10) + (*s++ - '0');
 	return (number * sign);
+}
+
+int	main(void)
+{
+	int res = ft_atoi("42");
+	printf("%d\n", res);
+	return (0);
 }
