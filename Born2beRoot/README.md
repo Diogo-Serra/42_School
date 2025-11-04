@@ -8,6 +8,7 @@
 This guide documents the **initial setup and hardening** of a Debian-based system for the **42 School project environment**.  
 It covers everything from user creation to SSH, password policies, and firewall configuration — all built for stability, security, and compliance.
 </div>
+
 ---
 
 
