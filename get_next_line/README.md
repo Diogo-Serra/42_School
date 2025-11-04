@@ -8,13 +8,15 @@
 
 `get_next_line` is a 42 School project that requires writing a function to read a line from a file descriptor, one at a time.
 
-</div>
+
 
 ---
 
-- **Goal**: Return one line per call, ending with `\n` (or until EOF).
-- **Key Concepts**: Static variables, buffer management, `read()`, memory allocation.
-- **BUFFER_SIZE**: Defined at compile time (`-D BUFFER_SIZE=n`).
+**Goal**: Return one line per call, ending with `\n` (or until EOF).
+
+**Key Concepts**: Static variables, buffer management, `read()`, memory allocation.
+
+**BUFFER_SIZE**: Defined at compile time (`-D BUFFER_SIZE=n`).
 
 ---
 
@@ -23,6 +25,3 @@
 ```c
 char *get_next_line(int fd);
 ```
-
-Returns: A string with the next line (without \n), or NULL on error/EOF.
-Caller must free() the returned line.
