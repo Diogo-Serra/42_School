@@ -1,3 +1,23 @@
+# Debian Secure Setup Guide
+
+This guide configures a **minimal, secure Debian system** (no GUI/X.org) with hardened settings for SSH, sudo, password policy, firewall, and AppArmor. Ideal for **42 School projects**, security evaluations, or production-like minimal servers.
+
+> **Hostname format**: `<yourlogin>42` (e.g., `wil42`)  
+> **SSH port**: `4242`  
+> **Root login**: Disabled  
+> **Firewall**: UFW (only port 4242 open)
+
+---
+
+## 1. Initial Machine Setup and Basic APT
+
+Boot into terminal (no X.org installed).
+
+``bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y sudo vim net-tools
+
+
 ## 1. Initial Machine Setup and Basic APT
 
 Boot into terminal (no X.org installed).
