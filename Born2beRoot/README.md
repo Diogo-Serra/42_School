@@ -1,90 +1,177 @@
-# Debian Secure Setup Guide
+# 🧠 42 Born2beRoot — Secure Linux Configuration Guide
 
-This guide configures a **minimal, secure Debian system** (no GUI/X.org) with hardened settings for SSH, sudo, password policy, firewall, and AppArmor. Ideal for **42 School projects**, security evaluations, or production-like minimal servers.
-
-> **Hostname format**: `<yourlogin>42` (e.g., `wil42`)  
-> **SSH port**: `4242`  
-> **Root login**: Disabled  
-> **Firewall**: UFW (only port 4242 open)
+This guide documents the **initial setup and hardening** of a Debian-based system for the **42 School project environment**.  
+It covers everything from user creation to SSH, password policies, and firewall configuration — all built for stability, security, and compliance.
 
 ---
 
-## 1. Initial Machine Setup and Basic APT
 
-Boot into terminal (no X.org installed).
+## ⚙️ 1. Initial Machine Setup and Basic APT
+  
+  **Update and upgrade system**
+  
+   ```bash
+   apt update && apt upgrade
+   apt install sudo vim net-tools
+   ```
 
-``bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y sudo vim net-tools
+  **Verify system information**
 
+```bash
+uname -a
+lsblk
+aa-status
+```
 
-## 1. Initial Machine Setup and Basic APT
-
-Boot into terminal (no X.org installed).
-Update system: apt update && apt upgrade.
-Install essentials: apt install sudo vim net-tools (use aptitude if preferred for better dependency handling).
-Verify OS: uname -a (check Debian stable, kernel).
-Check partitions: lsblk (confirm LVM encrypted setup, e.g., /boot, /root, /home; adjust sizes for efficiency).
-Enable AppArmor: aa-status (ensure active; reboot if needed).
-
-## 2. Hostname Configuration
-
-Edit /etc/hostname: Set to <yourlogin>42 (e.g., wil42).
-Edit /etc/hosts: Add 127.0.0.1 <yourlogin>42.
-Apply: hostnamectl set-hostname <yourlogin>42 or reboot.
-Verify: hostname (prepare to change during evaluation).
-
-## 3. Groups and User Setup
-
-Create group: groupadd user42.
-Create user: adduser <yourlogin> (e.g., wil).
-Add to groups: usermod -aG sudo,user42 <yourlogin>.
-Verify: groups <yourlogin> (should show sudo and user42; prepare to create new user/group in defense).
-
-## 4. Password Policy Configuration
-
-Install: apt install libpam-pwquality.
-Edit /etc/pam.d/common-password:
-
-Add password requisite pam_pwquality.so retry=3 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 usercheck=1 difok=7 enforce_for_root.
+---
+💡 You may use aptitude for better dependency management.
 
 
+## 🖥️ 2. Hostname Configuration
+
+**Edit hostname**
+```bash
+vim /etc/hostname
+vim /etc/hosts
+```
+
+**Apply and verify**
+```bash
+hostnamectl set-hostname wil42
+hostname
+```
+
+🌀 May need to change during evaluation.
+
+
+---
+
+
+## 👥 3. Groups and User Setup
+``
+Create group:
+```bash
+groupadd user42
+```
+Create user:
+```bash
+adduser wil
+```
+Add user to groups:
+```bash
+usermod -aG sudo,user42 wil
+```
+
+Verify:
+```bash
+groups wil
+```
+
+✅ During defense, be ready to create a new user/group dynamically.
+
+
+---
+
+
+## 🔐 4. Password Policy Configuration
+
+Install PAM quality module:
+```bash
+apt install libpam-pwquality
+```
+Edit /etc/pam.d/common-password and add:
+```bash
+password requisite pam_pwquality.so retry=3 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 usercheck=1 difok=7 enforce_for_root
+```
 Edit /etc/login.defs:
+```bash
+PASS_MAX_DAYS   30
+PASS_MIN_DAYS   2
+PASS_WARN_AGE   7
+```
+Update passwords:
+```bash
+passwd root
+passwd wil
+```
+Verify password expiry:
+```bash
+chage -l wil
+```
 
-Set PASS_MAX_DAYS 30, PASS_MIN_DAYS 2, PASS_WARN_AGE 7.
 
+## ⚡ 5. Sudo (Visudo) Configuration
 
-Update passwords: passwd root and passwd <yourlogin> (comply with rules: 10+ chars, upper/lower/number, no 3+ identical, no username; root skips difok).
-Verify: chage -l <yourlogin> (check expiry); test weak password rejection.
-
-## 5. Sudo (Visudo) Configuration
-
-Create sudoers file: visudo -f /etc/sudoers.d/custom.
-Add lines:
-
+Create sudoers file:
+```bash
+visudo -f /etc/sudoers.d/custom
+```
+Add configuration:
+```bash
 Defaults passwd_tries=3
 Defaults badpass_message="Wrong password! Try again."
 Defaults logfile="/var/log/sudo/sudo.log"
 Defaults log_input, log_output
 Defaults requiretty
 Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+```
+Create log directory:
+```bash
+mkdir -p /var/log/sudo
+```
+Verify:
+```bash
+sudo -l
+```
+
+## 🔑 6. SSH Setup
+
+Install SSH server:
+```bash
+apt install openssh-server
+```
+Edit SSH configuration:
+```bash
+vim /etc/ssh/sshd_config
+```
+Set:
+```bash
+Port 4242
+PermitRootLogin no
+```
+Restart SSH:
+```bash
+systemctl restart ssh
+```
+Verify:
+```bash
+ss -tuln | grep 4242
+```
+
+## 🧱 7. Firewall Setup
+
+Install UFW:
+```bash
+apt install ufw
+```
+Configure firewall:
+```bash
+ufw allow 4242
+ufw enable
+ufw default deny incoming
+```
+Verify:
+```bash
+ufw status verbose
+```
+
+---
 
 
-Create log dir: mkdir -p /var/log/sudo.
-Verify: sudo -l (check settings); test wrong password (3 tries, custom message, logs).
+## 📘 Notes
 
-## 6. SSH Setup
+    💡 Keep everything documented and reproducible for your 42 evaluation.
 
-Install: apt install openssh-server.
-Edit /etc/ssh/sshd_config: Set Port 4242, PermitRootLogin no.
-Restart: systemctl restart ssh.
-Verify: ss -tuln | grep 4242 (listening); test non-root SSH from host (understand for new account setup in defense).
+    🔒 Security and consistency are key — verify every change manually.
 
-## 7. Firewall Setup
-
-Install: apt install ufw.
-Configure: ufw allow 4242, ufw enable.
-Set default: ufw default deny incoming.
-Verify: ufw status verbose (active, only 4242 open, starts on boot).
-
---
+    🧰 Optional: automate setup using a Bash script for faster rebuilds.
