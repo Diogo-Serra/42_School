@@ -1,3 +1,8 @@
+<div align="center">
+
+<img src="https://github.com/ayogun/42-project-badges/blob/main/covers/cover-libft-bonus.png?raw=true"/>
+</div>
+
 # Libft - 42 Project
 
 **Goal**: Reimplement key C standard library functions + bonus linked list utilities.
