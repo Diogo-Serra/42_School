@@ -22,9 +22,9 @@ uname -a
 lsblk
 aa-status
 ```
+💡 You may use aptitude for better dependency management.
 
 ---
-💡 You may use aptitude for better dependency management.
 
 
 ## 🖥️ 2. Hostname Configuration
@@ -166,6 +166,62 @@ ufw status verbose
 ```
 
 ---
+
+# Born2beroot - Partition Setup (LVM)
+
+**Goal**: Secure, encrypted, logical partition layout using **LVM on LUKS**.
+
+---
+
+## Disk Layout (Example: 20GB disk)
+
+| Mount Point | Size     | Type           | LVM LV       | Encrypted |
+|-------------|----------|----------------|--------------|-----------|
+| `/boot`     | 512 MB   | ext4           | —            | No        |
+| (LUKS)      | ~19.5 GB | crypto_LUKS    | —            | Yes       |
+| `/` (root)  | 10 GB    | ext4           | lv_root      | Yes       |
+| `/home`     | 4 GB     | ext4           | lv_home      | Yes       |
+| `swap`      | 2 GB     | swap           | lv_swap      | Yes       |
+| `/var`      | 3 GB     | ext4           | lv_var       | Yes       |
+| `/var/log`  | 1 GB     | ext4           | lv_varlog    | Yes       |
+
+---
+
+## Installation Steps (Debian Installer)
+
+1. **Boot Debian ISO** → Graphical/Expert install  
+2. **Partition disks** → Manual  
+3. Create:
+   - `512M` → `/boot` → **ext4** → **Do not encrypt**
+   - Rest → **Physical volume for encryption**
+4. Set **LUKS passphrase**  
+5. Inside encrypted volume:
+   - Create **LVM Volume Group** (`vg1`)
+   - Create **Logical Volumes**:
+     - `lv_root` → 10G → `/`
+     - `lv_home` → 4G → `/home`
+     - `lv_var` → 3G → `/var`
+     - `lv_varlog` → 1G → `/var/log`
+     - `lv_swap` → 2G → swap
+6. Format each LV as **ext4** (swap as swap)  
+7. **Finish partitioning** → Write changes
+
+---
+
+## Post-Install Check
+
+```bash
+lsblk -f
+# Should show:
+# ├─/boot (ext4)
+# └─crypto_LUKS
+#    └─vg1
+#       ├─lv_root → /
+#       ├─lv_home → /home
+#       ├─lv_var  → /var
+#       ├─lv_varlog → /var/log
+#       └─lv_swap → swap
+```
 
 
 ## 📘 Notes
