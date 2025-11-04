@@ -3,7 +3,7 @@
 <img src="https://github.com/ayogun/42-project-badges/blob/main/covers/cover-born2beroot-bonus.png?raw=true"/>
 
 
-# 🧠 42 Born2beRoot — Secure Linux Configuration Guide
+# 42 Born2beRoot — Secure Linux Configuration Guide
 
 This guide documents the **initial setup and hardening** of a Debian-based system for the **42 School project environment**.  
 It covers everything from user creation to SSH, password policies, and firewall configuration — all built for stability, security, and compliance.
