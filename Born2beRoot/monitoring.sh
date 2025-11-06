@@ -25,7 +25,7 @@ mac_address=$(ip link show up | grep "link/ether" | awk '{print $2}' | tr '\n' '
 sudo_count=$(journalctl _COMM=sudo --since "10 min ago" | grep -c COMMAND 2>/dev/null)
 # -------------------------------------------------------------------
 
-printf "\n\n\n"
+printf "\n"
 printf '%s\n' "$(printf '=%.0s' {1..56})"
 printf '%s\n' "SERVER HEALTH REPORT – $(date '+%a %b %d %H:%M:%S %Z %Y')"
 printf '%s\n\n' "$(printf '=%.0s' {1..56})"
@@ -53,6 +53,6 @@ printf '\n'
 printf '%-18s\n' "CONNECTIONS & USERS"
 printf '  %-16s: %s\n' "TCP (ESTAB)" "$tcp_connections"
 printf '  %-16s: %s\n' "Logged-in Users" "$user_count"
-printf '  %-16s: %s\n\n\n' "Sudo Commands" "$sudo_count"
+printf '  %-16s: %s\n\n' "Sudo Commands" "$sudo_count"
 
 
