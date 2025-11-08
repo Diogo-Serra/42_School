@@ -6,11 +6,29 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/08 23:18:30 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/08 23:50:06 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	len1;
+	size_t	len2;
+	char	*out;
+
+	if (!s1 || !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	out = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
+	if (!out)
+		return (NULL);
+	ft_memcpy(out, s1, len1);
+	ft_memcpy(out + len1, s2, len2);
+	return (out);
+}
 
 char	*ft_strdup(const char *s)
 {
@@ -37,6 +55,44 @@ size_t	ft_strnlen(const char *s)
 	while (s[i] != '\n')
 		i++;
 	return (i);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*out;
+	size_t	slen;
+	size_t	n;
+
+	if (!s)
+		return (NULL);
+	slen = ft_strlen(s);
+	if (start >= slen)
+		n = 0;
+	else if (len > slen - start)
+		n = slen - start;
+	else
+		n = len;
+	out = (char *)ft_calloc(n + 1, sizeof(char));
+	if (!out)
+		return (NULL);
+	ft_memcpy(out, s + start, n);
+	return (out);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	char		ch;
+
+	ch = (unsigned char)c;
+	while (*s)
+	{
+		if (*s == ch)
+			return ((char *)s);
+		s++;
+	}
+	if (ch == '\0')
+		return ((char *)s);
+	return (NULL);
 }
 
 
