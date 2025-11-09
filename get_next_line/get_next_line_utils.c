@@ -6,11 +6,38 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/08 23:50:06 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/09 00:29:52 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+    if (!s)
+    {
+        return (NULL);
+	}
+    while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (NULL);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -30,31 +57,16 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (out);
 }
 
-char	*ft_strdup(const char *s)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*dup;
-	size_t	lensrc;
+	unsigned char			*d;
+	const unsigned char		*s;
 
-	lensrc = 0;
-    while (s[lensrc])
-    {
-        lensrc++;
-    }
-    dup = (char *)ft_calloc(lensrc + 1, sizeof(char));
-	if (!dup)
-		return (NULL);
-	ft_memcpy(dup, s, lensrc);
-	return (dup);
-}
-
-size_t	ft_strnlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\n')
-		i++;
-	return (i);
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	while (n--)
+		*d++ = *s++;
+	return (dst);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -79,67 +91,45 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (out);
 }
 
-char	*ft_strchr(const char *s, int c)
-{
-	char		ch;
-
-	ch = (unsigned char)c;
-	while (*s)
-	{
-		if (*s == ch)
-			return ((char *)s);
-		s++;
-	}
-	if (ch == '\0')
-		return ((char *)s);
-	return (NULL);
-}
-
-
-void	*ft_memchr(const void *s, int c, size_t n)
-{
-	const unsigned char		*p;
-	unsigned char			uc;
-
-	p = (const unsigned char *)s;
-	uc = (unsigned char)c;
-	while (n--)
-	{
-		if (*p == uc)
-			return ((void *)p);
-		p++;
-	}
-	return (NULL);
-}
-
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-    size_t  i;
+	void	*ptr;
 	size_t	total;
-    char	*ptr;
 
-    if (size != 0 && nmemb > SIZE_MAX / size)
+	if (size != 0 && nmemb > SIZE_MAX / size)
 		return (NULL);
 	total = nmemb * size;
 	ptr = malloc(total);
 	if (!ptr)
 		return (NULL);
-	i = 0;
-    while (i < total)
-    {
-        ptr[i++] = 0;
-    }
-    return (ptr);
+	if (total)
+		ft_bzero(ptr, total);
+	return (ptr);
 }
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char			*d;
-	const unsigned char		*s;
+	unsigned char	*p;
+	size_t			i;
 
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	while (n--)
-		*d++ = *s++;
-	return (dst);
+	p = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		p[i] = 0;
+		i++;
+	}
+}
+
+char	*ft_strdup(const char *s)
+{
+	char	*dup;
+	size_t	lensrc;
+
+	lensrc = ft_strlen(s);
+	dup = (char *)ft_calloc(lensrc + 1, sizeof(char));
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s, lensrc);
+	return (dup);
 }
