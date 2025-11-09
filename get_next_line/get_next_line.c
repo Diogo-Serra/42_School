@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/09 18:19:13 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/09 19:51:01 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,45 +17,43 @@
 	
 } */
 
-static int	ft_count_reads(int fd, const char *buffer)
+static int	ft_save_storage(int fd, char **storage)
 {
-	size_t		readBytes;
-	int	reads;
+	char	buffer[BUFFER_SIZE + 1];
+    size_t	readBytes;
+    int		reads;
 
 	reads = 0;
-	readBytes = 0;
-	while ((readBytes = read(fd, &buffer, BUFFER_SIZE)) > 0)
-		reads++;
-	return (reads);
+    storage = malloc(BUFFER_SIZE * sizeof(char *));
+    if (!storage)
+		return (-1);
+    while ((readBytes = read(fd, buffer, BUFFER_SIZE)) > 0) {
+        buffer[readBytes] = '\0';
+        storage[reads] = ft_strdup(buffer);
+        if (!storage[reads]) 
+		{
+            ft_free_heap(storage);
+            return (-1);
+        }
+        reads++;
+    }
+    storage[reads] = NULL; 
+    return (reads);
 }
-
-/* static int	ft_save_storage(int fd, const char *buffer, char *storage)
-{
-	size_t		readBytes;
-	int	reads;
-
-	reads = 0;
-	readBytes = 0;
-	while ((readBytes = read(fd, &buffer, BUFFER_SIZE)) > 0)
-		reads++;
-	return (reads);
-} */
 
 char *get_next_line(int fd)
 {
-	char		buffer[BUFFER_SIZE + 1];
 	static char	**storage;
-	size_t		readBytes;
 	int			reads;
-	int			i;
-
-	reads = ft_count_reads(fd, buffer);
-	i = 0;
-	storage = ft_calloc(reads + 1, sizeof(char *));
-	if (!storage)
-		return (NULL);
+	
+	reads = ft_save_storage(fd, storage);
 	printf("read %d time(s)\n", reads);
-	return (storage[i]);
+	if (reads == 0)
+	{
+		free(storage);
+		return (NULL);
+	}
+	return (storage[0]);
 }
 
 int main(void)
