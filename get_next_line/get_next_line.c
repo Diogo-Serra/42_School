@@ -6,63 +6,48 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/10 10:20:16 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:00:05 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/* static char	*load_storage(char **storage)
+/* static char	*load_line(char **storage)
 {
 	
 } */
 
-static int	ft_save_storage(int fd, char **storage)
+/* static size_t	save_storage(int fd, char **storage)
 {
-	char	buffer[BUFFER_SIZE + 1];
-    size_t	readBytes;
-    int		reads;
-
-	reads = 0;
-    storage = (char **)ft_calloc(2, sizeof(char *));
-    if (!storage)
-	{
-		storage = NULL;
-		return (-1);
-	}
-    while ((readBytes = read(fd, buffer, BUFFER_SIZE)) > 0)
-    {
-        buffer[readBytes] = '\0';
-		storage = (char **)malloc(BUFFER_SIZE * sizeof(char *));
-        storage[reads] = ft_strdup(buffer);
-        if (!storage[reads]) 
-		{
-            ft_free_heap(storage);
-            return (-1);
-        }
-        reads++;
-    }
-    storage[reads] = NULL; 
-    return (reads);
-}
-
-char *get_next_line(int fd)
-{
-	static char	**storage;
-	int			reads;
 	
-	reads = ft_save_storage(fd, storage);
-	printf("read %d time(s)\n", reads);
-	return (storage[0]);
+} */
+
+char	*get_next_line(int fd)
+{
+	static char	buffer[BUFFER_SIZE];
+	size_t		bytes_read;
+	char		*storage;
+
+	bytes_read = 1;
+	while (bytes_read > 0)
+	{
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		storage = ft_calloc(bytes_read + 1, sizeof(char));
+		if (!storage)
+			return (NULL);
+		storage = ft_strdup(buffer);
+	}
+	printf("test: %s\n", storage);
+	return (storage);
 }
 
-int main(void)
+int	main(void)
 {
-    char    *out;
-    int     fd;
+	char	*out;
+	int		fd;
 
-    fd = open("test.txt", O_RDONLY);
-    out = get_next_line(fd);
-    free (out);
+	fd = open("test.txt", O_RDONLY);
+	out = get_next_line(fd);
+	free (out);
 	return (0);
 }
