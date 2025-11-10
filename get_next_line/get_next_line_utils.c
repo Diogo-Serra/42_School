@@ -6,11 +6,40 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/09 18:43:30 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:53:24 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
+{
+	void	*new_pointer;
+	size_t	to_copy;
+
+	if (new_size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	if (!ptr)
+		return (malloc(new_size));
+	new_pointer = malloc(new_size);
+	if (!new_pointer)
+		return (NULL);
+	if (old_size < new_size)
+	{
+		to_copy = old_size;
+	}
+	else
+	{
+		to_copy = new_size;
+	}
+	if (to_copy)
+		ft_memcpy(new_pointer, ptr, to_copy);
+	free(ptr);
+	return (new_pointer);
+}
 
 void	*ft_free_heap(char **tab)
 {
@@ -54,6 +83,7 @@ char	*ft_strdup(const char *s)
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
+	char	*p;
 	size_t	total;
 
 	if (size != 0 && nmemb > SIZE_MAX / size)
@@ -62,8 +92,9 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ptr = malloc(total);
 	if (!ptr)
 		return (NULL);
-	if (total)
-		ft_bzero(ptr, total);
+	p = (char *)ptr;
+	while (total--)
+		*p++ = 0;
 	return (ptr);
 }
 

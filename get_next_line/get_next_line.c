@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/09 21:56:21 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:20:16 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,16 @@ static int	ft_save_storage(int fd, char **storage)
     int		reads;
 
 	reads = 0;
-    storage = (char **)malloc(BUFFER_SIZE * sizeof(char *));
+    storage = (char **)ft_calloc(2, sizeof(char *));
     if (!storage)
+	{
+		storage = NULL;
 		return (-1);
+	}
     while ((readBytes = read(fd, buffer, BUFFER_SIZE)) > 0)
     {
         buffer[readBytes] = '\0';
+		storage = (char **)malloc(BUFFER_SIZE * sizeof(char *));
         storage[reads] = ft_strdup(buffer);
         if (!storage[reads]) 
 		{
