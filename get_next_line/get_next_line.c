@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/10 14:09:34 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:14:30 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];
 	size_t		bytes_read;
-	char		**storage;
+	size_t		len_storage;
+	char		*storage;
 	int			i;
 
 	i = 0;
@@ -35,9 +36,11 @@ char	*get_next_line(int fd)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		buffer[bytes_read] = '\0';
-		storage[i++] = ft_strdup(buffer);
+		storage = ft_strdup(buffer);
+		len_storage = ft_strlen(storage);
 		if (!storage[i])
 			return (ft_free_heap(storage));
+		storage[i] = '\0';
 	}
 	printf("Test: %s\n", storage);
 	return (storage);
