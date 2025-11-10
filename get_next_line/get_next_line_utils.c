@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/10 13:55:46 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:10:02 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,19 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (ch == '\0')
 		return ((char *)s);
+	return (NULL);
+}
+
+static void	*free_heap(char **tab)
+{
+	size_t	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 	return (NULL);
 }
