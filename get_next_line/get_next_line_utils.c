@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/10 10:53:24 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:55:23 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,15 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 char	*ft_strdup(const char *s)
 {
 	char	*dup;
-	size_t	lensrc;
+	size_t	i;
 
-	lensrc = ft_strlen(s);
-	dup = (char *)ft_calloc(lensrc + 1, sizeof(char));
+	i = 0;
+	while (s[i])
+		i++;
+	dup = (char *)ft_calloc(i + 1, sizeof(char));
 	if (!dup)
 		return (NULL);
-	ft_memcpy(dup, s, lensrc);
+	ft_memcpy(dup, s, i);
 	return (dup);
 }
 
@@ -96,25 +98,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	while (total--)
 		*p++ = 0;
 	return (ptr);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	unsigned char	*p;
-
-	p = (unsigned char *)s;
-	while (n--)
-		*p++ = 0;
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
 }
 
 char	*ft_strchr(const char *s, int c)
