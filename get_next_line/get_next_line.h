@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:30 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/10 14:20:21 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:50:28 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *s, int c);
 void	*ft_free_heap(char **tab);
 char	*ft_strjoin(char const *s1, char const *s2);
+void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 
 #endif

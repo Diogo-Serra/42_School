@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/10 14:20:13 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:50:20 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,33 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memcpy(out, s1, len1);
 	ft_memcpy(out + len1, s2, len2);
 	return (out);
+}
+
+void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
+{
+	void	*new_pointer;
+	size_t	to_copy;
+
+	if (new_size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	if (!ptr)
+		return (malloc(new_size));
+	new_pointer = malloc(new_size);
+	if (!new_pointer)
+		return (NULL);
+	if (old_size < new_size)
+	{
+		to_copy = old_size;
+	}
+	else
+	{
+		to_copy = new_size;
+	}
+	if (to_copy)
+		ft_memcpy(new_pointer, ptr, to_copy);
+	free(ptr);
+	return (new_pointer);
 }
