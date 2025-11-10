@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/10 14:10:02 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:20:13 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,30 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-static void	*free_heap(char **tab)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
+	while (s[i])
 		i++;
-	}
-	free(tab);
-	return (NULL);
+	return (i);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	len1;
+	size_t	len2;
+	char	*out;
+
+	if (!s1 || !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	out = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
+	if (!out)
+		return (NULL);
+	ft_memcpy(out, s1, len1);
+	ft_memcpy(out + len1, s2, len2);
+	return (out);
 }
