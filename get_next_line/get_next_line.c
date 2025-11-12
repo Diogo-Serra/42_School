@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/12 23:13:51 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/12 23:17:47 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*get_next_line(int fd)
         return (NULL);
     if (!storage)
     {
-        storage = (char *)ft_calloc(1, sizeof(char));
+        storage = ft_calloc(1, sizeof(char));
         if (!storage)
             return (NULL);
     }
@@ -89,6 +89,11 @@ char	*get_next_line(int fd)
     }
     line = load_line(storage);
     storage = trim_storage(storage);
+	if (!line && storage)
+    {
+        free(storage);
+        storage = NULL;
+    }
     return (line);
 }
 
