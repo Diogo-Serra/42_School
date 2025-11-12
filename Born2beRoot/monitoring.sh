@@ -40,7 +40,7 @@ lvm_status=$(sudo lvdisplay > /dev/null 2>&1 && echo "Yes" || echo "No")
 echo "SYSTEM"
 echo "  OS       : $os_name"
 echo "  Kernel   : $kernel_version"
-echo "  Architecture : $arch"
+echo "  Arch     : $arch"
 echo "  CPU      : $cpu_cores core(s), $vcpu vCPU"
 echo "  Boot     : $last_boot"
 echo "  LVM      : $lvm_status"
