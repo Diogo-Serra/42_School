@@ -1,95 +1,94 @@
 #!/bin/bash
 
-
+# -------------------------------------------------
+# LOGGING 
+# -------------------------------------------------
 LOGDIR="/var/log/server_health"
 mkdir -p "$LOGDIR"
 exec > "$LOGDIR/report_$(date +%Y%m%d_%H%M%S).log" 2>&1
+# -------------------------------------------------
 
-# -------------------------------------------------------------------
-# Data Collection 
-# -------------------------------------------------------------------
-
-# System
+# ------------------- DATA COLLECTION -------------------
 arch=$(uname -srm)
-p_cpu=$(lscpu | grep -E '^CPU\(s\):' | awk '{print $2}' | head -1)  # Total vCPUs
-v_cpu=$p_cpu
-p_cpu_count=$(grep "physical id" /proc/cpuinfo | sort -u | wc -l)
-[[ $p_cpu_count -eq 0 ]] && p_cpu_count=1  # fallback
+
+# Physical CPUs
+p_cpu=$(grep "physical id" /proc/cpuinfo | sort -u | wc -l)
+[ "$p_cpu" -eq 0 ] && p_cpu=1
+
+# Virtual CPUs
+v_cpu=$(grep -c "processor" /proc/cpuinfo)
 
 # Memory (in MB)
-read ram_used ram_total <<< $(free --mega | awk 'NR==2 {print $3, $2}')
+ram_used=$(free -m | awk 'NR==2 {print $3}')
+ram_total=$(free -m | awk 'NR==2 {print $2}')
 ram_pct=$(awk "BEGIN {printf \"%.2f\", $ram_used/$ram_total*100}")
 
 # Disk (root partition)
-read _ disk_used disk_total disk_pct _ <<< $(df -h / | awk 'NR==2')
-disk_pct=${disk_pct%%%}  # Remove trailing %
+disk_used=$(df -h / | awk 'NR==2 {print $3}')
+disk_total=$(df -h / | awk 'NR==2 {print $2}')
+disk_pct=$(df -h / | awk 'NR==2 {print $5}' | tr -d '%')
 
-# CPU Load
+# CPU load
 cpu_load=$(mpstat 1 1 | awk 'END {printf "%.2f%%", 100-$NF}' 2>/dev/null || echo "N/A")
 
-# Boot
+# Last boot
 last_boot=$(who -b | awk '{print $3" "$4}')
 
 # LVM
-lvm_status=$(lsblk -o TYPE | grep -q lvm && echo "Yes" || echo "No")
+lvm_status=$(lsblk | grep -q "lvm" && echo "Yes" || echo "No")
 
-# Network
-tcp_connections=$(ss -t -a | grep -c ESTAB 2>/dev/null || echo "0")
-ip_primary=$(ip -4 route get 1 | awk '{print $7; exit}')
-ip_list=($(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | sort))
-mac_list=($(ip link show up | grep -E "link/ether" | awk '{print $2}'))
+# TCP established connections
+tcp_connections=$(ss -ta | grep -c ESTAB 2>/dev/null || echo "0")
 
-# Users
+# Logged-in users
 user_count=$(who | wc -l)
 
-# Sudo
+# Primary IP (first global IPv4 address)
+ip_primary=$(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | head -1)
+
+# Extra IPs (all others)
+ip_extra=$(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | tail -n +2 | tr '\n' ', ' | sed 's/, $//')
+[ -z "$ip_extra" ] && ip_extra="None"
+
+# MAC address(es)
+mac_address=$(ip link show up | grep "link/ether" | awk '{print $2}' | tr '\n' ',' | sed 's/,$//')
+[ -z "$mac_address" ] && mac_address="N/A"
+
+# Sudo commands in the last 10 minutes
 sudo_count=$(journalctl _COMM=sudo --since "10 minutes ago" --no-pager | grep -c "COMMAND=" 2>/dev/null || echo "0")
+# -------------------------------------------------
 
-# Format extra IPs and MACs
-ip_extra=$(printf '%s, ' "${ip_list[@]:1}" | sed 's/, $//')
-[[ -z "$ip_extra" ]] && ip_extra="None"
-mac_address=$(printf '%s, ' "${mac_list[@]}" | sed 's/, $//')
-[[ -z "$mac_address" ]] && mac_address="N/A"
+# ------------------- PRINT REPORT -------------------
+printf '%s\n' "============================================================"
+printf '%s\n' "SERVER HEALTH REPORT – $(date '+%a %b %d %H:%M:%S %Z %Y')"
+printf '%s\n\n' "============================================================"
 
-# -------------------------------------------------------------------
-# Output Report
-# -------------------------------------------------------------------
-
-print_header() {
-    printf '%s\n' "$(printf '=%.0s' {1..60})"
-    printf '%s\n' "SERVER HEALTH REPORT – $(date '+%a %b %d %H:%M:%S %Z %Y')"
-    printf '%s\n\n' "$(printf '=%.0s' {1..60})"
-}
-
-print_section() {
-    printf '%-18s\n' "$1"
-}
-
-print_field() {
-    printf ' %-16s: %s\n' "$1" "$2"
-}
-
-print_header
-
-print_section "SYSTEM INFO"
-print_field "Architecture" "$arch"
-print_field "Physical CPUs" "$p_cpu_count"
-print_field "Virtual CPUs"  "$v_cpu"
-print_field "Last Boot"     "$last_boot"
-print_field "LVM Active"    "$lvm_status"
+printf '%-18s\n' "SYSTEM INFO"
+printf ' %-16s: %s\n'   "Architecture"   "$arch"
+printf ' %-16s: %s\n'   "Physical CPUs" "$p_cpu"
+printf ' %-16s: %s\n'   "Virtual CPUs"  "$v_cpu"
+printf ' %-16s: %s\n'   "Last Boot"     "$last_boot"
+printf ' %-16s: %s\n'   "LVM Active"    "$lvm_status"
 printf '\n'
 
-print_section "RESOURCE USAGE"
-print_field "Memory"        "$ram_used MB / $ram_total MB ($ram_pct%)"
-print_field "Disk (/)"      "$disk_used / $disk_total ($disk_pct%)"
-print_field "CPU Load"      "$cpu_load"
+printf '%-18s\n' "RESOURCE USAGE"
+printf ' %-16s: %s MB / %s MB (%s%%)\n' "Memory" "$ram_used" "$ram_total" "$ram_pct"
+printf ' %-16s: %s / %s (%s%%)\n'       "Disk (/)" "$disk_used" "$disk_total" "$disk_pct"
+printf ' %-16s: %s\n'   "CPU Load"      "$cpu_load"
 printf '\n'
 
-print_section "NETWORK"
-print_field "Primary IP"    "$ip_primary"
-print_field "Other IPs"     "$ip_extra"
-print_field "MAC Address(s)" "$mac_address"
+printf '%-18s\n' "NETWORK"
+printf ' %-16s: %s\n'   "Primary IP"    "$ip_primary"
+printf ' %-16s: %s\n'   "Other IPs"     "$ip_extra"
+printf ' %-16s: %s\n'   "MAC Address(s)" "$mac_address"
 printf '\n'
+
+printf '%-18s\n' "CONNECTIONS & USERS"
+printf ' %-16s: %4s\n'  "TCP (ESTAB)"   "$tcp_connections"
+printf ' %-16s: %4s\n'  "Logged-in Users" "$user_count"
+printf ' %-16s: %4s (last 10 min)\n' "Sudo Commands" "$sudo_count"
+# -------------------------------------------------
+
 
 print_section "CONNECTIONS & USERS"
 print_field "TCP (ESTAB)"   "$tcp_connections"
