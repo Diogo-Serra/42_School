@@ -16,7 +16,6 @@ disk_used=$(df -h --total | tail -1 | awk '{print $3}' | sed 's/G$//')
 disk_total=$(df -h --total | tail -1 | awk '{print $2}' | sed 's/G$//')
 disk_pct=$(df -h --total | tail -1 | awk '{print $5}' | sed 's/%$//')
 
-# CPU load from /proc/stat (user + system)
 read -r u _ s i _ < <(grep '^cpu ' /proc/stat | awk '{print $2,$4,$5,$6}')
 total=$((u + s + i))
 used=$((u + s))
@@ -31,7 +30,6 @@ ip_addr=$(ip route get 1 | awk '{print $7; exit}' 2>/dev/null || echo "N/A")
 mac_addr=$(ip link | awk '/ether/ {print $2; exit}' 2>/dev/null || echo "N/A")
 sudo_cmds=$(journalctl _COMM=sudo 2>/dev/null | grep -c "COMMAND=" || echo 0)
 
-# Check if LVM is active
 lvm_status=$(sudo lvdisplay > /dev/null 2>&1 && echo "Yes" || echo "No")
 
 # ========================================
