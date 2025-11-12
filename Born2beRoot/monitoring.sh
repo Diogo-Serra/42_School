@@ -20,6 +20,8 @@ mac_address=$(ip link | grep -o "link/ether [[:xdigit:]:]\+" | awk '{print $2}' 
 sudo_count=$(journalctl _COMM=sudo --since "10 min ago" 2>/dev/null | grep -c "COMMAND" || echo "0")
 
 # --- Output ---
+echo
+echo "========================================================"
 echo "SERVER HEALTH REPORT – $(date '+%a %b %d %H:%M:%S %Z %Y')"
 echo "========================================================"
 echo
