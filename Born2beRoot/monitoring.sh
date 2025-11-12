@@ -21,7 +21,6 @@ sudo_count=$(journalctl _COMM=sudo --since "10 min ago" 2>/dev/null | grep -c "C
 
 # --- Output ---
 echo
-echo "========================================================"
 echo "SERVER HEALTH REPORT – $(date '+%a %b %d %H:%M:%S %Z %Y')"
 echo "========================================================"
 echo
@@ -49,3 +48,4 @@ echo "CONNECTIONS & USERS"
 echo "  TCP (ESTAB)     : $tcp_connections"
 echo "  Logged-in Users : $user_count"
 echo "  Sudo Commands   : $sudo_count (last 10 min)"
+echo
