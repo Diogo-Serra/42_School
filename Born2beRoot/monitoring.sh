@@ -20,11 +20,8 @@ disk_pct=$(df -h / | awk 'NR==2 {print $5}' | tr -d '%')
 cpu_load=$(mpstat 1 1 | awk 'END {printf "%.2f%%", 100-$NF}' 2>/dev/null || echo "N/A")
 last_boot=$(who -b | awk '{print $3" "$4}')
 lvm_status=$(lsblk | grep -q "lvm" && echo "Yes" || echo "No")
-
-# FIXED LINE: No more stray 0
 tcp_connections=$(ss -ta | grep -c ESTAB 2>/dev/null || echo "0")
 tcp_connections=${tcp_connections:-0}
-
 user_count=$(who | wc -l)
 ip_primary=$(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | head -1)
 ip_extra=$(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | tail -n +2 | tr '\n' ', ' | sed 's/, $//')
@@ -32,7 +29,7 @@ ip_extra=$(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | tail -n +2 
 mac_address=$(ip link show up | grep "link/ether" | awk '{print $2}' | tr '\n' ',' | sed 's/,$//')
 [ -z "$mac_address" ] && mac_address="N/A"
 sudo_count=$(journalctl _COMM=sudo --since "10 minutes ago" --no-pager | grep -c "COMMAND=" 2>/dev/null || echo "0")
-sudo_count=${sudo_count:-0}  # Also fix sudo_count just in case
+sudo_count=${sudo_count:-0}
 
 # ------------------- PRINT REPORT -------------------
 printf '%s\n' "============================================================"
