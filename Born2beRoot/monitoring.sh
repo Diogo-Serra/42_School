@@ -1,6 +1,6 @@
 #!/bin/bash
 # ========================================
-# 1. DATA COLLECTION
+# 1. DATA COLLECTION 
 # ========================================
 arch=$(uname -m)
 cpu_cores=$(lscpu | awk '/^Socket\(s\):/ {print $2}')
@@ -14,10 +14,12 @@ disk_used=$(df -h --total | tail -1 | awk '{print $3}' | sed 's/G$//')
 disk_total=$(df -h --total | tail -1 | awk '{print $2}' | sed 's/G$//')
 disk_pct=$(df -h --total | tail -1 | awk '{print $5}' | sed 's/%$//')
 
-# CPU load from /proc/stat
+# CPU load from /proc/stat (user + system)
 read -r u _ s i _ < <(grep '^cpu ' /proc/stat | awk '{print $2,$4,$5,$6}')
 total=$((u + s + i))
-cpu_load=$(awk "BEGIN {printf \"%.1f\", ($u+$s)*100/$total}")
+used=$((u + s))
+cpu_load=$(awk "BEGIN {printf \"%.1f\", $used*100/$total}")
+cpu_per_vcpu=$(awk "BEGIN {printf \"%.1f\", $used*100/$total/$vcpu}")
 
 last_boot=$(who -b | awk '{print $3 " " $4}')
 tcp_est=$(ss -t state established | wc -l)
@@ -39,7 +41,7 @@ echo
 echo "RESOURCES"
 echo "  RAM  : $mem_used / $mem_total MB ($mem_pct%)"
 echo "  Disk : $disk_used / $disk_total GB ($disk_pct%)"
-echo "  CPU  : $cpu_load% load"
+echo "  CPU  : $cpu_load% (user+system) | $cpu_per_vcpu% per vCPU"
 echo
 
 echo "NETWORK"
