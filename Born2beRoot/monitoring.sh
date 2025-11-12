@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Optional: Uncomment for logging
-# LOGDIR="/var/log/server_health"
-# mkdir -p "$LOGDIR"
-# exec > "$LOGDIR/report_$(date +%Y%m%d_%H%M%S).log" 2>&1
+
+LOGDIR="/var/log/server_health"
+mkdir -p "$LOGDIR"
+exec > "$LOGDIR/report_$(date +%Y%m%d_%H%M%S).log" 2>&1
 
 # -------------------------------------------------------------------
 # Data Collection (simplified & reliable)
