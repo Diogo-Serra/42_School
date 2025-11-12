@@ -6,7 +6,7 @@ mkdir -p "$LOGDIR"
 exec > "$LOGDIR/report_$(date +%Y%m%d_%H%M%S).log" 2>&1
 
 # -------------------------------------------------------------------
-# Data Collection (simplified & reliable)
+# Data Collection 
 # -------------------------------------------------------------------
 
 # System
@@ -40,8 +40,7 @@ ip_list=($(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | sort))
 mac_list=($(ip link show up | grep -E "link/ether" | awk '{print $2}'))
 
 # Users
-user_count=$(who | wc -l)  # More accurate than `users`
-# user_count=$(users | wc -w)  # alternative
+user_count=$(who | wc -l)
 
 # Sudo
 sudo_count=$(journalctl _COMM=sudo --since "10 minutes ago" --no-pager | grep -c "COMMAND=" 2>/dev/null || echo "0")
