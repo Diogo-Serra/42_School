@@ -37,8 +37,8 @@ aa-status
 
 **Edit hostname**
 ```bash
-vim /etc/hostname
-vim /etc/hosts
+nano /etc/hostname
+nano /etc/hosts
 ```
 
 **Apply and verify**
@@ -65,7 +65,7 @@ adduser wil
 ```
 Add user to groups:
 ```bash
-usermod -aG sudo,user42 wil
+adduser wil user42
 ```
 
 Verify:
@@ -138,7 +138,7 @@ apt install openssh-server
 ```
 Edit SSH configuration:
 ```bash
-vim /etc/ssh/sshd_config
+nano /etc/ssh/sshd_config
 ```
 Set:
 ```bash
@@ -175,7 +175,7 @@ ufw status verbose
 
 # Born2beroot - Partition Setup (LVM)
 
-**Goal**: Secure, encrypted, logical partition layout using **LVM on LUKS**.
+**Goal**: Secure, encrypted, logical partition layout using **LVM**.
 
 ---
 
@@ -184,10 +184,10 @@ ufw status verbose
 | Mount Point | Size     | Type           | LVM LV       | Encrypted |
 |-------------|----------|----------------|--------------|-----------|
 | `/boot`     | 512 MB   | ext4           | —            | No        |
-| (LUKS)      | ~19.5 GB | crypto_LUKS    | —            | Yes       |
+| (LVM)       | ~19.5 GB | crypto_LVM     | —            | Yes       |
 | `/` (root)  | 10 GB    | ext4           | lv_root      | Yes       |
 | `/home`     | 4 GB     | ext4           | lv_home      | Yes       |
-| `swap`      | 2 GB     | swap           | lv_swap      | Yes       |
+| `swap_1`    | 2 GB     | swap           | lv_swap_1    | Yes       |
 | `/var`      | 3 GB     | ext4           | lv_var       | Yes       |
 | `/var/log`  | 1 GB     | ext4           | lv_varlog    | Yes       |
 
@@ -200,7 +200,7 @@ ufw status verbose
 3. Create:
    - `512M` → `/boot` → **ext4** → **Do not encrypt**
    - Rest → **Physical volume for encryption**
-4. Set **LUKS passphrase**  
+4. Set **LVM passphrase**  
 5. Inside encrypted volume:
    - Create **LVM Volume Group** (`vg1`)
    - Create **Logical Volumes**:
@@ -208,7 +208,7 @@ ufw status verbose
      - `lv_home` → 4G → `/home`
      - `lv_var` → 3G → `/var`
      - `lv_varlog` → 1G → `/var/log`
-     - `lv_swap` → 2G → swap
+     - `lv_swap_1` → 2G → swap
 6. Format each LV as **ext4** (swap as swap)  
 7. **Finish partitioning** → Write changes
 
@@ -220,13 +220,13 @@ ufw status verbose
 lsblk -f
 # Should show:
 # ├─/boot (ext4)
-# └─crypto_LUKS
+# └─crypto_LVM
 #    └─vg1
 #       ├─lv_root → /
 #       ├─lv_home → /home
 #       ├─lv_var  → /var
 #       ├─lv_varlog → /var/log
-#       └─lv_swap → swap
+#       └─lv_swap_1 → swap
 ```
 
 
