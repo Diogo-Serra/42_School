@@ -1,3 +1,4 @@
+sudo tee /usr/local/bin/server-health.sh > /dev/null <<'EOF'
 #!/bin/bash
 
 # --- Data Collection ---
@@ -50,3 +51,6 @@ echo "  Logged-in Users : $user_count"
 echo "  Sudo Commands   : $sudo_count (last 10 min)"
 echo
 EOF
+EOF
+
+sudo chmod 755 /usr/local/bin/server-health.sh
