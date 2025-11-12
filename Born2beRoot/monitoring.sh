@@ -1,74 +1,55 @@
 #!/bin/bash
 # ========================================
-# 1. DATA COLLECTION
+# 1. DATA COLLECTION (no mpstat, no bc)
 # ========================================
-arch=$(uname -a)
-cpu_physical=$(lscpu | awk '/^Socket\(s\):/ {print $2}')
+arch=$(uname -m)
+cpu_cores=$(lscpu | awk '/^Socket\(s\):/ {print $2}')
 vcpu=$(nproc)
 
-# ---- Memory -------------------------------------------------
 mem_total=$(free -m | awk '/^Mem:/ {print $2}')
 mem_used=$(free -m  | awk '/^Mem:/ {print $3}')
-mem_percent=$(awk "BEGIN {printf \"%.0f\", $mem_used*100/$mem_total}")
+mem_pct=$(awk "BEGIN {printf \"%.0f\", $mem_used*100/$mem_total}")
 
-# ---- Disk ---------------------------------------------------
-read -r _ disk_used _ disk_total disk_percent _ < \
-    <(df -h --block-size=G --total | tail -n1)
-disk_used=${disk_used%G}
-disk_total=${disk_total%G}
-disk_percent=${disk_percent%\%}
+disk_used=$(df -h --total | tail -1 | awk '{print $3}' | sed 's/G$//')
+disk_total=$(df -h --total | tail -1 | awk '{print $2}' | sed 's/G$//')
+disk_pct=$(df -h --total | tail -1 | awk '{print $5}' | sed 's/%$//')
 
-# ---- CPU load (user + system) -------------------------------
-read -r cpu_user cpu_nice cpu_system cpu_idle _ < \
-    <(grep '^cpu ' /proc/stat | awk '{print $2,$3,$4,$5}')
-cpu_total=$((cpu_user + cpu_nice + cpu_system + cpu_idle))
-cpu_used=$((cpu_user + cpu_system))
-# simple percentage (no bc)
-cpu_load=$(awk "BEGIN {printf \"%.2f\", $cpu_used*100/$cpu_total}")
+# CPU load from /proc/stat
+read -r u _ s i _ < <(grep '^cpu ' /proc/stat | awk '{print $2,$4,$5,$6}')
+total=$((u + s + i))
+cpu_load=$(awk "BEGIN {printf \"%.1f\", ($u+$s)*100/$total}")
 
-# ---- Misc ---------------------------------------------------
 last_boot=$(who -b | awk '{print $3 " " $4}')
-lvm_use=$([ $(lsblk -o TYPE | grep -c lvm) -gt 0 ] && echo "yes" || echo "no")
-
-tcp_established=$(( $(ss -tan state established | wc -l) - 1 ))
-user_log=$(( $(w -h | wc -l) ))
-
-ip_addr=$(ip -4 -br addr show dev "$(ip -br link show | awk '/UP/ {print $1}' | head -1)" |
-          awk '{print $3}' | cut -d/ -f1)
-mac_addr=$(ip link show | awk '/ether/ {print $2; exit}')
-
-sudo_cmd_count=$(journalctl -u sudo --since "1970-01-01" | grep -c "COMMAND=" || echo 0)
+tcp_est=$(ss -t state established | wc -l)
+tcp_est=$((tcp_est - 1))
+users=$(w -h | wc -l)
+ip_addr=$(ip route get 1 | awk '{print $7; exit}')
+mac_addr=$(ip link | awk '/ether/ {print $2; exit}')
+sudo_cmds=$(journalctl _COMM=sudo 2>/dev/null | grep -c "COMMAND=" || echo 0)
 
 # ========================================
-# 2. PRINTING – tidy sections
+# 2. PRINTING – Clean & Beautiful
 # ========================================
-print_section() {
-    printf "\n\e[1;34m=== %s ===\e[0m\n" "$1"
-}
+BLUE="\e[1;34m"
+GREEN="\e[1;32m"
+RESET="\e[0m"
 
-print_section "SYSTEM OVERVIEW"
-printf "  Architecture      : %s\n" "$arch"
-printf "  CPU physical      : %s\n" "$cpu_physical"
-printf "  vCPU              : %s\n" "$vcpu"
+echo -e "${BLUE}SYSTEM${RESET}"
+printf "  OS       : %s\n" "$arch"
+printf "  CPU      : %s core(s), %s vCPU\n" "$cpu_cores" "$vcpu"
+printf "  Boot     : %s\n" "$last_boot"
+echo
 
-print_section "MEMORY"
-printf "  Usage             : %s / %s MB (%s%%)\n" "$mem_used" "$mem_total" "$mem_percent"
+echo -e "${GREEN}RESOURCES${RESET}"
+printf "  RAM  : %s / %s MB (%s%%)\n" "$mem_used" "$mem_total" "$mem_pct"
+printf "  Disk : %s / %s GB (%s%%)\n" "$disk_used" "$disk_total" "$disk_pct"
+printf "  CPU  : %s%% load\n" "$cpu_load"
+echo
 
-print_section "DISK"
-printf "  Usage             : %s / %s GB (%s%%)\n" "$disk_used" "$disk_total" "$disk_percent"
-
-print_section "CPU"
-printf "  Load (user+system): %s%%\n" "$cpu_load"
-
-print_section "BOOT & LVM"
-printf "  Last boot         : %s\n" "$last_boot"
-printf "  LVM in use        : %s\n" "$lvm_use"
-
-print_section "NETWORK"
-printf "  TCP established   : %s\n" "$tcp_established"
-printf "  Users logged in   : %s\n" "$user_log"
-printf "  IP / MAC          : %s (%s)\n" "$ip_addr" "$mac_addr"
-
-print_section "SUDO"
-printf "  Commands executed : %s\n" "$sudo_cmd_count"
-printf "\n"
+echo -e "${BLUE}NETWORK${RESET}"
+printf "  IP       : %s\n" "$ip_addr"
+printf "  MAC      : %s\n" "$mac_addr"
+printf "  TCP      : %s established\n" "$tcp_est"
+printf "  Users    : %s logged in\n" "$users"
+printf "  Sudo     : %s cmd(s)\n" "$sudo_cmds"
+echo
