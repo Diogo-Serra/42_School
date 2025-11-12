@@ -23,33 +23,29 @@ last_boot=$(who -b | awk '{print $3 " " $4}')
 tcp_est=$(ss -t state established | wc -l)
 tcp_est=$((tcp_est - 1))
 users=$(w -h | wc -l)
-ip_addr=$(ip route get 1 | awk '{print $7; exit}')
-mac_addr=$(ip link | awk '/ether/ {print $2; exit}')
+ip_addr=$(ip route get 1 | awk '{print $7; exit}' 2>/dev/null || echo "N/A")
+mac_addr=$(ip link | awk '/ether/ {print $2; exit}' 2>/dev/null || echo "N/A")
 sudo_cmds=$(journalctl _COMM=sudo 2>/dev/null | grep -c "COMMAND=" || echo 0)
 
 # ========================================
-# 2. PRINTING
+# 2. PRINTING 
 # ========================================
-BLUE="\e[1;34m"
-GREEN="\e[1;32m"
-RESET="\e[0m"
-
-echo -e "${BLUE}SYSTEM${RESET}"
-printf "  OS       : %s\n" "$arch"
-printf "  CPU      : %s core(s), %s vCPU\n" "$cpu_cores" "$vcpu"
-printf "  Boot     : %s\n" "$last_boot"
+echo "SYSTEM"
+echo "  OS       : $arch"
+echo "  CPU      : $cpu_cores core(s), $vcpu vCPU"
+echo "  Boot     : $last_boot"
 echo
 
-echo -e "${GREEN}RESOURCES${RESET}"
-printf "  RAM  : %s / %s MB (%s%%)\n" "$mem_used" "$mem_total" "$mem_pct"
-printf "  Disk : %s / %s GB (%s%%)\n" "$disk_used" "$disk_total" "$disk_pct"
-printf "  CPU  : %s%% load\n" "$cpu_load"
+echo "RESOURCES"
+echo "  RAM  : $mem_used / $mem_total MB ($mem_pct%)"
+echo "  Disk : $disk_used / $disk_total GB ($disk_pct%)"
+echo "  CPU  : $cpu_load% load"
 echo
 
-echo -e "${BLUE}NETWORK${RESET}"
-printf "  IP       : %s\n" "$ip_addr"
-printf "  MAC      : %s\n" "$mac_addr"
-printf "  TCP      : %s established\n" "$tcp_est"
-printf "  Users    : %s logged in\n" "$users"
-printf "  Sudo     : %s cmd(s)\n" "$sudo_cmds"
+echo "NETWORK"
+echo "  IP       : $ip_addr"
+echo "  MAC      : $mac_addr"
+echo "  TCP      : $tcp_est established"
+echo "  Users    : $users logged in"
+echo "  Sudo     : $sudo_cmds cmd(s)"
 echo
