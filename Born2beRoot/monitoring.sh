@@ -1,6 +1,6 @@
 #!/bin/bash
 # ========================================
-# 1. DATA COLLECTION (no mpstat, no bc)
+# 1. DATA COLLECTION
 # ========================================
 arch=$(uname -m)
 cpu_cores=$(lscpu | awk '/^Socket\(s\):/ {print $2}')
@@ -28,7 +28,7 @@ mac_addr=$(ip link | awk '/ether/ {print $2; exit}')
 sudo_cmds=$(journalctl _COMM=sudo 2>/dev/null | grep -c "COMMAND=" || echo 0)
 
 # ========================================
-# 2. PRINTING – Clean & Beautiful
+# 2. PRINTING
 # ========================================
 BLUE="\e[1;34m"
 GREEN="\e[1;32m"
