@@ -20,38 +20,36 @@ lvm_status=$(lsblk | grep -q "lvm" && echo "Yes" || echo "No")
 tcp_connections=$(ss -ta | grep -c ESTAB 2>/dev/null || echo "0")
 user_count=$(users | wc -w)
 ip_primary=$(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | head -1)
-ip_extra=$(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | tail -n +2 | tr '\n' ', ' | sed 's/, $//')
-mac_address=$(ip link show up | grep "link/ether" | awk '{print $2}' | tr '\n' ', ' | sed 's/, $//')
+ip_extra=$(ip -4 addr show scope global | grep -oP 'inet \K[\d.]+' | tail -n +2 | paste -sd, -)
+mac_address=$(ip link show up | grep "link/ether" | awk '{print $2}' | paste -sd, -)
 sudo_count=$(journalctl _COMM=sudo --since "10 min ago" | grep -c COMMAND 2>/dev/null || echo "0")
 # -------------------------------------------------------------------
 
-printf '%s\n' "SERVER HEALTH REPORT – $(date '+%a %b %d %H:%M:%S %Z %Y')"
-printf '%s\n\n' "$(printf '=%.0s' {1..56})"
+echo "SERVER HEALTH REPORT – $(date '+%a %b %d %H:%M:%S %Z %Y')"
+echo "========================================================"
+echo
 
-printf '%-18s\n' "SYSTEM INFO"
-printf '  %-16s: %s\n' "Architecture" "$(uname -srm)"
-printf '  %-16s: %s\n' "Physical CPUs" "$p_cpu"
-printf '  %-16s: %s\n' "Virtual CPUs" "$v_cpu"
-printf '  %-16s: %s\n' "Last Boot" "$last_boot"
-printf '  %-16s: %s\n' "LVM Active" "$lvm_status"
-printf '\n'
+echo "SYSTEM INFO"
+echo "  Architecture    : $(uname -srm)"
+echo "  Physical CPUs   : $p_cpu"
+echo "  Virtual CPUs    : $v_cpu"
+echo "  Last Boot       : $last_boot"
+echo "  LVM Active      : $lvm_status"
+echo
 
-printf '%-18s\n' "RESOURCE USAGE"
-printf '  %-16s: %d MB / %d MB  (%s)\n' "Memory" "$ram_used" "$ram_total" "$ram_pct%"
-printf '  %-16s: %s / %s     (%s)\n' "Disk (/)" "$disk_used" "$disk_total" "$disk_pct"
-printf '  %-16s: %s\n' "CPU Load" "$cpu_load"
-printf '\n'
+echo "RESOURCE USAGE"
+echo "  Memory          : $ram_used MB / $ram_total MB ($ram_pct%)"
+echo "  Disk (/)        : $disk_used / $disk_total ($disk_pct)"
+echo "  CPU Load        : $cpu_load"
+echo
 
-printf '%-18s\n' "NETWORK"
-printf '  %-16s: %s\n' "Primary IP" "$ip_primary"
-[ -n "$ip_extra" ] && printf '  %-16s: %s\n' "Other IPs" "$ip_extra"
-printf '  %-16s: %s\n' "MAC Address(s)" "$mac_address"
-printf '\n'
+echo "NETWORK"
+echo "  Primary IP      : $ip_primary"
+[ -n "$ip_extra" ] && echo "  Other IPs       : $ip_extra"
+echo "  MAC Address(s)  : $mac_address"
+echo
 
-printf '%-18s\n' "CONNECTIONS & USERS"
-printf '  %-16s: %s\n' "TCP (ESTAB)" "$tcp_connections"
-printf '  %-16s: %s\n' "Logged-in Users" "$user_count"
-printf '  %-16s: %s  (last 10 min)\n' "Sudo Commands" "$sudo_count"
-
-
-
+echo "CONNECTIONS & USERS"
+echo "  TCP (ESTAB)     : $tcp_connections"
+echo "  Logged-in Users : $user_count"
+echo "  Sudo Commands   : $sudo_count (last 10 min)"
