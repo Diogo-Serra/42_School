@@ -1,4 +1,3 @@
-sudo tee /usr/local/bin/monitoring.sh > /dev/null << 'EOF'
 #!/bin/bash
 
 # --- Data Collection ---
@@ -50,5 +49,4 @@ echo "  TCP (ESTAB)     : $tcp_connections"
 echo "  Logged-in Users : $user_count"
 echo "  Sudo Commands   : $sudo_count (last 10 min)"
 echo
-echo "$report" | wall -n
 EOF
