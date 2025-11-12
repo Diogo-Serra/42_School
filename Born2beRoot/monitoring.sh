@@ -88,10 +88,3 @@ printf ' %-16s: %4s\n'  "TCP (ESTAB)"   "$tcp_connections"
 printf ' %-16s: %4s\n'  "Logged-in Users" "$user_count"
 printf ' %-16s: %4s (last 10 min)\n' "Sudo Commands" "$sudo_count"
 # -------------------------------------------------
-
-
-print_section "CONNECTIONS & USERS"
-print_field "TCP (ESTAB)"   "$tcp_connections"
-print_field "Logged-in Users" "$user_count"
-print_field "Sudo Commands" "$sudo_count (last 10 min)"
-
