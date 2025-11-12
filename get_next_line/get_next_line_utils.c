@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/10 14:50:20 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/12 23:06:47 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin_free(char *s1, char const *s2)
 {
 	size_t	len1;
 	size_t	len2;
@@ -98,6 +98,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_memcpy(out, s1, len1);
 	ft_memcpy(out + len1, s2, len2);
+	free(s1);
 	return (out);
 }
 
@@ -128,4 +129,26 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 		ft_memcpy(new_pointer, ptr, to_copy);
 	free(ptr);
 	return (new_pointer);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*out;
+	size_t	slen;
+	size_t	n;
+
+	if (!s)
+		return (NULL);
+	slen = ft_strlen(s);
+	if (start >= slen)
+		n = 0;
+	else if (len > slen - start)
+		n = slen - start;
+	else
+		n = len;
+	out = (char *)ft_calloc(n + 1, sizeof(char));
+	if (!out)
+		return (NULL);
+	ft_memcpy(out, s + start, n);
+	return (out);
 }

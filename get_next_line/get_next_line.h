@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:30 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/10 15:13:04 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/12 23:12:19 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,10 @@
 /* =========================================================*/
 /* get_next_line                                            */
 /* =========================================================*/
-void	*ft_memcpy(void *dst, const void *src, size_t n);
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
-char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *s, int c);
-void	*ft_free_heap(char **tab);
-char	*ft_strjoin(char const *s1, char const *s2);
-void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
+char	*ft_strjoin_free(char *s1, char const *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
