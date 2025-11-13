@@ -11,7 +11,7 @@ It covers everything from user creation to SSH, password policies, and firewall 
 
 ---
 
- [.vdi file, ready machine w/ signature.txt](https://1drv.ms/f/c/C6D9B4F0E148D4C6/EoL0v2dzwsNMnMruQxg4hXkBD8hSPQRppuxdsQLh7K9pJg?e=HaqYWy)
+ [.vdi file](https://1drv.ms/f/c/C6D9B4F0E148D4C6/EoL0v2dzwsNMnMruQxg4hXkBD8hSPQRppuxdsQLh7K9pJg?e=HaqYWy)
 
 ## ⚙️ 1. Initial Machine Setup and Basic APT
   
