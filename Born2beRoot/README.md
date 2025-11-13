@@ -18,7 +18,6 @@ It covers everything from user creation to SSH, password policies, and firewall 
   
    ```bash
    apt update && apt upgrade
-   apt install sudo vim net-tools
    ```
 
   **Verify system information**
@@ -228,7 +227,6 @@ lsblk -f
 #       ├─lv_varlog → /var/log
 #       └─lv_swap_1 → swap
 ```
-
 
 ## 📘 Notes
 
