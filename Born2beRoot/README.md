@@ -17,6 +17,8 @@ You can download the **.vdi file** using the link below:
 
 [Download .vdi file](https://1drv.ms/f/c/C6D9B4F0E148D4C6/EoL0v2dzwsNMnMruQxg4hXkBD8hSPQRppuxdsQLh7K9pJg?e=HaqYWy)
 
+---
+
 ## ⚙️ 1. Initial Machine Setup and Basic APT
   
   **Update and upgrade system**
