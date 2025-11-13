@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/12 23:06:47 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/13 15:10:29 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	while (n--)
 		*d++ = *s++;
 	return (dst);
-}
-
-char	*ft_strdup(const char *s)
-{
-	char	*dup;
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	dup = (char *)ft_calloc(i + 1, sizeof(char));
-	if (!dup)
-		return (NULL);
-	ft_memcpy(dup, s, i);
-	return (dup);
 }
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -100,35 +85,6 @@ char	*ft_strjoin_free(char *s1, char const *s2)
 	ft_memcpy(out + len1, s2, len2);
 	free(s1);
 	return (out);
-}
-
-void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
-{
-	void	*new_pointer;
-	size_t	to_copy;
-
-	if (new_size == 0)
-	{
-		free(ptr);
-		return (NULL);
-	}
-	if (!ptr)
-		return (malloc(new_size));
-	new_pointer = malloc(new_size);
-	if (!new_pointer)
-		return (NULL);
-	if (old_size < new_size)
-	{
-		to_copy = old_size;
-	}
-	else
-	{
-		to_copy = new_size;
-	}
-	if (to_copy)
-		ft_memcpy(new_pointer, ptr, to_copy);
-	free(ptr);
-	return (new_pointer);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
