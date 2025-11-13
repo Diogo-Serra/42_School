@@ -120,6 +120,33 @@ Defaults log_input, log_output
 Defaults requiretty
 Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 ```
+
+### Additional VISUDO Defaults (Optional but Recommended)
+
+#### `Defaults env_reset`
+**What it does**: Resets the environment when running sudo commands, clearing most environment variables except for a safe list (like TERM, PATH, etc.). This prevents users from passing potentially malicious environment variables to privileged commands.
+
+**Required for born2beroot?** Not strictly required by the project subject, but **highly recommended** for security. It's often enabled by default in `/etc/sudoers`.
+
+**Security benefit**: Prevents privilege escalation attacks via environment variable manipulation (e.g., LD_PRELOAD, LD_LIBRARY_PATH).
+
+#### `Defaults mail_badpass`
+**What it does**: Sends an email notification to the administrator (mailto user) whenever someone enters an incorrect sudo password.
+
+**Required for born2beroot?** **No**, not required by the project. This is useful in production environments for monitoring unauthorized access attempts.
+
+**Note**: Requires a mail system (like postfix or sendmail) to be configured on the system to actually send emails.
+
+### To add these defaults:
+```bash
+visudo -f /etc/sudoers.d/custom
+```
+Add these lines:
+```bash
+Defaults env_reset
+Defaults mail_badpass
+```
+
 Create log directory:
 ```bash
 mkdir -p /var/log/sudo
