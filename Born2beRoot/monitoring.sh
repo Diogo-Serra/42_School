@@ -5,7 +5,6 @@
 os_name=$(uname -o)
 kernel_version=$(uname -r)
 arch=$(uname -m)
-cpu_cores=$(lscpu | awk '/^Socket$s$:/ {print $2}')
 vcpu=$(nproc)
 
 mem_total=$(free -m | awk '/^Mem:/ {print $2}')
@@ -39,7 +38,6 @@ echo "SYSTEM"
 echo "  OS       : $os_name"
 echo "  Kernel   : $kernel_version"
 echo "  Arch     : $arch"
-echo "  CPU      : $cpu_cores core(s), $vcpu vCPU"
 echo "  Boot     : $last_boot"
 echo "  LVM      : $lvm_status"
 echo
