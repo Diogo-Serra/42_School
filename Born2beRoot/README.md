@@ -113,10 +113,12 @@ visudo -f /etc/sudoers.d/custom
 ```
 Add configuration:
 ```bash
+Defaults env_reset
 Defaults passwd_tries=3
-Defaults badpass_message="Wrong password! Try again."
+Defaults badpass_message="Incorrect password! Please, try again."
 Defaults logfile="/var/log/sudo/sudo.log"
 Defaults log_input, log_output
+Defaults iolog_dir="/var/log/sudo"
 Defaults requiretty
 Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 ```
