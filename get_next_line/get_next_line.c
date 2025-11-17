@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/17 19:14:00 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/17 20:39:48 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,29 +75,25 @@ static ssize_t reading(int fd, char **storage, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*storage;
+    static char	*storage;
     char		buffer[BUFFER_SIZE + 1];
     ssize_t		bytes_read;
     char		*line;
 
     if (fd < 0 || BUFFER_SIZE <= 0)
         return (NULL);
-    if (!storage)
-    {
-        storage = ft_calloc(1, sizeof(char));
-        if (!storage)
-            return (NULL);
-    }
-	bytes_read = reading(fd, &storage, buffer);
-	if (bytes_read < 0 || (bytes_read == 0 && !*storage))
-	{
-    	free(storage);
-    	storage = NULL;
+	if (!storage && !(storage = ft_strdup("")))
     	return (NULL);
-	}
+    bytes_read = reading(fd, &storage, buffer);
+    if (bytes_read < 0)
+    {
+        free(storage);
+        storage = NULL;
+        return (NULL);
+    }
     line = load_line(storage);
     storage = trim_storage(storage);
-	if (!line && storage)
+    if (!line && storage)
     {
         free(storage);
         storage = NULL;
@@ -120,5 +116,6 @@ int	main(void)
 	out = get_next_line(fd);
 	printf("Line->%s", out);
 	free(out);
+	close(fd);
 	return (0);
 }
