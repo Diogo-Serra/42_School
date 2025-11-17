@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/17 21:40:27 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/17 21:41:04 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	char	*out;
 	int		fd;
@@ -135,4 +135,4 @@ int	main(void)
 	free(out);
 	close(fd);
 	return (0);
-}
+} */
