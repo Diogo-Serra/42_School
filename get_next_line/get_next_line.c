@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/17 20:57:31 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/17 21:25:21 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	*load_line(char *storage)
 	return (ft_substr(storage, 0, len));
 }
 
-static char *trim_storage(char *storage)
+static char	*trim_storage(char *storage)
 {
 	char	*ptr_newline;
 	char	*new_storage;
@@ -54,27 +54,27 @@ static char *trim_storage(char *storage)
 	return (new_storage);
 }
 
-static ssize_t reading(int fd, char **storage, char *buffer)
+static ssize_t	reading(int fd, char **storage, char *buffer)
 {
-       ssize_t bytes_read;
-    
-    bytes_read = 1;
-    while (!ft_strchr(*storage, '\n') && bytes_read > 0)
-    {
-        bytes_read = read(fd, buffer, BUFFER_SIZE);
-        if (bytes_read > 0)
-        {
-            buffer[bytes_read] = '\0';
-            *storage = ft_strjoin_free(*storage, buffer);
-            if (!*storage)
-                return (-1);
-        }
-        else if (bytes_read < 0)
-        {
-            return (-1);
-        }
-    }
-    return (bytes_read);
+	ssize_t	bytes_read;
+
+	bytes_read = 1;
+	while (!ft_strchr(*storage, '\n') && bytes_read > 0)
+	{
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read > 0)
+		{
+			buffer[bytes_read] = '\0';
+			*storage = ft_strjoin_free(*storage, buffer);
+			if (!*storage)
+				return (-1);
+		}
+		else if (bytes_read < 0)
+		{
+			return (-1);
+		}
+	}
+	return (bytes_read);
 }
 
 char	*get_next_line(int fd)
