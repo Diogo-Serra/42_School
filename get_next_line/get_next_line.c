@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/17 21:41:04 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/17 21:43:49 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,25 @@ static char	*trim_storage(char *storage)
 	return (new_storage);
 }
 
+static char	*ft_strjoin_free(char *s1, char const *s2)
+{
+	size_t	len1;
+	size_t	len2;
+	char	*out;
+
+	if (!s1 || !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	out = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
+	if (!out)
+		return (NULL);
+	ft_memcpy(out, s1, len1);
+	ft_memcpy(out + len1, s2, len2);
+	free(s1);
+	return (out);
+}
+
 static ssize_t	reading(int fd, char **storage, char *buffer)
 {
 	ssize_t	bytes_read;
@@ -76,25 +95,6 @@ static ssize_t	reading(int fd, char **storage, char *buffer)
 			return (-1);
 	}
 	return (bytes_read);
-}
-
-static char	*ft_strjoin_free(char *s1, char const *s2)
-{
-	size_t	len1;
-	size_t	len2;
-	char	*out;
-
-	if (!s1 || !s2)
-		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	out = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
-	if (!out)
-		return (NULL);
-	ft_memcpy(out, s1, len1);
-	ft_memcpy(out + len1, s2, len2);
-	free(s1);
-	return (out);
 }
 
 char	*get_next_line(int fd)
