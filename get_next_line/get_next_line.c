@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/17 20:39:48 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/17 20:57:31 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	*load_line(char *storage)
 static char *trim_storage(char *storage)
 {
 	char	*ptr_newline;
-	char	*rest;
+	char	*new_storage;
 	size_t	start;
 	size_t	total;
 
@@ -49,14 +49,14 @@ static char *trim_storage(char *storage)
 		free(storage);
 		return (NULL);
 	}
-	rest = ft_substr(storage, start, total - start);
+	new_storage = ft_substr(storage, start, total - start);
 	free(storage);
-	return (rest);
+	return (new_storage);
 }
 
 static ssize_t reading(int fd, char **storage, char *buffer)
 {
-    ssize_t bytes_read;
+       ssize_t bytes_read;
     
     bytes_read = 1;
     while (!ft_strchr(*storage, '\n') && bytes_read > 0)
@@ -68,6 +68,10 @@ static ssize_t reading(int fd, char **storage, char *buffer)
             *storage = ft_strjoin_free(*storage, buffer);
             if (!*storage)
                 return (-1);
+        }
+        else if (bytes_read < 0)
+        {
+            return (-1);
         }
     }
     return (bytes_read);
@@ -82,8 +86,8 @@ char	*get_next_line(int fd)
 
     if (fd < 0 || BUFFER_SIZE <= 0)
         return (NULL);
-	if (!storage && !(storage = ft_strdup("")))
-    	return (NULL);
+    if (!storage && !(storage = ft_strdup("")))
+        return (NULL);
     bytes_read = reading(fd, &storage, buffer);
     if (bytes_read < 0)
     {
@@ -93,11 +97,6 @@ char	*get_next_line(int fd)
     }
     line = load_line(storage);
     storage = trim_storage(storage);
-    if (!line && storage)
-    {
-        free(storage);
-        storage = NULL;
-    }
     return (line);
 }
 

@@ -6,11 +6,12 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/13 15:10:29 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/17 21:00:06 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
@@ -40,6 +41,21 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	while (total--)
 		*p++ = 0;
 	return (ptr);
+}
+
+char	*ft_strdup(const char *s)
+{
+	char	*dup;
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	dup = (char *)ft_calloc(i + 1, sizeof(char));
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s, i);
+	return (dup);
 }
 
 char	*ft_strchr(const char *s, int c)
