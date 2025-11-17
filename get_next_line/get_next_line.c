@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/17 21:43:49 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/17 22:06:06 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,19 +100,24 @@ static ssize_t	reading(int fd, char **storage, char *buffer)
 char	*get_next_line(int fd)
 {
 	static char	*storage;
-	char		buffer[BUFFER_SIZE + 1];
+	char		*buffer;
 	ssize_t		bytes_read;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	buffer = (char *)malloc((size_t)BUFFER_SIZE + 1);
+	if (!buffer)
+		return (NULL);
 	bytes_read = reading(fd, &storage, buffer);
 	if (bytes_read < 0)
 	{
+		free(buffer);
 		free(storage);
 		storage = NULL;
 		return (NULL);
 	}
+	free(buffer);
 	line = load_line(storage);
 	storage = trim_storage(storage);
 	return (line);
