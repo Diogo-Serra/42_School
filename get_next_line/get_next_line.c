@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/13 15:16:28 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/17 19:14:00 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,25 @@ static char *trim_storage(char *storage)
 	return (rest);
 }
 
+static ssize_t reading(int fd, char **storage, char *buffer)
+{
+    ssize_t bytes_read;
+    
+    bytes_read = 1;
+    while (!ft_strchr(*storage, '\n') && bytes_read > 0)
+    {
+        bytes_read = read(fd, buffer, BUFFER_SIZE);
+        if (bytes_read > 0)
+        {
+            buffer[bytes_read] = '\0';
+            *storage = ft_strjoin_free(*storage, buffer);
+            if (!*storage)
+                return (-1);
+        }
+    }
+    return (bytes_read);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*storage;
@@ -69,24 +88,13 @@ char	*get_next_line(int fd)
         if (!storage)
             return (NULL);
     }
-    bytes_read = 1;
-    while (!ft_strchr(storage, '\n') && bytes_read > 0)
-    {
-        bytes_read = read(fd, buffer, BUFFER_SIZE);
-        if (bytes_read > 0)
-        {
-            buffer[bytes_read] = '\0';
-            storage = ft_strjoin_free(storage, buffer);
-            if (!storage)
-                return (NULL);
-        }
-    }
-    if (bytes_read < 0)
-    {
-        free(storage);
-        storage = NULL;
-        return (NULL);
-    }
+	bytes_read = reading(fd, &storage, buffer);
+	if (bytes_read < 0 || (bytes_read == 0 && !*storage))
+	{
+    	free(storage);
+    	storage = NULL;
+    	return (NULL);
+	}
     line = load_line(storage);
     storage = trim_storage(storage);
 	if (!line && storage)
