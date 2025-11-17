@@ -6,20 +6,18 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:30 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/17 21:44:42 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/17 21:48:44 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 42
 
-# include <stdio.h>
-# include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include <stdint.h>
-# include <fcntl.h>
 
 /* =========================================================*/
 /* get_next_line                                            */
