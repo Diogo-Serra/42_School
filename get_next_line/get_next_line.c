@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/17 21:25:21 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/17 21:28:00 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,25 +79,29 @@ static ssize_t	reading(int fd, char **storage, char *buffer)
 
 char	*get_next_line(int fd)
 {
-    static char	*storage;
-    char		buffer[BUFFER_SIZE + 1];
-    ssize_t		bytes_read;
-    char		*line;
+	static char	*storage;
+	char		buffer[BUFFER_SIZE + 1];
+	ssize_t		bytes_read;
+	char		*line;
 
-    if (fd < 0 || BUFFER_SIZE <= 0)
-        return (NULL);
-    if (!storage && !(storage = ft_strdup("")))
-        return (NULL);
-    bytes_read = reading(fd, &storage, buffer);
-    if (bytes_read < 0)
-    {
-        free(storage);
-        storage = NULL;
-        return (NULL);
-    }
-    line = load_line(storage);
-    storage = trim_storage(storage);
-    return (line);
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	if (!storage)
+	{
+		storage = ft_strdup("");
+		if (!storage)
+			return (NULL);
+	}
+	bytes_read = reading(fd, &storage, buffer);
+	if (bytes_read < 0)
+	{
+		free(storage);
+		storage = NULL;
+		return (NULL);
+	}
+	line = load_line(storage);
+	storage = trim_storage(storage);
+	return (line);
 }
 
 int	main(void)
