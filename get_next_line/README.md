@@ -1,4 +1,4 @@
-<div align="center">
+<div>
 
 # 42 School Project - get_next_line
 
