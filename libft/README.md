@@ -1,9 +1,6 @@
-<div align="center">
+<div>
 
-<img src="https://github.com/ayogun/42-project-badges/blob/main/covers/cover-libft-bonus.png?raw=true"/>
-</div>
-
-# Libft - 42 Project
+# 42 Project - Libft
 
 **Goal**: Reimplement key C standard library functions + bonus linked list utilities.
 
@@ -45,6 +42,9 @@ ft_lstadd_back, ft_lstdelone, ft_lstclear, ft_lstiter, ft_lstmap
 Makefile Rules
 ```c
 all → build libft.a
+```
+
+</div>
 bonus → add list functions
 clean → remove .o
 fclean → remove libft.a
