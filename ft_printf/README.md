@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://github.com/ayogun/42-project-badges/blob/main/covers/cover-ft_printf-bonus.png?raw=true"/>
-
 ## 42 School Project - ft_printf
 
 Recreate `printf()` with basic conversions.
