@@ -1,7 +1,4 @@
-<div align="center">
-
-<img src="https://github.com/ayogun/42-project-badges/blob/main/covers/cover-born2beroot-bonus.png?raw=true"/>
-
+<div>
 
 # Born2beRoot — Secure Linux Configuration Guide
 
