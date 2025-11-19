@@ -4,11 +4,11 @@
   <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/cover-get_next_line.png" alt="Banner">
 </p>
 
+---
+
 # 42 School Project - get_next_line
 
 `get_next_line` is a 42 School project that requires writing a function to read a line from a file descriptor, one at a time.
-
----
 
 **Goal**: Return one line per call, ending with `\n` (or until EOF).
 
