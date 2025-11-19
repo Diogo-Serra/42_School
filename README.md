@@ -8,8 +8,8 @@
 
 | Project | Badge |
 |:-------:|:-----:|
-| [**Reloaded**](https://github.com/Diogo-Serra/42_School/tree/main/reloaded) | ![Reloaded](https://img.shields.io/badge/Reloaded-Completed-3498db?style=for-the-badge&logo=42&logoColor=white) |
-| [**Libft**](https://github.com/Diogo-Serra/42_School/tree/main/libft) | ![Libft](https://img.shields.io/badge/Libft-Completed-3498db?style=for-the-badge&logo=42&logoColor=white) |
+| [**Reloaded**](https://github.com/Diogo-Serra/42_School/tree/main/reloaded) | ![Reloaded](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/volunteerm.png) |
+| [**Libft**](https://github.com/Diogo-Serra/42_School/tree/main/libft) | ![Libft](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/libftm.png) |
 | [**Born2beroot**](https://github.com/Diogo-Serra/42_School/tree/main/Born2beRoot) | ![Born2beroot](https://img.shields.io/badge/Born2beroot-In_Progress-ff6b35?style=for-the-badge&logo=debian&logoColor=white) |
 | [**printf**](https://github.com/Diogo-Serra/42_School/tree/main/ft_printf) | ![printf](https://img.shields.io/badge/printf-In_Progress-ff6b35?style=for-the-badge&logo=c&logoColor=white) |
 | [**get_next_line**](https://github.com/Diogo-Serra/42_School/tree/main/get_next_line) | ![get_next_line](https://img.shields.io/badge/get_next_line-In_Progress-ff6b35?style=for-the-badge&logo=c&logoColor=white) |
