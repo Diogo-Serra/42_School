@@ -6,6 +6,13 @@
 
 ---
 
+### 📚 About
+
+This repository documents my journey through the **42 Common Core**, from foundational C projects to advanced Unix.  
+Each project follows the school's philosophy: *learn by doing, fail fast, and build resilience through autonomy.*
+
+---
+
 ### 🚀 My Progress
 
 | Project | Badge |
@@ -16,14 +23,6 @@
 | [**printf**](https://github.com/Diogo-Serra/42_School/tree/main/ft_printf) | ![printf](https://img.shields.io/badge/printf-In_Progress-ff6b35?style=for-the-badge&logo=c&logoColor=white) |
 | [**get_next_line**](https://github.com/Diogo-Serra/42_School/tree/main/get_next_line) | ![get_next_line](https://img.shields.io/badge/get_next_line-In_Progress-ff6b35?style=for-the-badge&logo=c&logoColor=white) |
 
-
-
----
-
-### 📚 About
-
-This repository documents my journey through the **42 Common Core**, from foundational C projects to advanced Unix.  
-Each project follows the school's philosophy: *learn by doing, fail fast, and build resilience through autonomy.*
 
 ---
 
