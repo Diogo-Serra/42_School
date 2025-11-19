@@ -4,6 +4,8 @@
   <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/banner42.png" alt="Banner">
 </p>
 
+---
+
 ### 🚀 My Progress
 
 | Project | Badge |
