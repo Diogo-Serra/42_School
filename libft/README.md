@@ -4,6 +4,7 @@
   <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/cover-libft-bonus.png" alt="Banner">
 </p>
 
+---
 
 # 42 Project - Libft
 
