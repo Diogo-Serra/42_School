@@ -1,4 +1,8 @@
 <div>
+  
+<p align="center">
+  <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/cover-born2beroot.png" alt="Banner">
+</p>
 
 # Born2beRoot — Secure Linux Configuration Guide
 
