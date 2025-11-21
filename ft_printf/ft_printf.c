@@ -6,29 +6,71 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/20 17:51:00 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/21 17:12:56 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <stdio.h>
+#include <unistd.h>
 
-int ft_printf(const char *src, ...)
-{
-	va_list	args;
+int ft_printf(const char *src, ...);
+size_t	ft_strlen(const char *s);
 
-	va_start(args, src);
-	printf("%d\n", va_arg(args, int));
-	printf("%d\n", va_arg(args, int));
-	return (0);
-}
 
 int	main(void)
 {
-	ft_printf("%d", 42, 24);
+	ft_printf("%c%c\n%s\n", 'O', 'K', "Teste");
 	return (0);
 }
 
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+int ft_printf(const char *src, ...)
+{
+	va_list	pargs;
+	char	*string;
+	int		len;
+	char	arg;
+	int		count;
+	int		i;
+	
+	i = 0;
+	count = 0;
+ 	va_start(pargs, src);
+	while (src[i])
+	{
+		if (src[i] == '%' && src[i + 1] == 'c')
+		{
+			arg = (char)va_arg(pargs, int);
+			write(1, &arg, 1);
+			count++;
+			i++;
+		}
+		else if (src[i] == '%' && src[i + 1] == 's')
+		{
+			string = va_arg(pargs, char *);
+			len = ft_strlen(string);
+			count += write(1, string, len);
+			i++;
+		}
+		else
+		{
+			(write(1, &src[i], 1));
+			count++;
+		}
+		i++;
+		
+	}
+	return (count);
+}
 
 /* 
 You have to implement the following conversions:
