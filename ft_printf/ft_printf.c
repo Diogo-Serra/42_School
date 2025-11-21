@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/21 17:12:56 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/21 17:19:41 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlen(const char *s);
 
 int	main(void)
 {
-	ft_printf("%c%c\n%s\n", 'O', 'K', "Teste");
+	ft_printf("%c\n%c\n%s\n", 'O', 'K', "Teste");
 	return (0);
 }
 
@@ -50,7 +50,7 @@ int ft_printf(const char *src, ...)
 		if (src[i] == '%' && src[i + 1] == 'c')
 		{
 			arg = (char)va_arg(pargs, int);
-			write(1, &arg, 1);
+			write(1, (char)va_arg(pargs, int), 1);
 			count++;
 			i++;
 		}
