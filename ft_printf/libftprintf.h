@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 05:57:35 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 07:33:03 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 07:35:13 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdint.h>
 
 size_t	ft_strlen(const char *s);
 int		ft_printf(const char *src, ...);
