@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 08:20:10 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 08:21:36 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,19 @@ int ft_printf(const char *src, ...)
 }
 
 /* 
-You have to implement the following conversions:
+char print:
 
 • %c Prints a single character.
 • %s Prints a string (as defined by the common C convention).
-• %p The void * pointer argument has to be printed in hexadecimal format.
+• %% Prints a percent sign. 
+
+digit print:
 • %d Prints a decimal (base 10) number.
 • %i Prints an integer in base 10.
 • %u Prints an unsigned decimal (base 10) number.
 • %x Prints a number in hexadecimal (base 16) lowercase format.
 • %X Prints a number in hexadecimal (base 16) uppercase format.
-• %% Prints a percent sign. 
+
+• %p The void * pointer argument has to be printed in hexadecimal format.
+
 */
