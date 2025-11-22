@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 08:24:04 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 08:34:07 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ static int	print_chr(va_list pargs, const char flag)
 	}
 	else if (flag == '%')
 		count = write(1, "%", 1);
-	else
-		return (0);
 	return (count);
 }
 
@@ -56,15 +54,13 @@ static int	print_nbr(va_list pargs, const char flag)
 
 	count = 0;
 	if (flag == 'd' || flag == 'i')
-		count = ft_putnbr_base(va_arg(pargs, int), 10, DECIMAL);
+		count = ft_putnbr_base(va_arg(pargs, int), DECIMAL);
 	else if (flag == 'u')
-		count = ft_putnbr_base(va_arg(pargs, unsigned int), 10, DECIMAL);
+		count = ft_putnbr_base(va_arg(pargs, unsigned int), DECIMAL);
 	else if (flag == 'x')
-		count = ft_putnbr_base(va_arg(pargs, unsigned int), 16, LOWER_HEX);
+		count = ft_putnbr_base(va_arg(pargs, unsigned int), LOWER_HEX);
 	else if (flag == 'X')
-		count = ft_putnbr_base(va_arg(pargs, unsigned int), 16, UPPER_HEX);
-	else
-		return (0);
+		count = ft_putnbr_base(va_arg(pargs, unsigned int), UPPER_HEX);
 	return (count);
 }
 
