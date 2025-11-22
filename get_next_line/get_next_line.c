@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/17 22:06:06 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 20:35:44 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static char	*load_line(char *storage)
 {
-	char	*ptr_newline;
 	size_t	len;
+	char	*ptr_newline;
 
 	if (!storage || !storage[0])
 		return (NULL);
@@ -29,10 +29,10 @@ static char	*load_line(char *storage)
 
 static char	*trim_storage(char *storage)
 {
-	char	*ptr_newline;
-	char	*new_storage;
 	size_t	start;
 	size_t	total;
+	char	*ptr_newline;
+	char	*new_storage;
 
 	if (!storage)
 		return (NULL);
@@ -52,25 +52,6 @@ static char	*trim_storage(char *storage)
 	new_storage = ft_substr(storage, start, total - start);
 	free(storage);
 	return (new_storage);
-}
-
-static char	*ft_strjoin_free(char *s1, char const *s2)
-{
-	size_t	len1;
-	size_t	len2;
-	char	*out;
-
-	if (!s1 || !s2)
-		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	out = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
-	if (!out)
-		return (NULL);
-	ft_memcpy(out, s1, len1);
-	ft_memcpy(out + len1, s2, len2);
-	free(s1);
-	return (out);
 }
 
 static ssize_t	reading(int fd, char **storage, char *buffer)
@@ -99,10 +80,10 @@ static ssize_t	reading(int fd, char **storage, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*storage;
-	char		*buffer;
-	ssize_t		bytes_read;
 	char		*line;
+	char		*buffer;
+	static char	*storage;
+	ssize_t		bytes_read;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
