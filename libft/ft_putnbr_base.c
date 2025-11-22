@@ -6,20 +6,22 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 07:39:33 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 07:40:46 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 20:16:00 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr_base(long n, int base, const char *digits)
+int	ft_putnbr_base(long n, const char *digits)
 {
 	char			arr[12];
 	unsigned long	nb;
 	int				i;
 	int				count;
+	int				base;
 
 	nb = (unsigned long)n;
+	base = ft_strlen(digits);
 	if (n < 0 && base == 10)
 		nb = -n;
 	i = 11;

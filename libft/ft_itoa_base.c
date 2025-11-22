@@ -6,20 +6,22 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 07:12:49 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 07:24:45 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 20:17:49 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base(long n, int base, const char *digits)
+char	*ft_itoa_base(long n, const char *digits)
 {
 	char			arr[33];
 	char			*out;
 	unsigned long	nb;
+	int				base;
 	int				i;
 
 	nb = (unsigned long)n;
+	base = ft_strlen(digits);
 	if (n < 0 && base == 10)
 		nb = -n;
 	i = 32;

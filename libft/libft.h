@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 07:42:01 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 20:18:16 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int		ft_toupper(int c);
 /* =========================================================*/
 char	*ft_itoa(int n);
 int		ft_atoi(const char *s);
-char	*ft_itoa_base(long n, int base, int uppercase);
+char	*ft_itoa_base(long n, const char *digits);
 
 /* =========================================================*/
 /* 7) Raw memory primitives                                 */
@@ -111,6 +111,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
-int		ft_putnbr_base(long n, int base, const char *digits);
+int		ft_putnbr_base(long n, const char *digits);
 
 #endif /* LIBFT_H */
