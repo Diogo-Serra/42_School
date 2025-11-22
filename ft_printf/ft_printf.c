@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 06:53:27 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 08:02:16 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,23 @@ int	main(void)
 	return (0);
 }
 
+static int	print_nbr(va_list pargs, const char flag)
+{
+	int		count;
+
+	if (flag == 'd' || flag == 'i')
+		count = ft_putnbr_base(va_arg(pargs, int), 10, LOWER_HEX);
+	else if (flag == 'u')
+		count = ft_putnbr_base(va_arg(pargs, unsigned int), 10, LOWER_HEX);
+	else if (flag == 'x')
+		count = ft_putnbr_base(va_arg(pargs, unsigned int), 16, LOWER_HEX);
+	else if (flag == 'X')
+		count = ft_putnbr_base(va_arg(pargs, unsigned int), 16, UPPER_HEX);
+	else
+		return (0);
+	return (count);
+}
+
 int ft_printf(const char *src, ...)
 {
 	va_list	pargs;
@@ -31,7 +48,13 @@ int ft_printf(const char *src, ...)
  	va_start(pargs, src);
 	while (src[i])
 	{
-		
+		if (src[i] == '%' && src[i + 1])
+		{
+			i++;
+			count += ft_putnbr_base(pargs, src[i]);
+		}
+		else
+			count += write(1, src[i]);
 	}
 	va_end(pargs);
 	return (count);
