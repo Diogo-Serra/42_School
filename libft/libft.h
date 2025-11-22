@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 07:20:24 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 07:20:28 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # include <unistd.h>
 # include <stdint.h>
-# include <stdlib.h>	
+# include <stdlib.h>
 # include <stddef.h>
 
 /* =========================================================*/
