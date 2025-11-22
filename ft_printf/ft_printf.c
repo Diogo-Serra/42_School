@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 08:40:15 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 08:53:10 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,21 @@ static int	print_nbr(va_list pargs, const char flag)
 
 static int	print_handler(va_list pargs, const char flag)
 {
+	unsigned long	ptr;
+	int				count;
+
 	if (flag == 'c' || flag == 's' || flag == '%')
 		return (print_chr(pargs, flag));
 	else if (flag == 'd' || flag == 'i' || flag == 'u'
 		|| flag == 'x' || flag == 'X')
 		return (print_nbr(pargs, flag));
+	else if (flag == 'p')
+	{
+		ptr = (unsigned long)va_arg(pargs, void *);
+		count = write(1, "0x", 2);
+		count += ft_putnbr_base(ptr, LOWER_HEX);
+		return (count);
+	}
 	return (0);
 }
 
@@ -86,10 +96,7 @@ int	ft_printf(const char *src, ...)
 	while (src[i])
 	{
 		if (src[i] == '%' && src[i + 1])
-		{
-			i++;
-			count += print_handler(pargs, src[i]);
-		}
+			count += print_handler(pargs, src[i++]);
 		else
 			count += write(1, &src[i], 1);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 06:01:09 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 08:28:39 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 08:52:16 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	ft_putnbr_base(long n, const char *digits)
 	int				count;
 	int				base;
 
-	base = ft_strlen(digits);
 	nb = (unsigned long)n;
+	base = ft_strlen(digits);
 	if (n < 0 && base == 10)
 		nb = -n;
 	i = 11;
