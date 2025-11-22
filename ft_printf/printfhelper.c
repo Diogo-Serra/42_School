@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 06:01:09 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 07:30:22 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 07:44:07 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,29 +52,27 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (ptr);
 }
 
-char	*ft_itoa_base(long n, int base, const char *digits)
+int	ft_putnbr_base(long n, int base, const char *digits)
 {
-    char			arr[12];
-    char			*out;
-    unsigned long	nb;
-    int				i;
+	char			arr[12];
+	unsigned long	nb;
+	int				i;
+	int				count;
 
-    nb = (unsigned long)n;
-    if (n < 0 && base == 10)
-        nb = -n;
-    i = 11;
-    if (nb == 0)
-        arr[--i] = '0';
-    while (nb)
-    {
-        arr[--i] = digits[nb % base];
-        nb /= base;
-    }
-    if (n < 0 && base == 10)
-        arr[--i] = '-';
-    out = (char *)ft_calloc((11 - i) + 1, sizeof(char));
-    if (!out)
-        return (NULL);
-    ft_memcpy(out, arr + i, 11 - i);
-    return (out);
+	nb = (unsigned long)n;
+	if (n < 0 && base == 10)
+		nb = -n;
+	i = 11;
+	if (nb == 0)
+		arr[--i] = '0';
+	while (nb)
+	{
+		arr[--i] = digits[nb % base];
+		nb /= base;
+	}
+	if (n < 0 && base == 10)
+		arr[--i] = '-';
+	count = 11 - i;
+	write(1, arr + i, count);
+	return (count);
 }
