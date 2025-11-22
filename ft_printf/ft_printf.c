@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 08:13:23 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 08:20:10 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,37 @@ int	main(void)
 
 static int	print_chr(va_list pargs, const char flag)
 {
+	char	*str;
+	char	c;
 	int		len;
 	int		count;
 
+	count = 0;
 	if (flag == 's')
 	{
-		len = ft_strlen(pargs);
-		count = write(1, &pargs, len);		
+		str = va_arg(pargs, char *);
+		if (!str)
+			str = "(null)";
+		len = ft_strlen(str);
+		count = write(1, str, len);		
 	}
 	else if (flag == 'c')
-		count = write(1, &pargs, 1);
+	{
+		c = (char)va_arg(pargs, int);
+		count = write(1, &c, 1);
+	}
+	else if (flag == '%')
+		count = write(1, "%", 1);
 	else
 		return (0);
+	return (count);
 }
 
 static int	print_nbr(va_list pargs, const char flag)
 {
 	int		count;
 
+	count = 0;
 	if (flag == 'd' || flag == 'i')
 		count = ft_putnbr_base(va_arg(pargs, int), 10, LOWER_HEX);
 	else if (flag == 'u')
@@ -73,7 +86,7 @@ int ft_printf(const char *src, ...)
 			count += print_chr(pargs, src[i]);
 		}
 		else
-			count += write(1, src[i], 1);
+			count += write(1, &src[i], 1);
 	}
 	va_end(pargs);
 	return (count);
