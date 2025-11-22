@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 06:01:09 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 07:44:07 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 07:45:51 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,6 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	unsigned char			*d;
-	const unsigned char		*s;
-
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	while (n--)
-		*d++ = *s++;
-	return (dst);
-}
-
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	void	*ptr;
-	char	*p;
-	size_t	total;
-
-	if (size != 0 && nmemb > SIZE_MAX / size)
-		return (NULL);
-	total = nmemb * size;
-	ptr = malloc(total);
-	if (!ptr)
-		return (NULL);
-	p = (char *)ptr;
-	while (total--)
-		*p++ = 0;
-	return (ptr);
 }
 
 int	ft_putnbr_base(long n, int base, const char *digits)

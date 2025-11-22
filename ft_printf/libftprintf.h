@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 05:57:35 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 07:44:24 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 07:46:06 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 
 size_t	ft_strlen(const char *s);
 int		ft_printf(const char *src, ...);
-void	*ft_calloc(size_t nmemb, size_t size);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
 int		ft_putnbr_base(long n, int base, const char *digits);
 
 #endif /* LIBFTPRINTF_H */
