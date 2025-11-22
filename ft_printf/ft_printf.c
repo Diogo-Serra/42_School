@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 06:09:38 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 06:53:27 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@ int ft_printf(const char *src, ...);
 
 int	main(void)
 {
-	ft_printf("%c\n%c\n%s\n", 'O', 'K', "Teste");
+	ft_printf("%c\n%c\n", 'O', 'K');
 	return (0);
 }
 
 int ft_printf(const char *src, ...)
 {
 	va_list	pargs;
-	char	*string;
-	int		len;
-	char	arg;
 	int		count;
 	int		i;
 	
@@ -34,28 +31,9 @@ int ft_printf(const char *src, ...)
  	va_start(pargs, src);
 	while (src[i])
 	{
-		if (src[i] == '%' && src[i + 1] == 'c')
-		{
-			arg = (char)va_arg(pargs, int);
-			write(1, (char)va_arg(pargs, int), 1);
-			count++;
-			i++;
-		}
-		else if (src[i] == '%' && src[i + 1] == 's')
-		{
-			string = va_arg(pargs, char *);
-			len = ft_strlen(string);
-			count += write(1, string, len);
-			i++;
-		}
-		else
-		{
-			(write(1, &src[i], 1));
-			count++;
-		}
-		i++;
 		
 	}
+	va_end(pargs);
 	return (count);
 }
 
