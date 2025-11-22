@@ -6,18 +6,25 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 08:02:16 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 08:08:42 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
 int ft_printf(const char *src, ...);
+static int	print_nbr(va_list pargs, const char flag);
+static int	print_chr(va_list pargs, const char flag);
 
 int	main(void)
 {
 	ft_printf("%c\n%c\n", 'O', 'K');
 	return (0);
+}
+
+static int	print_chr(va_list pargs, const char flag)
+{
+	
 }
 
 static int	print_nbr(va_list pargs, const char flag)
@@ -51,10 +58,11 @@ int ft_printf(const char *src, ...)
 		if (src[i] == '%' && src[i + 1])
 		{
 			i++;
-			count += ft_putnbr_base(pargs, src[i]);
+			count += print_nbr(pargs, src[i]);
+			count += print_chr(pargs, src[i]);
 		}
 		else
-			count += write(1, src[i]);
+			count += write(1, src[i], 1);
 	}
 	va_end(pargs);
 	return (count);
