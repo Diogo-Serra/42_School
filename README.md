@@ -48,8 +48,4 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 <a href="https://profile.intra.42.fr/users/diogo-serra"><img src="https://img.shields.io/badge/42_Profile-diogo--serra-2ecc71?style=for-the-badge" alt="42 Profile"/></a>  
 <a href="https://github.com/Diogo-Serra"><img src="https://img.shields.io/badge/GitHub-Diogo--Serra-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
 
----
-
-⭐️ *Follow my progress as I advance through the 42 Common Core — from Libft to the Final Exam!*
-
 </div>
