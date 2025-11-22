@@ -6,52 +6,36 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 20:35:44 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 20:42:47 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*load_line(char *storage)
+char	*get_next_line(int fd)
 {
-	size_t	len;
-	char	*ptr_newline;
+	static char	*storage;
+	char		*buffer;
+	ssize_t		bytes_read;
+	char		*line;
 
-	if (!storage || !storage[0])
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ptr_newline = ft_strchr(storage, '\n');
-	if (ptr_newline)
-		len = (size_t)(ptr_newline - storage) + 1;
-	else
-		len = ft_strlen(storage);
-	return (ft_substr(storage, 0, len));
-}
-
-static char	*trim_storage(char *storage)
-{
-	size_t	start;
-	size_t	total;
-	char	*ptr_newline;
-	char	*new_storage;
-
-	if (!storage)
+	buffer = (char *)malloc((size_t)BUFFER_SIZE + 1);
+	if (!buffer)
 		return (NULL);
-	ptr_newline = ft_strchr(storage, '\n');
-	if (!ptr_newline)
+	bytes_read = reading(fd, &storage, buffer);
+	if (bytes_read < 0)
 	{
+		free(buffer);
 		free(storage);
+		storage = NULL;
 		return (NULL);
 	}
-	start = (size_t)(ptr_newline - storage) + 1;
-	total = ft_strlen(storage);
-	if (start >= total)
-	{
-		free(storage);
-		return (NULL);
-	}
-	new_storage = ft_substr(storage, start, total - start);
-	free(storage);
-	return (new_storage);
+	free(buffer);
+	line = load_line(storage);
+	storage = trim_storage(storage);
+	return (line);
 }
 
 static ssize_t	reading(int fd, char **storage, char *buffer)
@@ -78,47 +62,63 @@ static ssize_t	reading(int fd, char **storage, char *buffer)
 	return (bytes_read);
 }
 
-char	*get_next_line(int fd)
+static char	*load_line(char *storage)
 {
-	char		*line;
-	char		*buffer;
-	static char	*storage;
-	ssize_t		bytes_read;
+	char	*ptr_newline;
+	size_t	len;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (!storage || !storage[0])
 		return (NULL);
-	buffer = (char *)malloc((size_t)BUFFER_SIZE + 1);
-	if (!buffer)
-		return (NULL);
-	bytes_read = reading(fd, &storage, buffer);
-	if (bytes_read < 0)
-	{
-		free(buffer);
-		free(storage);
-		storage = NULL;
-		return (NULL);
-	}
-	free(buffer);
-	line = load_line(storage);
-	storage = trim_storage(storage);
-	return (line);
+	ptr_newline = ft_strchr(storage, '\n');
+	if (ptr_newline)
+		len = (size_t)(ptr_newline - storage) + 1;
+	else
+		len = ft_strlen(storage);
+	return (ft_substr(storage, 0, len));
 }
 
-/* int	main(void)
+static char	*trim_storage(char *storage)
 {
-	char	*out;
-	int		fd;
+	char	*ptr_newline;
+	char	*new_storage;
+	size_t	start;
+	size_t	total;
 
-	fd = open("test.txt", O_RDONLY);
-	out = get_next_line(fd);
-	printf("Line->%s", out);
-	free(out);
-	out = get_next_line(fd);
-	printf("Line->%s", out);
-	free(out);
-	out = get_next_line(fd);
-	printf("Line->%s", out);
-	free(out);
-	close(fd);
-	return (0);
-} */
+	if (!storage)
+		return (NULL);
+	ptr_newline = ft_strchr(storage, '\n');
+	if (!ptr_newline)
+	{
+		free(storage);
+		return (NULL);
+	}
+	start = (size_t)(ptr_newline - storage) + 1;
+	total = ft_strlen(storage);
+	if (start >= total)
+	{
+		free(storage);
+		return (NULL);
+	}
+	new_storage = ft_substr(storage, start, total - start);
+	free(storage);
+	return (new_storage);
+}
+
+static char	*ft_strjoin_free(char *s1, char const *s2)
+{
+	size_t	len1;
+	size_t	len2;
+	char	*out;
+
+	if (!s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	out = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
+	if (!out)
+		return (NULL);
+	ft_memcpy(out, s1, len1);
+	ft_memcpy(out + len1, s2, len2);
+	free(s1);
+	return (out);
+}
