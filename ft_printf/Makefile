@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/19 16:58:36 by diosoare          #+#    #+#              #
-#    Updated: 2025/11/21 15:43:17 by diosoare         ###   ########.fr        #
+#    Updated: 2025/11/22 06:10:45 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,11 @@ ARFLAGS  := rcs
 RM       := rm -f
 
 SRCS := \
-	ft_printf.c
+	ft_printf.c printfhelper.c
 
 OBJS := $(SRCS:.c=.o)
 
-%.o: %.c libft.h
+%.o: %.c libftprintf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # **************************************************************************** #

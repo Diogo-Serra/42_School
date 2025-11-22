@@ -6,31 +6,18 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/21 17:19:41 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 06:09:38 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
+#include "libftprintf.h"
 
 int ft_printf(const char *src, ...);
-size_t	ft_strlen(const char *s);
-
 
 int	main(void)
 {
 	ft_printf("%c\n%c\n%s\n", 'O', 'K', "Teste");
 	return (0);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
 }
 
 int ft_printf(const char *src, ...)
