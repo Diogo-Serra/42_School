@@ -6,12 +6,15 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/10 10:45:18 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 07:19:17 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define LOWER_HEX "0123456789abcdef"
+# define UPPER_HEX "0123456789ABCDEF"
 
 # include <unistd.h>
 # include <stdint.h>
@@ -77,6 +80,7 @@ int		ft_toupper(int c);
 /* =========================================================*/
 char	*ft_itoa(int n);
 int		ft_atoi(const char *s);
+char	*ft_itoa_base(long n, int base, int uppercase);
 
 /* =========================================================*/
 /* 7) Raw memory primitives                                 */
