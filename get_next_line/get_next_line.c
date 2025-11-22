@@ -6,11 +6,16 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 20:42:47 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 20:52:17 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static char		*load_line(char *storage);
+static char		*trim_storage(char *storage);
+static char		*ft_strjoin_free(char *s1, char const *s2);
+static ssize_t	reading(int fd, char **storage, char *buffer);
 
 char	*get_next_line(int fd)
 {
