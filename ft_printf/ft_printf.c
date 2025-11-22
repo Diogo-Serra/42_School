@@ -6,13 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 08:34:07 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 08:39:09 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_printf(const char *src, ...);
+int			ft_printf(const char *src, ...);
 static int	print_nbr(va_list pargs, const char flag);
 static int	print_chr(va_list pargs, const char flag);
 
@@ -36,7 +36,7 @@ static int	print_chr(va_list pargs, const char flag)
 		if (!str)
 			str = "(null)";
 		len = ft_strlen(str);
-		count = write(1, str, len);		
+		count = write(1, str, len);
 	}
 	else if (flag == 'c')
 	{
@@ -64,15 +64,25 @@ static int	print_nbr(va_list pargs, const char flag)
 	return (count);
 }
 
-int ft_printf(const char *src, ...)
+static int	print_handler(va_list pargs, const char flag)
+{
+	if (flag == 'c' || flag == 's' || flag == '%')
+		return (print_chr(pargs, flag));
+	else if (flag == 'd' || flag == 'i' || flag == 'u'
+		|| flag == 'x' || flag == 'X')
+		return (print_nbr(pargs, flag));
+	return (0);
+}
+
+int	ft_printf(const char *src, ...)
 {
 	va_list	pargs;
 	int		count;
 	int		i;
-	
+
 	i = 0;
 	count = 0;
- 	va_start(pargs, src);
+	va_start(pargs, src);
 	while (src[i])
 	{
 		if (src[i] == '%' && src[i + 1])
