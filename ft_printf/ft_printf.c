@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 08:39:09 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 08:40:15 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,11 @@ int	ft_printf(const char *src, ...)
 		if (src[i] == '%' && src[i + 1])
 		{
 			i++;
-			count += print_nbr(pargs, src[i]);
-			count += print_chr(pargs, src[i]);
+			count += print_handler(pargs, src[i]);
 		}
 		else
 			count += write(1, &src[i], 1);
+		i++;
 	}
 	va_end(pargs);
 	return (count);
