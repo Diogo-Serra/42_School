@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 08:08:42 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 08:13:23 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,18 @@ int	main(void)
 
 static int	print_chr(va_list pargs, const char flag)
 {
-	
+	int		len;
+	int		count;
+
+	if (flag == 's')
+	{
+		len = ft_strlen(pargs);
+		count = write(1, &pargs, len);		
+	}
+	else if (flag == 'c')
+		count = write(1, &pargs, 1);
+	else
+		return (0);
 }
 
 static int	print_nbr(va_list pargs, const char flag)
