@@ -6,11 +6,11 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 09:07:20 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/22 20:10:04 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int			ft_printf(const char *src, ...);
 static int	print_nbr(va_list pargs, const char flag);
@@ -23,15 +23,16 @@ int	ft_printf(const char *src, ...)
 	int		count;
 	int		i;
 
-	i = -1;
+	i = 0;
 	count = 0;
 	va_start(pargs, src);
-	while (src[++i])
+	while (src[i])
 	{
 		if (src[i] == '%' && src[i + 1])
 			count += print_handler(pargs, src[++i]);
 		else
 			count += write(1, &src[i], 1);
+		i++;
 	}
 	va_end(pargs);
 	return (count);
@@ -50,6 +51,8 @@ static int	print_handler(va_list pargs, const char flag)
 	else if (flag == 'p')
 	{
 		ptr = (unsigned long)va_arg(pargs, void *);
+		if (ptr == 0)
+			return (write(1, "(nil)", 5));
 		count = write(1, "0x", 2);
 		count += ft_putnbr_base(ptr, LOWER_HEX);
 		return (count);
