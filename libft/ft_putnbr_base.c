@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 07:39:33 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/23 16:09:05 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/23 16:10:16 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_putnbr_base(long n, const char *digits)
 	int				base;
 
 	nb = n;
-	base = ft_strlen(digits);
+	base = (int)ft_strlen(digits);
 	if (n < 0 && base == 10)
 		nb = -n;
 	i = 64;
