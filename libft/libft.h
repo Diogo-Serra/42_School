@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 20:18:16 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/23 15:59:51 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # define LOWER_HEX "0123456789abcdef"
 # define UPPER_HEX "0123456789ABCDEF"
+# define DECIMAL "0123456789"
+# define OCTAL "01234567"
+# define BINARY "01"
 
 # include <unistd.h>
 # include <stdint.h>
