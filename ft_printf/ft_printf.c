@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 20:10:04 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/24 20:39:31 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ int			ft_printf(const char *src, ...);
 static int	print_nbr(va_list pargs, const char flag);
 static int	print_chr(va_list pargs, const char flag);
 static int	print_handler(va_list pargs, const char flag);
+
+int	main(void)
+{
+	ft_printf("%d", -42);
+	return (0);
+}
 
 int	ft_printf(const char *src, ...)
 {
@@ -54,7 +60,7 @@ static int	print_handler(va_list pargs, const char flag)
 		if (ptr == 0)
 			return (write(1, "(nil)", 5));
 		count = write(1, "0x", 2);
-		count += ft_putnbr_base(ptr, LOWER_HEX);
+		count += ft_putnbr_base(ptr, LOWER_HEX, 16);
 		return (count);
 	}
 	return (0);
@@ -73,7 +79,9 @@ static int	print_chr(va_list pargs, const char flag)
 		str = va_arg(pargs, char *);
 		if (!str)
 			str = "(null)";
-		len = ft_strlen(str);
+		len = 0;
+		while (str)
+			len++;
 		count = write(1, str, len);
 	}
 	else if (flag == 'c')
@@ -92,12 +100,12 @@ static int	print_nbr(va_list pargs, const char flag)
 
 	count = 0;
 	if (flag == 'd' || flag == 'i')
-		count = ft_putnbr_base(va_arg(pargs, int), DECIMAL);
+		count = ft_putnbr_base(va_arg(pargs, int), DECIMAL, 10);
 	else if (flag == 'u')
-		count = ft_putnbr_base(va_arg(pargs, unsigned int), DECIMAL);
+		count = ft_putnbr_base(va_arg(pargs, unsigned int), DECIMAL, 10);
 	else if (flag == 'x')
-		count = ft_putnbr_base(va_arg(pargs, unsigned int), LOWER_HEX);
+		count = ft_putnbr_base(va_arg(pargs, unsigned int), LOWER_HEX, 16);
 	else if (flag == 'X')
-		count = ft_putnbr_base(va_arg(pargs, unsigned int), UPPER_HEX);
+		count = ft_putnbr_base(va_arg(pargs, unsigned int), UPPER_HEX, 16);
 	return (count);
 }

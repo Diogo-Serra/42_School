@@ -6,32 +6,20 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 06:01:09 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/24 14:18:26 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/24 20:38:26 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-int	ft_putnbr_base(long n, const char *digits)
+int	ft_putnbr_base(long n, const char *digits, int base)
 {
 	char			arr[12];
+	int				count;
 	long			nb;
 	int				i;
-	int				count;
-	int				base;
 
 	nb = n;
-	base = ft_strlen(digits);
 	if (n < 0 && base == 10)
 		nb = -n;
 	i = 11;
