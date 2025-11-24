@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/24 20:51:24 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/24 20:52:46 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	print_chr(va_list pargs, const char flag)
 		if (!str)
 			str = "(null)";
 		len = 0;
-		while (str)
+		while (str[len])
 			len++;
 		count = write(1, str, len);
 	}
