@@ -6,11 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/24 20:52:46 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/24 22:32:24 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
+#include <stdio.h>
 
 int			ft_printf(const char *src, ...);
 static int	print_nbr(va_list pargs, const char flag);
@@ -40,17 +42,17 @@ int	ft_printf(const char *src, ...)
 
 static int	print_handler(va_list pargs, const char flag)
 {
-	unsigned long	ptr;
+	long			ptr;
 	int				count;
 
 	if (flag == 'c' || flag == 's' || flag == '%')
 		return (print_chr(pargs, flag));
-	else if (flag == 'd' || flag == 'i' || flag == 'u'
+	if (flag == 'd' || flag == 'i' || flag == 'u'
 		|| flag == 'x' || flag == 'X')
 		return (print_nbr(pargs, flag));
-	else if (flag == 'p')
+	if (flag == 'p')
 	{
-		ptr = (unsigned long)va_arg(pargs, void *);
+		ptr = (long)va_arg(pargs, void *);
 		if (ptr == 0)
 			return (write(1, "(nil)", 5));
 		count = write(1, "0x", 2);

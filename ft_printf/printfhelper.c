@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 06:01:09 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/24 20:38:26 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/24 21:31:57 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putnbr_base(long n, const char *digits, int base)
 {
-	char			arr[12];
+	char			arr[21];
 	int				count;
 	long			nb;
 	int				i;
@@ -22,7 +22,7 @@ int	ft_putnbr_base(long n, const char *digits, int base)
 	nb = n;
 	if (n < 0 && base == 10)
 		nb = -n;
-	i = 11;
+	i = 20;
 	if (nb == 0)
 		arr[--i] = '0';
 	while (nb)
@@ -32,7 +32,7 @@ int	ft_putnbr_base(long n, const char *digits, int base)
 	}
 	if (n < 0 && base == 10)
 		arr[--i] = '-';
-	count = 11 - i;
+	count = 20 - i;
 	write(1, arr + i, count);
 	return (count);
 }
