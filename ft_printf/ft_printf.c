@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/24 22:54:03 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/24 23:04:10 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_printf(const char *src, ...)
 
 static int	print_handler(va_list pargs, const char flag)
 {
-	long			ptr;
+	unsigned long	ptr;
 	int				count;
 
 	if (flag == 'c' || flag == 's' || flag == '%')
@@ -50,7 +50,7 @@ static int	print_handler(va_list pargs, const char flag)
 		return (print_nbr(pargs, flag));
 	if (flag == 'p')
 	{
-		ptr = (long)va_arg(pargs, void *);
+		ptr = (unsigned long)va_arg(pargs, void *);
 		if (ptr == 0)
 			return (write(1, "(nil)", 5));
 		count = write(1, "0x", 2);
@@ -67,7 +67,6 @@ static int	print_chr(va_list pargs, const char flag)
 	int		len;
 	int		count;
 
-	count = 0;
 	if (flag == 's')
 	{
 		str = va_arg(pargs, char *);
@@ -92,7 +91,6 @@ static int	print_nbr(va_list pargs, const char flag)
 {
 	int		count;
 
-	count = 0;
 	if (flag == 'd' || flag == 'i')
 		count = ft_putnbr_base(va_arg(pargs, int), DECIMAL, 10);
 	else if (flag == 'u')
