@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 06:01:09 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/22 20:00:10 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/24 14:18:26 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ size_t	ft_strlen(const char *s)
 int	ft_putnbr_base(long n, const char *digits)
 {
 	char			arr[12];
-	unsigned long	nb;
+	long			nb;
 	int				i;
 	int				count;
 	int				base;
 
-	nb = (unsigned long)n;
+	nb = n;
 	base = ft_strlen(digits);
 	if (n < 0 && base == 10)
 		nb = -n;
