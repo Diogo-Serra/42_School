@@ -6,13 +6,11 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/24 22:32:24 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/24 22:54:03 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <limits.h>
-#include <stdio.h>
 
 int			ft_printf(const char *src, ...);
 static int	print_nbr(va_list pargs, const char flag);
@@ -86,7 +84,7 @@ static int	print_chr(va_list pargs, const char flag)
 		count = write(1, &c, 1);
 	}
 	else if (flag == '%')
-		count = write(1, "%", 1);
+		count = write(1, &flag, 1);
 	return (count);
 }
 
