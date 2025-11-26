@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:04:36 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/26 22:14:23 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/26 23:19:51 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,29 @@ char	*ft_strdup(const char *s)
 
 char	*ft_strjoin(char *s1, char const *s2)
 {
-	size_t	len1;
-	size_t	len2;
+	size_t	i;
+	size_t	j;
 	char	*out;
 
 	if (!s1 || !s2)
 		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	out = (char *)malloc(len1 + len2 + 1);
+	out = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!out)
 		return (NULL);
-	ft_memcpy(out, s1, len1);
-	ft_memcpy(out + len1, s2, len2);
+	i = 0;
+	while (s1[i])
+	{
+		out[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		out[i + j] = s2[j];
+		j++;
+	}
+	out[i + j] = '\0';
 	free(s1);
-	out[len1 + len2] = '\0';
 	return (out);
 }
 
@@ -75,16 +83,4 @@ char	*ft_strchr(const char *s, int c)
 	if (ch == '\0')
 		return ((char *)s);
 	return (NULL);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	unsigned char			*d;
-	const unsigned char		*s;
-
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	while (n--)
-		*d++ = *s++;
-	return (dst);
 }
