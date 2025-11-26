@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/26 23:36:38 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/26 23:42:40 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ static char	*gnl_handler(int fd, char *buffer)
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes < 0)
 			return (free(storage), NULL);
-		if (bytes == 0)
-			break ;
 		buffer[bytes] = '\0';
 		storage = ft_strjoin(storage, buffer);
 		if (!storage)
