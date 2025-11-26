@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:04:36 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/26 23:40:18 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/26 23:41:37 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
-	if (!s)
-		return (0);
 	i = 0;
 	while (s[i])
 		i++;
@@ -29,8 +27,6 @@ char	*ft_strdup(const char *s)
 	char	*dup;
 	size_t	i;
 
-	if (!s)
-		return (NULL);
 	i = ft_strlen(s);
 	dup = (char *)malloc(i + 1);
 	if (!dup)
@@ -77,8 +73,6 @@ char	*ft_strchr(const char *s, int c)
 {
 	char		ch;
 
-	if (!s)
-		return (NULL);
 	ch = (unsigned char)c;
 	while (*s)
 	{
