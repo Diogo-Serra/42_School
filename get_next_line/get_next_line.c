@@ -6,56 +6,88 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/25 16:54:40 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/26 23:13:07 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*read_handler(char *buffer, ssize_t bytes_read);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
+/*   Updated: 2025/11/26 22:01:21 by diosoare         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	main(void)
-{
-	char	*str;
-	str = get_next_line(open("test.txt", O_RDONLY));
-	printf("%s\n", str);
-	free(str);
-	return (0);
-}
+#include "get_next_line.h"
+
+static char	*gnl_handler(int fd, char *buffer);
+static char	*gnl_extract_line(char *storage, char *buffer);
 
 char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];
-	ssize_t		bytes_read;
-	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	bytes_read = 1;
-	line = NULL;
-	while (bytes_read)
-	{
-		if (!*buffer)
-			bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read < 0)
-			return (NULL);
-		line = read_handler(buffer, bytes_read);
-	}
-	return (line);
+	return (gnl_handler(fd, buffer));
 }
 
-static char	*read_handler(char *buffer, ssize_t bytes_read)
+static char	*gnl_handler(int fd, char *buffer)
 {
-	char	*line;
+    char		*storage;
+    ssize_t		bytes;
 
-	line = NULL;
-	if (ft_strchr(buffer, '\n'))
-	{
-		line = NULL;;
-		if (!line)
-			return (NULL);
-		line = ft_strjoin_free(line, buffer);
-		ft_bzero(buffer, bytes_read);
-	}
-	return (line);
+    storage = ft_strdup(buffer);
+    if (!storage)
+        return (NULL);
+    buffer[0] = '\0';
+    bytes = 1;
+    while (bytes > 0 && !ft_strchr(storage, '\n'))
+    {
+        bytes = read(fd, buffer, BUFFER_SIZE);
+        if (bytes < 0)
+            return (free(storage), NULL);
+        buffer[bytes] = '\0';
+        storage = ft_strjoin(storage, buffer);
+        if (!storage)
+            return (NULL);
+    }
+    if (!storage[0])
+        return (free(storage), NULL);
+    if (ft_strchr(storage, '\n'))
+        return (gnl_extract_line(storage, buffer));
+    return (buffer[0] = '\0', storage);
+}
+
+char	*gnl_extract_line(char *storage, char *buffer)
+{
+    char	*line;
+    char	*newline_pos;
+    int		line_len;
+    int		i;
+
+    newline_pos = ft_strchr(storage, '\n');
+    line_len = newline_pos - storage + 1;
+    line = malloc(sizeof(char) * (line_len + 1));
+    if (!line)
+        return (free(storage), NULL);
+    i = -1;
+    while (++i < line_len)
+        line[i] = storage[i];
+    line[i] = '\0';
+    i = 0;
+    while (storage[line_len + i])
+    {
+        buffer[i] = storage[line_len + i];
+        i++;
+    }
+    buffer[i] = '\0';
+    free(storage);
+    return (line);
 }
