@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/26 23:42:40 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/26 23:43:22 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ char	*gnl_extract_line(char *storage, char *buffer)
 	int		i;
 
 	newline_pos = ft_strchr(storage, '\n');
-	if (!newline_pos)
-		return (free(storage), NULL);
 	line_len = newline_pos - storage + 1;
 	line = malloc(sizeof(char) * (line_len + 1));
 	if (!line)
