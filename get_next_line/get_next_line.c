@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 14:28:47 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:03:04 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ static char	*gnl_extract_line(char *storage, char *buffer)
 {
 	char	*line;
 	char	*newline_pos;
-	int		line_len;
-	int		i;
+	ssize_t	line_len;
+	ssize_t	i;
 
 	newline_pos = ft_strchr(storage, '\n');
 	line_len = newline_pos - storage + 1;

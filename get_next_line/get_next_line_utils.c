@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:04:36 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 14:29:35 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:07:06 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,45 +25,36 @@ size_t	ft_strlen(const char *s)
 char	*ft_strdup(const char *buffer)
 {
 	char	*dup;
-	size_t	i;
+	ssize_t	i;
 
-	i = ft_strlen(buffer);
-	dup = (char *)malloc(i + 1);
+	i = (size_t)ft_strlen(buffer);
+	dup = malloc(i + 1);
 	if (!dup)
 		return (NULL);
-	i = 0;
-	while (buffer[i])
-	{
+	i = -1;
+	while (buffer[++i])
 		dup[i] = buffer[i];
-		i++;
-	}
 	dup[i] = '\0';
 	return (dup);
 }
 
 char	*ft_strjoin(char *storage, char const *buffer)
 {
-	size_t	i;
-	size_t	j;
+	ssize_t	i;
+	ssize_t	j;
 	char	*out;
 
 	if (!storage || !buffer)
 		return (NULL);
-	out = (char *)malloc(ft_strlen(storage) + ft_strlen(buffer) + 1);
+	out = malloc(ft_strlen(storage) + ft_strlen(buffer) + 1);
 	if (!out)
 		return (NULL);
-	i = 0;
-	while (storage[i])
-	{
+	i = -1;
+	while (storage[++i])
 		out[i] = storage[i];
-		i++;
-	}
-	j = 0;
-	while (buffer[j])
-	{
+	j = -1;
+	while (buffer[++j])
 		out[i + j] = buffer[j];
-		j++;
-	}
 	free(storage);
 	out[i + j] = '\0';
 	return (out);
