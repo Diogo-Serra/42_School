@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:04:36 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/26 23:41:37 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 00:04:49 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ char	*ft_strjoin(char *s1, char const *s2)
 	char	*out;
 
 	if (!s1 || !s2)
-		return (free(s1), NULL);
+		return (NULL);
 	out = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!out)
-		return (free(s1), NULL);
+		return (NULL);
 	i = 0;
 	while (s1[i])
 	{
