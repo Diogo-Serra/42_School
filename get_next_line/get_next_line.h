@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:30 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 12:50:08 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 12:54:27 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 # endif
 
 # include <fcntl.h>
-# include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 /* =========================================================*/
 /* get_next_line                                            */
