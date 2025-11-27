@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:04:36 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 11:56:53 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 12:50:25 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,65 +22,65 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *buffer)
 {
 	char	*dup;
 	size_t	i;
 
-	i = ft_strlen(s);
+	i = ft_strlen(buffer);
 	dup = (char *)malloc(i + 1);
 	if (!dup)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (buffer[i])
 	{
-		dup[i] = s[i];
+		dup[i] = buffer[i];
 		i++;
 	}
 	dup[i] = '\0';
 	return (dup);
 }
 
-char	*ft_strjoin(char *s1, char const *s2)
+char	*ft_strjoin(char *storage, char const *buffer)
 {
 	size_t	i;
 	size_t	j;
 	char	*out;
 
-	if (!s1 || !s2)
+	if (!storage || !buffer)
 		return (NULL);
-	out = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	out = (char *)malloc(ft_strlen(storage) + ft_strlen(buffer) + 1);
 	if (!out)
 		return (NULL);
 	i = 0;
-	while (s1[i])
+	while (storage[i])
 	{
-		out[i] = s1[i];
+		out[i] = storage[i];
 		i++;
 	}
 	j = 0;
-	while (s2[j])
+	while (buffer[j])
 	{
-		out[i + j] = s2[j];
+		out[i + j] = buffer[j];
 		j++;
 	}
-	free(s1);
+	free(storage);
 	out[i + j] = '\0';
 	return (out);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *storage, int newline)
 {
 	char		ch;
 
-	ch = (unsigned char)c;
-	while (*s)
+	ch = (unsigned char)newline;
+	while (*storage)
 	{
-		if (*s == ch)
-			return ((char *)s);
-		s++;
+		if (*storage == ch)
+			return ((char *)storage);
+		storage++;
 	}
 	if (ch == '\0')
-		return ((char *)s);
+		return ((char *)storage);
 	return (NULL);
 }

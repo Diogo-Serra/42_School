@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:30 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/26 23:47:00 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 12:50:08 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 /* =========================================================*/
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char *s1, char const *s2);
+char	*ft_strdup(const char *buffer);
+char	*ft_strchr(const char *storage, int newline);
+char	*ft_strjoin(char *storage, char const *buffer);
 
 #endif
