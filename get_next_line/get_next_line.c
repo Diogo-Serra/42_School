@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 00:11:55 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 00:22:16 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static char	*gnl_handler(int fd, char *buffer);
 static char	*gnl_extract_line(char *storage, char *buffer);
 
-int	main(void)
+/* int	main(void)
 {
 	char *line;
 	int fd;
@@ -38,7 +38,7 @@ int	main(void)
 	close(fd);
 	return (0);
 }
-
+ */
 char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];
@@ -72,12 +72,12 @@ static char	*gnl_handler(int fd, char *buffer)
 	}
 	if (!storage[0])
 		return (free(storage), NULL);
-	if (ft_strchr(storage, '\n'))
+	if (bytes > 0)
 		return (gnl_extract_line(storage, buffer));
 	return (buffer[0] = '\0', storage);
 }
 
-char	*gnl_extract_line(char *storage, char *buffer)
+static char	*gnl_extract_line(char *storage, char *buffer)
 {
 	char	*line;
 	char	*newline_pos;
