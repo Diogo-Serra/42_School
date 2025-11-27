@@ -6,18 +6,18 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:04:36 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 16:07:06 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:07:33 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *source)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (source[i])
 		i++;
 	return (i);
 }
