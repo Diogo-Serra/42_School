@@ -6,13 +6,12 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 22:27:27 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 22:29:42 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_printf(const char *src, ...);
 static int	print_nbr(va_list pargs, const char flag);
 static int	print_chr(va_list pargs, const char flag);
 static int	print_handler(va_list pargs, const char flag);
