@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 16:03:04 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 22:13:20 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static char	*gnl_handler(int fd, char *buffer);
 static char	*gnl_extract_line(char *storage, char *buffer);
 
-/* int	main(void)
+/* #include <stdio.h>
+int	main(void)
 {
 	char *line;
 	int fd;
@@ -66,12 +67,14 @@ static char	*gnl_handler(int fd, char *buffer)
 			return (free(storage), NULL);
 		buffer[bytes] = '\0';
 		storage = ft_strjoin(storage, buffer);
+		if (!storage)
+			return (free(storage), NULL);
 	}
-	if (!storage || !storage[0])
-		return (free(storage), NULL);
-	if (bytes > 0)
+	if (ft_strchr(storage, '\n'))
 		return (gnl_extract_line(storage, buffer));
-	return (buffer[0] = '\0', storage);
+	if (storage[0])
+		return (buffer[0] = '\0', storage);
+	return (free(storage), NULL);
 }
 
 static char	*gnl_extract_line(char *storage, char *buffer)
@@ -91,7 +94,7 @@ static char	*gnl_extract_line(char *storage, char *buffer)
 		line[i] = storage[i];
 	line[i] = '\0';
 	i = -1;
-	while (storage[line_len + ++i])
+	while (storage[++i + line_len])
 		buffer[i] = storage[line_len + i];
 	buffer[i] = '\0';
 	free(storage);
