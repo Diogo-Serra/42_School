@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:49:52 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/25 11:03:30 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 22:27:27 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,31 @@ int			ft_printf(const char *src, ...);
 static int	print_nbr(va_list pargs, const char flag);
 static int	print_chr(va_list pargs, const char flag);
 static int	print_handler(va_list pargs, const char flag);
+
+/* int	main(void)
+{
+	int				ret1;
+	char			*str;
+	unsigned int	unum;
+	void			*ptr;
+
+	str = "Hello";
+	unum = 42000;
+	ptr = str;
+	ret1 = ft_printf("Char: %c\n", 'A');
+	ft_printf("Decimal: %d\n", ret1);
+	ret1 = ft_printf("String: %s\n", str);
+	ft_printf("Decimal: %d\n", ret1);
+	ft_printf("Percent: %%\n");
+	ft_printf("Integer: %i\n", -123);
+	ft_printf("Unsigned: %u\n", unum);
+	ft_printf("Hex lower: %x\n", 255);
+	ft_printf("Hex upper: %X\n", 255);
+	ft_printf("Pointer: %p\n", ptr);
+	ft_printf("Null pointer: %p\n", NULL);
+	ft_printf("Null string: %s\n", (char *) NULL);
+	return (0);
+} */
 
 int	ft_printf(const char *src, ...)
 {
