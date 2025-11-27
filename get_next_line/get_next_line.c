@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 00:03:32 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 00:11:55 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,30 @@
 
 static char	*gnl_handler(int fd, char *buffer);
 static char	*gnl_extract_line(char *storage, char *buffer);
-/* 
+
 int	main(void)
 {
-	int		fd;
-    char	*line;
-    int		i;
+	char *line;
+	int fd;
+	int i;
 
-    fd = open("test.txt", O_RDONLY);
-    if (fd < 0)
-    {
-        printf("Error opening file\n");
-        return (1);
-    }
-    i = 1;
-    while ((line = get_next_line(fd)))
-    {
-        printf("Line %d: %s", i, line);
-        free(line);
-        i++;
-    }
-    close(fd);
-    return (0);
-} */
+	fd = open("test.txt", O_RDONLY);
+	if (fd < 0)
+	{
+		printf("Error opening file\n");
+		return (1);
+	}
+	i = 1;
+	while ((line = get_next_line(fd)))
+	{
+		printf("Line %d: %s", i, line);
+		free(line);
+		i++;
+	}
+	printf("Line %d: \n", i);
+	close(fd);
+	return (0);
+}
 
 char	*get_next_line(int fd)
 {
@@ -50,30 +51,30 @@ char	*get_next_line(int fd)
 static char	*gnl_handler(int fd, char *buffer)
 {
 	char	*storage;
-    char	*temp;
-    ssize_t	bytes;
+	char	*temp;
+	ssize_t	bytes;
 
-    storage = ft_strdup(buffer);
-    if (!storage)
-        return (NULL);
-    buffer[0] = '\0';
-    bytes = 1;
-    while (bytes > 0 && !ft_strchr(storage, '\n'))
-    {
-        bytes = read(fd, buffer, BUFFER_SIZE);
-        if (bytes < 0)
-            return (free(storage), NULL);
-        buffer[bytes] = '\0';
-        temp = ft_strjoin(storage, buffer);
-        if (!temp)
-            return (free(storage), NULL);
-        storage = temp;
-    }
-    if (!storage[0])
-        return (free(storage), NULL);
-    if (ft_strchr(storage, '\n'))
-        return (gnl_extract_line(storage, buffer));
-    return (buffer[0] = '\0', storage);
+	storage = ft_strdup(buffer);
+	if (!storage)
+		return (NULL);
+	buffer[0] = '\0';
+	bytes = 1;
+	while (bytes > 0 && !ft_strchr(storage, '\n'))
+	{
+		bytes = read(fd, buffer, BUFFER_SIZE);
+		if (bytes < 0)
+			return (free(storage), NULL);
+		buffer[bytes] = '\0';
+		temp = ft_strjoin(storage, buffer);
+		if (!temp)
+			return (free(storage), NULL);
+		storage = temp;
+	}
+	if (!storage[0])
+		return (free(storage), NULL);
+	if (ft_strchr(storage, '\n'))
+		return (gnl_extract_line(storage, buffer));
+	return (buffer[0] = '\0', storage);
 }
 
 char	*gnl_extract_line(char *storage, char *buffer)
