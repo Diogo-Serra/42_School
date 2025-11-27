@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:04:36 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/27 00:04:49 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/11/27 11:56:53 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ char	*ft_strjoin(char *s1, char const *s2)
 		out[i + j] = s2[j];
 		j++;
 	}
-	out[i + j] = '\0';
 	free(s1);
+	out[i + j] = '\0';
 	return (out);
 }
 
