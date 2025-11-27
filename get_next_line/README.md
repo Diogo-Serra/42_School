@@ -1,5 +1,3 @@
-<div>
-
 <p align="center">
   <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/cover-get_next_line.png" alt="Banner">
 </p>
@@ -23,57 +21,48 @@
 ```c
 char *get_next_line(int fd);
 ```
-</div>
 
 ---
-
 
 ## Implementation Logic
 
 ### Core Algorithm
 
-The implementation uses a **static storage buffer** that persists between function calls, allowing the function to maintain state and handle lines that span multiple reads.
+The implementation uses a **static buffer** that persists between function calls, allowing the function to maintain state and handle lines that span multiple reads.
 
 ### Main Components
 
 #### 1. **`get_next_line(int fd)`** - Entry Point
 - Validates input (`fd >= 0` and `BUFFER_SIZE > 0`)
-- Allocates a temporary buffer for reading
-- Calls `reading()` to fill the static storage
-- Extracts the current line with `load_line()`
-- Trims the storage to remove the returned line with `trim_storage()`
+- Uses a static buffer array `[BUFFER_SIZE + 1]` to persist data between calls
+- Calls `gnl_handler()` to process the file descriptor and buffer
 
-#### 2. **`reading(int fd, char **storage, char *buffer)`** - Buffer Management
+#### 2. **`gnl_handler(int fd, char *buffer)`** - Buffer Management
+- Duplicates the static buffer content into dynamic storage using `ft_strdup()`
 - Reads from `fd` in chunks of `BUFFER_SIZE` bytes
 - Continues reading until:
   - A newline character (`\n`) is found in storage
-  - End of file is reached (`bytes_read == 0`)
-  - An error occurs (`bytes_read < 0`)
-- Appends each read chunk to the static storage using `ft_strjoin_free()`
+  - End of file is reached (`bytes == 0`)
+  - An error occurs (`bytes < 0`)
+- Appends each read chunk to storage using `ft_strjoin()`
 - Null-terminates the buffer after each read
+- If newline found: calls `gnl_extract_line()` to separate line from remainder
+- If EOF reached without newline: returns entire storage and clears buffer
 
-#### 3. **`load_line(char *storage)`** - Line Extraction
-- Locates the first newline character in storage
-- If found: returns substring from start to newline (inclusive)
-- If not found: returns the entire storage content (EOF case)
-- Returns `NULL` if storage is empty
-
-#### 4. **`trim_storage(char *storage)`** - Storage Cleanup
-- Finds the newline character position
-- Extracts remaining content after the newline
-- Frees the old storage
-- Returns the new storage (or `NULL` if no content remains)
-
-#### 5. **`ft_strjoin_free(char *s1, char const *s2)`** - Memory Optimization
-- Joins two strings and frees the first one
-- Reduces memory allocations by reusing the storage pointer
-- Uses `ft_calloc()` for automatic null-termination
+#### 3. **`gnl_extract_line(char *storage, char *buffer)`** - Line Extraction & Storage Update
+- Locates the first newline character using `ft_strchr()`
+- Calculates line length (including `\n`)
+- Allocates and copies the line (from start to newline inclusive)
+- Updates the static buffer with remaining content after the newline
+- Frees the storage
+- Returns the extracted line
 
 ### Memory Management
 
-- **Static variable** persists between calls to maintain partial lines
-- **Automatic cleanup**: storage is freed when empty or on error
-- **Safe freeing**: always frees old storage before reassigning
+- **Static buffer** persists between calls to maintain partial lines
+- **Dynamic storage**: temporary storage is allocated and freed within each call
+- **Buffer reuse**: static buffer is updated with leftover content after line extraction
+- **Automatic cleanup**: storage is freed before returning
 - **Error handling**: all allocations are checked; on failure, storage is freed and `NULL` is returned
 
 ### Edge Cases Handled
@@ -81,6 +70,7 @@ The implementation uses a **static storage buffer** that persists between functi
 - Invalid file descriptor (`fd < 0`)
 - Invalid buffer size (`BUFFER_SIZE <= 0`)
 - Read errors (returns `NULL` and cleans up)
-- Empty files
-- Files without trailing newline
+- Empty files (returns `NULL`)
+- Files without trailing newline (returns last line without `\n`)
 - Lines longer than `BUFFER_SIZE`
+- Multiple consecutive newlines
