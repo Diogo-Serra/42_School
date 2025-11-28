@@ -13,9 +13,9 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 
 ---
 
-| **Reloaded**                  | **Libft**                     | **Born2beroot**               | **ft_printf**                 |
-|:-----------------------------:|:-----------------------------:|:-----------------------------:|:-----------------------------:|
-| ![Reloaded](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/volunteerm.png) | ![Libft](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/libftm.png) | ![Born2beroot](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/born2beroote.png) | ![printf](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/ft_printfe.png) |
+| **Reloaded** | **Libft** | **Born2beroot** | **ft_printf** |
+|:------------:|:---------:|:---------------:|:-------------:|
+| [![Reloaded](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/volunteerm.png)](https://github.com/Diogo-Serra/42_School/tree/main/reloaded) | [![Libft](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/libftm.png)](https://github.com/Diogo-Serra/42_School/tree/main/libft) | [![Born2beroot](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/born2beroote.png)](https://github.com/Diogo-Serra/42_School/tree/main/Born2beRoot) | [![ft_printf](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/ft_printfe.png)](https://github.com/Diogo-Serra/42_School/tree/main/ft_printf) |
 
 ---
 
