@@ -6,37 +6,11 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/02 16:11:06 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/02 17:03:42 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-/* #include <stdio.h>
-int	main(void)
-{
-	char *line;
-	int fd;
-	int i;
-
-	fd = open("test.txt", O_RDONLY);
-	if (fd < 0)
-	{
-		printf("Error opening file\n");
-		return (1);
-	}
-	i = 1;
-	while ((line = get_next_line(fd)))
-	{
-		printf("Line %d: %s", i, line);
-		free(line);
-		i++;
-	}
-	printf("Line %d: \n", i);
-	free(line);
-	close(fd);
-	return (0);
-} */
 
 char	*get_next_line(int fd)
 {
@@ -65,3 +39,29 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
+
+/* #include <stdio.h>
+int	main(void)
+{
+	char *line;
+	int fd;
+	int i;
+
+	fd = open("test.txt", O_RDONLY);
+	if (fd < 0)
+	{
+		printf("Error opening file\n");
+		return (1);
+	}
+	i = 1;
+	while ((line = get_next_line(fd)))
+	{
+		printf("Line %d: %s", i, line);
+		free(line);
+		i++;
+	}
+	printf("Line %d: \n", i);
+	free(line);
+	close(fd);
+	return (0);
+} */
