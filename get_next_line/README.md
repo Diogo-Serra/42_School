@@ -28,49 +28,64 @@ char *get_next_line(int fd);
 
 ### Core Algorithm
 
-The implementation uses a **static buffer** that persists between function calls, allowing the function to maintain state and handle lines that span multiple reads.
+The implementation uses a **static buffer** that persists between function calls, acting as a sliding window that stores leftover data from previous reads.
 
 ### Main Components
 
-#### 1. **`get_next_line(int fd)`** - Entry Point
-- Validates input (`fd >= 0` and `BUFFER_SIZE > 0`)
-- Uses a static buffer array `[BUFFER_SIZE + 1]` to persist data between calls
-- Calls `gnl_handler()` to process the file descriptor and buffer
+#### 1. **`get_next_line(int fd)`** - Entry Point & Main Loop
+- **Input Validation**: Checks `fd >= 0` and `BUFFER_SIZE >= 1`
+- **Static Buffer**: Uses `buffer[BUFFER_SIZE + 1]` to persist data between calls
+- **Loop Condition**: Continues while `bytes > 0` OR `buffer[0]` contains data
+  - This ensures leftover data from previous reads is processed
+  - Allows handling lines that span multiple reads
 
-#### 2. **`gnl_handler(int fd, char *buffer)`** - Buffer Management
-- Duplicates the static buffer content into dynamic storage using `ft_strdup()`
-- Reads from `fd` in chunks of `BUFFER_SIZE` bytes
-- Continues reading until:
-  - A newline character (`\n`) is found in storage
-  - End of file is reached (`bytes == 0`)
-  - An error occurs (`bytes < 0`)
-- Appends each read chunk to storage using `ft_strjoin()`
-- Null-terminates the buffer after each read
-- If newline found: calls `gnl_extract_line()` to separate line from remainder
-- If EOF reached without newline: returns entire storage and clears buffer
+#### 2. **Read Phase**
+- **Conditional Reading**: Only reads when buffer is empty (`!buffer[0]`)
+  - Prevents overwriting unprocessed data
+  - Reads up to `BUFFER_SIZE` bytes from `fd`
+  - Buffer is automatically null-terminated due to `[BUFFER_SIZE + 1]` size
+- **Error Handling**: If `read()` returns `-1`:
+  - Calls `clean_buffer(buffer)` to clear static state
+  - Frees accumulated `line`
+  - Returns `NULL`
+- **EOF Detection**: If `read()` returns `0` and buffer is empty:
+  - Returns current `line` (may be `NULL` if nothing accumulated)
 
-#### 3. **`gnl_extract_line(char *storage, char *buffer)`** - Line Extraction & Storage Update
-- Locates the first newline character using `ft_strchr()`
-- Calculates line length (including `\n`)
-- Allocates and copies the line (from start to newline inclusive)
-- Updates the static buffer with remaining content after the newline
-- Frees the storage
-- Returns the extracted line
+#### 3. **Line Building Phase**
+- **`ft_strnjoin(line, buffer)`**: Appends buffer content to line
+  - Takes existing `line` (or `NULL`) and joins with buffer content
+  - Returns newly allocated string containing both parts
+  - Old `line` is freed inside `ft_strnjoin()`
+- **Allocation Check**: If `ft_strnjoin()` returns `NULL`:
+  - Calls `clean_buffer(buffer)` to clear static state
+  - Returns `NULL` (no need to free `line` as it was freed in `ft_strnjoin`)
+
+#### 4. **Buffer Management**
+- **`clean_buffer(buffer)`**: Called after each join
+  - Moves remaining content (after newline) to start of buffer
+  - Clears the rest of the buffer with null bytes
+  - Preserves data for next iteration/call
+- **Newline Detection**: Uses `ft_strchr(line, '\n')` after cleaning
+  - If found: breaks loop and returns complete line (including `\n`)
+  - If not found: continues reading more data
 
 ### Memory Management
 
-- **Static buffer** persists between calls to maintain partial lines
-- **Dynamic storage**: temporary storage is allocated and freed within each call
-- **Buffer reuse**: static buffer is updated with leftover content after line extraction
-- **Automatic cleanup**: storage is freed before returning
-- **Error handling**: all allocations are checked; on failure, storage is freed and `NULL` is returned
+- **Static buffer** survives function returns, maintaining partial lines
+- **Dynamic line** grows with each `ft_strnjoin()` call:
+  - Old allocation is freed internally
+  - New allocation holds combined content
+- **Buffer state** is cleaned after processing to preserve only unread data
+- **Error cleanup**: Both static buffer and dynamic line are cleaned/freed on errors
 
 ### Edge Cases Handled
 
-- Invalid file descriptor (`fd < 0`)
-- Invalid buffer size (`BUFFER_SIZE <= 0`)
-- Read errors (returns `NULL` and cleans up)
-- Empty files (returns `NULL`)
-- Files without trailing newline (returns last line without `\n`)
-- Lines longer than `BUFFER_SIZE`
-- Multiple consecutive newlines
+- **Invalid input**: `fd < 0` or `BUFFER_SIZE < 1` returns `NULL`
+- **Read errors**: Cleans buffer and frees line before returning `NULL`
+- **Empty files**: Returns `NULL` (no data accumulated)
+- **No trailing newline**: Returns last line without `\n`
+- **Lines longer than `BUFFER_SIZE`**: Accumulated across multiple reads
+- **Multiple consecutive newlines**: Each returned as separate line on subsequent calls
+- **Multiple file descriptors**: Each `fd` uses its own call context but shares the same static buffer
+
+### Control Flow
