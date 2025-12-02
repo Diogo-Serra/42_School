@@ -87,5 +87,3 @@ The implementation uses a **static buffer** that persists between function calls
 - **Lines longer than `BUFFER_SIZE`**: Accumulated across multiple reads
 - **Multiple consecutive newlines**: Each returned as separate line on subsequent calls
 - **Multiple file descriptors**: Each `fd` uses its own call context but shares the same static buffer
-
-### Control Flow
