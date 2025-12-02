@@ -5,75 +5,87 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 16:04:36 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/28 11:40:57 by diosoare         ###   ########.fr       */
+/*   Created: 2025/11/08 19:26:34 by diosoare          #+#    #+#             */
+/*   Updated: 2025/12/02 16:01:20 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *source)
+char	*ft_strchr(const char *line, int c)
+{
+	char		ch;
+
+	ch = (unsigned char)c;
+	while (*line)
+	{
+		if (*line == ch)
+			return ((char *)line);
+		line++;
+	}
+	if (ch == '\0')
+		return ((char *)line);
+	return (NULL);
+}
+
+size_t	ft_strllen(const char *source)
 {
 	size_t	i;
 
 	i = 0;
+	if (!source)
+		return (0);
 	while (source[i])
-		i++;
+	{
+		if (source[i++] == '\n')
+			break ;
+	}
 	return (i);
 }
 
-char	*ft_strdup(const char *buffer)
+char	*clean_buffer(char *buffer)
 {
-	char	*dup;
-	ssize_t	i;
+	size_t	i;
+	size_t	j;
 
-	if (!buffer)
-		return (NULL);
-	i = (size_t)ft_strlen(buffer);
-	dup = malloc(i + 1);
-	if (!dup)
-		return (NULL);
-	i = -1;
-	while (buffer[++i])
-		dup[i] = buffer[i];
-	dup[i] = '\0';
-	return (dup);
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	if (buffer[i] == '\n')
+		i++;
+	j = 0;
+	while (buffer[i + j])
+	{
+		buffer[j] = buffer[i + j];
+		j++;
+	}
+	while (j < BUFFER_SIZE + 1)
+		buffer[j++] = '\0';
+	return (buffer);
 }
 
-char	*ft_strjoin(char *storage, char const *buffer)
+char	*ft_strnjoin(char *line, char const *buffer)
 {
 	ssize_t	i;
 	ssize_t	j;
 	char	*out;
 
-	if (!storage || !buffer)
-		return (NULL);
-	out = malloc(ft_strlen(storage) + ft_strlen(buffer) + 1);
+	out = malloc((ft_strllen(line) + ft_strllen(buffer) + 1) * sizeof(char));
 	if (!out)
-		return (free(storage), NULL);
-	i = -1;
-	while (storage[++i])
-		out[i] = storage[i];
-	j = -1;
-	while (buffer[++j])
-		out[i + j] = buffer[j];
-	free(storage);
-	out[i + j] = '\0';
-	return (out);
-}
-
-char	*ft_strchr(const char *storage, int newline)
-{
-	char		ch;
-
-	ch = (unsigned char)newline;
-	while (*storage)
+		return (free(line), NULL);
+	i = 0;
+	while (line && line[i])
 	{
-		if (*storage == ch)
-			return ((char *)storage);
-		storage++;
+		out[i] = line[i];
+		i++;
 	}
-	if (ch == '\0')
-		return ((char *)storage);
-	return (NULL);
+	j = 0;
+	while (buffer[j])
+	{
+		out[i++] = buffer[j];
+		if (buffer[j++] == '\n')
+			break ;
+	}
+	out[i] = '\0';
+	return (free(line), out);
 }

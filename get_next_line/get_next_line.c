@@ -6,16 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:26:08 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/28 11:41:18 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/02 16:03:39 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*gnl_handler(int fd, char *buffer);
-static char	*gnl_extract_line(char *storage, char *buffer);
-
-/* #include <stdio.h>
+#include <stdio.h>
 int	main(void)
 {
 	char *line;
@@ -39,64 +36,32 @@ int	main(void)
 	free(line);
 	close(fd);
 	return (0);
-} */
+}
 
 char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];
+	char		*line;
+	ssize_t		bytes;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	return (gnl_handler(fd, buffer));
-}
-
-static char	*gnl_handler(int fd, char *buffer)
-{
-	char	*storage;
-	ssize_t	bytes;
-
-	storage = ft_strdup(buffer);
-	if (!storage)
-		return (NULL);
-	buffer[0] = '\0';
+	line = NULL;
 	bytes = 1;
-	while (bytes > 0 && !ft_strchr(storage, '\n'))
+	while (bytes > 0 || buffer[0])
 	{
-		bytes = read(fd, buffer, BUFFER_SIZE);
+		if (!buffer[0])
+			bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes < 0)
-			return (free(storage), NULL);
-		buffer[bytes] = '\0';
-		storage = ft_strjoin(storage, buffer);
-		if (!storage)
-			return (free(storage), NULL);
+			return (clean_buffer(buffer), free(line), NULL);
+		if (bytes == 0)
+			return (line);
+		line = ft_strnjoin(line, buffer);
+		if (!line)
+			return (clean_buffer(buffer), NULL);
+		clean_buffer(buffer);
+		if (line && ft_strchr(line, '\n'))
+			break ;
 	}
-	if (ft_strchr(storage, '\n'))
-		return (gnl_extract_line(storage, buffer));
-	if (storage[0])
-		return (buffer[0] = '\0', storage);
-	return (free(storage), NULL);
-}
-
-static char	*gnl_extract_line(char *storage, char *buffer)
-{
-	char	*line;
-	char	*newline_pos;
-	ssize_t	line_len;
-	ssize_t	i;
-
-	newline_pos = ft_strchr(storage, '\n');
-	line_len = newline_pos - storage + 1;
-	line = malloc(sizeof(char) * (line_len + 1));
-	if (!line)
-		return (free(storage), NULL);
-	i = -1;
-	while (++i < line_len)
-		line[i] = storage[i];
-	line[i] = '\0';
-	i = -1;
-	while (storage[++i + line_len])
-		buffer[i] = storage[line_len + i];
-	buffer[i] = '\0';
-	free(storage);
 	return (line);
 }
