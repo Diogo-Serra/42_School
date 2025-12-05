@@ -6,7 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 22:15:46 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/05 22:15:47 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/05 22:21:33 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void	push_swap(int	*stack_a)
+{
+	
+}

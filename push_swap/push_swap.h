@@ -6,7 +6,12 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 22:15:53 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/05 22:15:54 by diosoare         ###   ########.fr       */
+/*   Updated: 2025/12/05 22:19:22 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+
+#endif /* PUSH_SWAP_H */
