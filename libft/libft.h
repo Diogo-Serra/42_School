@@ -6,18 +6,12 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/06 10:16:09 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/06 10:16:58 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-# define LOWER_HEX "0123456789abcdef"
-# define UPPER_HEX "0123456789ABCDEF"
-# define DECIMAL "0123456789"
-# define OCTAL "01234567"
-# define BINARY "01"
 
 # include <unistd.h>
 # include <stdint.h>
