@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2025/11/23 15:59:51 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/01/06 10:16:09 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int		ft_toupper(int c);
 /* =========================================================*/
 char	*ft_itoa(int n);
 int		ft_atoi(const char *s);
-char	*ft_itoa_base(long n, const char *digits);
 
 /* =========================================================*/
 /* 7) Raw memory primitives                                 */
@@ -95,7 +94,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
-void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 
 /* =========================================================*/
 /* 9) String functional utilities                           */
@@ -114,6 +112,5 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
-int		ft_putnbr_base(long n, const char *digits);
 
 #endif /* LIBFT_H */
