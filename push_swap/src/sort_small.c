@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:21:06 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 22:53:44 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 23:19:19 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,20 @@ static int	find_min_pos(t_stack *stack)
 	return (min_pos);
 }
 
+static int	find_max_value(t_stack *stack)
+{
+	int	max;
+
+	max = stack->value;
+	while (stack)
+	{
+		if (stack->value > max)
+			max = stack->value;
+		stack = stack->next;
+	}
+	return (max);
+}
+
 static void	rotate_min_to_top(t_stack **a, int *move_count)
 {
 	int	min_pos;
@@ -53,29 +67,37 @@ static void	rotate_min_to_top(t_stack **a, int *move_count)
 	}
 }
 
+static void	sort_three(t_stack **a, int *move_count)
+{
+	int	max;
+
+	max = find_max_value(*a);
+	if ((*a)->value == max)
+		exec_operation(a, NULL, "ra", move_count);
+	else if ((*a)->next->value == max)
+		exec_reverse_operation(a, NULL, "rra", move_count);
+	if ((*a)->value > (*a)->next->value)
+		exec_operation(a, NULL, "sa", move_count);
+}
+
 void	sort_small(t_stack **a, t_stack **b, int *move_count)
 {
 	int	size;
 
 	size = stack_size(*a);
+	if (size == 2)
+	{
+		if ((*a)->value > (*a)->next->value)
+			exec_operation(a, NULL, "sa", move_count);
+		return ;
+	}
 	while (size > 3)
 	{
 		rotate_min_to_top(a, move_count);
 		exec_operation(a, b, "pb", move_count);
 		size--;
 	}
-	if ((*a)->value > (*a)->next->value)
-	{
-		if (!(*a)->next->next || (*a)->value < (*a)->next->next->value)
-			exec_operation(a, NULL, "sa", move_count);
-		else
-			exec_operation(a, NULL, "ra", move_count);
-	}
-	if ((*a)->next->next && (*a)->next->value > (*a)->next->next->value)
-	{
-		exec_reverse_operation(a, NULL, "rra", move_count);
-		exec_operation(a, NULL, "sa", move_count);
-	}
+	sort_three(a, move_count);
 	while (*b)
 		exec_operation(a, b, "pa", move_count);
 }

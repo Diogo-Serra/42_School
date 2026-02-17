@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:19:45 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 18:41:51 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 23:22:27 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	free_stack(t_stack **stack)
 void	error_exit(t_stack **a, t_stack **b)
 {
 	if (a)
-		free(a);
+		free_stack(a);
 	if (b)
-		free(b);
+		free_stack(b);
 	write(2, "Error\n", 6);
 	exit(1);
 }
