@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:18:11 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 19:15:14 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 22:49:09 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void push_swap(t_stack **a, t_stack **b, int *move_count)
 	if (size <= 5)
 		sort_small(a, b, move_count);
 	else
-		sort_small(a, b, move_count);
+		radix_sort(a, b, move_count);
 }
 
 int main(int argc, char **argv)
