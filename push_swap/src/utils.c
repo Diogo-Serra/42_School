@@ -6,57 +6,79 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:21:09 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 18:30:05 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 19:04:25 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_is_sorted(t_stack *stack)
+t_stack	*stack_new(int value)
 {
-	t_stack	*current;
+	t_stack	*new;
 
-	current = stack;
-	while (current)
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->value = value;
+	new->next = NULL;
+	return (new);
+}
+
+void	stack_add_back(t_stack **stack, t_stack *new_node)
+{
+	t_stack	*last;
+
+	if (!*stack)
 	{
-		if (current->value > current->next->value)
-			return (0);
-		current = current->next;
+		*stack = new_node;
+		return ;
 	}
-	return (1);
+	last = *stack;
+	while (last->next)
+		last = last->next;
+	last->next = new_node;
 }
 
 int	stack_size(t_stack *stack)
 {
-	int		size;
-	t_stack	*current;
+	int	size;
 
 	size = 0;
-	current = stack;
-	while (current)
+	while (stack)
 	{
 		size++;
-		current = current->next;
+		stack = stack->next;
 	}
 	return (size);
 }
 
+int	stack_is_sorted(t_stack *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
 int	stack_has_duplicates(t_stack *stack)
 {
-	t_stack	*current;
+	t_stack	*curr;
 	t_stack	*check;
 
-	current = stack;
-	while (current)
+	curr = stack;
+	while (curr)
 	{
-		check = current->next;
+		check = curr->next;
 		while (check)
 		{
-			if (current->value == check->value)
+			if (curr->value == check->value)
 				return (1);
 			check = check->next;
 		}
-		current = current->next;
+		curr = curr->next;
 	}
 	return (0);
 }

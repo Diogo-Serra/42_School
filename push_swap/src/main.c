@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:18:11 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 17:36:35 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 19:15:14 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int main(int argc, char **argv)
 	b = NULL;
 	move_count = 0;
 	
-
 	if (argc < 2)
 		return (0);
 	a = parse_input(argc, argv);
@@ -48,6 +47,6 @@ int main(int argc, char **argv)
 	}
 	push_swap(&a, &b, &move_count);
 	free_stack(&a);
-	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }
