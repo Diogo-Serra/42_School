@@ -6,11 +6,35 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:19:53 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 18:27:03 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/17 18:48:14 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	validate_and_add(t_stack **a, char *str)
+{
+	long	num;
+
+	if (!is_valid_number(str))
+		error_exit(a, NULL);
+	num = ft_atol(str);
+	if (num > INT_MAX || num < INT_MIN)
+		error_exit(a, NULL);
+	add_number(a, num);
+}
+
+void	process_split(t_stack **a, char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		validate_and_add(a, split[i]);
+		i++;
+	}
+}
 
 t_stack	*parse_input(int argc, char **argv)
 {
@@ -18,11 +42,11 @@ t_stack	*parse_input(int argc, char **argv)
 	t_stack	*a;
 	char	**split;
 
-	i = 1;
 	a = NULL;
+	i = 1;
 	while (i < argc)
 	{
-		split = ft_split(argv[i++], ' ');
+		split = ft_split(argv[i], ' ');
 		if (!split || !*split)
 		{
 			if (split)
@@ -31,6 +55,7 @@ t_stack	*parse_input(int argc, char **argv)
 		}
 		process_split(&a, split);
 		free_split(split);
+		i++;
 	}
 	return (a);
 }
