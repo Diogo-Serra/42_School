@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 22:15:46 by diosoare          #+#    #+#             */
-/*   Updated: 2025/12/05 22:21:33 by diosoare         ###   ########.fr       */
+/*   Created: 2025/10/16 08:26:03 by diosoare          #+#    #+#             */
+/*   Updated: 2025/10/22 17:52:49 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	push_swap(int	*stack_a)
+int	ft_isalnum(int c)
 {
-	
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

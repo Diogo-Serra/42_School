@@ -5,38 +5,53 @@
 #                                                     +:+ +:+         +:+      #
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/05 22:05:53 by diosoare          #+#    #+#              #
-#    Updated: 2025/12/05 22:22:20 by diosoare         ###   ########.fr        #
+#    Created: 2026/02/17 17:20:05 by diosoare          #+#    #+#              #
+#    Updated: 2026/02/17 17:20:09 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME     := push_swap
+NAME		:= push_swap
 
-CC       := cc
-CFLAGS   := -Wall -Wextra -Werror -I.
-RM       := rm -f
+CC			:= cc
+CFLAGS		:= -Wall -Wextra -Werror
 
-SRCS := \
-	push_swap.c push_swap_utils.c
+LIBFT_DIR	:= ./libft
+LIBFT		:= $(LIBFT_DIR)/libft.a
 
-OBJS := $(SRCS:.c=.o)
+SRCS		:= \
+				src/main.c \
+				src/parsing.c \
+				src/parsing_utils.c \
+				src/operations.c \
+				src/radix_sort.c \
+				src/radix_utils.c \
+				src/utils.c \
+				src/error_handling.c \
+				src/sort_small.c
 
-%.o: %.c push_swap.h
-	$(CC) $(CFLAGS) -c $< -o $@
+OBJS		:= $(SRCS:.c=.o)
 
 # **************************************************************************** #
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -I. -I$(LIBFT_DIR) -c $< -o $@
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
-	$(RM) $(OBJS)
+	$(MAKE) -C $(LIBFT_DIR) clean
+	rm -f $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
