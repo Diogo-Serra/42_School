@@ -6,32 +6,32 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:19:53 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/18 12:30:52 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/18 12:46:30 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	validate_and_add(t_stack **a, char *str)
+static void	validate_and_add(t_stack **a, char *str, char **split)
 {
 	long	num;
 
 	if (!is_valid_number(str))
-		error_exit(a, NULL);
+		error_exit_split(a, NULL, split);
 	num = ft_atol(str);
 	if (num > INT_MAX || num < INT_MIN)
-		error_exit(a, NULL);
+		error_exit_split(a, NULL, split);
 	add_number(a, num);
 }
 
-void	process_split(t_stack **a, char **split)
+static void	process_split(t_stack **a, char **split)
 {
 	int	i;
 
 	i = 0;
 	while (split[i])
 	{
-		validate_and_add(a, split[i]);
+		validate_and_add(a, split[i], split);
 		i++;
 	}
 }
@@ -52,8 +52,7 @@ t_stack	*parse_input(int argc, char **argv)
 		if (!*split)
 		{
 			free(split);
-			i++;
-			continue;
+			error_exit(&a, NULL);
 		}
 		process_split(&a, split);
 		free_split(split);

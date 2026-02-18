@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 22:54:09 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/18 12:43:10 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int		stack_has_duplicates(t_stack *stack);
 
 /* parsing.c */
 t_stack	*parse_input(int argc, char **argv);
-void	validate_and_add(t_stack **a, char *str);
-void	process_split(t_stack **a, char **split);
 
 /* parsing_utils.c */
 long	ft_atol(const char *str);
@@ -50,6 +48,7 @@ void	add_number(t_stack **a, long num);
 
 /* error_handling.c */
 void	error_exit(t_stack **a, t_stack **b);
+void	error_exit_split(t_stack **a, t_stack **b, char **split);
 void	free_stack(t_stack **stack);
 void	free_split(char **split);
 
