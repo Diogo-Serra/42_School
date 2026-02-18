@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:19:53 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 18:48:14 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/18 12:30:52 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,13 @@ t_stack	*parse_input(int argc, char **argv)
 	while (i < argc)
 	{
 		split = ft_split(argv[i], ' ');
-		if (!split || !*split)
-		{
-			if (split)
-				free(split);
+		if (!split)
 			error_exit(&a, NULL);
+		if (!*split)
+		{
+			free(split);
+			i++;
+			continue;
 		}
 		process_split(&a, split);
 		free_split(split);
