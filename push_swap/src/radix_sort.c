@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 20:00:00 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 22:54:09 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/18 12:18:18 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	radix_sort(t_stack **a, t_stack **b, int *move_count)
 	int	max_bits;
 	int	i;
 	int	j;
+	int	rotations;
 
 	assign_index(*a);
 	size = stack_size(*a);
@@ -58,16 +59,30 @@ void	radix_sort(t_stack **a, t_stack **b, int *move_count)
 	while (i < max_bits)
 	{
 		j = 0;
+		rotations = 0;
 		while (j < size)
 		{
 			if ((((*a)->index >> i) & 1) == 0)
 				exec_operation(a, b, "pb", move_count);
 			else
+			{
 				exec_operation(a, b, "ra", move_count);
+				rotations++;
+			}
 			j++;
 		}
+		while (rotations > 0 && rotations > size - j)
+		{
+			exec_reverse_operation(a, b, "rra", move_count);
+			rotations--;
+		}
 		while (*b)
-			exec_operation(a, b, "pa", move_count);
+		{
+			if (*b && (*b)->next && *a && (*a)->next)
+				exec_operation(a, b, "pa", move_count);
+			else
+				exec_operation(a, b, "pa", move_count);
+		}
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:21:06 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 23:19:19 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/18 12:18:18 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	find_max_value(t_stack *stack)
 	return (max);
 }
 
-static void	rotate_min_to_top(t_stack **a, int *move_count)
+static void	rotate_min_to_top(t_stack **a, t_stack **b, int *move_count)
 {
 	int	min_pos;
 	int	size;
@@ -58,12 +58,22 @@ static void	rotate_min_to_top(t_stack **a, int *move_count)
 	if (min_pos <= size / 2)
 	{
 		while (min_pos-- > 0)
-			exec_operation(a, NULL, "ra", move_count);
+		{
+			if (*b && (*b)->next)
+				exec_operation(a, b, "rr", move_count);
+			else
+				exec_operation(a, NULL, "ra", move_count);
+		}
 	}
 	else
 	{
 		while (min_pos++ < size)
-			exec_reverse_operation(a, NULL, "rra", move_count);
+		{
+			if (*b && (*b)->next)
+				exec_reverse_operation(a, b, "rrr", move_count);
+			else
+				exec_reverse_operation(a, NULL, "rra", move_count);
+		}
 	}
 }
 
@@ -93,7 +103,7 @@ void	sort_small(t_stack **a, t_stack **b, int *move_count)
 	}
 	while (size > 3)
 	{
-		rotate_min_to_top(a, move_count);
+		rotate_min_to_top(a, b, move_count);
 		exec_operation(a, b, "pb", move_count);
 		size--;
 	}
