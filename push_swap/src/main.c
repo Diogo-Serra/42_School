@@ -6,13 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:18:11 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 22:49:09 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/18 13:05:18 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void push_swap(t_stack **a, t_stack **b, int *move_count)
+static void	push_swap(t_stack **a, t_stack **b, int *move_count)
 {
 	int	size;
 
@@ -25,7 +25,7 @@ static void push_swap(t_stack **a, t_stack **b, int *move_count)
 		radix_sort(a, b, move_count);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -34,7 +34,6 @@ int main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	move_count = 0;
-	
 	if (argc < 2)
 		return (0);
 	a = parse_input(argc, argv);
