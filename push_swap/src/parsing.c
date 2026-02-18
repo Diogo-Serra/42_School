@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:19:53 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/18 12:46:30 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/18 14:15:21 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ static void	process_split(t_stack **a, char **split)
 
 	i = 0;
 	while (split[i])
-	{
-		validate_and_add(a, split[i], split);
-		i++;
-	}
+		validate_and_add(a, split[i++], split);
 }
 
 t_stack	*parse_input(int argc, char **argv)
