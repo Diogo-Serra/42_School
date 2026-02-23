@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 14:55:16 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:08:45 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ int		is_valid_number(char *str);
 void	add_number(t_stack **a, long num);
 
 /* error_handling.c */
-void	error_exit(t_stack **a, t_stack **b);
-void	error_exit_split(t_stack **a, t_stack **b, char **split);
+void	error_exit(t_stack **a, t_stack **b, char **split);
 void	free_stack(t_stack **stack);
 void	free_split(char **split);
 
