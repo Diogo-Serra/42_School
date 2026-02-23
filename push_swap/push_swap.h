@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 16:02:43 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 17:07:14 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,20 @@ void	exec_operation(t_stack **a, t_stack **b, char *flag, int *move_count);
 void	exec_reverse_operation(t_stack **a, t_stack **b, char *flag,
 			int *move_count);
 
+/* List functions for t_stack */
+t_stack	*ft_lstnew(int content);
+int		ft_lstsize(t_stack *lst);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+
 /* utils.c */
-t_stack	*stack_new(int value);
-int		stack_size(t_stack	*stack);
 int		stack_is_sorted(t_stack *stack);
 int		stack_has_duplicates(t_stack *stack);
-void	stack_add_back(t_stack **stack, t_stack *new);
-
-/* parsing.c */
-t_stack	*parse_input(int argc, char **argv);
-
-/* parsing_utils.c */
 long	ft_atol(const char *str);
 int		is_valid_number(char *str);
 void	add_number(t_stack **a, long num);
+
+/* parsing.c */
+t_stack	*parse_input(int argc, char **argv);
 
 /* error_handling.c */
 void	error_exit(t_stack **a, t_stack **b, char **split);

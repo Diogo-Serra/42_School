@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/17 17:20:05 by diosoare          #+#    #+#              #
-#    Updated: 2026/02/17 22:55:00 by diosoare         ###   ########.fr        #
+#    Updated: 2026/02/23 16:42:47 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ LIBFT		:= $(LIBFT_DIR)/libft.a
 SRCS		:= \
 				src/main.c \
 				src/parsing.c \
-				src/parsing_utils.c \
 				src/operations.c \
 				src/utils.c \
 				src/error_handling.c \

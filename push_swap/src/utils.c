@@ -6,55 +6,11 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:21:09 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 16:01:27 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 17:04:34 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_stack	*stack_new(int value)
-{
-	t_stack	*new;
-
-	new = malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->value = value;
-	new->next = NULL;
-	return (new);
-}
-
-void	stack_add_back(t_stack **stack, t_stack *new)
-{
-	t_stack	*last;
-
-	if (!stack || !new)
-		return ;
-	if (*stack == NULL)
-	{
-		*stack = new;
-		return ;
-	}
-	last = *stack;
-	while (last->next)
-		last = last->next;
-	last->next = new;
-}
-
-int	stack_size(t_stack	*stack)
-{
-	t_stack	*current;
-	int		count;
-
-	count = 0;
-	current = stack;
-	while (current)
-	{
-		count++;
-		current = current->next;
-	}
-	return (count);
-}
 
 int	stack_is_sorted(t_stack *stack)
 {
@@ -85,4 +41,56 @@ int	stack_has_duplicates(t_stack *stack)
 		curr = curr->next;
 	}
 	return (0);
+}
+
+long	ft_atol(const char *str)
+{
+	long	num;
+	int		sign;
+	int		i;
+
+	num = 0;
+	sign = 1;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+		num = num * 10 + (str[i++] - '0');
+	return (sign * num);
+}
+
+int	is_valid_number(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	add_number(t_stack **a, long num)
+{
+	t_stack	*new;
+
+	new = ft_lstnew(num);
+	if (!new)
+		error_exit(a, NULL, NULL);
+	ft_lstadd_back(a, new);
 }

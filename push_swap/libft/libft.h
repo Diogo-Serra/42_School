@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2026/01/06 10:16:58 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 17:09:39 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,23 @@
 /* =========================================================*/
 /* Lists  		                                            */
 /* =========================================================*/
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 
-int		ft_lstsize(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void*));
-t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstnew(void *content);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+typedef struct s_stack
+{
+	int				value;
+	int				index;
+	struct s_stack	*next;
+}					t_stack;
+
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+void	ft_lstclear(t_stack **lst, void (*del)(void*));
+void	ft_lstdelone(t_stack *lst, void (*del)(void*));
+void	ft_lstiter(t_stack *lst, void (*f)(void *));
+t_stack	*ft_lstlast(t_stack *lst);
+t_stack	*ft_lstmap(t_stack *lst, void *(*f)(void *), void (*del)(void *));
+t_stack	*ft_lstnew(int content);
+int	ft_lstsize(t_stack *lst);
 
 /* =========================================================*/
 /* 1) C-string length, duplication, and copy                */

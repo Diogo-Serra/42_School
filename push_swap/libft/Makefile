@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/20 17:53:08 by diosoare          #+#    #+#              #
-#    Updated: 2026/01/06 10:20:07 by diosoare         ###   ########.fr        #
+#    Updated: 2026/02/23 17:14:19 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,10 +40,11 @@ BONUS_OBJS := $(BONUS_SRCS:.c=.o)
 
 # **************************************************************************** #
 
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(BONUS_OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 bonus: $(OBJS) $(BONUS_OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(BONUS_OBJS)

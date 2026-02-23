@@ -6,13 +6,13 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 18:52:55 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 15:51:32 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 16:41:51 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	int	count;
 
