@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:21:09 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 14:53:24 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 16:01:27 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,38 @@ t_stack	*stack_new(int value)
 	new->value = value;
 	new->next = NULL;
 	return (new);
+}
+
+void	stack_add_back(t_stack **stack, t_stack *new)
+{
+	t_stack	*last;
+
+	if (!stack || !new)
+		return ;
+	if (*stack == NULL)
+	{
+		*stack = new;
+		return ;
+	}
+	last = *stack;
+	while (last->next)
+		last = last->next;
+	last->next = new;
+}
+
+int	stack_size(t_stack	*stack)
+{
+	t_stack	*current;
+	int		count;
+
+	count = 0;
+	current = stack;
+	while (current)
+	{
+		count++;
+		current = current->next;
+	}
+	return (count);
 }
 
 int	stack_is_sorted(t_stack *stack)

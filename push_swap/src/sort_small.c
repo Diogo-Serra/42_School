@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:21:06 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 14:55:01 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:59:47 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	rotate_min_to_top(t_stack **a, t_stack **b, int *move_count)
 	int	min_pos;
 	int	size;
 
-	size = ft_lstsize(*a);
+	size = stack_size(*a);
 	min_pos = find_min_pos(*a);
 	if (min_pos <= size / 2)
 	{
@@ -94,7 +94,7 @@ void	sort_small(t_stack **a, t_stack **b, int *move_count)
 {
 	int	size;
 
-	size = ft_lstsize(*a);
+	size = stack_size(*a);
 	if (size == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
