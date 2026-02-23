@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 17:07:14 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 17:36:45 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,10 @@
 # include <unistd.h>
 # include <limits.h>
 
-typedef struct s_stack
-{
-	int				value;
-	int				index;
-	struct s_stack	*next;
-}					t_stack;
-
 /* operations.c */
 void	exec_operation(t_stack **a, t_stack **b, char *flag, int *move_count);
 void	exec_reverse_operation(t_stack **a, t_stack **b, char *flag,
 			int *move_count);
-
-/* List functions for t_stack */
-t_stack	*ft_lstnew(int content);
-int		ft_lstsize(t_stack *lst);
-void	ft_lstadd_back(t_stack **lst, t_stack *new);
 
 /* utils.c */
 int		stack_is_sorted(t_stack *stack);
