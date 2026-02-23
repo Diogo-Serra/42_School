@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:19:53 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/18 14:15:21 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:44:41 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static void	validate_and_add(t_stack **a, char *str, char **split)
 	long	num;
 
 	if (!is_valid_number(str))
-		error_exit_split(a, NULL, split);
+		error_exit(a, NULL, split);
 	num = ft_atol(str);
 	if (num > INT_MAX || num < INT_MIN)
-		error_exit_split(a, NULL, split);
+		error_exit(a, NULL, split);
 	add_number(a, num);
 }
 
@@ -45,11 +45,11 @@ t_stack	*parse_input(int argc, char **argv)
 	{
 		split = ft_split(argv[i], ' ');
 		if (!split)
-			error_exit(&a, NULL);
+			error_exit(&a, NULL, NULL);
 		if (!*split)
 		{
 			free(split);
-			error_exit(&a, NULL);
+			error_exit(&a, NULL, NULL);
 		}
 		process_split(&a, split);
 		free_split(split);

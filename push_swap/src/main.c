@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:18:11 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 14:53:50 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:10:18 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (stack_has_duplicates(a))
 	{
-		error_exit(&a, &b);
+		error_exit(&a, &b, NULL);
 		return (1);
 	}
 	push_swap(&a, &b, &move_count);

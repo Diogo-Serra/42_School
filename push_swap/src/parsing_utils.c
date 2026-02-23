@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:19:49 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 14:52:09 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:44:12 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ void	add_number(t_stack **a, long num)
 
 	new = stack_new((int)num);
 	if (!new)
-		error_exit(a, NULL);
+		error_exit(a, NULL, NULL);
 	ft_lstadd_back(a, new);
 }
