@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:18:11 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/18 13:05:18 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 14:53:50 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	push_swap(t_stack **a, t_stack **b, int *move_count)
 
 	if (stack_is_sorted(*a))
 		return ;
-	size = stack_size(*a);
+	size = ft_lstsize(*a);
 	if (size <= 5)
 		sort_small(a, b, move_count);
 	else

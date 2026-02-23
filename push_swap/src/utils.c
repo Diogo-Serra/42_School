@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:21:09 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/17 19:04:25 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 14:53:24 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,34 +22,6 @@ t_stack	*stack_new(int value)
 	new->value = value;
 	new->next = NULL;
 	return (new);
-}
-
-void	stack_add_back(t_stack **stack, t_stack *new_node)
-{
-	t_stack	*last;
-
-	if (!*stack)
-	{
-		*stack = new_node;
-		return ;
-	}
-	last = *stack;
-	while (last->next)
-		last = last->next;
-	last->next = new_node;
-}
-
-int	stack_size(t_stack *stack)
-{
-	int	size;
-
-	size = 0;
-	while (stack)
-	{
-		size++;
-		stack = stack->next;
-	}
-	return (size);
 }
 
 int	stack_is_sorted(t_stack *stack)
