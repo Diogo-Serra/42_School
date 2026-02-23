@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 10:58:03 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 17:36:45 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 18:23:11 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft.h" 
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
 
 /* operations.c */
 void	exec_operation(t_stack **a, t_stack **b, char *flag, int *move_count);
