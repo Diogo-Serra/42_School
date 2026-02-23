@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:18:11 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 15:10:18 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:46:55 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,8 @@ int	main(int argc, char **argv)
 	free_stack(&b);
 	return (0);
 }
+
+/* Test Command
+ARG=$(shuf -n 500 -i 1-100000 | tr '\n' ' ');
+ echo $ARG; ./push_swap $ARG | ./checker_linux $ARG
+ */
