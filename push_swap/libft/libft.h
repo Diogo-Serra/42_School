@@ -6,7 +6,7 @@
 /*   By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:09:16 by diosoare          #+#    #+#             */
-/*   Updated: 2026/02/23 17:15:53 by diosoare         ###   ########.fr       */
+/*   Updated: 2026/02/23 17:46:07 by diosoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void	ft_lstadd_front(t_stack **lst, t_stack *new);
+int		ft_lstsize(t_stack *lst);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
+void	ft_lstiter(t_stack *lst, void (*f)(void *));
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
 void	ft_lstclear(t_stack **lst, void (*del)(void*));
 void	ft_lstdelone(t_stack *lst, void (*del)(void*));
-void	ft_lstiter(t_stack *lst, void (*f)(void *));
+t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack *lst);
 t_stack	*ft_lstmap(t_stack *lst, void *(*f)(void *), void (*del)(void *));
-t_stack	*ft_lstnew(int content);
-int	ft_lstsize(t_stack *lst);
 
 /* =========================================================*/
 /* 1) C-string length, duplication, and copy                */
