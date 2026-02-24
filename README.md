@@ -14,10 +14,43 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 ---
 
 | **Reloaded** | **Libft** | **Born2beroot** | **ft_printf** |
-|:------------:|:---------:|:---------------:|:-------------:|
+:------------:|:---------:|:---------------:|:-------------:|
 | [![Reloaded](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/volunteerm.png)](https://github.com/Diogo-Serra/42_School/tree/main/get_next_line) | [![Libft](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/libftm.png)](https://github.com/Diogo-Serra/42_School/tree/main/libft) | [![Born2beroot](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/born2beroote.png)](https://github.com/Diogo-Serra/42_School/tree/main/Born2beRoot) | [![ft_printf](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/ft_printfe.png)](https://github.com/Diogo-Serra/42_School/tree/main/ft_printf) |
-| **get_next_line** | **push_swap** | **python_modules** | **A-Maze-ing** |
-| [![get_next_line](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/get_next_linee.png)](https://github.com/Diogo-Serra/42_School/tree/main/reloaded) | [![push_swap](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/push_swape.png)](https://github.com/Diogo-Serra/42_School/tree/main/push_swap) | [![python_modules](https://img.shields.io/badge/Python_Modules-blue?style=for-the-badge&logo=python&logoColor=white)](https://github.com/Diogo-Serra/42_School/tree/main/python_modules) | [![A-Maze-ing](https://img.shields.io/badge/A--Maze--ing-blue?style=for-the-badge&logo=python&logoColor=white)](https://github.com/Diogo-Serra/42_School/tree/main/A-Maze-ing) |
+
+<div align="center">
+  <table>
+    <tr>
+      <td colspan="2" align="center">
+        <a href="https://github.com/Diogo-Serra/42_School/tree/main/reloaded">
+          <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/get_next_linee.png" alt="get_next_line"/>
+        </a>
+      </td>
+      <td colspan="2" align="center">
+        <a href="https://github.com/Diogo-Serra/42_School/tree/main/push_swap">
+          <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/push_swape.png" alt="push_swap"/>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
+### 🐍 Python Curriculum
+
+<div align="center">
+  <a href="https://github.com/Diogo-Serra/42_School/tree/main/python_modules">
+    <img src="https://img.shields.io/badge/Python_Modules-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python Modules"/>
+  </a>
+  <a href="https://github.com/Diogo-Serra/42_School/tree/main/A-Maze-ing">
+    <img src="https://img.shields.io/badge/A--Maze--ing-blue?style=for-the-badge&logo=python&logoColor=white" alt="A-Maze-ing"/>
+  </a>
+</div>
+
+<p align="center">
+  <b>Python Modules</b>: New addition to the 42 Lisbon Common Core, covering progressive Python exercises and concepts.<br>
+  <b>A-Maze-ing</b>: Python project focused on maze algorithms and validation.
+</p>
 
 ---
 
