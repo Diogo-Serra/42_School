@@ -6,7 +6,7 @@
 
 ---
 
-### 📚 About
+### About
 
 This repository documents my journey through the **42 Common Core**, from foundational C projects to advanced Unix.  
 Each project follows the school's philosophy: *learn by doing, fail fast, and build resilience through autonomy.*
@@ -36,7 +36,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 
 ---
 
-### 🐍 Python Curriculum
+### Python Curriculum
 
 <div align="center">
   <a href="https://github.com/Diogo-Serra/42_School/tree/main/python_modules">
@@ -54,7 +54,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 
 ---
 
-### 🧰 Tech & Tools
+### Tech & Tools
 
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="30" height="30" alt="C"/> • 
@@ -71,7 +71,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 
 ---
 
-### 📫 Connect
+### Connect
 
 <a href="https://profile.intra.42.fr/users/diogo-serra"><img src="https://img.shields.io/badge/42_Profile-diogo--serra-2ecc71?style=for-the-badge" alt="42 Profile"/></a>  
 <a href="https://github.com/Diogo-Serra"><img src="https://img.shields.io/badge/GitHub-Diogo--Serra-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
