@@ -8,12 +8,12 @@
 
 ### About
 
-This repository documents my journey through the **42 Common Core**, from foundational C projects to advanced Unix.  
+This repository documents my journey through the **42 Common Core**, from foundational C projects to advanced Unix, and now Python programming.  
 Each project follows the school's philosophy: *learn by doing, fail fast, and build resilience through autonomy.*
 
 ---
 
-### C Curriculum
+### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="24" height="24" alt="C"/> C Curriculum
 
 | **Reloaded** | **Libft** | **Born2beroot** | **ft_printf** |
 :------------:|:---------:|:---------------:|:-------------:|
@@ -38,7 +38,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 
 ---
 
-### Python Curriculum
+### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="24" height="24" alt="Python"/> Python Curriculum
 
 <div align="center">
   <a href="https://github.com/Diogo-Serra/42_School/tree/main/python_modules">
@@ -50,8 +50,8 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 </div>
 
 <p align="center">
-  <b>Python Modules</b>: New addition to the 42 Lisbon Common Core, covering progressive Python exercises and concepts.<br>
-  <b>A-Maze-ing</b>: Python project focused on maze algorithms and validation.
+  <b>Python Modules</b>: Progressive exercises and concepts in Python.<br>
+  <b>A-Maze-ing</b>: Maze generation and validation in Python.
 </p>
 
 ---
