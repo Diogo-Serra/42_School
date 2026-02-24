@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/24 03:10:54 by diosoare          #+#    #+#              #
-#    Updated: 2026/02/24 03:12:48 by diosoare         ###   ########.fr        #
+#    Updated: 2026/02/24 03:29:44 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,5 +16,3 @@ def	ft_water_reminder():
 		print("Plants are fine.")
 	else:
 		print("Water the plants!")
-
-ft_water_reminder()

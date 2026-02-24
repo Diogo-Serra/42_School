@@ -1,17 +1,18 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_harvest_total.py                                :+:      :+:    :+:    #
+#    ft_count_harvest_iterative.py                      :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/02/24 02:59:56 by diosoare          #+#    #+#              #
-#    Updated: 2026/02/24 03:30:04 by diosoare         ###   ########.fr        #
+#    Created: 2026/02/24 03:16:20 by diosoare          #+#    #+#              #
+#    Updated: 2026/02/24 03:29:35 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-def	ft_harvest_total():
-	day1 = int(input("Enter weight day1: "))
-	day2 = int(input("Enter weight day2: "))
-	day3 = int(input("Enter weight day3: "))
-	print(day1 + day2 + day3)
+def	ft_count_harvest_iterative():
+	count = 1;
+	while count <= 5:
+		print(count)
+		count += 1
+	print("Ready to harvest!")

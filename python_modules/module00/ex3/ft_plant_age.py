@@ -6,7 +6,7 @@
 #    By: diosoare <diosoare@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/24 03:04:42 by diosoare          #+#    #+#              #
-#    Updated: 2026/02/24 03:09:14 by diosoare         ###   ########.fr        #
+#    Updated: 2026/02/24 03:29:50 by diosoare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,5 +16,3 @@ def	ft_plant_age():
 		print("Plant needs more time to grow.")
 	else:
 		print("Plant is ready to harvest.")
-
-ft_plant_age()
