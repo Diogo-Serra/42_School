@@ -7,7 +7,6 @@ class SecurePlant:
         self.__age = age
         self.print_plant()
 
- 
     def get_height(self):
         return self.__height
 
