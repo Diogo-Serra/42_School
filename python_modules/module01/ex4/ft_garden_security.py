@@ -1,48 +1,47 @@
 #!/usr/bin/env python3
 
-class Plant:
+class SecurePlant:
     def __init__(self, name, height, age):
         self.name = name
-        self._height = height
-        self._age = age
-    
+        self.__height = height
+        self.__age = age
+        self.print_plant()
+        self.set_height(25)
+        self.set_age(30)
+ 
     def get_height(self):
-        return self._height
-    
+        return self.__height
+
     def set_height(self, value):
         if value < 0:
             print(f"Invalid operation attempted: height {value} [REJECTED]")
-            print("Security: Negative height rejected")
+            print("Security: Negative height rejected\n")
         else:
-            self._height = value
+            self.__height = value
             print(f"Height updated: {value}cm [OK]")
 
     def get_age(self):
-        return self._age
-    
+        return self.__age
+
     def set_age(self, value):
         if value < 0:
             print(f"Invalid operation attempted: age {value} [REJECTED]")
-            print("Security: Negative age rejected")
+            print("Security: Negative age rejected\n")
         else:
-            self._age = value
-            print(f"Age updated: {value} days [OK]")
+            self.__age = value
+            print(f"Age updated: {value} days [OK]\n")
 
     def print_plant(self):
         print(f"Plant created: {self.name}")
 
 
 def ft_garden_security() -> None:
-    plant_data = [
-        ("Rose", 25, 30),
-    ]
-    my_plants = [Plant(name, height, age) for name, height, age in plant_data]
     print("=== Garden Security System ===")
+    my_plants = [SecurePlant("Rose", 0, 0)]
     for plant in my_plants:
-        plant.print_plant()
-        plant.set_height(30)
-        plant.set_age(35)
-    print(f"Current plant: {plant.name} ({plant.get_height()}cm, {plant.get_age()} days)")
+        plant.set_height(-5)
+    print(f"Current plant: {plant.name} "
+          f"{plant.get_height()}cm, {plant.get_age()} days")
 
 
 if __name__ == "__main__":
