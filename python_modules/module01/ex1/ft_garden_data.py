@@ -7,18 +7,18 @@ class Plant:
         self.age = age
 
 
-def print_Plant(plants):
-    for plant in plants:
-        print(f"{plant.name}: {plant.height}cm, {plant.age} days old")
+def print_plant(Plants):
+    for Plant in Plants:
+        print(f"{Plant.name}: {Plant.height}cm, {Plant.age} days old")
 
 
 def ft_garden_data():
     print("=== Garden Plant Registry ===")
-    my_Plants = [
+    My_Plants = [
         Plant("Rose", 25, 30),
         Plant("Sunflower", 80, 45),
         Plant("Cactus", 15, 120)]
-    print_Plant(my_Plants)
+    print_plant(My_Plants)
 
 
 if __name__ == "__main__":
