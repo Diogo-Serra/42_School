@@ -1,4 +1,4 @@
-def ft_count_harvest_recursive():
+def ft_count_harvest_recursive() -> None:
     def helper(count, days):
         if count > days:
             print("Ready to harvest!")
