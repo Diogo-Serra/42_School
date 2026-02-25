@@ -6,6 +6,3 @@ def ft_garden_summary() -> None:
     print(f"Garden: {garden_name}")
     print(f"Plants: {garden_plants}")
     print("Status: Growing well!")
-
-
-ft_garden_summary()
