@@ -21,7 +21,7 @@ def get_info(Plant, day) -> None:
 
 
 def ft_plant_growth() -> None:
-    day: int = 0
+    day: int = 1
     growth: int = 0
     rose: Plant = Plant("Rose", 25, 30)
     while day <= 7:
@@ -30,7 +30,7 @@ def ft_plant_growth() -> None:
         age(rose)
         growth += 1
         day += 1
-    print(f"Growth this week: +{growth}cm")
+    print(f"Growth this week: +{growth - 1}cm")
 
 
 if __name__ == "__main__":
