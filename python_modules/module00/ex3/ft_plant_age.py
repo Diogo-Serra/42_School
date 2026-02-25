@@ -6,6 +6,3 @@ def ft_plant_age() -> None:
         print("Plant needs more time to grow.")
     else:
         print("Plant is ready to harvest.")
-
-
-ft_plant_age()
