@@ -7,6 +7,3 @@ def ft_count_harvest_iterative() -> None:
         print(count)
         count += 1
     print("Ready to harvest!")
-
-
-ft_count_harvest_iterative()
