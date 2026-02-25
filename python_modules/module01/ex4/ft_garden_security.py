@@ -34,14 +34,16 @@ class Plant:
 
 def ft_garden_security() -> None:
     plant_data = [
-        ("Rose", 0, 0),
+        ("Rose", 25, 30),
     ]
     my_plants = [Plant(name, height, age) for name, height, age in plant_data]
     print("=== Garden Security System ===")
     for plant in my_plants:
         plant.print_plant()
-        plant.set_height(-25)
-        plant.set_age(30)
+        plant.set_height(30)
+        plant.set_age(35)
+    print(f"Current plant: {plant.name} ({plant.get_height()}cm, {plant.get_age()} days)")
+
 
 if __name__ == "__main__":
     ft_garden_security()
