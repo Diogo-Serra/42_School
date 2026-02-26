@@ -40,7 +40,9 @@ class Vegetable(Plant):
 
 
 def ft_garden_analytics():
-    print("Good to go!")
+    gardens = [GardenManager("Alice", "Julio")]
+    for x in gardens:
+        print(f"{gardens.owner}")
 
 
 ft_garden_analytics()
