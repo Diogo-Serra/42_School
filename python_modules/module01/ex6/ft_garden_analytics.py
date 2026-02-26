@@ -14,6 +14,7 @@ class GardenManager:
     class GardenStats():
         def __init__(self, owner):
             super().__init__(owner)
+            print("Calculate Statistics here")
 
 
 class Plant:
