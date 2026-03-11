@@ -62,7 +62,7 @@ class Vegetable(Plant):
         print(f"{self.name} is rich in {self.nutritional_value}")
 
 
-def ft_plant_types():
+def ft_plant_types() -> None:
     print("=== Garden Plant Types ===\n")
     print("= Flowers =")
     my_flowers: list[Flower] = [ # noqa
