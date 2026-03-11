@@ -17,47 +17,48 @@ class Tree(Plant):
         print(self)
         self.produce_shade()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (f"\n{self.name} ({type(self).__name__}): "
                 f"{self.height}cm, {self.age} days, "
                 f"{self.trunk_diameter}cm diameter")
 
-    def produce_shade(self):
-        self.shade = int(math.pi * (self.trunk_diameter / 10) ** 2)
+    def produce_shade(self) -> None:
+        self.shade: int = int(math.pi * (self.trunk_diameter / 10) ** 2)
         print(f"{self.name} provides {self.shade} square"
               f" meters of shade")
 
 
 class Flower(Plant):
-    def __init__(self, name, height, age, color):
+    def __init__(self, name: str, height: int, age: int, color: str) -> None:
         super().__init__(name, height, age)
         self.color = color
         print(self)
         self.bloom()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (f"\n{self.name} ({type(self).__name__}): "
                 f"{self.height}cm, {self.age} days, "
                 f"{self.color} color")
 
-    def bloom(self):
+    def bloom(self) -> None:
         print(f"{self.name} is blooming beautifully!")
 
 
 class Vegetable(Plant):
-    def __init__(self, name, height, age, harvest_season, nutritional_value):
+    def __init__(self, name: str, height: int, age: int, harvest_season: str,
+                 nutritional_value: str) -> None:
         super().__init__(name, height, age)
         self.harvest_season = harvest_season
         self.nutritional_value = nutritional_value
         print(self)
         self.info_vegetable()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (f"\n{self.name} ({type(self).__name__}): "
                 f"{self.height}cm, {self.age} days, "
                 f"{self.harvest_season}")
 
-    def info_vegetable(self):
+    def info_vegetable(self) -> None:
         print(f"{self.name} is rich in {self.nutritional_value}")
 
 
@@ -74,8 +75,8 @@ def ft_plant_types():
     print("\n= Vegetables =")
     my_vegetables: list[Plant[Vegetable]] = [ # noqa
         Vegetable("Tomato", 80, 90, "summer harvest", "vitamin C"),
-        Vegetable("Carrot", 15, 30, "spring harvest", "vitamin C")
-    ]
+        Vegetable("Carrot", 15, 30, "spring harvest", "vitamin C")]
 
 
-ft_plant_types()
+if __name__ == '__main__':
+    ft_plant_types()
