@@ -9,5 +9,7 @@ def ft_garden_intro() -> None:
     print("=== End of Program ===")
 
 
+# runs the code only when the file is executed directly and not
+# when it's imported as a module by another file.
 if __name__ == "__main__":
     ft_garden_intro()
