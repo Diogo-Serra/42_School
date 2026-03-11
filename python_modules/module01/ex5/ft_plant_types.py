@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from math import pi
+# import of pi from mathlib for tree shade calculation
 
 
+# Parent class : defines shared attributes for all plant types.
 class Plant:
     def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
@@ -9,10 +11,11 @@ class Plant:
         self.age = age
 
 
+# Child class : inherits from Plant and adds its own attributes and methods.
 class Tree(Plant):
     def __init__(self, name: str, height: int, age: int,
                  trunk_diameter: int) -> None:
-        super().__init__(name, height, age)
+        super().__init__(name, height, age)  # calls Parent __init__
         self.trunk_diameter = trunk_diameter
         print(self)
         self.produce_shade()
