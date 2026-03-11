@@ -27,7 +27,7 @@ class SecurePlant:
     @property
     def age(self) -> int:
         return self.__age
-    
+
     @age.setter
     def age(self, value: int) -> None:
         if value < 0:
