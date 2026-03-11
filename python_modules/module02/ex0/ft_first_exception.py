@@ -23,11 +23,11 @@ def test_temperature_input() -> None:
     ]
     for test in test_data:
         test_int: int = check_temperature(test)
-        print(f"Testing temperature: {test_int}")
+        print(f"Testing temperature: {test}")
         if isinstance(test_int, int):
-            print(f"Temperature {test}°C is perfect for plants!\n")
+            print(f"Temperature {test_int}°C is perfect for plants!\n")
         else:
-            print(test)
+            print(test_int)
     print('All tests completed - program didn\'t crash!')
 
 
