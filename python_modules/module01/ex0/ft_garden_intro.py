@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+# No classes in this exercise. No OOP
 def ft_garden_intro() -> None:
     name: str = (str)("Rose")
     height: int = (int)(25)
