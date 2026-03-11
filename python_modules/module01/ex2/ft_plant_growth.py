@@ -18,6 +18,11 @@ class Plant:
     def get_info(self) -> None:
         print(f"{self.name}: {self.height}cm, {self.age} days old")
 
+    # @property turns a method into a read-only attribute
+    @property
+    def growth(self) -> int:
+        return self.height - self.initial_height
+
 
 def ft_plant_growth() -> None:
     my_plants: list[Plant] = [
@@ -37,7 +42,7 @@ def ft_plant_growth() -> None:
     print(f"=== Day {day} ===")
     for plant in my_plants:
         plant.get_info()
-        print(f"Growth this week: +{plant.height - plant.initial_height}cm")
+        print(f"Growth this week: +{plant.growth}cm")
 
 
 if __name__ == "__main__":
