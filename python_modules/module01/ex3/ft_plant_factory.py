@@ -5,6 +5,7 @@ class Plant:
         self.name = name
         self.height = height
         self.age = age
+        print(self)
 
     # Info printing (String representation of Plant object)
     def __str__(self) -> str:
@@ -21,11 +22,9 @@ def ft_plant_factory() -> None:
         ("Fern", 15, 120)
     ]
     # Creation of list of objects for each plant_data info
+    print("=== Plant Factory Output ===")
     my_plants: list[Plant] = [
         Plant(name, height, age) for name, height, age in plant_data]
-    print("=== Plant Factory Output ===")
-    for plant in my_plants:
-        print(plant)
     print(f"\nTotal plants created: {len(my_plants)}")
 
 
