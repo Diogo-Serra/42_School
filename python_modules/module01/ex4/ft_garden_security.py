@@ -3,9 +3,11 @@
 class SecurePlant:
     def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
+        self.__height = 0
+        self.__age = 0
         print(self)
-        self.__height = self.set_height(height)
-        self.__age = self.set_age(age)
+        self.set_height(height)
+        self.set_age(age)
 
     def get_height(self) -> int:
         return self.__height
