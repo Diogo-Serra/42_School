@@ -15,10 +15,6 @@ class SecurePlant:
     def height(self) -> int:
         return self.__height
 
-    @property
-    def age(self) -> int:
-        return self.__age
-
     @height.setter
     def height(self, value: int) -> None:
         if value < 0:
@@ -28,6 +24,10 @@ class SecurePlant:
             self.__height = value
             print(f"Height updated: {value}cm [OK]")
 
+    @property
+    def age(self) -> int:
+        return self.__age
+    
     @age.setter
     def age(self, value: int) -> None:
         if value < 0:
