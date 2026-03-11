@@ -28,7 +28,7 @@ class FloweringPlant(Plant):
                 f"{self.color} flowers ({self.bloom()})")
 
 
-# PrizeFlower inherits the full chain: Plant -> FloweringPlant -> PrizeFlower
+# PrizeFlower inherits the full chain : Plant -> FloweringPlant -> PrizeFlower
 class PrizeFlower(FloweringPlant):
     def __init__(self, name: str, height: int, age: int,
                  color: str, prize_points: int) -> None:
@@ -40,7 +40,7 @@ class PrizeFlower(FloweringPlant):
 
 
 class GardenManager:
-    # Class variable — shared across all instances
+    # Class variable : shared across all instances.
     total_gardens: int = 0
 
     def __init__(self, owner: str) -> None:
@@ -72,17 +72,17 @@ class GardenManager:
               f"{types['flowering']} flowering, {types['prize']} "
               f"prize flowers")
 
-    # @classmethod — works on the class itself, can create instances.
+    # @classmethod : works on the class itself, can create instances.
     @classmethod
     def create_garden_network(cls, owners: list) -> list:
         return [cls(owner) for owner in owners]
 
-    # @staticmethod — utility function, needs no instance or class data.
+    # @staticmethod : utility function, needs no instance or class data.
     @staticmethod
     def validate_height(height: int) -> bool:
         return height > 0
 
-    # Nested class — groups statistics logic
+    # Nested class : groups statistics logic
     class GardenStats:
         @staticmethod
         def total_growth(plants: list) -> int:
