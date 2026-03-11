@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-def ft_garden_intro():
+def ft_garden_intro() -> None:
     name: str = (str)("Rose")
     height: int = (int)(25)
     age: int = (int)(30)
