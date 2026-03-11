@@ -21,7 +21,7 @@ def ft_plant_factory() -> None:
         ("Sunflower", 80, 45),
         ("Fern", 15, 120)
     ]
-    # Creation of list of objects for each plant_data info
+    # Creation of list of objects for each [plant_data] info
     print("=== Plant Factory Output ===")
     my_plants: list[Plant] = [
         Plant(name, height, age) for name, height, age in plant_data]
