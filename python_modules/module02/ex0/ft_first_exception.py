@@ -13,7 +13,7 @@ def check_temperature(temp_str: str) -> int:
         return temp_int
 
 
-def test_temperature_input():
+def test_temperature_input() -> None:
     print('=== Garden Temperature Checker ===\n')
     test_data: list = [
         "25",
@@ -21,10 +21,10 @@ def test_temperature_input():
         "100",
         "-50"
     ]
-    for i in test_data:
-        test: int = check_temperature(i)
-        print(f"Testing temperature: {i}")
-        if isinstance(test, int):
+    for test in test_data:
+        test_int: int = check_temperature(test)
+        print(f"Testing temperature: {test_int}")
+        if isinstance(test_int, int):
             print(f"Temperature {test}°C is perfect for plants!\n")
         else:
             print(test)
