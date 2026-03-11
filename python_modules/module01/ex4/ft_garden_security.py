@@ -48,7 +48,7 @@ def ft_garden_security() -> None:
     for plant in my_plants:
         plant.height = -5
     print(f"Current plant: {plant.name} "
-          f"{plant.height}cm, {plant.age} days")
+          f"({plant.height}cm, {plant.age} days)")
 
 
 if __name__ == "__main__":
