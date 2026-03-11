@@ -9,7 +9,7 @@ class Plant:
         self.age = age
 
 # A function that belongs to a class is called a method.
-# __str__ is a dunder/special method : called automatically by print()
+# __str__ is a dunder/special method : called automatically by print(),
 # to represent the object as a string.
     def __str__(self) -> str:
         return f"{self.name}: {self.height}cm, {self.age} days old"
