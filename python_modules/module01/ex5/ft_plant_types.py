@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import math
+from math import pi
 
 
 class Plant:
@@ -23,7 +23,7 @@ class Tree(Plant):
                 f"{self.trunk_diameter}cm diameter")
 
     def produce_shade(self) -> None:
-        self.shade: int = int(math.pi * (self.trunk_diameter / 10) ** 2)
+        self.shade: int = int(pi * (self.trunk_diameter / 10) ** 2)
         print(f"{self.name} provides {self.shade} square"
               f" meters of shade")
 
@@ -65,15 +65,15 @@ class Vegetable(Plant):
 def ft_plant_types():
     print("=== Garden Plant Types ===\n")
     print("= Flowers =")
-    my_flowers: list[Plant[Flower]] = [ # noqa
+    my_flowers: list[Flower] = [ # noqa
         Flower("Rose", 25, 30, "red"),
         Flower("Tulip", 15, 20, "yellow")]
     print("\n= Trees =")
-    my_trees: list[Plant[Tree]] = [ # noqa
+    my_trees: list[Tree] = [ # noqa
         Tree("Oak", 500, 1825, 50),
         Tree("Birch", 550, 1755, 30)]
     print("\n= Vegetables =")
-    my_vegetables: list[Plant[Vegetable]] = [ # noqa
+    my_vegetables: list[Vegetable] = [ # noqa
         Vegetable("Tomato", 80, 90, "summer harvest", "vitamin C"),
         Vegetable("Carrot", 15, 30, "spring harvest", "vitamin C")]
 
