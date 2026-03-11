@@ -112,8 +112,10 @@ class GardenManager:
 
 def ft_garden_analytics() -> None:
     print("=== Garden Management System Demo ===")
+    # Add Garden
     alice, bob = GardenManager.create_garden_network(["Alice", "Bob"])
 
+    # Add Plant to Garden
     alice.add_plant(Plant("Oak Tree", 100, 18))
     alice.add_plant(FloweringPlant("Rose", 25, 5, "red"))
     alice.add_plant(PrizeFlower("Sunflower", 50, 7, "yellow", 10))
@@ -121,8 +123,8 @@ def ft_garden_analytics() -> None:
     bob.add_plant(Plant("Cactus", 15, 40))
     bob.add_plant(FloweringPlant("Tulip", 30, 7, "purple"))
 
-    alice.grow_all()
-    alice.report()
+    alice.grow_all()  # Grow plants on Garden
+    alice.report()  # Report from Garden
 
     print(f"\nHeight validation test: {GardenManager.validate_height(10)}")
     print(f"Garden scores - Alice: {alice.score()}, Bob: {bob.score()}")
