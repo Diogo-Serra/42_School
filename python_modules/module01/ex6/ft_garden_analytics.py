@@ -82,6 +82,10 @@ class GardenManager:
     def validate_height(height: int) -> bool:
         return height > 0
 
+    # Instance method : delegates score calculation to GardenStats.
+    def score(self) -> int:
+        return GardenManager.GardenStats.garden_score(self.plants)
+
     # Nested class : groups statistics logic
     class GardenStats:
         @staticmethod
@@ -105,9 +109,6 @@ class GardenManager:
                 if isinstance(p, PrizeFlower):
                     score += p.prize_points
             return score
-
-    def score(self) -> int:
-        return GardenManager.GardenStats.garden_score(self.plants)
 
 
 def ft_garden_analytics() -> None:
