@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-def check_temperature(temp_str: str) -> int:
+def check_temperature(temp_str: str) -> int | str:
     try:
         temp_int: int = int(temp_str)
     except ValueError:
@@ -22,7 +22,7 @@ def test_temperature_input() -> None:
         "-50"
     ]
     for test in test_data:
-        test_int: int = check_temperature(test)
+        test_int: int | str = check_temperature(test)
         print(f"Testing temperature: {test}")
         if isinstance(test_int, int):
             print(f"Temperature {test_int}°C is perfect for plants!\n")
