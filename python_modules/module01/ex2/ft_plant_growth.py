@@ -25,7 +25,7 @@ def ft_plant_growth() -> None:
         Plant("Sunflower", 80, 45),
         Plant("Cactus", 15, 120),
     ]
-    day = 1
+    day: int = 1
     print(f"=== Day {day} ===")
     for plant in my_plants:
         plant.get_info()
