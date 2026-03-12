@@ -1,47 +1,40 @@
 #!/usr/bin/env python3
 
-def garden_operations() -> int:
-    print("Testing ValueError...")
-    try:
+def garden_operations(input_str: str) -> None:
+    if input_str == ValueError:
         int("abc")
-    except ValueError:
-        return 1
-    try:
+    elif input_str == ZeroDivisionError:
         1 / 0
-    except ZeroDivisionError:
-        return 2
-    try:
+    elif input_str == FileNotFoundError:
         open("missing.txt")
-    except FileNotFoundError:
-        return 3
-    try:
+    elif input_str == KeyError:
         plant_data = {"rose": 25}
-        print(plant_data["missing_plant"])
-    except KeyError as e:
-        return 4
-    try:
+        _ = plant_data["missing_plant"]
+    elif input_str == "tests":
         int("abc")
         1 / 0
-    except (ValueError, ZeroDivisionError):
-        return 5
 
 
 def test_error_types() -> None:
     print('=== Garden Error Types Demo ===\n')
-    garden_operations()
-    
-    print(f"Caught ValueError: {e}\n")
-    print("Testing ZeroDivisionError...")
-
-    print(f"Caught ZeroDivisionError: {e}\n")
-    print("Testing FileNotFoundError...")
-
-    print("Caught FileNotFoundError: No such file 'missing.txt'\n")
-    print("Testing KeyError...")
-
-
-    print("Caught an error, but program continues!\n")
-    print("All error types tested successfully!")
+    error_messages = {
+        ValueError: "Caught ValueError: invalid literal for int()",
+        ZeroDivisionError: "Caught ZeroDivisionError: division by zero",
+        FileNotFoundError: "Caught FileNotFoundError:"
+        "No such file 'missing.txt'",
+        KeyError: "Caught KeyError: 'missing_plant'",
+    }
+    for error_type, message in error_messages.items():
+        try:
+            print(f"Testing {error_type.__name__}...")
+            garden_operations(error_type)
+        except (ValueError, ZeroDivisionError, FileNotFoundError, KeyError):
+            print(message + "\n")
+    try:
+        print("Testing multiple errors together...")
+        garden_operations("tests")
+    except (ValueError, ZeroDivisionError):
+        print("Caught an error, but program continues!\n")
     print("All error types tested successfully!")
 
 
