@@ -21,7 +21,8 @@ def test_error_types() -> None:
     error_messages = {
         ValueError: "Caught ValueError: invalid literal for int()",
         ZeroDivisionError: "Caught ZeroDivisionError: division by zero",
-        FileNotFoundError: "Caught FileNotFoundError: No such file 'missing.txt'",
+        FileNotFoundError: "Caught FileNotFoundError: "
+        "No such file 'missing.txt'",
         KeyError: "Caught KeyError: 'missing_plant'",
     }
     for error_type, message in error_messages.items():
