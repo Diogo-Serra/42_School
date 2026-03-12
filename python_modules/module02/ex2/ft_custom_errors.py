@@ -20,7 +20,7 @@ class GardenError(Exception):
 
 # Plant errors
 class PlantError(GardenError):
-    def __init__(self, message="The tomato plant is wilting!"):
+    def __init__(self, message="Caught PlantError: The tomato plant is wilting!"):
         super().__init__(message)
 
 
@@ -37,7 +37,7 @@ def custom_errors():
     try:
         Garden("Alice", "Ok", -1)
     except PlantError as e:
-        print(f"Caught PlantError: {e}")
+        print(f"{e}")
 
     print("\nTesting WaterError...")
     try:
