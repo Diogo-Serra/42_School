@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-def garden_operations(input_str: type) -> None:
+def garden_operations(input_str: type | str) -> None:
     if input_str == ValueError:
         int("abc")
     elif input_str == ZeroDivisionError:
