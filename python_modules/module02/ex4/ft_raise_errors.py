@@ -22,7 +22,6 @@ def check_plant_health(
 
 
 def test_plant_checks() -> None:
-    """Demonstrate valid and invalid cases using try/except/finally."""
     print("=== Garden Plant Health Checker ===")
     tests: list = [
         ("\nTesting good values...", "tomato", 5, 6),
