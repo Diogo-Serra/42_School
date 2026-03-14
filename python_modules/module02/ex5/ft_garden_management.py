@@ -14,7 +14,7 @@ class GardenError(Exception):
 
 
 class PlantError(GardenError):
-    def __init__(self, message):
+    def __init__(self, message="Plant error"):
         super().__init__(message)
 
 
