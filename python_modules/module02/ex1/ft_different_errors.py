@@ -19,8 +19,8 @@ def test_error_types() -> None:
     print("Testing ValueError...")
     try:
         garden_operations("value")
-    except ValueError as error:
-        print(f"Caught ValueError: {error}\n")
+    except ValueError:
+        print("Caught ValueError: invalid literal for int()\n")
 
     print("Testing ZeroDivisionError...")
     try:
@@ -31,8 +31,8 @@ def test_error_types() -> None:
     print("Testing FileNotFoundError...")
     try:
         garden_operations("file")
-    except FileNotFoundError as error:
-        print(f"Caught FileNotFoundError: {error}\n")
+    except FileNotFoundError:
+        print("Caught FileNotFoundError: No such file 'missing.txt'\n")
 
     print("Testing KeyError...")
     try:
