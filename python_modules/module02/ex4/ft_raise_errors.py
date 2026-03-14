@@ -21,10 +21,10 @@ def check_plant_health(
     return f"Plant '{plant_name}' is healthy!"
 
 
-def test_plant_checks():
+def test_plant_checks() -> None:
     """Demonstrate valid and invalid cases using try/except/finally."""
     print("=== Garden Plant Health Checker ===")
-    tests = [
+    tests: list = [
         ("\nTesting good values...", "tomato", 5, 6),
         ("\nTesting empty plant name...", "", 5, 6),
         ("\nTesting bad water level...", "tomato", 15, 6),
