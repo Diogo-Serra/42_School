@@ -65,7 +65,8 @@ def test_garden_management():
     for plant in garden.plant_list:
         try:
             garden.check_plant_health(plant)
-            print(f"{plant.name}: healthy (water: {plant.water}, sun: {plant.sun})")
+            print(f"{plant.name}: healthy (water: {plant.water}, sun: "
+                  f"{plant.sun})")
         except ValueError as e:
             print(f"Error checking {plant.name}: {e}")
     print("\nTesting error recovery...")
