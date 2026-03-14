@@ -1,38 +1,52 @@
 #!/usr/bin/env python3
 
-def garden_operations(input_str: type | str) -> None:
-    try: # ValueError:
+def garden_operations(error_type: str) -> None:
+    if error_type == "value":
         int("abc")
-    try: # ZeroDivisionError:
-        1 / 0
-    try: # FileNotFoundError:
-        open("missing.txt")
-    try: # input_str == KeyError:
-        plant_data = {"rose": 25}
-        _ = plant_data["missing_plant"]
+    elif error_type == "zero":
+        10 / 0
+    elif error_type == "file":
+        with open("missing.txt", "r", encoding="utf-8"):
+            pass
+    elif error_type == "key":
+        plants = {"tomato": 12, "carrot": 8}
+        print(plants["missing_plant"])
 
 
 def test_error_types() -> None:
-    print('=== Garden Error Types Demo ===\n')
-    error_messages = {
-        ValueError: "Caught ValueError: invalid literal for int()",
-        ZeroDivisionError: "Caught ZeroDivisionError: division by zero",
-        FileNotFoundError: "Caught FileNotFoundError: "
-        "No such file 'missing.txt'",
-        KeyError: "Caught KeyError: 'missing_plant'",
-    }
-    for error_type, message in error_messages.items():
-        try:
-            print(f"Testing {error_type.__name__}...")
-            garden_operations(error_type)
-        except (ValueError, ZeroDivisionError, FileNotFoundError, KeyError):
-            print(message + "\n")
+    print("=== Garden Error Types Demo ===\n")
+
+    print("Testing ValueError...")
+    try:
+        garden_operations("value")
+    except ValueError as error:
+        print(f"Caught ValueError: {error}\n")
+
+    print("Testing ZeroDivisionError...")
+    try:
+        garden_operations("zero")
+    except ZeroDivisionError as error:
+        print(f"Caught ZeroDivisionError: {error}\n")
+
+    print("Testing FileNotFoundError...")
+    try:
+        garden_operations("file")
+    except FileNotFoundError as error:
+        print(f"Caught FileNotFoundError: {error}\n")
+
+    print("Testing KeyError...")
+    try:
+        garden_operations("key")
+    except KeyError as error:
+        print(f"Caught KeyError: {error}\n")
+
     try:
         print("Testing multiple errors together...")
-        garden_operations("tests_value")
-        garden_operations("tests_zero")
+        garden_operations("value")
+        garden_operations("zero")
     except (ValueError, ZeroDivisionError):
         print("Caught an error, but program continues!\n")
+
     print("All error types tested successfully!")
 
 
