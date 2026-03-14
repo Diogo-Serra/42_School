@@ -9,7 +9,7 @@ class Plant:
 
 
 class GardenError(Exception):
-    def __init__(self, message="Garden management error"):
+    def __init__(self, message="Not enough water in tank"):
         super().__init__(message)
 
 
