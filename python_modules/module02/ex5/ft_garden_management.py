@@ -1,55 +1,82 @@
 #!/usr/bin/env python3
 
-class GardenManager:
-    plant_list = []
+class Plant:
+    def __init__(self, name, water, sun):
+        self.name = name
+        self.water = water
+        self.sun = sun
 
-    def add_plant(self, name, water, sun):
-        print('Adding plants to garden...')
+
+class GardenManager:
+    def __init__(self):
+        self.garden_water = 2
+        self.plant_list = []
+
+    def add_plant(self, name: str, water: int, sun: int):
         if not name:
             raise ValueError("Error adding plant: Plant name cannot be empty!")
-        plant = [name, water, sun]
+        plant = Plant(name, water, sun)
         self.plant_list.append(plant)
-        print(f'Added {self.name} successfully')
-        print("")
+        print(f'Added {plant.name} successfully')
 
-    def water_plants(self):
-        print("Watering plants...")
-        print('Opening watering system')
-        for plant in self.plant_list:
-            print(f'Watering {plant.name} - success')
-        print("Closing watering system (cleanup)")
+    def water_plant(self, plant):
+        plant.water += 1
+        self.garden_water -= 1
+        print(f'Watering {plant.name} - success')
 
-    def check_plant_health(
-        plant_name: str,
-        water_level: int,
-        sunlight_hours: int,
-    ) -> str:
-        if water_level < 1 or water_level > 10:
-            if water_level < 1:
-                raise ValueError(f"Water level {water_level} is too low"
+    def check_plant_health(self, plant) -> str:
+        if plant.water < 1 or plant.water > 10:
+            if plant.water < 1:
+                raise ValueError(f"Water level {plant.water} is too low"
                                  f"(min 1)")
-            raise ValueError(f"Water level {water_level} is too high (max 10)")
-        if sunlight_hours < 2 or sunlight_hours > 12:
-            if sunlight_hours < 2:
-                raise ValueError(f"Sunlight hours {sunlight_hours} is too low"
+            raise ValueError(f"Water level {plant.water} is too high (max 10)")
+        if plant.sun < 2 or plant.sun > 12:
+            if plant.sun < 2:
+                raise ValueError(f"Sunlight hours {plant.sun} is too low"
                                  f"(min 2)")
-            raise ValueError(f"Sunlight hours {sunlight_hours} is too high"
+            raise ValueError(f"Sunlight hours {plant.sun} is too high"
                              f"(max 12)")
-        return f"Plant '{plant_name}' is healthy!"
 
-    def view_garden(self):
-        for plant in self.plant_list:
-            print(plant)
+    def check_tank(self):
+        if self.garden_water <= 0:
+            raise ValueError("Not enough water in tank")
 
 
 def test_garden_management():
+    print("=== Garden Management System ===\n")
     garden = GardenManager()
-    garden.add_plant('tomato', 5, 8)
-    garden.add_plant('lettuce', 15, 50)
-    garden.add_plant('', 3, 8)
-    garden.view_garden()
-    garden.water_plants()
-    garden.check_health()
+    plants_test = [
+        ('tomato', 4, 8),
+        ('lettuce', 14, 20),
+        ('', 3, 8),
+    ]
+    print('Adding plants to garden...')
+    for name, water, sun in plants_test:
+        try:
+            garden.add_plant(name, water, sun)
+        except ValueError as e:
+            print(e)
+    print("\nWatering plants...")
+    print('Opening watering system')
+    for plant in garden.plant_list:
+        garden.water_plant(plant)
+    print("Closing watering system (cleanup)\n")
+    print("Checking plant health...")
+    for plant in garden.plant_list:
+        try:
+            garden.check_plant_health(plant)
+            print(f"{plant.name}: healthy (water: {plant.water}, sun: {plant.sun})")
+        except ValueError as e:
+            print(f"Error checking {plant.name}: {e}")
+    print("\nTesting error recovery...")
+    try:
+        garden.check_tank()
+    except ValueError as e:
+        print(f"Caught GardenError: {e}")
+    finally:
+        print("System recovered and continuing...")
+    print("\nGarden management system test complete!")
 
 
-test_garden_management()()
+if __name__ == '__main__':
+    test_garden_management()
