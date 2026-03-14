@@ -9,15 +9,12 @@ class Plant:
 
 
 class GardenError(Exception):
-    def __init__(self, message="Not enough water in tank"):
+    def __init__(self, message="Garden management error"):
         super().__init__(message)
 
 
 class PlantError(GardenError):
-    def __init__(
-        self,
-        message="Error adding plant: Plant name cannot be empty!",
-    ):
+    def __init__(self, message):
         super().__init__(message)
 
 
@@ -33,7 +30,7 @@ class GardenManager:
 
     def add_plant(self, name: str, water: int, sun: int):
         if not name:
-            raise PlantError()
+            raise PlantError("Error adding plant: Plant name cannot be empty!")
         plant = Plant(name, water, sun)
         self.plant_list.append(plant)
         print(f'Added {plant.name} successfully')
@@ -46,15 +43,18 @@ class GardenManager:
     def check_plant_health(self, plant) -> str:
         if plant.water < 1 or plant.water > 10:
             if plant.water < 1:
-                raise PlantError(f"Water level {plant.water} is too low"
-                                 f"(min 1)")
+                raise PlantError(
+                    f"Water level {plant.water} is too low (min 1)"
+                )
             raise PlantError(f"Water level {plant.water} is too high (max 10)")
         if plant.sun < 2 or plant.sun > 12:
             if plant.sun < 2:
-                raise PlantError(f"Sunlight hours {plant.sun} is too low"
-                                 f"(min 2)")
-            raise PlantError(f"Sunlight hours {plant.sun} is too high"
-                             f"(max 12)")
+                raise PlantError(
+                    f"Sunlight hours {plant.sun} is too low (min 2)"
+                )
+            raise PlantError(
+                f"Sunlight hours {plant.sun} is too high (max 12)"
+            )
         return (
             f"{plant.name}: healthy (water: {plant.water}, "
             f"sun: {plant.sun})"
@@ -62,7 +62,7 @@ class GardenManager:
 
     def check_tank(self):
         if self.garden_water <= 0:
-            raise WaterError("Not enough water in tank")
+            raise WaterError()
 
 
 def test_garden_management():
