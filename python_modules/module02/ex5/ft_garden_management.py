@@ -14,7 +14,10 @@ class GardenError(Exception):
 
 
 class PlantError(GardenError):
-    def __init__(self, message="Plant validation failed"):
+    def __init__(
+        self,
+        message="Error adding plant: Plant name cannot be empty!",
+    ):
         super().__init__(message)
 
 
@@ -30,7 +33,7 @@ class GardenManager:
 
     def add_plant(self, name: str, water: int, sun: int):
         if not name:
-            raise PlantError("Error adding plant: Plant name cannot be empty!")
+            raise PlantError()
         plant = Plant(name, water, sun)
         self.plant_list.append(plant)
         print(f'Added {plant.name} successfully')
@@ -74,7 +77,7 @@ def test_garden_management():
     for name, water, sun in plants_test:
         try:
             garden.add_plant(name, water, sun)
-        except GardenError as e:
+        except PlantError as e:
             print(e)
     print("\nWatering plants...")
     try:
