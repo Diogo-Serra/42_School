@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 
 def garden_operations(input_str: type | str) -> None:
-    if input_str == ValueError:
+    try: # ValueError:
         int("abc")
-    elif input_str == ZeroDivisionError:
+    try: # ZeroDivisionError:
         1 / 0
-    elif input_str == FileNotFoundError:
+    try: # FileNotFoundError:
         open("missing.txt")
-    elif input_str == KeyError:
+    try: # input_str == KeyError:
         plant_data = {"rose": 25}
         _ = plant_data["missing_plant"]
-    elif input_str == "tests_value":
-        int("abc")
-    elif input_str == "tests_zero":
-        1 / 0
 
 
 def test_error_types() -> None:
