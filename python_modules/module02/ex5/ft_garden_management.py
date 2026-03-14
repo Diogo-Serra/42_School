@@ -1,10 +1,26 @@
 #!/usr/bin/env python3
 
+
 class Plant:
     def __init__(self, name, water, sun):
         self.name = name
         self.water = water
         self.sun = sun
+
+
+class GardenError(Exception):
+    def __init__(self, message="Garden management error"):
+        super().__init__(message)
+
+
+class PlantError(GardenError):
+    def __init__(self, message="Plant validation failed"):
+        super().__init__(message)
+
+
+class WaterError(GardenError):
+    def __init__(self, message="Not enough water in tank"):
+        super().__init__(message)
 
 
 class GardenManager:
@@ -14,7 +30,7 @@ class GardenManager:
 
     def add_plant(self, name: str, water: int, sun: int):
         if not name:
-            raise ValueError("Error adding plant: Plant name cannot be empty!")
+            raise PlantError("Error adding plant: Plant name cannot be empty!")
         plant = Plant(name, water, sun)
         self.plant_list.append(plant)
         print(f'Added {plant.name} successfully')
@@ -27,19 +43,23 @@ class GardenManager:
     def check_plant_health(self, plant) -> str:
         if plant.water < 1 or plant.water > 10:
             if plant.water < 1:
-                raise ValueError(f"Water level {plant.water} is too low"
+                raise PlantError(f"Water level {plant.water} is too low"
                                  f"(min 1)")
-            raise ValueError(f"Water level {plant.water} is too high (max 10)")
+            raise PlantError(f"Water level {plant.water} is too high (max 10)")
         if plant.sun < 2 or plant.sun > 12:
             if plant.sun < 2:
-                raise ValueError(f"Sunlight hours {plant.sun} is too low"
+                raise PlantError(f"Sunlight hours {plant.sun} is too low"
                                  f"(min 2)")
-            raise ValueError(f"Sunlight hours {plant.sun} is too high"
+            raise PlantError(f"Sunlight hours {plant.sun} is too high"
                              f"(max 12)")
+        return (
+            f"{plant.name}: healthy (water: {plant.water}, "
+            f"sun: {plant.sun})"
+        )
 
     def check_tank(self):
         if self.garden_water <= 0:
-            raise ValueError("Not enough water in tank")
+            raise WaterError("Not enough water in tank")
 
 
 def test_garden_management():
@@ -54,25 +74,25 @@ def test_garden_management():
     for name, water, sun in plants_test:
         try:
             garden.add_plant(name, water, sun)
-        except ValueError as e:
+        except GardenError as e:
             print(e)
     print("\nWatering plants...")
-    print('Opening watering system')
-    for plant in garden.plant_list:
-        garden.water_plant(plant)
-    print("Closing watering system (cleanup)\n")
+    try:
+        print('Opening watering system')
+        for plant in garden.plant_list:
+            garden.water_plant(plant)
+    finally:
+        print("Closing watering system (cleanup)\n")
     print("Checking plant health...")
     for plant in garden.plant_list:
         try:
-            garden.check_plant_health(plant)
-            print(f"{plant.name}: healthy (water: {plant.water}, sun: "
-                  f"{plant.sun})")
-        except ValueError as e:
+            print(garden.check_plant_health(plant))
+        except PlantError as e:
             print(f"Error checking {plant.name}: {e}")
     print("\nTesting error recovery...")
     try:
         garden.check_tank()
-    except ValueError as e:
+    except GardenError as e:
         print(f"Caught GardenError: {e}")
     finally:
         print("System recovered and continuing...")
