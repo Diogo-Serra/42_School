@@ -14,7 +14,7 @@ def ft_coordinate_system():
                 coordinates_list.append(coordinate)
             except ValueError as e:
                 print(f"Parsing invalid coordinates: "
-                      f"\"{argv[0]},{argv[1]},{argv[2]}\"")
+                      f"\"{argv[1]},{argv[2]},{argv[3]}\"")
                 print(f"Error parsing coordinates: {e}")
                 print(f"Error details - {e}")
                 return
