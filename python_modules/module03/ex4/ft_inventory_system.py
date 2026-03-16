@@ -26,11 +26,16 @@ Sample lookup - 'sword' in inventory: True
 
 
 def ft_inventory_system(inventory):
+    inventory_values = sum(inventory.values())
     print("\n=== Current Inventory ===")
-    inventory_keys = inventory.keys()
-    inventory_values = inventory.values()
-    for k, v in zip(inventory_keys, inventory_values):
-        print(f"{k}: {v} ({round(v * 100 / sum(inventory_values), 1)})")
+    for item in inventory:
+        if inventory.get(item) > 1:
+            print(f"{item}: {inventory.get(item)} units "
+                  f"({round(inventory.get(item) * 100 / inventory_values, 1)}%)")
+        else:
+            print(f"{item}: {inventory.get(item)} unit "
+                  f"({round(inventory.get(item) * 100 / inventory_values, 1)}%)")
+    print("\n=== Inventory Statistics ===")
 
 
 def main():
