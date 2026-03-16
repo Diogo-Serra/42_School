@@ -36,7 +36,8 @@ def ft_inventory_system(inventory):
             print(f"{item}: {inventory.get(item)} unit "
                   f"({round(inventory.get(item) * 100 / inventory_values, 1)}%)")
     print("\n=== Inventory Statistics ===")
-
+    print(f"Most abundant: potion ({max(inventory_values)} units)")
+    print(f"Least abundant: sword ({min(inventory_values)} unit)")
 
 def main():
     inventory = {
