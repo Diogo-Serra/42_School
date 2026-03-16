@@ -35,6 +35,7 @@ def ft_achievement_tracker(players: list[set]):
     print(f"Common to all players: {common_toall}")
     rare_achiev: set = ((a - b - c) | (b - a - c) | (c - a - b)) & achievements
     print(f"Rare achievements (1 player): {rare_achiev}")
+    print(f"{a | b}")
 
 
 def main():
