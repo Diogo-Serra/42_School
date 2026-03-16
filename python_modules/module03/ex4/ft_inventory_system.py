@@ -37,7 +37,8 @@ def main():
         "armor": 3,
         "helmet": 1,
     }
-    print(type(items))
+    items_values = items.items()
+    print(f"Total items in inventory: {sum(items_values)}")
     ft_inventory_system(items)
 
 
