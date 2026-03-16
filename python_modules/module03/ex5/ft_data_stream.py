@@ -9,7 +9,7 @@ def game_event_stream(total_events):
         {"player": "alice", "level": 5, "action": "killed monster"},
         {"player": "bob", "level": 12, "action": "found treasure"},
         {"player": "charlie", "level": 8, "action": "leveled up"},
-]
+    ]
     for event in scripted_events[:total_events]:
         yield event
 
