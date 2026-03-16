@@ -20,13 +20,13 @@ Bob unique: {'boss_slayer', 'collector'}
 
 def ft_achievement_tracker(players: list[set]):
     achievements: set = {
-        "first_kill",
-        "treasure_hunter",
-        "speed_demon",
-        "collector",
-        "boss_slayer",
-        "level_10",
-        "perfectionist"}
+        'boss_slayer',
+        'collector',
+        'first_kill',
+        'level_10',
+        'perfectionist',
+        'speed_demon',
+        'treasure_hunter'}
     a, b, c = players[0], players[1], players[2]
     print("=== Achievement Tracker System ===")
     print(f"All unique achievements: {achievements}")
@@ -35,15 +35,25 @@ def ft_achievement_tracker(players: list[set]):
     print(f"Common to all players: {common_toall}")
     rare_achiev: set = ((a - b - c) | (b - a - c) | (c - a - b)) & achievements
     print(f"Rare achievements (1 player): {rare_achiev}")
-    print(f"{a | b}")
+    a_b = a & b
+    print(f"Alice vs Bob common: {a_b}")
+    a_unique: set = a - b
+    print(f"Alice unique: {a_unique}")
+    b_unique: set = b - a
+    b_unique_sorted = sorted(b_unique)
+    print(f"Bob unique: {set(b_unique_sorted)}")
 
 
 def main():
-    players: set = [
-        {"alice", "first_kill", "level_10", "treasure_hunter", "speed_demon"},
-        {"bob", "first_kill", "level_10", "boss_slayer", "collector"},
-        {"charlie", "level_10", "treasure_hunter", "boss_slayer", "speed_demon",
-         "perfectionist"}]
+    print("=== Achievement Tracker System ===")
+    players: list[set] = [
+        {'first_kill', 'level_10', 'treasure_hunter', 'speed_demon'},
+        {'first_kill', 'level_10', 'boss_slayer', 'collector'},
+        {'level_10', 'treasure_hunter', 'boss_slayer', 'speed_demon',
+         'perfectionist'}]
+    names: list[str] = ["alice", "bob", "charlie"]
+    for name, player in zip(names, players):
+        print(f"Player {name} achievements: {player}")
     ft_achievement_tracker(players)
 
 
