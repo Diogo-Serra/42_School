@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 
 
 class DataProcessor(ABC):
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     @abstractmethod
@@ -20,7 +20,7 @@ class DataProcessor(ABC):
 
 
 class NumericProcessor(DataProcessor):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
     def validate(self, data: Any) -> bool:
@@ -44,7 +44,7 @@ class NumericProcessor(DataProcessor):
 
 
 class TextProcessor(DataProcessor):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
     def validate(self, data: Any) -> bool:
@@ -62,7 +62,7 @@ class TextProcessor(DataProcessor):
 
 
 class LogProcessor(DataProcessor):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
     def validate(self, data: Any) -> bool:
@@ -80,6 +80,7 @@ class LogProcessor(DataProcessor):
         return self.format_output(f"Output: {result}")
 
 
+"""
 def main():
     print("=== CODE NEXUS - DATA PROCESSOR FOUNDATION ===")
 
@@ -99,3 +100,4 @@ def main():
 
 
 main()
+"""
