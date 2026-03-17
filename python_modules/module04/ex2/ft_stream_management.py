@@ -10,8 +10,8 @@ def ft_stream_management():
     sys.stdout.write("Input Stream active. Enter status report: ")
     sys.stdout.flush()
     status_report = sys.stdin.readline().strip()
-    sys.stdout.write("\n[STANDARD] Archive status from " + archivist_id + ": " +
-                     status_report + "\n")
+    sys.stdout.write("\n[STANDARD] Archive status from "
+                     + archivist_id + ": " + status_report + "\n")
     sys.stderr.write("[ALERT] System diagnostic: Communication"
                      " channels verified\n")
     sys.stdout.write("[STANDARD] Data transmission complete\n")
