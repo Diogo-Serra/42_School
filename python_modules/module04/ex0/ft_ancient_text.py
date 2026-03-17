@@ -4,7 +4,7 @@
 def ft_ancient_text():
     print("=== CYBER ARCHIVES - DATA RECOVERY SYSTEM ===\n")
     try:
-        f = open("ancient_fragment.txt")
+        f = open("ancient_fragment.txt", "rt")
         print(f"Accessing Storage Vault: {f.name}")
         print("Connection established...\n")
     except (FileNotFoundError, FileExistsError):
