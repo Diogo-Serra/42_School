@@ -43,7 +43,7 @@ class SecurePlant:
 
 def ft_garden_security() -> None:
     print("=== Garden Security System ===")
-    my_plants = [
+    my_plants: list[SecurePlant] = [
         SecurePlant("Rose", 25, 30)]
     for plant in my_plants:
         plant.height = -5
