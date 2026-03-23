@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-def check_temperature(temp_str: str) -> int:
+def input_temperature(temp_str: str) -> int:
     try:
         temp_int: int = int(temp_str)
     except ValueError:
@@ -15,7 +15,7 @@ def check_temperature(temp_str: str) -> int:
         return temp_int
 
 
-def test_temperature_input() -> None:
+def test_temperature() -> None:
     print('=== Garden Temperature Checker ===\n')
     test_data: list = [
         "25",
@@ -26,7 +26,7 @@ def test_temperature_input() -> None:
     for test in test_data:
         print(f"Testing temperature: {test}")
         try:
-            test_int: int = check_temperature(test)
+            test_int: int = input_temperature(test)
             print(f"Temperature {test_int}°C is perfect for plants!\n")
         except ValueError as e:
             print(f"{e}\n")
@@ -34,4 +34,4 @@ def test_temperature_input() -> None:
 
 
 if __name__ == '__main__':
-    test_temperature_input()
+    test_temperature()
