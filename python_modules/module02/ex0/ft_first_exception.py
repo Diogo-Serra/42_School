@@ -16,7 +16,7 @@ def input_temperature(temp_str: str) -> int:
 
 
 def test_temperature() -> None:
-    print('=== Garden Temperature Checker ===\n')
+    print('=== Garden Temperature ===\n')
     test_data: list = [
         "25",
         "abc",
@@ -27,6 +27,7 @@ def test_temperature() -> None:
         print(f"Testing temperature: {test}")
         try:
             test_int: int = input_temperature(test)
+            print(f"Input data is '{test.int}'")
             print(f"Temperature {test_int}°C is perfect for plants!\n")
         except ValueError as e:
             print(f"{e}\n")
