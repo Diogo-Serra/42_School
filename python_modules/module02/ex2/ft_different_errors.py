@@ -19,7 +19,7 @@ def garden_operations(operation_number: int) -> None:
 
 
 def test_error_types() -> None:
-    print("=== Garden Error Types Demo ===\n")
+    print("=== Garden Error Types Demo ===")
     test_list: list[tuple] = [
         ("ValueError", 0),
         ("ZeroDivisionError", 1),
