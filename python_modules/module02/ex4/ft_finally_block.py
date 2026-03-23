@@ -15,7 +15,8 @@ def water_plant(plant_name):
         print(f"Watering {plant_name}: [OK]")
     else:
         raise PlantError(
-            f"Caught {PlantError.__name__}: Invalid plant name to water: '{plant_name}'"
+            f"Caught {PlantError.__name__}: Invalid plant name"
+            f" to water: '{plant_name}'"
         )
 
 
@@ -34,7 +35,7 @@ def test_watering_system():
 
     print("=== Garden Watering System ===")
     try:
-        print("Testing valid plants...")
+        print("\nTesting valid plants...")
         print("Opening watering system")
         try:
             for test in valid_test:
@@ -42,7 +43,7 @@ def test_watering_system():
         finally:
             print("Closing watering system")
 
-        print("Testing invalid plants...")
+        print("\nTesting invalid plants...")
         print("Opening watering system")
         try:
             for test in invalid_test:
@@ -55,7 +56,7 @@ def test_watering_system():
         finally:
             print("Closing watering system")
     finally:
-        print("Cleanup always happens, even with errors!")
+        print("\nCleanup always happens, even with errors!")
 
 
 if __name__ == '__main__':
