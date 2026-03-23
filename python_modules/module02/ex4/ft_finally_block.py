@@ -6,18 +6,15 @@ def water_plant(plant_name):
             print(plant_name)
         else:
             print("1")
+    except ValueError as e:
+        raise e
 
 
 def test_watering_system():
     print("=== Garden Watering System ===")
 
     print("\nTesting normal watering...")
-    water_plants(["tomato", "lettuce", "carrots"])
-    print("Watering completed successfully!")
-
-    print("\nTesting with error...")
-    water_plants(["tomato", None, "lettuce"])
-    print("\nCleanup always happens, even with errors!")
+    water_plant("tomato")
 
 
 if __name__ == '__main__':
