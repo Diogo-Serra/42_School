@@ -7,40 +7,32 @@ def garden_operations(operation_number: int) -> None:
         elif operation_number == 1:
             10 / 0
         elif operation_number == 2:
-            with open("missing.txt", "r", encoding="utf-8"):
+            with open("/non/existent/file", "r", encoding="utf-8"):
                 pass
         elif operation_number == 3:
             plants = {"tomato": 12, "carrot": 8}
             print(plants["missing_plant"])
-    except (ValueError, ZeroDivisionError, FileNotFoundError, IndexError)
+        else:
+            return
+    except (ValueError, ZeroDivisionError, FileNotFoundError, TypeError):
+        raise
 
 
 def test_error_types() -> None:
     print("=== Garden Error Types Demo ===\n")
-
-    print("Testing ValueError...")
-    try:
-        garden_operations("value")
-    except ValueError:
-        print("Caught ValueError: invalid literal for int()\n")
-
-    print("Testing ZeroDivisionError...")
-    try:
-        garden_operations("zero")
-    except ZeroDivisionError as error:
-        print(f"Caught ZeroDivisionError: {error}\n")
-
-    print("Testing FileNotFoundError...")
-    try:
-        garden_operations("file")
-    except FileNotFoundError:
-        print("Caught FileNotFoundError: No such file 'missing.txt'\n")
-
-    print("Testing KeyError...")
-    try:
-        garden_operations("key")
-    except KeyError as error:
-        print(f"Caught KeyError: {error}\n")
+    test_list: list[tuple] = [
+        ("ValueError", 0),
+        ("ZeroDivisionError", 1),
+        ("FileNotFoundError", 2),
+        ("TypeError", 3),
+        ("", )
+    ]
+    for test in test_list:
+        print(f"Testing operation {test[1]}...")
+        try:
+            garden_operations(test[1])
+        except (ValueError, ZeroDivisionError, FileNotFoundError, TypeError) as e:
+            print(f"Caught {type(e).__name__}: {e}")
 
     try:
         print("Testing multiple errors together...")
@@ -49,7 +41,7 @@ def test_error_types() -> None:
     except (ValueError, ZeroDivisionError):
         print("Caught an error, but program continues!\n")
 
-    print("All error types tested successfully!")
+        print("All error types tested successfully!")
 
 
 if __name__ == '__main__':
