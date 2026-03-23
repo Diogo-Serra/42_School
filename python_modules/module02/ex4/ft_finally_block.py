@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 
-def water_plants(plant_list):
+def water_plant(plant_name):
     try:
-        print("Opening watering system")
-        for plant in plant_list:
-            if not isinstance(plant, str) or not plant.isalpha():
-                raise ValueError(f"Cannot water {plant} - invalid plant!")
-            print(f"Watering {plant}")
-    except ValueError as e:
-        print(f"Error: {e}")
-    finally:
-        print("Closing watering system (cleanup)")
+        if plant_name.upper():
+            print(plant_name)
+        else:
+            print("1")
 
 
 def test_watering_system():
