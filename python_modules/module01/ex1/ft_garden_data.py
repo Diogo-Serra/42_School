@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# A class bundles data and behavior together
-# objects are the instances of that class blueprint.
+# A class bundles data and behavior together.
+# Objects are the instances of that class blueprint.
 class Plant:
     def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
@@ -9,8 +9,7 @@ class Plant:
         self.age = age
 
 # A function that belongs to a class is called a method.
-# __str__ is a dunder/special method : called automatically by print(),
-# to represent the object as a string.
+# __str__ is a dunder/special method : called automatically by print()
     def __str__(self) -> str:
         return f"{self.name}: {self.height}cm, {self.age} days old"
 
