@@ -5,8 +5,8 @@ class Plant:
         self.name = name
         self.height = height
         self.age = age
-        self.day = 1
-        self.initial_height = height
+        self.day: int = 1
+        self.initial_height: int = height
 
     def grow(self) -> None:
         self.height += 1
@@ -42,7 +42,7 @@ def ft_plant_growth() -> None:
     print(f"=== Day {day} ===")
     for plant in my_plants:
         plant.get_info()
-        print(f"Growth this week: +{plant.growth}cm")
+        print(f"Growth this week: +{plant.growth}cm\n")
 
 
 if __name__ == "__main__":
