@@ -12,21 +12,50 @@ class PlantError(GardenError):
 
 def water_plant(plant_name):
     if plant_name == plant_name.capitalize():
-        print(f"Watering plant: {plant_name}")
+        print(f"Watering {plant_name}: [OK]")
     else:
-        raise PlantError(f"Error_Not_capitalized: {plant_name}")
+        raise PlantError(
+            f"Caught {PlantError.__name__}: Invalid plant name to water: '{plant_name}'"
+        )
 
 
 def test_watering_system():
-    print("=== Garden Watering System ===")
+    valid_test: list[str] = [
+        "Tomato",
+        "Lettuce",
+        "Carrots",
+    ]
 
-    print("\nTesting normal watering...")
+    invalid_test: list[str] = [
+        "Tomato",
+        "lettuce",
+        "carrots",
+    ]
+
+    print("=== Garden Watering System ===")
     try:
-        water_plant("tomato")
-    except PlantError as e:
-        print(f"{e}")
+        print("Testing valid plants...")
+        print("Opening watering system")
+        try:
+            for test in valid_test:
+                water_plant(test)
+        finally:
+            print("Closing watering system")
+
+        print("Testing invalid plants...")
+        print("Opening watering system")
+        try:
+            for test in invalid_test:
+                try:
+                    water_plant(test)
+                except PlantError as e:
+                    print(f"{e}")
+                    print(".. ending tests and returning to main")
+                    return
+        finally:
+            print("Closing watering system")
     finally:
-        print("All tested")
+        print("Cleanup always happens, even with errors!")
 
 
 if __name__ == '__main__':
