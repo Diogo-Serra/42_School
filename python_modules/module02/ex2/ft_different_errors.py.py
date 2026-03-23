@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 
-def garden_operations(error_type: str) -> None:
-    if error_type == "value":
-        int("abc")
-    elif error_type == "zero":
-        10 / 0
-    elif error_type == "file":
-        with open("missing.txt", "r", encoding="utf-8"):
-            pass
-    elif error_type == "key":
-        plants = {"tomato": 12, "carrot": 8}
-        print(plants["missing_plant"])
+def garden_operations(operation_number: int) -> None:
+    try:
+        if operation_number == 0:
+            int("abc")
+        elif operation_number == 1:
+            10 / 0
+        elif operation_number == 2:
+            with open("missing.txt", "r", encoding="utf-8"):
+                pass
+        elif operation_number == 3:
+            plants = {"tomato": 12, "carrot": 8}
+            print(plants["missing_plant"])
+    except (ValueError, ZeroDivisionError, FileNotFoundError, IndexError)
 
 
 def test_error_types() -> None:
