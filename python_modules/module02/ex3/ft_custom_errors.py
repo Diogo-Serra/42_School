@@ -30,30 +30,27 @@ class WaterError(GardenError):
 def custom_errors() -> None:
     print("=== Custom Garden Errors Demo ===")
 
-    garden_data: list[tuple] = [
-        ("Alice", "Ok", -1),
-        ("Bob", "dry", 5),
-    ]
-
     print("\nTesting PlantError...")
     try:
-        Garden(*garden_data[0])
+        Garden(("Alice", "Ok", -1))
     except PlantError as e:
         print(f"Caught {type(e).__name__}: {e.message}")
 
     print("\nTesting WaterError...")
     try:
-        Garden(*garden_data[1])
+        Garden("Bob", "dry", 5)
     except WaterError as e:
         print(f"Caught {type(e).__name__}: {e.message}")
 
     print("\nTesting catching all garden errors...")
-    for garden in garden_data:
-        try:
-            Garden(*garden)
-        except GardenError as e:
-            print(f"Caught GardenError: {e.message}")
-
+    try:
+        Garden(("Alice", "Ok", -1))
+    except GardenError as e:
+        print(f"Caught GardenError: {e.message}")
+    try:
+        Garden("Bob", "dry", 5)
+    except GardenError as e:
+        print(f"Caught GardenError: {e.message}")
     print("\nTesting catching all garden errors...")
 
 
