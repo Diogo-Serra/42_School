@@ -29,7 +29,7 @@ class WaterError(GardenError):
         super().__init__(message)
 
 
-def custom_errors():
+def custom_errors() -> None:
     print("=== Custom Garden Errors Demo ===")
 
     garden_data: list[tuple] = [
