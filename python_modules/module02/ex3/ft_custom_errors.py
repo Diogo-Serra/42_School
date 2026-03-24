@@ -18,7 +18,6 @@ class WaterError(GardenError):
         self.message = message
 
 
-# Simple class for testing
 class Garden:
     def __init__(self, owner: str, status: str, plants: int):
         if plants < 0:
