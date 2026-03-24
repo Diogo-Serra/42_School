@@ -4,9 +4,9 @@
 class Garden:
     def __init__(self, owner: str, status: str, plants: int):
         if plants < 0:
-            raise PlantError()
+            raise PlantError("The tomato plant is wilting!")
         if status == "dry":
-            raise WaterError()
+            raise WaterError("Not enough water in the tank")
         self.owner = owner
         self.status = status
         self.plants = plants
@@ -14,17 +14,19 @@ class Garden:
 
 # Garden errors
 class GardenError(Exception):
-    message = "Unknown plant error"
+    pass
 
 
 # Plant errors
 class PlantError(GardenError):
-    message = "The tomato plant is wilting!"
+    def __init__(self, message: str = "Unknown plant error") -> None:
+        self.message = message
 
 
 # Water errors
 class WaterError(GardenError):
-    message = "Not enough water in the tank"
+    def __init__(self, message: str = "Unknown plant error") -> None:
+        self.message = message
 
 
 def custom_errors() -> None:
@@ -32,7 +34,7 @@ def custom_errors() -> None:
 
     print("\nTesting PlantError...")
     try:
-        Garden(("Alice", "Ok", -1))
+        Garden("Alice", "Ok", -1)
     except PlantError as e:
         print(f"Caught {type(e).__name__}: {e.message}")
 
@@ -44,7 +46,7 @@ def custom_errors() -> None:
 
     print("\nTesting catching all garden errors...")
     try:
-        Garden(("Alice", "Ok", -1))
+        Garden("Alice", "Ok", -1)
     except GardenError as e:
         print(f"Caught GardenError: {e.message}")
     try:
