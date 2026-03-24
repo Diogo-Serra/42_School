@@ -20,7 +20,7 @@ def water_plant(plant_name):
         )
 
 
-def test_watering_system():
+def test_watering_system() -> None:
     valid_test: list[str] = [
         "Tomato",
         "Lettuce",
