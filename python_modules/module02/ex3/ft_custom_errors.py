@@ -1,17 +1,5 @@
 #!/usr/bin/env python3
 
-# Simple class for testing
-class Garden:
-    def __init__(self, owner: str, status: str, plants: int):
-        if plants < 0:
-            raise PlantError("The tomato plant is wilting!")
-        if status == "dry":
-            raise WaterError("Not enough water in the tank")
-        self.owner = owner
-        self.status = status
-        self.plants = plants
-
-
 # Garden errors
 class GardenError(Exception):
     def __init__(self, message: str = "Unknown plant error") -> None:
@@ -28,6 +16,18 @@ class PlantError(GardenError):
 class WaterError(GardenError):
     def __init__(self, message: str = "Unknown plant error") -> None:
         self.message = message
+
+
+# Simple class for testing
+class Garden:
+    def __init__(self, owner: str, status: str, plants: int):
+        if plants < 0:
+            raise PlantError("The tomato plant is wilting!")
+        if status == "dry":
+            raise WaterError("Not enough water in the tank")
+        self.owner = owner
+        self.status = status
+        self.plants = plants
 
 
 def custom_errors() -> None:
