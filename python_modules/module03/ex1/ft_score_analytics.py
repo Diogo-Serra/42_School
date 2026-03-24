@@ -2,17 +2,22 @@
 from sys import argv
 
 
-def ft_score_analytics():
+def ft_score_analytics() -> None:
+
     if len(argv) > 1:
-        scores = []
+        scores: list[int] = []
+        print("=== Player Score Analytics ===")
+
         for data in argv[1:]:
             try:
-                score = int(data)
+                score: int = int(data)
+                scores.append(score)
             except ValueError:
-                print(f"Invalid score: '{data}'. Scores must be numbers")
-                return
-            scores.append(score)
-        print("=== Player Score Analytics ===")
+                print(f"Invalid parameter: '{data}'")
+
+        if not scores:
+            return
+
         print(f"Scores processed: {scores}")
         print(f"Total players: {len(scores)}")
         print(f"Total score: {sum(scores)}")
