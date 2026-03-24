@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 
+# Garden errors
 class GardenError(Exception):
-    pass
+    def __init__(self, message: str = "Unknown plant error") -> None:
+        self.message = message
 
 
 # Plant errors
 class PlantError(GardenError):
-    def __init__(self, message="The tomato plant is wilting!"):
-        pass
+    def __init__(self, message: str = "Unknown plant error") -> None:
+        self.message = message
 
 
-def water_plant(plant_name):
+def water_plant(plant_name: str):
     if plant_name == plant_name.capitalize():
         print(f"Watering {plant_name}: [OK]")
     else:
