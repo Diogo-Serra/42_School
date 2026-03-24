@@ -34,28 +34,25 @@ def test_watering_system() -> None:
     ]
 
     print("=== Garden Watering System ===")
+    print("\nTesting valid plants...")
+    print("Opening watering system")
     try:
-        print("\nTesting valid plants...")
-        print("Opening watering system")
-        try:
-            for test in valid_test:
-                water_plant(test)
-        finally:
-            print("Closing watering system")
-
-        print("\nTesting invalid plants...")
-        print("Opening watering system")
-        try:
-            for test in invalid_test:
-                try:
-                    water_plant(test)
-                except PlantError as e:
-                    print(f"{e}")
-                    print(".. ending tests and returning to main")
-                    return
-        finally:
-            print("Closing watering system")
+        for test in valid_test:
+            water_plant(test)
     finally:
+        print("Closing watering system")
+
+    print("\nTesting invalid plants...")
+    print("Opening watering system")
+    try:
+        for test in invalid_test:
+            water_plant(test)
+    except PlantError as e:
+        print(f"{e}")
+        print(".. ending tests and returning to main")
+        return
+    finally:
+        print("Closing watering system")
         print("\nCleanup always happens, even with errors!")
 
 
