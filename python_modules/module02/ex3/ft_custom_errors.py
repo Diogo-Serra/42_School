@@ -14,7 +14,8 @@ class Garden:
 
 # Garden errors
 class GardenError(Exception):
-    pass
+    def __init__(self, message: str = "Unknown plant error") -> None:
+        self.message = message
 
 
 # Plant errors
