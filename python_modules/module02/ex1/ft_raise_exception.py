@@ -15,18 +15,21 @@ def input_temperature(temp_str: str) -> int:
 
 def test_temperature() -> None:
     print('=== Garden Temperature Checker ===')
+
     test_data: list = [
         "25",
         "abc",
         "100",
         "-50"
     ]
+
     for test in test_data:
         try:
             print(f"\nInput data is '{test}'")
             input_temperature(test)
         except ValueError as e:
             print(f"Caught input_temperature error: {e}")
+
     print('\nAll tests completed - program didn\'t crash!')
 
 
