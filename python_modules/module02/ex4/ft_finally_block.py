@@ -7,7 +7,7 @@ class GardenError(Exception):
 # Plant errors
 class PlantError(GardenError):
     def __init__(self, message="The tomato plant is wilting!"):
-        super().__init__(message)
+        pass
 
 
 def water_plant(plant_name):
@@ -39,6 +39,10 @@ def test_watering_system() -> None:
     try:
         for test in valid_test:
             water_plant(test)
+    except PlantError as e:
+        print(f"{e}")
+        print(".. ending tests and returning to main")
+        return
     finally:
         print("Closing watering system")
 
