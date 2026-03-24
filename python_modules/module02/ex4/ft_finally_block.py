@@ -12,7 +12,7 @@ class PlantError(GardenError):
         self.message = message
 
 
-def water_plant(plant_name: str):
+def water_plant(plant_name: str) -> None:
     if plant_name == plant_name.capitalize():
         print(f"Watering {plant_name}: [OK]")
     else:
