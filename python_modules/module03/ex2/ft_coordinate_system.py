@@ -3,8 +3,9 @@ from sys import argv
 from math import sqrt
 
 
-def ft_coordinate_system():
+def get_player_pos() -> tuple:
     print("=== Game Coordinate System ===\n")
+
     if (len(argv) == 4):
         coordinates_list: list = []
         print(f"Parsing coordinates: \"{argv[1]},{argv[2]},{argv[3]}\"")
@@ -32,4 +33,4 @@ def ft_coordinate_system():
         print("Needs 3 coordinates")
 
 
-ft_coordinate_system()
+get_player_pos()
