@@ -32,26 +32,29 @@ class WaterError(GardenError):
 def custom_errors():
     print("=== Custom Garden Errors Demo ===")
 
+    garden_data: list[tuple] = [
+        ("Alice", "Ok", -1),
+        ("Bob", "dry", 5),
+    ]
     print("\nTesting PlantError...")
     try:
-        Garden("Alice", "Ok", -1)
+        Garden(*garden_data[0])
     except PlantError as e:
-        print(f"Caught PlantError: {e}")
+        print(f"Caught {type(e).__name__}: {e}")
 
     print("\nTesting WaterError...")
     try:
-        Garden("Bob", "dry", 5)
+        Garden(*garden_data[1])
     except WaterError as e:
-        print(f"Caught WaterError: {e}")
+        print(f"Caught {type(e).__name__}: {e}")
+
+    for garden in garden_data:
+        try:
+            Garden(*garden)
+        except (PlantError, WaterError) as e:
+            print(f"Caught {type(e).__name__}: {e}")
 
     print("\nTesting catching all garden errors...")
-    for args in [("Alice", "Ok", -1), ("Bob", "dry", 5)]:
-        try:
-            Garden(*args)
-        except GardenError as e:
-            print(f"Caught a garden error: {e}")
-
-    print("\nAll custom error types work correctly!")
 
 
 def main():
