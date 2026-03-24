@@ -11,7 +11,7 @@ def garden_operations(operation_number: int) -> None:
                 pass
         elif operation_number == 3:
             plant: str = "tomato"
-            print(plant + 1)
+            print(plant + 1)    # type: ignore
         else:
             return
     except (ValueError, ZeroDivisionError, FileNotFoundError, TypeError):
