@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 
 def input_temperature(temp_str: str) -> int:
-    try:
-        temp_int: int = int(temp_str)
-    except ValueError:
-        raise
+    temp_int: int = int(temp_str)
     if temp_int < 0:
         raise ValueError(f"{temp_int}°C is too cold for "
                          f"plants (min 0°C)")
@@ -22,7 +19,7 @@ def test_temperature() -> None:
         "25",
         "abc",
         "100",
-        -50
+        "-50"
     ]
     for test in test_data:
         try:
