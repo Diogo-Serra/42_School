@@ -48,6 +48,7 @@ def custom_errors():
     except WaterError as e:
         print(f"Caught {type(e).__name__}: {e}")
 
+    print("\nTesting catching all garden errors...")
     for garden in garden_data:
         try:
             Garden(*garden)
