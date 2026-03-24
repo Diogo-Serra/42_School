@@ -14,19 +14,17 @@ class Garden:
 
 # Garden errors
 class GardenError(Exception):
-    pass
+    message = "Unknown plant error"
 
 
 # Plant errors
 class PlantError(GardenError):
-    def __init__(self, message="The tomato plant is wilting!"):
-        super().__init__(message)
+    message = "The tomato plant is wilting!"
 
 
 # Water errors
 class WaterError(GardenError):
-    def __init__(self, message="Not enough water in the tank!"):
-        super().__init__(message)
+    message = "Not enough water in the tank"
 
 
 def custom_errors() -> None:
@@ -36,24 +34,25 @@ def custom_errors() -> None:
         ("Alice", "Ok", -1),
         ("Bob", "dry", 5),
     ]
+
     print("\nTesting PlantError...")
     try:
         Garden(*garden_data[0])
     except PlantError as e:
-        print(f"Caught {type(e).__name__}: {e}")
+        print(f"Caught {type(e).__name__}: {e.message}")
 
     print("\nTesting WaterError...")
     try:
         Garden(*garden_data[1])
     except WaterError as e:
-        print(f"Caught {type(e).__name__}: {e}")
+        print(f"Caught {type(e).__name__}: {e.message}")
 
     print("\nTesting catching all garden errors...")
     for garden in garden_data:
         try:
             Garden(*garden)
-        except (PlantError, WaterError) as e:
-            print(f"Caught {type(e).__name__}: {e}")
+        except GardenError as e:
+            print(f"Caught GardenError: {e.message}")
 
     print("\nTesting catching all garden errors...")
 
