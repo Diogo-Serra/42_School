@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 
+def gen_player_achievements() -> set:
+    achievements: set = {
+        'boss_slayer',
+        'collector',
+        'first_kill',
+        'level_10',
+        'perfectionist',
+        'speed_demon',
+        'treasure_hunter'}
+
+    achievements_player: set
+    return achievements
+
+
+"""
 def ft_achievement_tracker(players: list[set]):
     achievements: set = {
         'boss_slayer',
@@ -23,19 +38,17 @@ def ft_achievement_tracker(players: list[set]):
     print(f"Alice unique: {a_unique}")
     b_unique: set = b - a
     print(f"Bob unique: {b_unique}")
+"""
 
 
 def main():
     print("=== Achievement Tracker System ===\n")
-    players: list[set] = [
-        {'first_kill', 'level_10', 'treasure_hunter', 'speed_demon'},
-        {'first_kill', 'level_10', 'boss_slayer', 'collector'},
-        {'level_10', 'treasure_hunter', 'boss_slayer', 'speed_demon',
-         'perfectionist'}]
-    names: list[str] = ["alice", "bob", "charlie"]
-    for name, player in zip(names, players):
-        print(f"Player {name} achievements: {player}")
-    ft_achievement_tracker(players)
+    players: list[str] = ["Alice", "Bob", "Charlie"]
+    achievement_player: list[set] = [()]
+    for player in players:
+        player = gen_player_achievements()
+        achievement_player.append(player)
+        print(achievement_player)
 
 
 main()
