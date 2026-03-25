@@ -2,6 +2,14 @@
 import random
 
 
+class Player:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return f"{self.name}"
+
+
 def gen_player_achievements() -> set:
     player_achievement: set = set()
     achievements: set = {
@@ -16,6 +24,21 @@ def gen_player_achievements() -> set:
     for i in range(1, 6):
         player_achievement.add(random.choice(tuple(achievements)))
     return player_achievement
+
+
+def main():
+    print("=== Achievement Tracker System ===\n")
+    players_list: list[Player] = [
+        Player("Alice"),
+        Player("Bob"),
+        Player("Charlie"),
+        Player("Dylan")]
+
+    for pl
+    print(player_list)
+
+
+main()
 
 
 """
@@ -43,12 +66,3 @@ def ft_achievement_tracker(players: list[set]):
     b_unique: set = b - a
     print(f"Bob unique: {b_unique}")
 """
-
-
-def main():
-    print("=== Achievement Tracker System ===\n")
-    alice = gen_player_achievements()
-    print(alice)
-        
-
-main()
