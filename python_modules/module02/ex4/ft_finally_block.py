@@ -8,8 +8,7 @@ class GardenError(Exception):
 
 # Plant errors
 class PlantError(GardenError):
-    def __init__(self, message: str = "Unknown plant error") -> None:
-        self.message = message
+    message: str = "Unknown plant error"
 
 
 def water_plant(plant_name: str) -> None:
