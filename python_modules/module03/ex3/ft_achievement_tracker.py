@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
+import random
+
 
 def gen_player_achievements() -> set:
+    player_achievement: set = set()
     achievements: set = {
         'boss_slayer',
         'collector',
@@ -10,8 +13,9 @@ def gen_player_achievements() -> set:
         'speed_demon',
         'treasure_hunter'}
 
-    achievements_player: set
-    return achievements
+    for i in range(1, 6):
+        player_achievement.add(random.choice(tuple(achievements)))
+    return player_achievement
 
 
 """
@@ -43,12 +47,8 @@ def ft_achievement_tracker(players: list[set]):
 
 def main():
     print("=== Achievement Tracker System ===\n")
-    players: list[str] = ["Alice", "Bob", "Charlie"]
-    achievement_player: list[set] = [()]
-    for player in players:
-        player = gen_player_achievements()
-        achievement_player.append(player)
-        print(achievement_player)
-
+    alice = gen_player_achievements()
+    print(alice)
+        
 
 main()
