@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from math import sqrt
 
+
 def get_player_pos() -> tuple[float, float, float]:
     while True:
         raw_coordinates: str = input(
@@ -26,7 +27,8 @@ def get_player_pos() -> tuple[float, float, float]:
         if invalid_input:
             continue
 
-        return (coordinates_list[0], coordinates_list[1], coordinates_list[2])
+        tuple(coordinates_list)
+        return (coordinates_list)
 
 
 def tester():
@@ -36,7 +38,7 @@ def tester():
     ccy: float = ccenter[1]
     ccz: float = ccenter[2]
 
-    print("Get a first set of coordinates")
+    print("\nGet a first set of coordinates")
     c1: tuple[float, float, float] = get_player_pos()
     print(f"Got a first tuple: {c1}")
 
