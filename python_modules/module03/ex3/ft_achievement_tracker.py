@@ -2,17 +2,7 @@
 import random
 
 
-class Player:
-    def __init__(self, name):
-        self.name = name
-
-    def __str__(self):
-        return f"{self.name}"
-
-
-def gen_player_achievements() -> set:
-    player_achievement: set = set()
-    achievements: set = {
+achievements: set = {
         'boss_slayer',
         'collector',
         'first_kill',
@@ -21,12 +11,28 @@ def gen_player_achievements() -> set:
         'speed_demon',
         'treasure_hunter'}
 
-    for i in range(1, 6):
+
+class Player:
+
+    def __init__(self, name: str):
+        self.name = name
+        self.achievements = gen_player_achievements()
+
+    def __str__(self):
+        return f"Player {self.name}: Achievements: {self.achievements}"
+
+
+def gen_player_achievements() -> set:
+    player_achievement: set = set()
+
+    count = random.randint(1, 6)
+    for i in range(count):
         player_achievement.add(random.choice(tuple(achievements)))
     return player_achievement
 
 
 def main():
+
     print("=== Achievement Tracker System ===\n")
     players_list: list[Player] = [
         Player("Alice"),
@@ -34,8 +40,28 @@ def main():
         Player("Charlie"),
         Player("Dylan")]
 
-    for pl
-    print(player_list)
+    for player in players_list:
+        print(player)
+        print()
+
+    alice, bob, charlie, dylan = players_list
+    a_set = alice.achievements
+    b_set = bob.achievements
+    c_set = charlie.achievements
+    d_set = dylan.achievements
+
+    common = a_set & b_set & c_set & d_set
+    print(f"Common achievements: {common}")
+    print()
+    print(f"Only Alice has: {a_set - (b_set | c_set | d_set)}")
+    print(f"Only Bob has: {b_set - (a_set | c_set | d_set)}")
+    print(f"Only Charlie has: {c_set - (a_set | b_set | d_set)}")
+    print(f"Only Dylan has: {d_set - (a_set | b_set | c_set)}")
+    print()
+    print(f"Alice is missing: {achievements - a_set}")
+    print(f"Bob is missing: {achievements - b_set}")
+    print(f"Charlie is missing: {achievements - c_set}")
+    print(f"Dylan is missing: {achievements - d_set}")
 
 
 main()
