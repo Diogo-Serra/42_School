@@ -25,7 +25,7 @@ class Player:
 def gen_player_achievements() -> set:
     player_achievement: set = set()
 
-    count: int = random.randint(1, 6)
+    count: int = random.randint(4, 6)
     for i in range(count):
         player_achievement.add(random.choice(tuple(achievements)))
     return player_achievement
