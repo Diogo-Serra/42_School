@@ -62,8 +62,6 @@ def main():
     print(f"Bob is missing: {achievements - b_set}")
     print(f"Charlie is missing: {achievements - c_set}")
     print(f"Dylan is missing: {achievements - d_set}")
-    print()
-    print(set())
 
 
 main()
