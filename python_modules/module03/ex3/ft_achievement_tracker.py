@@ -14,24 +14,24 @@ achievements: set = {
 
 class Player:
 
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         self.name = name
-        self.achievements = gen_player_achievements()
+        self.achievements: set = gen_player_achievements()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Player {self.name}: Achievements: {self.achievements}"
 
 
 def gen_player_achievements() -> set:
     player_achievement: set = set()
 
-    count = random.randint(1, 6)
+    count: int = random.randint(1, 6)
     for i in range(count):
         player_achievement.add(random.choice(tuple(achievements)))
     return player_achievement
 
 
-def main():
+def main() -> None:
 
     print("=== Achievement Tracker System ===\n")
     players_list: list[Player] = [
@@ -44,13 +44,17 @@ def main():
         print(player)
         print()
 
+    alice: Player
+    bob: Player
+    charlie: Player
+    dylan: Player
     alice, bob, charlie, dylan = players_list
-    a_set = alice.achievements
-    b_set = bob.achievements
-    c_set = charlie.achievements
-    d_set = dylan.achievements
+    a_set: set = alice.achievements
+    b_set: set = bob.achievements
+    c_set: set = charlie.achievements
+    d_set: set = dylan.achievements
 
-    common = a_set & b_set & c_set & d_set
+    common: set = a_set & b_set & c_set & d_set
     print(f"Common achievements: {common}")
     print()
     print(f"Only Alice has: {a_set - (b_set | c_set | d_set)}")
