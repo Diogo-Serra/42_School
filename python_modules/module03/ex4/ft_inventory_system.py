@@ -1,55 +1,81 @@
 #!/usr/bin/env python3
+import sys
 
 
-def ft_inventory_system(inventory):
-    total_value = sum(inventory.values())
-    inventory_values = inventory.values()
-    print("\n=== Current Inventory ===")
-    for item in inventory:
-        if inventory.get(item) > 1:
-            print(f"{item}: {inventory.get(item)} units "
-                  f"({round(inventory.get(item) * 100 / total_value, 1)}%)")
-        else:
-            print(f"{item}: {inventory.get(item)} unit "
-                  f"({round(inventory.get(item) * 100 / total_value, 1)}%)")
-    print("\n=== Inventory Statistics ===")
-    print(f"Most abundant: potion ({max(inventory_values)} units)")
-    print(f"Least abundant: sword ({min(inventory_values)} unit)")
-    print("=== Item Categories ===")
-    moderate = {}
-    scarce = {}
-    for item, count in inventory.items():
-        if count >= 5:
-            moderate[item] = count
-        elif count <= 3:
-            scarce[item] = count
+def parse_inventory(arguments: list[str]) -> dict[str, int]:
+    inventory: dict[str, int] = {}
 
-    print(f"Moderate: {moderate}")
-    print(f"Scarce: {scarce}")
-    print("=== Management Suggestions ===")
-    restock_needed = [item for item, count in inventory.items() if count <= 1]
-    print(f"Restock needed: {', '.join(restock_needed)}")
-
-    print("=== Dictionary Properties Demo ===")
-    print(f"Dictionary keys: {', '.join(inventory.keys())}")
-    values_str = ', '.join(str(value) for value in inventory.values())
-    print(f"Dictionary values: {values_str}")
-    print(f"Sample lookup - 'sword' in inventory: {'sword' in inventory}")
+    for parameter in arguments:
+        if parameter.count(":") != 1:
+            print(f"Error - invalid parameter '{parameter}'")
+            continue
+        item_name, quantity_text = parameter.split(":")
+        if not item_name or not quantity_text:
+            print(f"Error - invalid parameter '{parameter}'")
+            continue
+        if item_name in inventory:
+            print(f"Redundant item '{item_name}' - discarding")
+            continue
+        try:
+            quantity = int(quantity_text)
+        except ValueError as error:
+            print(f"Quantity error for '{item_name}': {error}")
+            continue
+        inventory[item_name] = quantity
+    return inventory
 
 
-def main():
-    inventory = {
-        "potion": 5,
-        "armor": 3,
-        "shield": 2,
-        "sword": 1,
-        "helmet": 1,
-    }
+def get_most_abundant(inventory: dict[str, int]) -> tuple[str, int]:
+    first_item = list(inventory.keys())[0]
+    most_name = first_item
+    most_quantity = inventory[first_item]
+
+    for item_name in inventory:
+        if inventory[item_name] > most_quantity:
+            most_name = item_name
+            most_quantity = inventory[item_name]
+    return most_name, most_quantity
+
+
+def get_least_abundant(inventory: dict[str, int]) -> tuple[str, int]:
+    first_item = list(inventory.keys())[0]
+    least_name = first_item
+    least_quantity = inventory[first_item]
+
+    for item_name in inventory:
+        if inventory[item_name] < least_quantity:
+            least_name = item_name
+            least_quantity = inventory[item_name]
+    return least_name, least_quantity
+
+
+def ft_inventory_system(inventory: dict[str, int]) -> None:
+    item_list = list(inventory.keys())
+    total_quantity = sum(inventory.values())
+
+    print(f"Got inventory: {inventory}")
+    print(f"Item list: {item_list}")
+    print(f"Total quantity of the {len(item_list)} items: {total_quantity}")
+
+    for item_name in inventory:
+        percentage = round(inventory[item_name] * 100 / total_quantity, 1)
+        print(f"Item {item_name} represents {percentage}%")
+
+    if inventory:
+        most_name, most_quantity = get_most_abundant(inventory)
+        least_name, least_quantity = get_least_abundant(inventory)
+        print(f"Item most abundant: {most_name} with quantity {most_quantity}")
+        print(
+            f"Item least abundant: {least_name} with quantity {least_quantity}"
+        )
+
+    inventory.update({"magic_item": 1})
+    print(f"Updated inventory: {inventory}")
+
+
+def main() -> None:
     print("=== Inventory System Analysis ===")
-    inventory_keys = inventory.keys()
-    inventory_values = inventory.values()
-    print(f"Total items in inventory: {sum(inventory_values)}")
-    print(f"Unique item types: {len(inventory_keys)}")
+    inventory = parse_inventory(sys.argv[1:])
     ft_inventory_system(inventory)
 
 
