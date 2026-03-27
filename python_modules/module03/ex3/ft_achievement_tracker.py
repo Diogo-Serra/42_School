@@ -22,7 +22,7 @@ class Player:
         return f"Player {self.name}: Achievements: {self.achievements}"
 
 
-def gen_player_achievements() -> set:
+def gen_player_achievements() -> set[str]:
     player_achievement: set = set()
 
     count: int = random.randint(4, 6)
