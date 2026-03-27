@@ -46,8 +46,8 @@ def tester() -> None:
     y1: float = c1[1]
     z1: float = c1[2]
     print(f"It includes: X={x1}, Y={y1}, Z={z1}")
-    center_dis: float = sqrt((x1 - ccx)**2 + (y1 - ccy)**2 + (z1 - ccz)**2)
-    print(f"Distance to center: {round(center_dis, 4)}")
+    center_dist: float = sqrt((x1 - ccx)**2 + (y1 - ccy)**2 + (z1 - ccz)**2)
+    print(f"Distance to center: {round(center_dist, 4)}")
 
     print("\nGet a second set of coordinates")
     c2: tuple[float, float, float] = get_player_pos()
