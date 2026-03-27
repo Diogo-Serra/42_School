@@ -16,7 +16,7 @@ class Player:
 
     def __init__(self, name: str) -> None:
         self.name = name
-        self.achievements: set = gen_player_achievements()
+        self.achievements: set[str] = gen_player_achievements()
 
     def __str__(self) -> str:
         return f"Player {self.name}: Achievements: {self.achievements}"
@@ -54,7 +54,7 @@ def main() -> None:
     c_set: set = charlie.achievements
     d_set: set = dylan.achievements
 
-    common: set = a_set & b_set & c_set & d_set
+    common: set[str] = a_set & b_set & c_set & d_set
     print(f"Common achievements: {common}")
     print()
     print(f"Only Alice has: {a_set - (b_set | c_set | d_set)}")
