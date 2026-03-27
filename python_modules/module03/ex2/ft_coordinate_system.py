@@ -27,12 +27,13 @@ def get_player_pos() -> tuple[float, float, float]:
         if invalid_input:
             continue
 
-        return tuple(coordinates_list)
+        x, y, z = coordinates_list
+        return (x, y, z)
 
 
-def tester():
+def tester() -> None:
     print("=== Game Coordinate System ===")
-    ccenter = (0, 0, 0)
+    ccenter: tuple[float, float, float] = (0.0, 0.0, 0.0)
     ccx: float = ccenter[0]
     ccy: float = ccenter[1]
     ccz: float = ccenter[2]
@@ -45,16 +46,17 @@ def tester():
     y1: float = c1[1]
     z1: float = c1[2]
     print(f"It includes: X={x1}, Y={y1}, Z={z1}")
-    distance_center = sqrt((x1 - ccx)**2 + (y1 - ccy)**2 + (z1 - ccz)**2)
-    print(f"Distance to center: {round(distance_center, 4)}")
+    center_dis: float = sqrt((x1 - ccx)**2 + (y1 - ccy)**2 + (z1 - ccz)**2)
+    print(f"Distance to center: {round(center_dis, 4)}")
 
     print("\nGet a second set of coordinates")
     c2: tuple[float, float, float] = get_player_pos()
     x2: float = c2[0]
     y2: float = c2[1]
     z2: float = c2[2]
-    distance_two = sqrt((x1 - x2)**2 + (y1 - y2)**2 + (z1 - z2)**2)
-    print(f"Distance between the 2 sets of coordinates: {distance_two}")
+    distance_two: float = sqrt((x1 - x2)**2 + (y1 - y2)**2 + (z1 - z2)**2)
+    print(f"Distance between the 2 sets of coordinates: "
+          f"{round(distance_two, 4)}")
 
 
 tester()
