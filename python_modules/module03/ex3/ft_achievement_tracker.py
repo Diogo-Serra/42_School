@@ -2,14 +2,14 @@
 import random
 
 
-achievements: set = {
+achievements: list[str] = [
         'boss_slayer',
         'collector',
         'first_kill',
         'level_10',
         'perfectionist',
         'speed_demon',
-        'treasure_hunter'}
+        'treasure_hunter']
 
 
 class Player:
@@ -28,7 +28,7 @@ def gen_player_achievements() -> set:
     count: int = random.randint(4, 6)
     for i in range(count):
         player_achievement.add(random.choice(tuple(achievements)))
-    return player_achievement
+    return set(player_achievement)
 
 
 def main() -> None:
@@ -62,10 +62,10 @@ def main() -> None:
     print(f"Only Charlie has: {c_set - (a_set | b_set | d_set)}")
     print(f"Only Dylan has: {d_set - (a_set | b_set | c_set)}")
     print()
-    print(f"Alice is missing: {achievements - a_set}")
-    print(f"Bob is missing: {achievements - b_set}")
-    print(f"Charlie is missing: {achievements - c_set}")
-    print(f"Dylan is missing: {achievements - d_set}")
+    print(f"Alice is missing: {set(achievements) - a_set}")
+    print(f"Bob is missing: {set(achievements) - b_set}")
+    print(f"Charlie is missing: {set(achievements) - c_set}")
+    print(f"Dylan is missing: {set(achievements) - d_set}")
 
 
 main()
