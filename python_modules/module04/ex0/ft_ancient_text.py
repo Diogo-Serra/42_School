@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
+from typing import IO
 
 
-def ft_ancient_text():
+def ft_ancient_text() -> None:
     print("=== CYBER ARCHIVES - DATA RECOVERY SYSTEM ===\n")
     try:
-        f = open("ancient_fragment.txt", "rt")
+        f: IO[str] = open("ancient_fragment.txt", "r")
         print(f"Accessing Storage Vault: {f.name}")
         print("Connection established...\n")
     except (FileNotFoundError, FileExistsError):

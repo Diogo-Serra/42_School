@@ -1,2 +1,0 @@
-Quantum encryption keys
-New security protocols
