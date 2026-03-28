@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
+from typing import IO
 
 
-def handle_file_access(filename):
+def handle_file_access(filename: str) -> None:
     try:
         with open(filename, "r") as vault:
-            content = vault.read()
+            content: IO[str] = vault.read()
             print(f"SUCCESS: Archive recovered - \"{content}\"")
     except FileNotFoundError:
         print("RESPONSE: Archive not found in storage matrix")
@@ -14,7 +15,7 @@ def handle_file_access(filename):
         print("RESPONSE: Unexpected system anomaly")
 
 
-def ft_crisis_response():
+def ft_crisis_response() -> None:
     print("=== CYBER ARCHIVES - CRISIS RESPONSE SYSTEM ===")
 
     print("CRISIS ALERT: Attempting access to 'lost_archive.txt'...")
