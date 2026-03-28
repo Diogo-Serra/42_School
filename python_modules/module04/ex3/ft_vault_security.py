@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 def ft_vault_security():
     print("=== CYBER ARCHIVES - VAULT SECURITY SYSTEM ===\n")
     print("Initiating secure vault access...")
@@ -11,7 +10,7 @@ def ft_vault_security():
         vault.write("Quantum encryption keys")
 
     with open("vault_data.txt", "r") as vault:
-        data = vault.read()
+        data: str = vault.read()
         print(f"[CLASSIFIED] {data} recovered")
         print("[CLASSIFIED] Archive integrity: 100%")
 
