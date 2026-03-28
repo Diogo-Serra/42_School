@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-def ft_vault_security():
+def ft_vault_security() -> None:
     print("=== CYBER ARCHIVES - VAULT SECURITY SYSTEM ===\n")
     print("Initiating secure vault access...")
     print("Vault connection established with failsafe protocols")
