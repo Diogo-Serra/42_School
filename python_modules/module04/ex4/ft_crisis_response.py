@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-from typing import IO
-
 
 def handle_file_access(filename: str) -> None:
     try:
         with open(filename, "r") as vault:
-            content: IO[str] = vault.read()
+            content: str = vault.read()
             print(f"SUCCESS: Archive recovered - \"{content}\"")
     except FileNotFoundError:
         print("RESPONSE: Archive not found in storage matrix")
