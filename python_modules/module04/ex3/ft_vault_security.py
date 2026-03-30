@@ -6,21 +6,22 @@ def ft_vault_security() -> None:
     print("Vault connection established with failsafe protocols")
 
     print("\nSECURE EXTRACTION:")
-    with open("vault_data.txt", "w") as vault:
-        vault.write("Quantum encryption keys")
-
-    with open("vault_data.txt", "r") as vault:
-        data: str = vault.read()
-        print(f"[CLASSIFIED] {data} recovered")
-        print("[CLASSIFIED] Archive integrity: 100%")
-
+    try:
+        with open("classified_data.txt", "r") as vault:
+            keys: str = vault.read()
+            print(keys)
+    except (FileExistsError, FileNotFoundError) as e:
+        print(f"Error: {e}")
     print("\nSECURE PRESERVATION:")
-    with open("vault_data.txt", "a") as vault:
-        vault.write("\nNew security protocols")
-    print("[CLASSIFIED] New security protocols archived")
-
-    print("Vault automatically sealed upon completion")
-    print("\nAll vault operations completed with maximum security.")
+    try:
+        with open("security_protocols.txt", "r") as vault:
+            sec_protocol = vault.read()
+            print(sec_protocol)
+    except (FileExistsError, FileNotFoundError) as e:
+        print(f"Error: {e}")
+    finally:
+        print("Vault automatically sealed upon completion")
+        print("\nAll vault operations completed with maximum security.")
 
 
 ft_vault_security()
