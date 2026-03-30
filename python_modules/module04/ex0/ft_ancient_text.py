@@ -8,11 +8,11 @@ def ft_ancient_text() -> None:
         f: IO[str] = open("ancient_fragment.txt", "r")
         print(f"Accessing Storage Vault: {f.name}")
         print("Connection established...\n")
+        print("RECOVERED DATA:")
+        print(f.read())
+        f.close()
     except (FileNotFoundError, FileExistsError):
         print("ERROR: Storage vault not found.")
-    print("RECOVERED DATA:")
-    print(f.read())
-    f.close()
     print("\nData recovery complete. Storage unit disconnected.")
 
 
