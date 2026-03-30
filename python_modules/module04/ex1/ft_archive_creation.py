@@ -17,9 +17,8 @@ def ft_archive_creation() -> None:
         f.write(data)
         print(data, end='')
     print("\n\nData inscription complete. Storage unit sealed.")
-    file_name: str = f.name
+    print(f"Archive '{f.name}' ready for long-term preservation.")
     f.close()
-    print(f"Archive '{file_name}' ready for long-term preservation.")
 
 
 ft_archive_creation()
