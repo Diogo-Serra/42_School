@@ -22,20 +22,22 @@ def ft_crisis_response() -> None:
     handle_file_access("lost_archive.txt")
     stdout.write("STATUS: Crisis handled, system stable\n")
 
-    stderr.write("CRISIS ALERT: Attempting access to 'classified_vault.txt'...")
+    stderr.write("CRISIS ALERT: Attempting access to "
+                 "'classified_vault.txt'...")
     handle_file_access("classified_vault.txt")
     stdout.write("STATUS: Crisis handled, security maintained\n")
 
-    stdout.write("ROUTINE ACCESS: Attempting access to 'standard_archive.txt'...")
+    stdout.write("ROUTINE ACCESS: Attempting access to "
+                 "'standard_archive.txt'...")
     try:
         with open("standard_archive.txt", "w") as vault:
             vault.write("Knowledge preserved for humanity")
     except Exception:
         pass
     handle_file_access("standard_archive.txt")
-    sys.stdout.write("STATUS: Normal operations resumed\n")
+    stdout.write("STATUS: Normal operations resumed\n")
 
-    sys.stdout.write("All crisis scenarios handled successfully. Archives secure.")
+    stdout.write("All crisis scenarios handled successfully. Archives secure.")
 
 
 ft_crisis_response()
