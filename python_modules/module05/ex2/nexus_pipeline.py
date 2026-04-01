@@ -31,12 +31,12 @@ class ProcessingPipeline(ABC):
         self.stages: List[ProcessingStage] = []
         self.processed_count: int = 0
 
-    def add_stage(self, stage: ProcessingStage) -> None:
-        self.stages.append(stage)
-
     @abstractmethod
     def process(self, data: Any) -> Union[str, Any]:
         pass
+
+    def add_stage(self, stage: ProcessingStage) -> None:
+        self.stages.append(stage)
 
     def execute_pipeline(self, data: Any) -> Any:
         result = data
