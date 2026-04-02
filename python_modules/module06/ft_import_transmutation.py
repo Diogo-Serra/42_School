@@ -32,3 +32,5 @@ print("Method 4 - Multiple imports:")
 print(f"create_earth(): {create_earth()}")
 print(f"fire(): {create_fire()}")
 print(f"strength_potion(): {strength_potion()}")
+
+print("All import transmutation methods mastered!")
