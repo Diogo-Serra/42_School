@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 def record_spell(spell_name: str, ingredients: str) -> str:
-    # Late import avoids circular dependency issues.
     from .validator import validate_ingredients
 
     validation = validate_ingredients(ingredients)
