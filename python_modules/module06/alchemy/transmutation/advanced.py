@@ -1,5 +1,3 @@
-# Advanced transmutations
-
 # Relative import
 from .basic import lead_to_gold
 from ..potions import healing_potion

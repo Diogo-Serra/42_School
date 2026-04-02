@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 def validate_ingredients(ingredients: str) -> str:
     valid = ["fire", "water", "earth", "air"]
     ingredients_parsed = ingredients.split()
