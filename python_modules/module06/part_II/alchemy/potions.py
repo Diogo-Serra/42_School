@@ -13,8 +13,9 @@ def strength_potion():
 
 
 def invisibility_potion():
-    return (f"Invisibility potion brewed with [{part_I.alchemy.elements.create_air()}] and "
-            f"[{part_I.alchemy.create_water}]")
+    return (f"Invisibility potion brewed with "
+            f"[{alchemy_I.elements.create_air()}] and "
+            f"[{alchemy_I.elements.create_water()}]")
 
 
 def wisdom_potion():
