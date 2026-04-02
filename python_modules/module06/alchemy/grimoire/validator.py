@@ -13,4 +13,4 @@ def validate_ingredients(ingredients: str) -> str:
     return f"{" ".join(ingredients_parsed)} - VALID"
 
 
-print(validate_ingredients("fire air"))
+print(validate_ingredients("fire airo"))
