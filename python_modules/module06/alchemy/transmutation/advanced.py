@@ -6,8 +6,8 @@ from ..potions import healing_potion
 
 
 def philosophers_stone():
-    return (f"Philosopher’s stone created using [{lead_to_gold()}] "
-            f"and [{healing_potion()}]")
+    return (f"Philosopher's stone created using {lead_to_gold()} "
+            f"and {healing_potion()}")
 
 
 def elixir_of_life():
