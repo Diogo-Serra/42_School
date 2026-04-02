@@ -10,6 +10,3 @@ def validate_ingredients(ingredients: str) -> str:
         return f"{ingredients} - VALID"
     else:
         return f"{ingredients} - INVALID"
-
-
-print(validate_ingredients("fire"))
