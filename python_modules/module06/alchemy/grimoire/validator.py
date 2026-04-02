@@ -11,6 +11,3 @@ def validate_ingredients(ingredients: str) -> str:
         if ingredient not in valid:
             return f"{ingredient} - INVALID"
     return f"{" ".join(ingredients_parsed)} - VALID"
-
-
-print(validate_ingredients("fire airo"))
