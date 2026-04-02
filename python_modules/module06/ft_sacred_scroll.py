@@ -20,7 +20,7 @@ try:
     print(f"alchemy.elements.create_water(): {alchemy.create_water()}")
 except AttributeError:
     print("alchemy.elements.create_water(): AttributeError - not exposed")
-try:    
+try:
     print(f"alchemy.elements.create_earth(): {alchemy.create_earth()}")
 except AttributeError:
     print("alchemy.elements.create_earth(): AttributeError - not exposed")
