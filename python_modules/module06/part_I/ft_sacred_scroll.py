@@ -28,3 +28,6 @@ try:
     print(f"alchemy.elements.create_air(): {alchemy.create_air()}")
 except AttributeError:
     print("alchemy.elements.create_air(): AttributeError - not exposed")
+
+print("Package metadata:")
+print(f"{alchemy.__version__}")
