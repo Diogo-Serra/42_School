@@ -6,7 +6,11 @@ def validate_ingredients(ingredients: str) -> str:
         "water",
         "earth",
         "air"]
-    if ingredients in valid:
-        return f"{ingredients} - VALID"
-    else:
-        return f"{ingredients} - INVALID"
+    ingredients_parsed = ingredients.split()
+    for ingredient in ingredients_parsed:
+        if ingredient not in valid:
+            return f"{ingredient} - INVALID"
+    return f"{" ".join(ingredients_parsed)} - VALID"
+
+
+print(validate_ingredients("fire air"))
