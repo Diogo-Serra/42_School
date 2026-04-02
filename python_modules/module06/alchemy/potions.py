@@ -3,13 +3,13 @@ import alchemy as basic_elements
 
 
 def healing_potion():
-    return (f"Healing potion brewed with [{basic_elements.create_fire}] "
-            f"and [{basic_elements.create_water}]")
+    return (f"Healing potion brewed with [{basic_elements.create_fire()}] "
+            f"and [{basic_elements.create_water()}]")
 
 
 def strength_potion():
-    return (f"Healing potion brewed with [{basic_elements.create_fire}] "
-            f"and [{basic_elements.create_water}]")
+    return (f"Healing potion brewed with [{basic_elements.create_fire()}] "
+            f"and [{basic_elements.create_water()}]")
 
 
 def invisibility_potion():
