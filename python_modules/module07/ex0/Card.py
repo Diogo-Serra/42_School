@@ -11,10 +11,11 @@ class Card(ABC):
     def play(self, game_state: dict):
         ...
 
-    def get_card_info(self) -> str:
-        return (f"'name': {self.name}, 'cost': {self.cost}, "
-               f"'rarity': {self.rarity}, 'type': pass, "
-               f"'attack': pass, 'health': pass")
+    def get_card_info(self) -> None:
+        print(f"'name': {self.name}, 'cost': {self.cost}, "
+              f"'rarity': {self.rarity}, 'type': {type(self)}, "
+              f"'attack': {self.attack}, "
+              f"'health': {self.health}")
 
     def is_playable(self, available_mana: int) -> bool:
         if available_mana <= self.cost:
