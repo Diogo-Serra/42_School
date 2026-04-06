@@ -7,6 +7,8 @@ def tester():
 
     print("Testing Abstract Base Class Design:\n")
     token = CreatureCard("Fire Dragon", 5, "Legendary", 7, 5)
+
+    print("CreatureCard Info:")
     token.get_card_info()
 
 

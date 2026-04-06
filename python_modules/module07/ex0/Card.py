@@ -13,7 +13,7 @@ class Card(ABC):
 
     def get_card_info(self) -> None:
         print(f"'name': {self.name}, 'cost': {self.cost}, "
-              f"'rarity': {self.rarity}, 'type': {type(self).__name__}, "
+              f"'rarity': {self.rarity}, 'type': {self.card_type}, "
               f"'attack': {self.attack}, "
               f"'health': {self.health}")
 

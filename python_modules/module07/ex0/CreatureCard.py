@@ -2,6 +2,8 @@ from Card import Card
 
 
 class CreatureCard(Card):
+    card_type = "Creature"
+
     def __init__(self, name: str, cost: int, rarity: str,
                  attack: int, health: int):
         super().__init__(name, cost, rarity)
