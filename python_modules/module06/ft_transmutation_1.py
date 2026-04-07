@@ -1,6 +1,6 @@
-import alchemy.transmutation
+import alchemy.transmutation as at
 
 
 print("=== Transmutation 1 ===")
 print("Import transmutation module directly")
-print(f"Testing lead to gold: {transmutation.recipes.lead_to_gold()}")
+print(f"Testing lead to gold: {at.recipes.lead_to_gold()}")
