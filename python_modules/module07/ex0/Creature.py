@@ -15,37 +15,37 @@ class Flameling(Creature):
     def __init__(self) -> None:
         self.name = "Flameling"
         self.creature_type = "fire"
-        self.attack = "Ember"
+        self.basic = "Ember"
 
     def attack(self):
-        return f"{self.name} uses {self.attack}"
+        return f"{self.name} uses {self.basic}"
 
 
 class Pyrodon(Creature):
     def __init__(self) -> None:
         self.name = "Pyrodon"
         self.creature_type = "fire"
-        self.attack = "Flamethrower"
+        self.basic = "Flamethrower"
 
     def attack(self):
-        return f"{self.name} uses {self.attack}"
+        return f"{self.name} uses {self.basic}"
 
 
 class Aquabub(Creature):
     def __init__(self) -> None:
         self.name = "Aquabub"
         self.creature_type = "water"
-        self.attack = "Water Gun"
+        self.basic = "Water Gun"
 
     def attack(self):
-        return f"{self.name} uses {self.attack}"
+        return f"{self.name} uses {self.basic}"
 
 
 class Torragon(Creature):
     def __init__(self) -> None:
         self.name = "Torragon"
         self.creature_type = "water"
-        self.attack = "Hydro Pump"
+        self.basic = "Hydro Pump"
 
     def attack(self):
-        return f"{self.name} uses {self.attack}"
+        return f"{self.name} uses {self.basic}"
