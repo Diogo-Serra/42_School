@@ -1,5 +1,19 @@
-class HealCapability:
-    pass
+from abc import ABC, abstractmethod
 
 
-class TransformCapability:
+class HealCapability(ABC):
+
+    @abstractmethod
+    def heal(self):
+        ...
+
+
+class TransformCapability(ABC):
+
+    @abstractmethod
+    def transform(self):
+        ...
+
+    @abstractmethod
+    def revert(self):
+        ...
