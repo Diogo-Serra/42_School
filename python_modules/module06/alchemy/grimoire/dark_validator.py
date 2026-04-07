@@ -1,7 +1,9 @@
+from .dark_spellbook import dark_spell_allowed_ingredients
+
+
 def validate_ingredients(ingredients: str) -> str:
-    from .dark_spellbook import dark_spell_allowed_ingredients
     allowed_ingredients = str(dark_spell_allowed_ingredients())
     if allowed_ingredients in ingredients:
-        return (allowed_ingredients + "VALID")
+        return (allowed_ingredients + " - VALID")
     else:
-        return (allowed_ingredients + "INVALID")
+        return (allowed_ingredients + " - INVALID")
