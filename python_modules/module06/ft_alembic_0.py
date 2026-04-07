@@ -1,3 +1,3 @@
 import elements
 
-printelements.create_fire()
+elements.create_fire()
