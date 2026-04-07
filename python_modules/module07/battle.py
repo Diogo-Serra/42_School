@@ -2,8 +2,8 @@ import ex0.CreatureFactory as cf
 
 
 def factory_tester(factory_object):
+    print("Testing factory")
     try:
-        print("Testing factory")
         if type(factory_object) is cf.FlameFactory:
             factory = cf.FlameFactory()
             flame1 = factory.create_base()
