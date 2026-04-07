@@ -22,6 +22,9 @@ class FlameFactory(CreatureFactory):
         from .Creature import Pyrodon
         return Pyrodon()
 
+    def __str__(self):
+        return "Flame Factory"
+
 
 class AquaFactory(CreatureFactory):
     def create_base(self):
