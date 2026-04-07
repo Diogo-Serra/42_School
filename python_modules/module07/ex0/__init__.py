@@ -1,1 +1,1 @@
-from . import Card, CreatureCard # noqa
+from .CreatureFactory import FlameFactory, AquaFactory # noqa
