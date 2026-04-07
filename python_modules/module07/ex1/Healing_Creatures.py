@@ -62,6 +62,8 @@ class Shiftling(Creature, Transform):
         return f"{self.name} shifts into a sharper form!"
 
     def revert(self):
+        self.status = "normal"
+        return f"{self.name} returns to normal."
 
 
 class Morphagon(Creature, Transform):
@@ -79,4 +81,4 @@ class Morphagon(Creature, Transform):
 
     def transform(self):
         self.status = "transformed"
-        return f"{self.name} morphs into a dragonic battle form!"
+        return f"{self.name} stabilizes its form."
