@@ -5,14 +5,14 @@ from ex1.Healing_Creatures import HealingCreatureFactory, TransformCreatureFacto
 def test_factory():
     print("Testing Creature with healing capability")
     heal_factory = HealingCreatureFactory()
-    sproutling = heal_factory.create_base()
 
     print(" base:")
+    sproutling = heal_factory.create_base()
     print(sproutling.describe())
     print(sproutling.attack())
     print(sproutling.heal())
-    print(" evolved:")
 
+    print(" evolved:")
     bloomelle = heal_factory.create_evolved()
     print(bloomelle.describe())
     print(bloomelle.attack())
@@ -20,15 +20,14 @@ def test_factory():
 
     print("\nTesting Creature with transform capability")
     transform_factory = TransformCreatureFactory()
-    shiftling = transform_factory.create_base()
+    
     print(" base:")
+    shiftling = transform_factory.create_base()
     print(shiftling.describe())
     print(shiftling.attack())
     print(shiftling.transform())
     print(shiftling.attack())
     print(shiftling.revert())
-
-    print()
 
     print(" evolved:")
     morphagon = transform_factory.create_evolved()
