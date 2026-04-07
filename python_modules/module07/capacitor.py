@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from ex1.Healing_Creatures import HealingCreatureFactory
+from ex1.Healing_Creatures import HealingCreatureFactory, TransformCreatureFactory
 
 
 def test_factory():
@@ -17,6 +17,26 @@ def test_factory():
     print(bloomelle.describe())
     print(bloomelle.attack())
     print(bloomelle.heal())
+
+    print("\nTesting Creature with transform capability")
+    transform_factory = TransformCreatureFactory()
+    shiftling = transform_factory.create_base()
+    print(" base:")
+    print(shiftling.describe())
+    print(shiftling.attack())
+    print(shiftling.transform())
+    print(shiftling.attack())
+    print(shiftling.revert())
+
+    print()
+
+    print(" evolved:")
+    morphagon = transform_factory.create_evolved()
+    print(morphagon.describe())
+    print(morphagon.attack())
+    print(morphagon.transform())
+    print(morphagon.attack())
+    print(morphagon.revert())
 
 
 test_factory()

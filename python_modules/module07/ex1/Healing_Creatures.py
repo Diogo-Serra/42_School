@@ -4,6 +4,14 @@ from .Capabilities import HealCapability as Heal
 from .Capabilities import TransformCapability as Transform
 
 
+class TransformCreatureFactory(CreatureFactory):
+    def create_base(self):
+        return Shiftling()
+
+    def create_evolved(self):
+        return Morphagon()
+
+
 class HealingCreatureFactory(CreatureFactory):
 
     def create_base(self):
@@ -48,8 +56,7 @@ class Shiftling(Creature, Transform):
 
     def __init__(self):
         self.name = "Shiftling"
-        self.creature_type = "Grass"
-        self.basic = "Vine Whip"
+        self.creature_type = "Normal"
 
     def attack(self):
         if self.status == "normal":
@@ -70,8 +77,7 @@ class Morphagon(Creature, Transform):
 
     def __init__(self):
         self.name = "Morphagon"
-        self.creature_type = "Grass/Fairy"
-        self.basic = "Petal Dance"
+        self.creature_type = "Normal/Dragon"
 
     def attack(self):
         if self.status == "normal":
@@ -81,4 +87,8 @@ class Morphagon(Creature, Transform):
 
     def transform(self):
         self.status = "transformed"
+        return f"{self.name} morphs into a dragonic battle form!"
+
+    def revert(self):
+        self.status = "normal"
         return f"{self.name} stabilizes its form."
