@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from ex1.Healing_Creatures import HealingCreatureFactory, TransformCreatureFactory
+from ex1 import HealingCreatureFactory, TransformCreatureFactory
 
 
 def test_factory():
@@ -20,7 +20,7 @@ def test_factory():
 
     print("\nTesting Creature with transform capability")
     transform_factory = TransformCreatureFactory()
-    
+
     print(" base:")
     shiftling = transform_factory.create_base()
     print(shiftling.describe())

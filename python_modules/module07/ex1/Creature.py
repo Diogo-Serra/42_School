@@ -1,27 +1,6 @@
 from ex0.Creature import Creature
-from ex0.CreatureFactory import CreatureFactory
-from .Capabilities import HealCapability as Heal
 from .Capabilities import TransformCapability as Transform
-
-
-class TransformCreatureFactory(CreatureFactory):
-    def create_base(self):
-        return Shiftling()
-
-    def create_evolved(self):
-        return Morphagon()
-
-
-class HealingCreatureFactory(CreatureFactory):
-
-    def create_base(self):
-        return Sproutling()
-
-    def create_evolved(self):
-        return Bloomelle()
-
-    def __str__(self):
-        return "Heal Factory"
+from .Capabilities import HealCapability as Heal
 
 
 class Sproutling(Creature, Heal):

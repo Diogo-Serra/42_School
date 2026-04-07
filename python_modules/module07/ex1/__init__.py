@@ -1,1 +1,1 @@
-from .Healing_Creatures import HealingCreatureFactory # noqa
+from .CreatureFactory import HealingCreatureFactory, TransformCreatureFactory # noqa
