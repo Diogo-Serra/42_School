@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from ex1 import HealingCreatureFactory
+from ex1.Healing_Creatures import HealingCreatureFactory
 
 
 def test_factory():
@@ -8,6 +8,15 @@ def test_factory():
     sproutling = heal_factory.create_base()
 
     print(" base:")
-    sproutling.describe()
-    sproutling.attack()
-    sproutling.heal()
+    print(sproutling.describe())
+    print(sproutling.attack())
+    print(sproutling.heal())
+    print(" evolved:")
+
+    bloomelle = heal_factory.create_evolved()
+    print(bloomelle.describe())
+    print(bloomelle.attack())
+    print(bloomelle.heal())
+
+
+test_factory()
