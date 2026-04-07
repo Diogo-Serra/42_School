@@ -42,3 +42,6 @@ def attack_tester(factory1, factory2):
 
 
 factory_tester(cf.FlameFactory())
+print()
+factory_tester(cf.AquaFactory())
+attack_tester(cf.FlameFactory, cf.AquaFactory)
