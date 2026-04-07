@@ -4,11 +4,13 @@ from abc import ABC, abstractmethod
 class HealCapability(ABC):
 
     @abstractmethod
-    def heal(self):
+    def heal(self, target):
         ...
 
 
 class TransformCapability(ABC):
+
+    status = "normal"
 
     @abstractmethod
     def transform(self):
