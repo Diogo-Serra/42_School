@@ -8,7 +8,7 @@ class Creature(ABC):
         ...
 
     def describe(self):
-        return f"{self.name}: {self.creature_type}"
+        return f"{self.name} is a {self.creature_type} type Creature"
 
 
 class Flameling(Creature):
@@ -17,7 +17,7 @@ class Flameling(Creature):
         self.creature_type = "fire"
 
     def attack(self):
-        return "Ember"
+        return f"{self.name} uses Ember"
 
 
 class Pyrodon(Creature):
@@ -26,7 +26,7 @@ class Pyrodon(Creature):
         self.creature_type = "fire"
 
     def attack(self):
-        return "Flamethrower"
+        return f"{self.name} uses Flamethrower"
 
 
 class Aquabub(Creature):
@@ -35,7 +35,7 @@ class Aquabub(Creature):
         self.creature_type = "water"
 
     def attack(self):
-        return "Water Gun"
+        return f"{self.name} uses Water Gun"
 
 
 class Torragon(Creature):
@@ -44,4 +44,4 @@ class Torragon(Creature):
         self.creature_type = "water"
 
     def attack(self):
-        return "Hydro Pump"
+        return f"{self.name} uses Hydro Pump"

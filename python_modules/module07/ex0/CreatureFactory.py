@@ -34,3 +34,6 @@ class AquaFactory(CreatureFactory):
     def create_evolved(self):
         from .Creature import Torragon
         return Torragon()
+
+    def __str__(self):
+        return "Aqua Factory"
