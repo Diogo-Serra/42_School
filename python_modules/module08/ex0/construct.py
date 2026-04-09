@@ -9,7 +9,7 @@ if not env:
 
     print("\nMATRIX STATUS: You're still plugged in\n")
 
-    print(f"Current Python: {os.path.relpath(path)}")
+    print(f"Current Python: {path}")
     print("Virtual Environment: None detected")
 
     print("\nWARNING: You're in the global environment!")
