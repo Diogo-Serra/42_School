@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import sys
+import site
 
 path = sys.executable
 env = os.getenv("VIRTUAL_ENV")
@@ -21,4 +22,10 @@ if not env:
 
     print("\nThen run this program again.")
 else:
-    print(f"Virtual environment detected\nPath: [{env}]")
+    print("\nMATRIX STATUS: Welcome to the construct\n")
+    print(f"Current Python: {path}")
+    print(f"Virtual Environment: {env}")
+    print("\nSUCCESS: You're in an isolated environment!\n")
+    print("Safe to install packages without affecting")
+    print("the global system.")
+    print(f"\nPackage installation path:\n{site.getsitepackages()[0]}")
