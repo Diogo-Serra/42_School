@@ -53,7 +53,7 @@ def print_battle(opponent1, opponent2):
     creature1_line = f"{creature1.name} is a {_battle_type_label(creature1)}"
     creature2_line = f"{creature2.name} is a {_battle_type_label(creature2)}"
 
-    print("* Battle *")
+    print("\n* Battle *")
     print(f"{creature1_line} type Creature")
     print("vs.")
     print(f"{creature2_line} type Creature")
@@ -97,20 +97,20 @@ def main():
         (flame_factory, normal_strategy),
         (healing_factory, defensive_strategy),
     ]
-    print_tournament("Tournament 0 (basic)", opponents_0)
+    print_tournament("\nTournament 0 (basic)", opponents_0)
 
     opponents_1 = [
         (flame_factory, aggressive_strategy),
         (healing_factory, defensive_strategy),
     ]
-    print_tournament("Tournament 1 (error)", opponents_1)
+    print_tournament("\nTournament 1 (error)", opponents_1)
 
     opponents_2 = [
         (aqua_factory, normal_strategy),
         (healing_factory, defensive_strategy),
         (transform_factory, aggressive_strategy),
     ]
-    print_tournament("Tournament 2 (multiple)", opponents_2)
+    print_tournament("\nTournament 2 (multiple)", opponents_2)
 
 
 if __name__ == "__main__":
