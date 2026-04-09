@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-def checker() -> bool:
+def checker() -> None:
     try:
         from dotenv import load_dotenv
         from os import getenv
