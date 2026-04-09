@@ -9,7 +9,7 @@ if not env:
 
     print("\nMATRIX STATUS: You're still plugged in\n")
 
-    print(f"Current Python: {path}")
+    print(f"Current Python: {os.path.relpath(path)}")
     print("Virtual Environment: None detected")
 
     print("\nWARNING: You're in the global environment!")
@@ -23,9 +23,10 @@ if not env:
     print("\nThen run this program again.")
 else:
     print("\nMATRIX STATUS: Welcome to the construct\n")
-    print(f"Current Python: {path}")
-    print(f"Virtual Environment: {env}")
+    print(f"Current Python: {os.path.relpath(path)}")
+    print(f"Virtual Environment: {os.path.relpath(env)}")
     print("\nSUCCESS: You're in an isolated environment!\n")
     print("Safe to install packages without affecting")
     print("the global system.")
-    print(f"\nPackage installation path:\n{site.getsitepackages()[0]}")
+    package = site.getsitepackages()[0]
+    print(f"\nPackage installation path:\n{os.path.relpath(package)}")
