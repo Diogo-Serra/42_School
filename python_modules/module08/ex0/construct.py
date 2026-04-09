@@ -1,8 +1,24 @@
 #!/usr/bin/env python3
-from os import getenv
+import os
+import sys
 
-var = getenv("VIRTUAL_ENV")
-if not var:
-    print("No virtual environment: python3 -m venv matrix_env")
+path = sys.executable
+env = os.getenv("VIRTUAL_ENV")
+if not env:
+
+    print("\nMATRIX STATUS: You're still plugged in\n")
+
+    print(f"Current Python: {path}")
+    print("Virtual Environment: None detected")
+
+    print("\nWARNING: You're in the global environment!")
+    print("The machines can see everything you install.")
+
+    print("\nTo enter the construct, run:")
+    print("python -m venv matrix_env")
+    print("source matrix_env/bin/activate # On Unix")
+    print("matrix_env\\Scripts\\activate # On Windows")
+
+    print("\nThen run this program again.")
 else:
-    print(f"Should detect virtual environment and show details: [{var}]")
+    print(f"Virtual environment detected\nPath: [{env}]")
