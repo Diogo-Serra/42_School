@@ -39,13 +39,12 @@ def checker() -> bool:
         except ImportError:
             print("[NOK] Missing dependencie: matplotlib")
     if dependencies != 3:
-        print("Install the required dependencies first.")
         return False
     return True
 
 
 def main():
-    print("LOADING STATUS: Loading programs...")
+    print("\nLOADING STATUS: Loading programs...\n")
     if checker():
         import numpy as np
         import pandas as pd
@@ -62,7 +61,7 @@ def main():
         print("\nAnalysis complete!")
         print("Results saved to: matrix_analysis.png")
     else:
-        print("NOK")
+        print("\nInstall the required dependencies first.")
 
 
 main()
