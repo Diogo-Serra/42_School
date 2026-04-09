@@ -1,0 +1,17 @@
+[project]
+name = "ex1"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Diogo-Serra",email = "di-code@outlook.com"}
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pandas (>=3.0.2,<4.0.0)",
+    "matplotlib (>=3.10.8,<4.0.0)",
+    "numpy (>=2.4.4,<3.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

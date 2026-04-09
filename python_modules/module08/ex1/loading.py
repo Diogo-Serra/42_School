@@ -11,33 +11,28 @@ def checker() -> bool:
     dependencies: int = 0
     print("Checking dependencies:")
     try:
-        with open("requirements.txt", "r") as f:
-            content = f.read()
-    except (FileNotFoundError, FileExistsError) as e:
-        print(e)
-    if "pandas" in content:
-        try:
-            import pandas as p
-            print(f"[OK] {p.__name__} ({p.__version__}) - "
-                  f"Data manipulation ready")
-            dependencies += 1
-        except ImportError:
-            print("[NOK] Missing dependencie: pandas")
-    if "numpy" in content:
-        try:
-            import numpy as n
-            print(f"[OK] {n.__name__} ({n.__version__}) - "
-                  f"Numerical computation ready")
-            dependencies += 1
-        except ImportError:
-            print("[NOK] Missing dependencie: numpy")
-    if "matplotlib" in content:
-        try:
-            import matplotlib as m
-            print(f"[OK] {m.__name__} ({m.__version__}) - Visualization ready")
-            dependencies += 1
-        except ImportError:
-            print("[NOK] Missing dependencie: matplotlib")
+        import pandas as p
+        print(f"[OK] {p.__name__} ({p.__version__}) - "
+              f"Data manipulation ready")
+        dependencies += 1
+    except ImportError:
+        print("[NOK] Missing dependencie: pandas")
+
+    try:
+        import numpy as n
+        print(f"[OK] {n.__name__} ({n.__version__}) - "
+              f"Numerical computation ready")
+        dependencies += 1
+    except ImportError:
+        print("[NOK] Missing dependencie: numpy")
+
+    try:
+        import matplotlib as m
+        print(f"[OK] {m.__name__} ({m.__version__}) - Visualization ready")
+        dependencies += 1
+    except ImportError:
+        print("[NOK] Missing dependencie: matplotlib")
+
     if dependencies != 3:
         return False
     return True
