@@ -1,1 +1,68 @@
 #!/usr/bin/env python3
+from os import getenv
+import sys
+
+ops = sys.executable
+path_pip = getenv("VIRTUAL_ENV")
+path_poetry = getenv("POETRY_ACTIVE")
+
+
+def checker() -> bool:
+    dependencies: int = 0
+    print("Checking dependencies:")
+    try:
+        with open("requirements.txt", "r") as f:
+            content = f.read()
+    except (FileNotFoundError, FileExistsError) as e:
+        print(e)
+    if "pandas" in content:
+        try:
+            import pandas as p
+            print(f"[OK] {p.__name__} ({p.__version__}) - "
+                  f"Data manipulation ready")
+            dependencies += 1
+        except ImportError:
+            print("[NOK] Missing dependencie: pandas")
+    if "numpy" in content:
+        try:
+            import numpy as n
+            print(f"[OK] {n.__name__} ({n.__version__}) - "
+                  f"Numerical computation ready")
+            dependencies += 1
+        except ImportError:
+            print("[NOK] Missing dependencie: numpy")
+    if "matplotlib" in content:
+        try:
+            import matplotlib as m
+            print(f"[OK] {m.__name__} ({m.__version__}) - Visualization ready")
+            dependencies += 1
+        except ImportError:
+            print("[NOK] Missing dependencie: matplotlib")
+    if dependencies != 3:
+        print("Install the required dependencies first.")
+        return False
+    return True
+
+
+def main():
+    print("LOADING STATUS: Loading programs...")
+    if checker():
+        import numpy as np
+        import pandas as pd
+        import matplotlib.pyplot as plt
+
+        print("\nAnalyzing Matrix data...")
+        matrix = sorted(np.random.rand(1000))
+        df = pd.DataFrame(matrix, columns=["values"])
+        print(f"Processing {len(df)} data points...")
+        print("Generating visualization...")
+        plt.plot(df["values"])
+        plt.savefig("matrix_analysis.png")
+        plt.close()
+        print("\nAnalysis complete!")
+        print("Results saved to: matrix_analysis.png")
+    else:
+        print("NOK")
+
+
+main()
