@@ -16,16 +16,14 @@ def checker() -> bool:
         print("[OK] No hardcoded secrets detected")
         print("[OK] .env file properly configured")
         print("[OK] Production overrides available")
-
-        print("\nThe Oracle sees all configurations.")
-        return True
     except (ImportError, ImportWarning):
-        print("\nMissing Modules\n")
+        print("Missing Module: dotenv")
 
 
 def main() -> None:
     print("\nORACLE STATUS: Reading the Matrix...\n")
-    print(checker())
+    checker()
+    print("\nThe Oracle sees all configurations.")
 
 
 if __name__ == "__main__":
