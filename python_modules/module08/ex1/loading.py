@@ -1,11 +1,4 @@
 #!/usr/bin/env python3
-from os import getenv
-import sys
-
-ops = sys.executable
-path_pip = getenv("VIRTUAL_ENV")
-path_poetry = getenv("POETRY_ACTIVE")
-
 
 def checker() -> bool:
     dependencies: int = 0
@@ -38,7 +31,7 @@ def checker() -> bool:
     return True
 
 
-def main():
+def main() -> None:
     print("\nLOADING STATUS: Loading programs...\n")
     if checker():
         import numpy as np
@@ -59,4 +52,5 @@ def main():
         print("\nInstall the required dependencies first.")
 
 
-main()
+if __name__ == "__main__":
+    main()
