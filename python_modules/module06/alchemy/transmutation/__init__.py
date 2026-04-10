@@ -1,1 +1,1 @@
-from . import recipes # noqa
+from .recipes import lead_to_gold # noqa
