@@ -1,6 +1,5 @@
 import alchemy
-# from alchemy.potions import healing_potion as heal
-## Package alias, not import alias!!!
+
 
 print("=== Distillation 1 ===")
 print("Using: 'import alchemy' structure to access potions")
