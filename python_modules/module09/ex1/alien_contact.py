@@ -11,6 +11,7 @@ class ContactType(Enum):
     telepathic = 3
 
 
+@model_validator
 class AlienContact(BaseModel):
     contact_id: str = Field(min_length=5, max_length=15)
     timestamp: datetime
