@@ -7,27 +7,19 @@ class SpaceStation(BaseModel):
     station_id: str = Field(min_length=3, max_length=10)
     name: str = Field(min_length=1, max_length=50)
     crew_size: int
-    power_level: float
-    oxygen_level: float
+    power_level: float = Field(ge=0.0, le=100.0)
+    oxygen_level: float = Field(ge=0.0, le=100.0)
     last_maintenance: datetime
     is_operational: bool = True
-    notes: str | None = Field(max_length=200)
+    notes: str | None = Field(default=None, max_length=200)
 
     @field_validator('crew_size', mode='after')
     def validator_crew_size(cls, crew_size_value: int):
         if crew_size_value < 1:
-            print("Input should be more than or equal to 1")
+            raise ValueError("Input should be more than or equal to 1")
         elif crew_size_value > 20:
-            print("Input should be less than or equal to 20")
+            raise ValueError("Input should be less than or equal to 20")
         return crew_size_value
-
-    @field_validator('power_level', 'oxygen_level', mode='after')
-    def power_oxygen_validator(cls, power_level_value: float):
-        if power_level_value < 0.0:
-            print("Input should be more than or equal to 0.0")
-        elif power_level_value > 100.0:
-            print("Input should be less than or equal to 100.0")
-        return power_level_value
 
 
 def main() -> None:
@@ -71,7 +63,8 @@ def main() -> None:
             is_operational="True",
             notes="")
     except ValidationError as e:
-        print(e)
+        errors_dict: list[dict] = e.errors()
+        print(errors_dict[0]["msg"].split(', ')[1])
 
 
 if __name__ == "__main__":
