@@ -66,18 +66,15 @@ def main() -> None:
 
     print("\n========================================")
     print("Expected validation error:")
-    try:
-        netz1 = SpaceStation(
-            station_id="ISS001",
-            name="International Space Station",
-            crew_size=42,
-            power_level=85.5,
-            oxygen_level=92.3,
-            last_maintenance=datetime(2009, 7, 23),
-            is_operational="True",
-            notes="")
-    except Exception:
-        pass
+    netz1 = SpaceStation( # noqa
+        station_id="ISS001",
+        name="International Space Station",
+        crew_size=15,
+        power_level=85.5,
+        oxygen_level=92.3,
+        last_maintenance=datetime(2009, 7, 23),
+        is_operational="True",
+        notes="")
 
 
 if __name__ == "__main__":
