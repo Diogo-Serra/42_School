@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from pydantic import BaseModel, field_validator, Field
+from pydantic import BaseModel, field_validator, Field, ValidationError
 from datetime import datetime
 
 
@@ -13,45 +13,39 @@ class SpaceStation(BaseModel):
     is_operational: bool = True
     notes: str | None = Field(max_length=200)
 
-    @field_validator('crew_size')
+    @field_validator('crew_size', mode='after')
     def validator_crew_size(cls, crew_size_value: int):
-        try:
-            int(crew_size_value)
-            if crew_size_value < 1:
-                print("Input should be more than or equal to 1")
-            elif crew_size_value > 20:
-                print("Input should be less than or equal to 20")
-            return crew_size_value
-        except ValueError as e:
-            print(e)
+        if crew_size_value < 1:
+            print("Input should be more than or equal to 1")
+        elif crew_size_value > 20:
+            print("Input should be less than or equal to 20")
+        return crew_size_value
 
-    @field_validator('power_level', 'oxygen_level')
+    @field_validator('power_level', 'oxygen_level', mode='after')
     def power_oxygen_validator(cls, power_level_value: float):
-        try:
-            float(power_level_value)
-            if power_level_value < 0.0:
-                print("Input should be more than or equal to 0.0")
-            elif power_level_value > 100.0:
-                print("Input should be less than or equal to 100.0")
-            return power_level_value
-        except ValueError as e:
-            print(e)
+        if power_level_value < 0.0:
+            print("Input should be more than or equal to 0.0")
+        elif power_level_value > 100.0:
+            print("Input should be less than or equal to 100.0")
+        return power_level_value
 
 
 def main() -> None:
 
     print("Space Station Data Validation")
     print("========================================")
-
-    netz = SpaceStation(
-        station_id="ISS001",
-        name="International Space Station",
-        crew_size=6,
-        power_level=85.5,
-        oxygen_level=92.3,
-        last_maintenance=datetime(2009, 7, 23),
-        is_operational="True",
-        notes="")
+    try:
+        netz = SpaceStation(
+            station_id="ISS001",
+            name="International Space Station",
+            crew_size=6,
+            power_level=85.5,
+            oxygen_level=92.3,
+            last_maintenance=datetime(2009, 7, 23),
+            is_operational="True",
+            notes="")
+    except ValidationError as e:
+        print(e)
 
     print("Valid station created:")
     print(f"ID: {netz.station_id}")
@@ -66,15 +60,18 @@ def main() -> None:
 
     print("\n========================================")
     print("Expected validation error:")
-    netz1 = SpaceStation( # noqa
-        station_id="ISS001",
-        name="International Space Station",
-        crew_size=42,
-        power_level=85.5,
-        oxygen_level=92.3,
-        last_maintenance=datetime(2009, 7, 23),
-        is_operational="True",
-        notes="")
+    try:
+        netz1 = SpaceStation( # noqa
+            station_id="ISS001",
+            name="International Space Station",
+            crew_size=42,
+            power_level=85.5,
+            oxygen_level=92.3,
+            last_maintenance=datetime(2009, 7, 23),
+            is_operational="True",
+            notes="")
+    except ValidationError as e:
+        print(e)
 
 
 if __name__ == "__main__":
