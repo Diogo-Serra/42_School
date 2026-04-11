@@ -11,17 +11,16 @@ class SpaceStation(BaseModel):
     oxygen_level: float
     last_maintenance: datetime
     is_operational: bool = True
-    notes: str | None
+    notes: str | None = None
 
     @field_validator('station_id')
     def validator_station_id(cls, id_value: str) -> str:
         id_value_len = len(id_value)
         if id_value_len < 3:
-            ("Input should be more than or equal to 3")
+            print("Input should be more than or equal to 3")
         elif id_value_len > 10:
             print("Input should be less than or equal to 10")
-        else:
-            return id_value
+        return id_value
 
     @field_validator('name')
     def validator_name(cls, name_value: str):
@@ -30,47 +29,38 @@ class SpaceStation(BaseModel):
             print("Input should be more than or equal to 1")
         elif name_value_len > 50:
             print("Input should be less than or equal to 50")
-        else:
-            return name_value
+        return name_value
 
     @field_validator('crew_size')
     def validator_crew_size(cls, crew_size_value: int):
-        try:
-            int(crew_size_value)
-            if crew_size_value < 1:
-                raise ValueError("Input should be more than or equal to 1")
-            elif crew_size_value > 20:
-                raise ValueError("Input should be less than or equal to 20")
-            else:
-                return crew_size_value
-        except ValueError as e:
-            print(e)
+        if crew_size_value < 1:
+            print("Input should be more than or equal to 1")
+        elif crew_size_value > 20:
+            print("Input should be less than or equal to 20")
+        return crew_size_value
 
     @field_validator('power_level', 'oxygen_level')
     def power_oxygen_validator(cls, power_level_value):
-        try:
-            float(power_level_value)
-            if power_level_value < 0.0:
-                raise ValueError("Input should be more than or equal to 0.0")
-            elif power_level_value > 100.0:
-                raise ValueError("Input should be less than or equal to 100.0")
-            else:
-                return power_level_value
-        except ValueError as e:
-            print(e)
+        if power_level_value < 0.0:
+            print("Input should be more than or equal to 0.0")
+        elif power_level_value > 100.0:
+            print("Input should be less than or equal to 100.0")
+        return power_level_value
 
-    @field_validator('notes')
+    @field_validator('notes', mode='before')
     def notes_validator(cls, notes):
+        if notes is None:
+            return notes
         if len(notes) > 200:
             print("Input should be less than or equal to 200")
-        else:
-            return notes
+        return notes
 
     def __str__(self):
         return f"{self.station_id}: Name: {self.name}, Size: {self.crew_size}"
 
 
 def main() -> None:
+
     print("Space Station Data Validation")
     print("========================================")
 
