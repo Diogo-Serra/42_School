@@ -69,7 +69,7 @@ def main() -> None:
     netz1 = SpaceStation( # noqa
         station_id="ISS001",
         name="International Space Station",
-        crew_size=15,
+        crew_size=42,
         power_level=85.5,
         oxygen_level=92.3,
         last_maintenance=datetime(2009, 7, 23),
