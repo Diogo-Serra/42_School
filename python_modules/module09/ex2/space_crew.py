@@ -28,7 +28,7 @@ class SpaceMission(BaseModel):
     destination: str = Field(min_length=3, max_length=50)
     launch_date: datetime
     duration_days: int = Field(ge=1, le=3650)
-    crew: list[CrewMember] = Field(ge=1, le=12)
+    crew: list[CrewMember] = Field(min_length=1, max_length=12)
     mission_status: str = Field(default='planned')
     budget_millions: float = Field(ge=1.0, le=10000.0)
 
@@ -38,36 +38,14 @@ class SpaceMission(BaseModel):
             raise ValueError('Mission ID must start with "M"')
         comm: int = 0
         capt: int = 0
-        for crew in self.crew:
-            for rank in self.crew.rank:
-                if rank.name.name('captain') is True:
-                    capt += 1
-                if rank.name.name('commander') is True:
-                    comm += 1
-        if capt < 1 or comm < 1:
+        for member in self.crew:
+            if member.rank.name == "captain":
+                capt += 1
+            if member.rank.name == "commander":
+                comm += 1
+        if capt < 1 and comm < 1:
             raise ValueError('Must have at least one Commander or Captain')
         return self
-
-
-def main():
-    from crew import sarah_connor, john_smith, alice_johnson
-    crew1 = [sarah_connor, john_smith, alice_johnson]
-
-    mission1 = SpaceMission(
-        mission_id="M2024_MARS",
-        mission_name="Mars Colony Establishment",
-        destination="Mars",
-        launch_date=datetime(2024, 4, 1),
-        duration_days="900",
-        crew=[[sarah_connor, john_smith, alice_johnson]],
-        mission_status="",
-        budget_millions="2500.0"
-    )
-    print(mission1)
-
-
-if __name__ == "__main__":
-    main()
 
 
 """
