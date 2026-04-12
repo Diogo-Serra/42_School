@@ -2,6 +2,8 @@
 from pydantic import BaseModel, field_validator, Field, ValidationError
 from datetime import datetime
 
+from generated_data.alien_contacts import ALIEN_CONTACTS as ac
+
 
 class SpaceStation(BaseModel):
     station_id: str = Field(min_length=3, max_length=10)

@@ -1,0 +1,24 @@
+[
+  {
+    "contact_id": "WRONG_FORMAT",
+    "timestamp": "2024-01-15T14:30:00",
+    "location": "Area 51",
+    "contact_type": "radio",
+    "signal_strength": 8.5,
+    "duration_minutes": 45,
+    "witness_count": 5,
+    "message_received": null,
+    "is_verified": false
+  },
+  {
+    "contact_id": "AC_2024_002",
+    "timestamp": "2024-01-16T09:15:00",
+    "location": "Roswell",
+    "contact_type": "telepathic",
+    "signal_strength": 6.2,
+    "duration_minutes": 30,
+    "witness_count": 1,
+    "message_received": null,
+    "is_verified": false
+  }
+]
