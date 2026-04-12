@@ -59,7 +59,7 @@ def main():
         destination="Mars",
         launch_date=datetime(2024, 4, 1),
         duration_days="900",
-        crew=[crew1],
+        crew=[[sarah_connor, john_smith, alice_johnson]],
         mission_status="",
         budget_millions="2500.0"
     )
