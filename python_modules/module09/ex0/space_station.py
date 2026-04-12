@@ -2,8 +2,6 @@
 from pydantic import BaseModel, field_validator, Field, ValidationError
 from datetime import datetime
 
-from generated_data.alien_contacts import ALIEN_CONTACTS as ac
-
 
 class SpaceStation(BaseModel):
     station_id: str = Field(min_length=3, max_length=10)
@@ -22,6 +20,13 @@ class SpaceStation(BaseModel):
         elif crew_size_value > 20:
             raise ValueError("Input should be less than or equal to 20")
         return crew_size_value
+
+    @field_validator('is_operational')
+    def validator_is_operational(cls, value):
+        if value:
+            return "Status: Operational"
+        else:
+            return "Status: Not operational"
 
     def __str__(self):
         return (f"ID: {self.station_id}\n"
@@ -49,11 +54,8 @@ def main() -> None:
         print(e)
 
     print("Valid station created:")
-    print(netz)
-    if netz.is_operational is True:
-        print("Status: Operational")
-    else:
-        print("Status: Not operational")
+    print(netz, end="")
+    print(netz.is_operational)
 
     print("\n========================================")
     print("Expected validation error:")
@@ -71,6 +73,8 @@ def main() -> None:
         errors_dict: list[dict] = e.errors()
         print(errors_dict[0]["msg"].split(', ')[1])
 
+
+"""
     print()
     from generated_data.space_stations import SPACE_STATIONS as ss
     stations = [SpaceStation(**data) for data in ss]
@@ -79,6 +83,7 @@ def main() -> None:
             print(station)
     except ValidationError as ve:
         print(ve)
+"""
 
 
 if __name__ == "__main__":
