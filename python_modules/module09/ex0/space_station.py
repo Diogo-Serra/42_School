@@ -23,6 +23,13 @@ class SpaceStation(BaseModel):
             raise ValueError("Input should be less than or equal to 20")
         return crew_size_value
 
+    def __str__(self):
+        return (f"ID: {self.station_id}\n"
+                f"Name: {self.name}\n"
+                f"Crew: {self.crew_size} people\n"
+                f"Power: {self.power_level}%\n"
+                f"Oxygen: {self.oxygen_level}%\n")
+
 
 def main() -> None:
 
@@ -42,11 +49,7 @@ def main() -> None:
         print(e)
 
     print("Valid station created:")
-    print(f"ID: {netz.station_id}")
-    print(f"Name: {netz.name}")
-    print(f"Crew: {netz.crew_size} people")
-    print(f"Power: {netz.power_level}%")
-    print(f"Oxygen: {netz.oxygen_level}%")
+    print(netz)
     if netz.is_operational is True:
         print("Status: Operational")
     else:
@@ -67,6 +70,15 @@ def main() -> None:
     except ValidationError as e:
         errors_dict: list[dict] = e.errors()
         print(errors_dict[0]["msg"].split(', ')[1])
+
+    print()
+    from generated_data.i import i as ss
+    stations = [SpaceStation(**data) for data in ss]
+    try:
+        for station in stations:
+            print(station)
+    except ValidationError as ve:
+        print(ve)
 
 
 if __name__ == "__main__":
