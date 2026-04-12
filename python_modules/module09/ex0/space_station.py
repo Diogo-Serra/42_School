@@ -72,7 +72,7 @@ def main() -> None:
         print(errors_dict[0]["msg"].split(', ')[1])
 
     print()
-    from generated_data.i import i as ss
+    from generated_data.space_stations import SPACE_STATIONS as ss
     stations = [SpaceStation(**data) for data in ss]
     try:
         for station in stations:
