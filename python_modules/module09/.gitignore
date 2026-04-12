@@ -1,5 +1,0 @@
-.getignore
-.venv/
-__pycache__/
-09.pdf
-data_generator.tar
