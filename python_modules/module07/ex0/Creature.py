@@ -2,50 +2,61 @@ from abc import ABC, abstractmethod
 
 
 class Creature(ABC):
+    def __init__(self, name: str, creature_type: str) -> None:
+        self.name = name
+        self.creature_type = creature_type
 
     @abstractmethod
-    def attack(self):
+    def attack(self) -> str:
         ...
 
-    def describe(self):
+    def describe(self) -> str:
         return f"{self.name} is a {self.creature_type} type Creature"
 
 
 class Flameling(Creature):
-    def __init__(self) -> None:
-        self.name = "Flameling"
-        self.creature_type = "fire"
+    def __init__(self, name: str = "Flameling",
+                 creature_type: str = "fire") -> None:
+        super().__init__(name, creature_type)
+        self.name = name
+        self.creature_type = creature_type
         self.basic = "Ember"
 
-    def attack(self):
+    def attack(self) -> str:
         return f"{self.name} uses {self.basic}"
 
 
 class Pyrodon(Creature):
-    def __init__(self) -> None:
-        self.name = "Pyrodon"
-        self.creature_type = "fire"
+    def __init__(self, name: str = "Pyrodon",
+                 creature_type: str = "fire") -> None:
+        super().__init__(name, creature_type)
+        self.name = name
+        self.creature_type = creature_type
         self.basic = "Flamethrower"
 
-    def attack(self):
+    def attack(self) -> str:
         return f"{self.name} uses {self.basic}"
 
 
 class Aquabub(Creature):
-    def __init__(self) -> None:
-        self.name = "Aquabub"
-        self.creature_type = "water"
+    def __init__(self, name: str = "Aquabub",
+                 creature_type: str = "water") -> None:
+        super().__init__(name, creature_type)
+        self.name = name
+        self.creature_type = creature_type
         self.basic = "Water Gun"
 
-    def attack(self):
+    def attack(self) -> str:
         return f"{self.name} uses {self.basic}"
 
 
 class Torragon(Creature):
-    def __init__(self) -> None:
-        self.name = "Torragon"
-        self.creature_type = "water"
+    def __init__(self, name: str = "Torragon",
+                 creature_type: str = "water") -> None:
+        super().__init__(name, creature_type)
+        self.name = name
+        self.creature_type = creature_type
         self.basic = "Hydro Pump"
 
-    def attack(self):
+    def attack(self) -> str:
         return f"{self.name} uses {self.basic}"
