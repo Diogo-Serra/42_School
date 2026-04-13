@@ -12,8 +12,13 @@ class Sproutling(Creature, Heal):
     def attack(self) -> str:
         return f"{self.name} uses {self.basic}!"
 
-    def heal(self, target: Creature) -> str:
-        return f"{self.name} heals {target.name} for a small amount"
+    def heal(self, target: Creature = None) -> str:
+        if target is None:
+            target = self
+        if target is self:
+            return f"{self.name} heals itself for a small amount"
+        else:
+            return f"{self.name} heals {target.name} for a small amount"
 
 
 class Bloomelle(Creature, Heal):
@@ -25,8 +30,13 @@ class Bloomelle(Creature, Heal):
     def attack(self) -> str:
         return f"{self.name} uses {self.basic}!"
 
-    def heal(self, target: Creature) -> str:
-        return f"{self.name} heals {target.name} for a small amount"
+    def heal(self, target: Creature = None) -> str:
+        if target is None:
+            target = self
+        if target is self:
+            return f"{self.name} heals itself for a large amount"
+        else:
+            return f"{self.name} heals {target.name} for a large amount"
 
 
 class Shiftling(Creature, Transform):
