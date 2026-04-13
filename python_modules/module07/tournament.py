@@ -12,12 +12,12 @@ from ex2.strategy import (
 )
 
 
-def _battle_type_label(creature):
+def _battle_type_label(creature) -> str:
     creature_type = creature.creature_type
     return creature_type[0].upper() + creature_type[1:]
 
 
-def _strategy_name(strategy):
+def _strategy_name(strategy) -> str:
     if isinstance(strategy, NormalStrategy):
         return "Normal"
     if isinstance(strategy, AggressiveStrategy):
@@ -25,7 +25,7 @@ def _strategy_name(strategy):
     return "Defensive"
 
 
-def _opponent_name(factory):
+def _opponent_name(factory) -> str:
     creature = factory.create_base()
     if creature.name == "Sproutling":
         return "Healing"
@@ -34,7 +34,7 @@ def _opponent_name(factory):
     return creature.name
 
 
-def print_opponents(opponents):
+def print_opponents(opponents) -> None:
     entries = []
     for factory, strategy in opponents:
         factory_name = _opponent_name(factory)
@@ -44,7 +44,7 @@ def print_opponents(opponents):
     print(f"[ {', '.join(entries)} ]")
 
 
-def print_battle(opponent1, opponent2):
+def print_battle(opponent1, opponent2) -> None:
     factory1, strategy1 = opponent1
     factory2, strategy2 = opponent2
 
@@ -65,7 +65,7 @@ def print_battle(opponent1, opponent2):
         print(action)
 
 
-def battle(opponents):
+def battle(opponents) -> None:
     print("*** Tournament ***")
     print(f"{len(opponents)} opponents involved")
 
@@ -77,13 +77,13 @@ def battle(opponents):
         print(f"Battle error, aborting tournament: {error}")
 
 
-def print_tournament(title, opponents):
+def print_tournament(title, opponents) -> None:
     print(title)
     print_opponents(opponents)
     battle(opponents)
 
 
-def main():
+def main() -> None:
     flame_factory = FlameFactory()
     aqua_factory = AquaFactory()
     healing_factory = HealingCreatureFactory()
