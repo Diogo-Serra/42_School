@@ -34,9 +34,9 @@ def attack_tester(factory1, factory2):
     factory = cf.AquaFactory()
     aqua1 = factory.create_base()
     print(flame1.describe())
-    print("vs")
+    print(" vs.")
     print(aqua1.describe())
-    print("fight!")
+    print(" fight!")
 
     print(flame1.attack())
     print(aqua1.attack())
