@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class HealCapability(ABC):
 
     @abstractmethod
-    def heal(self):
+    def heal(self) -> str:
         ...
 
 
@@ -13,9 +13,9 @@ class TransformCapability(ABC):
     status = "normal"
 
     @abstractmethod
-    def transform(self):
+    def transform(self) -> str:
         ...
 
     @abstractmethod
-    def revert(self):
+    def revert(self) -> str:
         ...
