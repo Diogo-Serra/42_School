@@ -32,23 +32,20 @@ def combat_tester(flame_f: FlameFactory, aqua_f: AquaFactory) -> None:
 
     print("\nTesting battle")
 
+    flameling = flame_f.create_base()
+    aquabub = aqua_f.create_base()
+    print(flameling.describe())
+    print(" vs.")
+    print(aquabub.describe())
+    print(" fight!")
     try:
-        flameling = flame_f.create_base()
-        aquabub = aqua_f.create_base()
-    except Exception as e:
-        print(e)
-
-    try:
-        print(flameling.describe())
-        print(" vs.")
-        print(aquabub.describe())
-        print(" fight!")
         print(flameling.attack())
         print(aquabub.attack())
     except Exception as e:
-        print(e)
+        print(f"Error on attack phase{e}")
 
 
 factory_tester(flame_f)
 print()
 factory_tester(aqua_f)
+combat_tester(flame_f, aqua_f)
