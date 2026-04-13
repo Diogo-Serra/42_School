@@ -2,13 +2,6 @@
 from ex0.CreatureFactory import FlameFactory, AquaFactory
 
 
-try:
-    flame_f = FlameFactory()
-    aqua_f = AquaFactory()
-except Exception as e:
-    print(f"Error creating factory: {e}")
-
-
 def factory_tester(factory_object: FlameFactory | AquaFactory) -> None:
 
     print("Testing factory")
@@ -43,6 +36,13 @@ def combat_tester(flame_f: FlameFactory, aqua_f: AquaFactory) -> None:
         print(aquabub.attack())
     except Exception as e:
         print(f"Error on attack phase{e}")
+
+
+try:
+    flame_f = FlameFactory()
+    aqua_f = AquaFactory()
+except Exception as e:
+    print(f"Error creating factory: {e}")
 
 
 factory_tester(flame_f)
