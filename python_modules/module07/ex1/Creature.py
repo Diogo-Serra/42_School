@@ -13,7 +13,7 @@ class Sproutling(Creature, Heal):
         self.basic = "Vine Whip"
 
     def attack(self) -> str:
-        return f"{self.name} uses {self.basic}"
+        return f"{self.name} uses {self.basic}!"
 
     def heal(self) -> str:
         return f"{self.name} heals itself for a small amount"
@@ -23,21 +23,23 @@ class Bloomelle(Creature, Heal):
 
     def __init__(self, name: str = "Bloomelle",
                  creature_type: str = "Grass/Fairy") -> None:
+        super().__init__(name, creature_type)
         self.name = name
         self.creature_type = creature_type
         self.basic = "Petal Dance"
 
     def attack(self) -> str:
-        return f"{self.name} uses {self.basic}."
+        return f"{self.name} uses {self.basic}!"
 
     def heal(self) -> str:
-        return f"{self.name} heals itself and others for a large amount."
+        return f"{self.name} heals itself and others for a large amount"
 
 
 class Shiftling(Creature, Transform):
 
     def __init__(self, name: str = "Shiftling",
                  creature_type: str = "Normal") -> None:
+        super().__init__(name, creature_type)
         self.name = name
         self.creature_type = creature_type
 
@@ -58,7 +60,9 @@ class Shiftling(Creature, Transform):
 
 class Morphagon(Creature, Transform):
 
-    def __init__(self, name: str, creature_type: str) -> None:
+    def __init__(self, name: str = "Morphagon",
+                 creature_type: str = "Normal/Dragon") -> None:
+        super().__init__(name, creature_type)
         self.name = name
         self.creature_type = creature_type
 

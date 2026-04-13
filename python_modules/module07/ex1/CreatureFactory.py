@@ -9,9 +9,6 @@ class TransformCreatureFactory(CreatureFactory):
     def create_evolved(self):
         return Morphagon()
 
-    def __str__(self):
-        return "Transform Factory"
-
 
 class HealingCreatureFactory(CreatureFactory):
 
@@ -20,6 +17,3 @@ class HealingCreatureFactory(CreatureFactory):
 
     def create_evolved(self):
         return Bloomelle()
-
-    def __str__(self):
-        return "Heal Factory"
