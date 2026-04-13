@@ -1,6 +1,6 @@
 from ex0.Creature import Creature
-from .Capabilities import TransformCapability as Transform
 from .Capabilities import HealCapability as Heal
+from .Capabilities import TransformCapability as Transform
 
 
 class Sproutling(Creature, Heal):
@@ -8,15 +8,13 @@ class Sproutling(Creature, Heal):
     def __init__(self, name: str = "Sproutling",
                  creature_type: str = "Grass") -> None:
         super().__init__(name, creature_type)
-        self.name = name
-        self.creature_type = creature_type
         self.basic = "Vine Whip"
 
     def attack(self) -> str:
         return f"{self.name} uses {self.basic}!"
 
-    def heal(self) -> str:
-        return f"{self.name} heals itself for a small amount"
+    def heal(self, target: Creature) -> str:
+        return f"{self.name} heals {target.name} for a small amount"
 
 
 class Bloomelle(Creature, Heal):
@@ -24,15 +22,13 @@ class Bloomelle(Creature, Heal):
     def __init__(self, name: str = "Bloomelle",
                  creature_type: str = "Grass/Fairy") -> None:
         super().__init__(name, creature_type)
-        self.name = name
-        self.creature_type = creature_type
         self.basic = "Petal Dance"
 
     def attack(self) -> str:
         return f"{self.name} uses {self.basic}!"
 
-    def heal(self) -> str:
-        return f"{self.name} heals itself and others for a large amount"
+    def heal(self, target: Creature) -> str:
+        return f"{self.name} heals {target.name} for a small amount"
 
 
 class Shiftling(Creature, Transform):
