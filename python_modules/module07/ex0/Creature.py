@@ -15,11 +15,8 @@ class Creature(ABC):
 
 
 class Flameling(Creature):
-    def __init__(self, name: str = "Flameling",
-                 creature_type: str = "Fire") -> None:
-        super().__init__(name, creature_type)
-        self.name = name
-        self.creature_type = creature_type
+    def __init__(self) -> None:
+        super().__init__("Flameling", "Fire")
         self.basic = "Ember"
 
     def attack(self) -> str:
@@ -27,11 +24,8 @@ class Flameling(Creature):
 
 
 class Pyrodon(Creature):
-    def __init__(self, name: str = "Pyrodon",
-                 creature_type: str = "Fire/Flying") -> None:
-        super().__init__(name, creature_type)
-        self.name = name
-        self.creature_type = creature_type
+    def __init__(self) -> None:
+        super().__init__("Pyrodon", "Fire/Flying")
         self.basic = "Flamethrower"
 
     def attack(self) -> str:
@@ -39,11 +33,8 @@ class Pyrodon(Creature):
 
 
 class Aquabub(Creature):
-    def __init__(self, name: str = "Aquabub",
-                 creature_type: str = "Water") -> None:
-        super().__init__(name, creature_type)
-        self.name = name
-        self.creature_type = creature_type
+    def __init__(self) -> None:
+        super().__init__("Aquabub", "Water")
         self.basic = "Water Gun"
 
     def attack(self) -> str:
@@ -51,11 +42,8 @@ class Aquabub(Creature):
 
 
 class Torragon(Creature):
-    def __init__(self, name: str = "Torragon",
-                 creature_type: str = "Water") -> None:
-        super().__init__(name, creature_type)
-        self.name = name
-        self.creature_type = creature_type
+    def __init__(self) -> None:
+        super().__init__("Torragon", "Water")
         self.basic = "Hydro Pump"
 
     def attack(self) -> str:
