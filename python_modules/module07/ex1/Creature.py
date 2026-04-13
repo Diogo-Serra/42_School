@@ -5,9 +5,8 @@ from .Capabilities import TransformCapability as Transform
 
 class Sproutling(Creature, Heal):
 
-    def __init__(self, name: str = "Sproutling",
-                 creature_type: str = "Grass") -> None:
-        super().__init__(name, creature_type)
+    def __init__(self) -> None:
+        super().__init__("Sproutling", "Grass")
         self.basic = "Vine Whip"
 
     def attack(self) -> str:
@@ -19,9 +18,8 @@ class Sproutling(Creature, Heal):
 
 class Bloomelle(Creature, Heal):
 
-    def __init__(self, name: str = "Bloomelle",
-                 creature_type: str = "Grass/Fairy") -> None:
-        super().__init__(name, creature_type)
+    def __init__(self) -> None:
+        super().__init__("Bloomelle", "Grass/Fairy")
         self.basic = "Petal Dance"
 
     def attack(self) -> str:
@@ -33,8 +31,7 @@ class Bloomelle(Creature, Heal):
 
 class Shiftling(Creature, Transform):
 
-    def __init__(self, name: str,
-                 creature_type: str) -> None:
+    def __init__(self) -> None:
         super().__init__("Shiftling", "Normal")
 
     def attack(self) -> str:
@@ -54,8 +51,7 @@ class Shiftling(Creature, Transform):
 
 class Morphagon(Creature, Transform):
 
-    def __init__(self, name: str,
-                 creature_type: str) -> None:
+    def __init__(self) -> None:
         super().__init__("Morphagon", "Normal/Dragon")
 
     def attack(self) -> str:
