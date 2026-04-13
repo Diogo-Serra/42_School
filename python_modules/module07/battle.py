@@ -1,48 +1,54 @@
 #!/usr/bin/env python3
-import ex0.CreatureFactory as cf
+from ex0.CreatureFactory import FlameFactory, AquaFactory
 
 
-def factory_tester(factory_object: cf) -> None:
+try:
+    flame_f = FlameFactory()
+    aqua_f = AquaFactory()
+except Exception as e:
+    print(f"Error creating factory: {e}")
+
+
+def factory_tester(factory_object: FlameFactory | AquaFactory) -> None:
+
     print("Testing factory")
+
     try:
-        if type(factory_object) is cf.FlameFactory:
-            factory = cf.FlameFactory()
-            flame1 = factory.create_base()
-            print(flame1.describe())
-            print(flame1.attack())
-            flame2 = factory.create_evolved()
-            print(flame2.describe())
-            print(flame2.attack())
-        else:
-            factory = cf.AquaFactory()
-            aqua1 = factory.create_base()
-            print(aqua1.describe())
-            print(aqua1.attack())
-            aqua2 = factory.create_evolved()
-            print(aqua2.describe())
-            print(aqua2.attack())
-    except Exception as error:
-        print(error)
+        base = factory_object.create_base()
+        print(base.describe())
+        print(base.attack())
+    except Exception as e:
+        print(f"Error with base instance: {e}")
+
+    try:
+        evolved = factory_object.create_evolved()
+        print(evolved.describe())
+        print(evolved.attack())
+    except Exception as e:
+        print(f"Error with evolved instance: {e}")
 
 
-def attack_tester(factory1: cf, factory2: cf) -> None:
+def combat_tester(flame_f: FlameFactory, aqua_f: AquaFactory) -> None:
 
     print("\nTesting battle")
 
-    factory = cf.FlameFactory()
-    flame1 = factory.create_base()
-    factory = cf.AquaFactory()
-    aqua1 = factory.create_base()
-    print(flame1.describe())
-    print(" vs.")
-    print(aqua1.describe())
-    print(" fight!")
+    try:
+        flameling = flame_f.create_base()
+        aquabub = aqua_f.create_base()
+    except Exception as e:
+        print(e)
 
-    print(flame1.attack())
-    print(aqua1.attack())
+    try:
+        print(flameling.describe())
+        print(" vs.")
+        print(aquabub.describe())
+        print(" fight!")
+        print(flameling.attack())
+        print(aquabub.attack())
+    except Exception as e:
+        print(e)
 
 
-factory_tester(cf.FlameFactory())
+factory_tester(flame_f)
 print()
-factory_tester(cf.AquaFactory())
-attack_tester(cf.FlameFactory, cf.AquaFactory)
+factory_tester(aqua_f)
