@@ -2,7 +2,7 @@
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
 
 
-def test_factory():
+def test_factory() -> None:
     print("Testing Creature with healing capability")
     heal_factory = HealingCreatureFactory()
 

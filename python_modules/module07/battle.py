@@ -2,7 +2,7 @@
 import ex0.CreatureFactory as cf
 
 
-def factory_tester(factory_object):
+def factory_tester(factory_object: cf) -> None:
     print("Testing factory")
     try:
         if type(factory_object) is cf.FlameFactory:
@@ -25,7 +25,7 @@ def factory_tester(factory_object):
         print(error)
 
 
-def attack_tester(factory1, factory2):
+def attack_tester(factory1: cf, factory2: cf) -> None:
 
     print("\nTesting battle")
 

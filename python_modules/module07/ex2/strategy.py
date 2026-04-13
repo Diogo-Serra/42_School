@@ -10,11 +10,12 @@ class InvalidStrategyCreatureError(Exception):
 class BattleStrategy(ABC):
 
     @abstractmethod
-    def act(self, creature) -> InvalidStrategyCreatureError | list[Callable]:
+    def act(self, creature: list[tuple]) -> (InvalidStrategyCreatureError |
+                                             list[Callable]):
         ...
 
     @abstractmethod
-    def is_valid(self, creature) -> bool:
+    def is_valid(self, creature: list[tuple]) -> bool:
         ...
 
 

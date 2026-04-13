@@ -12,12 +12,13 @@ from ex2.strategy import (
 )
 
 
-def _battle_type_label(creature) -> str:
+def _battle_type_label(creature: list[tuple]) -> str:
     creature_type = creature.creature_type
-    return creature_type[0].upper() + creature_type[1:]
+    return [creature_type].upper() + creature_type[1:]
 
 
-def _strategy_name(strategy) -> str:
+def _strategy_name(strategy: NormalStrategy | AggressiveStrategy
+                   | DefensiveStrategy) -> str:
     if isinstance(strategy, NormalStrategy):
         return "Normal"
     if isinstance(strategy, AggressiveStrategy):
@@ -25,7 +26,7 @@ def _strategy_name(strategy) -> str:
     return "Defensive"
 
 
-def _opponent_name(factory) -> str:
+def _opponent_name(factory: FlameFactory | AquaFactory) -> str:
     creature = factory.create_base()
     if creature.name == "Sproutling":
         return "Healing"
@@ -34,7 +35,7 @@ def _opponent_name(factory) -> str:
     return creature.name
 
 
-def print_opponents(opponents) -> None:
+def print_opponents(opponents: list[tuple]) -> None:
     entries = []
     for factory, strategy in opponents:
         factory_name = _opponent_name(factory)
@@ -44,7 +45,7 @@ def print_opponents(opponents) -> None:
     print(f"[ {', '.join(entries)} ]")
 
 
-def print_battle(opponent1, opponent2) -> None:
+def print_battle(opponent1: list[tuple], opponent2: list[tuple]) -> None:
     factory1, strategy1 = opponent1
     factory2, strategy2 = opponent2
 
@@ -65,7 +66,7 @@ def print_battle(opponent1, opponent2) -> None:
         print(action)
 
 
-def battle(opponents) -> None:
+def battle(opponents: list[tuple]) -> None:
     print("*** Tournament ***")
     print(f"{len(opponents)} opponents involved")
 
@@ -77,7 +78,7 @@ def battle(opponents) -> None:
         print(f"Battle error, aborting tournament: {error}")
 
 
-def print_tournament(title, opponents) -> None:
+def print_tournament(title: str, opponents: list[tuple]) -> None:
     print(title)
     print_opponents(opponents)
     battle(opponents)
