@@ -33,49 +33,41 @@ class Bloomelle(Creature, Heal):
 
 class Shiftling(Creature, Transform):
 
-    def __init__(self, name: str = "Shiftling",
-                 creature_type: str = "Normal",
-                 status: str = "normal") -> None:
-        super().__init__(name, creature_type)
-        self.name = name
-        self.creature_type = creature_type
-        self.status = status
+    def __init__(self, name: str,
+                 creature_type: str) -> None:
+        super().__init__("Shiftling", "Normal")
 
     def attack(self) -> str:
-        if self.status == "normal":
+        if self.status == "base":
             return f"{self.name} attacks normally."
         else:
             return f"{self.name} performs a boosted strike!"
 
     def transform(self) -> str:
-        self.status = "transformed"
+        self.status = "evolved"
         return f"{self.name} shifts into a sharper form!"
 
     def revert(self) -> str:
-        self.status = "normal"
+        self.status = "base"
         return f"{self.name} returns to normal."
 
 
 class Morphagon(Creature, Transform):
 
-    def __init__(self, name: str = "Morphagon",
-                 creature_type: str = "Normal/Dragon",
-                 status: str = "normal") -> None:
-        super().__init__(name, creature_type)
-        self.name = name
-        self.creature_type = creature_type
-        self.status = status
+    def __init__(self, name: str,
+                 creature_type: str) -> None:
+        super().__init__("Morphagon", "Normal/Dragon")
 
     def attack(self) -> str:
-        if self.status == "normal":
+        if self.status == "base":
             return f"{self.name} attacks normally."
         else:
             return f"{self.name} unleashes a devastating morph strike!"
 
     def transform(self) -> str:
-        self.status = "transformed"
+        self.status = "evolved"
         return f"{self.name} morphs into a dragonic battle form!"
 
     def revert(self) -> str:
-        self.status = "normal"
+        self.status = "base"
         return f"{self.name} stabilizes its form."
