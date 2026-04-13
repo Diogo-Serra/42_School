@@ -38,10 +38,12 @@ class Bloomelle(Creature, Heal):
 class Shiftling(Creature, Transform):
 
     def __init__(self, name: str = "Shiftling",
-                 creature_type: str = "Normal") -> None:
+                 creature_type: str = "Normal",
+                 status: str = "normal") -> None:
         super().__init__(name, creature_type)
         self.name = name
         self.creature_type = creature_type
+        self.status = status
 
     def attack(self) -> str:
         if self.status == "normal":
@@ -61,10 +63,12 @@ class Shiftling(Creature, Transform):
 class Morphagon(Creature, Transform):
 
     def __init__(self, name: str = "Morphagon",
-                 creature_type: str = "Normal/Dragon") -> None:
+                 creature_type: str = "Normal/Dragon",
+                 status: str = "normal") -> None:
         super().__init__(name, creature_type)
         self.name = name
         self.creature_type = creature_type
+        self.status = status
 
     def attack(self) -> str:
         if self.status == "normal":
