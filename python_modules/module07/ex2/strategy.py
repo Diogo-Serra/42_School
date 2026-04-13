@@ -1,3 +1,4 @@
+from typing import Callable
 from abc import ABC, abstractmethod
 from ex1.Capabilities import HealCapability, TransformCapability
 
@@ -5,7 +6,7 @@ from ex1.Capabilities import HealCapability, TransformCapability
 class BattleStrategy(ABC):
 
     @abstractmethod
-    def act(self, creature):
+    def act(self, creature) -> list[Callable]:
         ...
 
     @abstractmethod
@@ -28,7 +29,7 @@ class NormalStrategy(BattleStrategy):
     def is_valid(self, creature) -> bool:
         return hasattr(creature, "attack")
 
-    def act(self, creature):
+    def act(self, creature) -> list[Callable]:
         if not self.is_valid(creature):
             raise InvalidStrategyCreatureError(
                 f"Invalid Creature '{creature.name}' for this normal strategy"
@@ -41,7 +42,7 @@ class AggressiveStrategy(BattleStrategy):
     def is_valid(self, creature) -> bool:
         return isinstance(creature, TransformCapability)
 
-    def act(self, creature):
+    def act(self, creature) -> list[Callable]:
         if not self.is_valid(creature):
             raise InvalidStrategyCreatureError(
                 f"Invalid Creature '{creature.name}' "
@@ -59,7 +60,7 @@ class DefensiveStrategy(BattleStrategy):
     def is_valid(self, creature) -> bool:
         return isinstance(creature, HealCapability)
 
-    def act(self, creature):
+    def act(self, creature) -> list[Callable]:
         if not self.is_valid(creature):
             raise InvalidStrategyCreatureError(
                 f"Invalid Creature '{creature.name}' "
