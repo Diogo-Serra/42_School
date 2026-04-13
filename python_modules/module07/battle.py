@@ -30,7 +30,7 @@ def factory_tester(factory_object: FlameFactory | AquaFactory) -> None:
 
 def combat_tester(flame_f: FlameFactory, aqua_f: AquaFactory) -> None:
 
-    print("\nTesting battle")
+    print("Testing battle")
 
     flameling = flame_f.create_base()
     aquabub = aqua_f.create_base()
@@ -48,4 +48,5 @@ def combat_tester(flame_f: FlameFactory, aqua_f: AquaFactory) -> None:
 factory_tester(flame_f)
 print()
 factory_tester(aqua_f)
+print()
 combat_tester(flame_f, aqua_f)
