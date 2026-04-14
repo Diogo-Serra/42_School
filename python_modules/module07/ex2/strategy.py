@@ -9,7 +9,7 @@ class InvalidStrategyCreatureError(Exception):
 class BattleStrategy(ABC):
 
     @abstractmethod
-    def act(self) -> None:
+    def act(self, creature: Creature) -> list[str]:
         ...
 
     @abstractmethod

@@ -12,7 +12,7 @@ class Sproutling(Creature, Heal):
     def attack(self) -> str:
         return f"{self.name} uses {self.basic}!"
 
-    def heal(self, target: Creature = None) -> str:
+    def heal(self, target: Creature | None = None) -> str:
         if target is None:
             target = self
         if target is self:
@@ -30,7 +30,7 @@ class Bloomelle(Creature, Heal):
     def attack(self) -> str:
         return f"{self.name} uses {self.basic}!"
 
-    def heal(self, target: Creature = None) -> str:
+    def heal(self, target: Creature | None = None) -> str:
         if target is None:
             target = self
         if target is self:
