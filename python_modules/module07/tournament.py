@@ -33,11 +33,11 @@ def tournament(opponents:
             for j in range(i + 1, len(fighters)):
                 creature_a, strategy_a = fighters[i]
                 creature_b, strategy_b = fighters[j]
-                print("* Battle *")
+                print("\n* Battle *")
                 print(creature_a.describe())
-                print("vs.")
+                print(" vs.")
                 print(creature_b.describe())
-                print("now fight!")
+                print(" now fight!")
                 for creature, strategy in [(creature_a, strategy_a),
                                            (creature_b, strategy_b)]:
                     for line in strategy.act(creature):
@@ -47,18 +47,32 @@ def tournament(opponents:
 
 
 if __name__ == "__main__":
-    tournament([
+
+    tournament1 = [
         (flame_factory, normal_strategy),
         (healing_factory, defensive_strategy),
-    ])
+    ]
+    print("Tournament 0 (basic)")
+    print(tournament1)
+    tournament(tournament1)
+
     print()
-    tournament([
+
+    tournament2 = [
         (flame_factory, agressive_strategy),
         (healing_factory, defensive_strategy),
-    ])
+    ]
+    print("Tournament 1 (error)")
+    print(tournament2)
+    tournament(tournament2)
+
     print()
-    tournament([
+
+    tournament3 = [
         (aqua_factory, normal_strategy),
         (healing_factory, defensive_strategy),
         (transform_factory, agressive_strategy),
-    ])
+    ]
+    print("Tournament 2 (multiple)")
+    print(tournament3)
+    tournament(tournament3)
