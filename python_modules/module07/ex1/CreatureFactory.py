@@ -1,5 +1,5 @@
-from .Creature import Shiftling, Sproutling, Morphagon, Bloomelle
 from ex0.CreatureFactory import CreatureFactory
+from .Creature import Shiftling, Sproutling, Morphagon, Bloomelle
 
 
 class TransformCreatureFactory(CreatureFactory):

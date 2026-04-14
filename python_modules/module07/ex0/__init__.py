@@ -1,1 +1,1 @@
-from .CreatureFactory import FlameFactory, AquaFactory # noqa
+from .CreatureFactory import CreatureFactory, FlameFactory, AquaFactory # noqa

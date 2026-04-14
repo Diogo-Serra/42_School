@@ -15,3 +15,6 @@ class BattleStrategy(ABC):
     @abstractmethod
     def is_valid(self, creature: Creature) -> bool:
         ...
+
+    def __str__(self):
+        return f"{self.__class__.__name__.split("Strategy")[0]}"
