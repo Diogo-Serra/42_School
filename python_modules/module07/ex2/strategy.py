@@ -15,7 +15,3 @@ class BattleStrategy(ABC):
     @abstractmethod
     def is_valid(self, creature: Creature) -> bool:
         ...
-
-    @abstractmethod
-    def __str__(self):
-        ...

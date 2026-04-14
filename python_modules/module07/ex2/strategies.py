@@ -11,9 +11,6 @@ class NormalStrategy(BattleStrategy):
     def act(self, creature: Creature):
         return [creature.attack()]
 
-    def __str__(self) -> str:
-        return "Normal"
-
 
 class AggressiveStrategy(BattleStrategy):
 
@@ -24,12 +21,8 @@ class AggressiveStrategy(BattleStrategy):
         if not self.is_valid(creature):
             raise InvalidStrategyCreatureError(
                 f"Invalid Creature '{creature.name}' "
-                "for this aggressive strategy"
-            )
+                "for this aggressive strategy")
         return [creature.transform(), creature.attack(), creature.revert()]
-
-    def __str__(self) -> str:
-        return "Aggressive"
 
 
 class DefensiveStrategy(BattleStrategy):
@@ -41,9 +34,5 @@ class DefensiveStrategy(BattleStrategy):
         if not self.is_valid(creature):
             raise InvalidStrategyCreatureError(
                 f"Invalid Creature '{creature.name}' "
-                "for this defensive strategy"
-            )
+                "for this defensive strategy")
         return [creature.attack(), creature.heal()]
-
-    def __str__(self) -> str:
-        return "Defensive"

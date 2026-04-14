@@ -21,13 +21,6 @@ normal_strategy = NormalStrategy()
 agressive_strategy = AggressiveStrategy()
 defensive_strategy = DefensiveStrategy()
 
-tournament_list = [
-    (flame_factory, normal_strategy),
-    (healing_factory, defensive_strategy),
-    (flame_factory, agressive_strategy),
-    (healing_factory, defensive_strategy),
-    (aqua_factory, )]
-
 
 def tournament(opponents:
                list[tuple[CreatureFactory, BattleStrategy]]) -> None:
