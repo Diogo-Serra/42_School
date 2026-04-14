@@ -5,10 +5,10 @@ from .strategy import BattleStrategy, InvalidStrategyCreatureError
 
 class NormalStrategy(BattleStrategy):
 
-    def is_valid(self, creature) -> bool:
+    def is_valid(self, creature: Creature) -> bool:
         return hasattr(creature, "attack")
 
-    def act(self, creature: Creature):
+    def act(self, creature: Creature) -> list[callable]:
         return [creature.attack()]
 
 
@@ -17,7 +17,7 @@ class AggressiveStrategy(BattleStrategy):
     def is_valid(self, creature: Creature) -> bool:
         return isinstance(creature, TransformCapability)
 
-    def act(self, creature):
+    def act(self, creature: Creature) -> list[callable]:
         if not self.is_valid(creature):
             raise InvalidStrategyCreatureError(
                 f"Invalid Creature '{creature.name}' "
@@ -30,7 +30,7 @@ class DefensiveStrategy(BattleStrategy):
     def is_valid(self, creature: Creature) -> bool:
         return isinstance(creature, HealCapability)
 
-    def act(self, creature):
+    def act(self, creature) -> list[callable]:
         if not self.is_valid(creature):
             raise InvalidStrategyCreatureError(
                 f"Invalid Creature '{creature.name}' "
