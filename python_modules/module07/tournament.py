@@ -54,7 +54,7 @@ if __name__ == "__main__":
     ]
     print("Tournament 0 (basic)")
     print(f"[ ({flame_factory.create_base()}+{normal_strategy}), "
-          f"({healing_factory.create_base()}, {defensive_strategy}) ]")
+          f"({healing_factory.create_base()}+{defensive_strategy}) ]")
     tournament(tournament1)
 
     print()
@@ -65,7 +65,7 @@ if __name__ == "__main__":
     ]
     print("Tournament 1 (error)")
     print(f"[ ({flame_factory.create_base()}+{agressive_strategy}), "
-          f"({healing_factory.create_base()}, {defensive_strategy}) ]")
+          f"({healing_factory.create_base()}+{defensive_strategy}) ]")
     tournament(tournament2)
 
     print()
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         (transform_factory, agressive_strategy),
     ]
     print("Tournament 2 (multiple)")
-    print(f"[ ({flame_factory.create_base()}+{normal_strategy}), "
-          f"({healing_factory.create_base()}, {defensive_strategy}), "
-          f"({transform_factory.create_base()}, {agressive_strategy}) ]")
+    print(f"[ ({aqua_factory.create_base()}+{normal_strategy}), "
+          f"({healing_factory.create_base()}+{defensive_strategy}), "
+          f"({transform_factory.create_base()}+{agressive_strategy}) ]")
     tournament(tournament3)
