@@ -2,9 +2,11 @@
 
 def checker() -> None:
     try:
+
         from dotenv import load_dotenv
         from os import getenv
         load_dotenv()
+
         print("Configuration loaded:")
         print(f"Mode: {getenv('MATRIX_MODE')}")
         print(f"Database: {getenv('DATABASE_URL')}")
@@ -16,8 +18,8 @@ def checker() -> None:
         print("[OK] No hardcoded secrets detected")
         print("[OK] .env file properly configured")
         print("[OK] Production overrides available")
-    except (ImportError, ImportWarning):
-        print("Missing Module: dotenv")
+    except (ImportError):
+        print("Missing Module: python-dotenv")
 
 
 def main() -> None:
