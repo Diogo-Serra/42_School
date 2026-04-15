@@ -4,15 +4,14 @@ from os import path, getenv
 from site import getsitepackages
 
 
-path_var = executable
 env_var = getenv("VIRTUAL_ENV")
-env_name = path.basename(env_var)
+
 
 if not env_var:
 
     print("\nMATRIX STATUS: You're still plugged in\n")
 
-    print(f"Current Python: {path_var}")
+    print(f"Current Python: {executable}")
     print("Virtual Environment: None detected")
 
     print("\nWARNING: You're in the global environment!")
@@ -26,8 +25,8 @@ if not env_var:
     print("\nThen run this program again.")
 else:
     print("\nMATRIX STATUS: Welcome to the construct\n")
-    print(f"Current Python: {path_var}")
-    print(f"Virtual Environment: {env_name}")
+    print(f"Current Python: {executable}")
+    print(f"Virtual Environment: {path.basename(env_var)}")
     print(f"Environment Path: {env_var}")
     print("\nSUCCESS: You're in an isolated environment!\n")
     print("Safe to install packages without affecting")
