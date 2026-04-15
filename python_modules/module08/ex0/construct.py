@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from sys import executable, base_prefix, prefix
+from sys import executable
 from os import path, getenv
 from site import getsitepackages
 
