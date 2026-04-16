@@ -37,8 +37,10 @@ class SpaceStation(BaseModel):
 
 
 if __name__ == "__main__":
+
     print("Space Station Data Validation")
     print("========================================")
+
     try:
         netz = SpaceStation(
             station_id="ISS001",
