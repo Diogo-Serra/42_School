@@ -36,8 +36,7 @@ class SpaceStation(BaseModel):
                 f"Oxygen: {self.oxygen_level}%\n")
 
 
-def main() -> None:
-
+if __name__ == "__main__":
     print("Space Station Data Validation")
     print("========================================")
     try:
@@ -48,7 +47,7 @@ def main() -> None:
             power_level=85.5,
             oxygen_level=92.3,
             last_maintenance=datetime(2009, 7, 23),
-            is_operational="True",
+            is_operational=True,
             notes="")
     except ValidationError as e:
         print(e)
@@ -67,12 +66,8 @@ def main() -> None:
             power_level=85.5,
             oxygen_level=92.3,
             last_maintenance=datetime(2009, 7, 23),
-            is_operational="True",
+            is_operational=True,
             notes="")
     except ValidationError as e:
-        errors_dict: list[dict] = e.errors()
+        errors_dict = e.errors()
         print(errors_dict[0]["msg"].split(', ')[1])
-
-
-if __name__ == "__main__":
-    main()

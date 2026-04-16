@@ -39,8 +39,8 @@ class SpaceMission(BaseModel):
     def validate_mission(self):
         if self.mission_id.startswith('M') is False:
             raise ValueError('Mission ID must start with "M"')
-        comm: int = 0
-        capt: int = 0
+        comm = 0
+        capt = 0
         for member in self.crew:
             if member.rank.name == "captain":
                 capt += 1
@@ -48,7 +48,7 @@ class SpaceMission(BaseModel):
                 comm += 1
         if capt < 1 and comm < 1:
             raise ValueError('Must have at least one Commander or Captain')
-        exp_member: int = 0
+        exp_member = 0
         for member in self.crew:
             if member.years_experience > 5:
                 exp_member += 1
