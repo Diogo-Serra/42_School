@@ -1,58 +1,36 @@
 #!/usr/bin/env python3
 
-
-# def artifact_sorter(artifacts: list[dict]) -> list[dict]
-
-print("Artifacts -----")
-
-artifact = [
-    {'name': "artifact3", "power": 3, 'art_type': "type1"},
-    {'name': "artifact2", "power": 2, 'art_type': "type2"},
-    {'name': "artifact6", "power": 6, 'art_type': "type3"},
-    {'name': "artifact1", "power": 1, 'art_type': "type4"},
-    {'name': "artifact4", "power": 4, 'art_type': "type5"},
-]
-
-artifact_sorter = list(
-    sorted(artifact, key=lambda x: x['power'], reverse=True))
-for dictx in artifact_sorter:
-    print(dictx)
-
-print("-----")
-print("\nMages -----")
-
+artifacts = [
+    {'name': "Fire staff", 'power': 98, 'type': "fire"},
+    {'name': "Water staff", 'power': 76, 'type': "water"},
+    {'name': "Dark staff", 'power': 100, 'type': "dark"}]
 
 mages = [
-    {'name': 'mage1', 'power': 1, 'element': 'fire'},
-    {'name': 'mage2', 'power': 3, 'element': 'water'},
-    {'name': 'mage3', 'power': 5, 'element': 'earth'},
-    {'name': 'mage4', 'power': 2, 'element': 'air'},
-    {'name': 'mage5', 'power': 4, 'element': 'dark'}]
+    {'name': "Fire mage", 'power': 98, 'element': "fire"},
+    {'name': "Water mage", 'power': 76, 'element': "water"},
+    {'name': "Dark mage", 'power': 100, 'element': "dark"}]
 
-min_power: list[int] = min([x['power'] for x in mages])
-power_filter = list(
-    filter(lambda x: x['power'] if x['power'] > min_power else
-           False, artifact))
-for mage in power_filter:
+
+def artifact_sorter(artifacts: list[dict]) -> list[dict]:
+    return sorted(artifacts, key=lambda x: x['power'], reverse=True)
+
+
+def power_filter(mages: list[dict], min_power: int) -> list[dict]:
+    return filter(lambda x: x['power'] > min_power, mages)
+
+
+def spell_transformer(spells: list[str]) -> list[str]:
+    pass
+
+
+def mage_stats(mages: list[dict]) -> dict:
+    pass
+
+
+for artifact in artifact_sorter(artifacts):
+    print(artifact)
+
+print()
+
+for mage in power_filter(mages, 80):
     print(mage)
-
-print("-----")
-print("\nSpells -----")
-
-spells = [
-    "fireball",
-    "ember",
-    "water gun",
-    "hydro pump"]
-
-spell_transformer = list(
-    map(lambda x: '* ' + x + ' *', spells))
-for spell in spell_transformer:
-    print(spell)
-
-mage_stats = {}
-mage_stats['test'] = 1
-mage_stats['test2'] = 2
-for mage, value in mage_stats.items():
-    print(mage)
-    print(value)
