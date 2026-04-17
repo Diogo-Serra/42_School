@@ -10,6 +10,6 @@ artifact = [
     {'name': "artifact4", "power": 4, 'art_type': "type5"},
 ]
 
-sorted_list = list(sorted(artifact, key=lambda x: x['power']))
+sorted_list = list(sorted(artifact, key=lambda x: x['power'], reverse=True))
 for dictx in sorted_list:
     print(dictx)
