@@ -49,3 +49,10 @@ spell_transformer = list(
     map(lambda x: '* ' + x + ' *', spells))
 for spell in spell_transformer:
     print(spell)
+
+mage_stats = {}
+mage_stats['test'] = 1
+mage_stats['test2'] = 2
+for mage, value in mage_stats.items():
+    print(mage)
+    print(value)
