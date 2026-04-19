@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from data_generator import FuncMageDataGenerator
+
 
 artifacts = [
     {'name': "Fire staff", 'power': 98, 'type': "fire"},
@@ -37,19 +39,19 @@ def mage_stats(mages: list[dict]) -> dict:
     return stats
 
 
-for artifact in artifact_sorter(artifacts):
+for artifact in artifact_sorter(FuncMageDataGenerator.generate_artifacts(10)):
     print(artifact)
 
 print()
 
-for mage in power_filter(mages, 80):
+for mage in power_filter(FuncMageDataGenerator.generate_mages(10), 80):
     print(mage)
 
 print()
 
-for spell in spell_transformer(spells):
+for spell in spell_transformer(FuncMageDataGenerator.generate_spells(10)):
     print(spell)
 
 print()
 
-print(mage_stats(mages))
+print(mage_stats(FuncMageDataGenerator.generate_mages(10)))
