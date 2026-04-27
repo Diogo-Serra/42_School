@@ -1,10 +1,8 @@
-from functools import reduce, partial
+from functools import reduce, partial, lru_cache
 from collections.abc import Callable
 
 
 """
-def spell_reducer(spells: list[int], operation: str) -> int
-def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]
 def memoized_fibonacci(n: int) -> int
 def spell_dispatcher() -> Callable[[Any], str]
 """
@@ -45,6 +43,13 @@ def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]:
         "ice": partial(base_enchantment, 50, "ice", "itself"),
         "lightning": partial(base_enchantment, 50, "lightning", "itself"),
     }
+
+
+@lru_cache
+def memoized_fibonacci(n: int) -> int:
+    if n <= 1:
+        return n
+    return memoized_fibonacci(n - 1) + memoized_fibonacci(n - 2)
 
 
 if __name__ == "__main__":
