@@ -27,12 +27,14 @@ def spell_reducer(spells: list[int], operation: str) -> int:
     try:
         if operation == "add":
             return reduce(lambda x, y: x + y, spells)
-        if operation == "mul":
+        elif operation == "mul":
             return reduce(lambda x, y: x * y, spells)
-        if operation == "max":
+        elif operation == "max":
             return reduce(lambda x, y: x if x > y else y, spells)
-        if operation == "min":
+        elif operation == "min":
             return reduce(lambda x, y: x if x < y else y, spells)
+        else:
+            return "Operation not recognized"
     except Exception as e:
         print(e)
 
@@ -53,6 +55,8 @@ if __name__ == "__main__":
     result = spell_reducer(spells, "max")
     print(result)
     result = spell_reducer(spells, "min")
+    print(result)
+    result = spell_reducer(spells, "test")
     print(result)
 
     result = partial_enchanter(base_enchantment)
