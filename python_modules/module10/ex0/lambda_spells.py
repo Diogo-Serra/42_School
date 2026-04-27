@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from data_generator import FuncMageDataGenerator
 
 
 artifacts = [
@@ -39,19 +38,31 @@ def mage_stats(mages: list[dict]) -> dict:
     return stats
 
 
-for artifact in artifact_sorter(FuncMageDataGenerator.generate_artifacts(10)):
-    print(artifact)
+try:
+    for artifact in artifact_sorter(artifacts):
+        print(artifact)
+except Exception as e:
+    print(e)
 
 print()
 
-for mage in power_filter(FuncMageDataGenerator.generate_mages(10), 80):
-    print(mage)
+try:
+    for mage in power_filter(mages, 80):
+        print(mage)
+except Exception as e:
+    print(e)
 
 print()
 
-for spell in spell_transformer(FuncMageDataGenerator.generate_spells(10)):
-    print(spell)
+try:
+    for spell in spell_transformer(spell_transformer(spells)):
+        print(spell)
+except Exception as e:
+    print(e)
 
 print()
 
-print(mage_stats(FuncMageDataGenerator.generate_mages(10)))
+try:
+    print(mage_stats(mages))
+except Exception as e:
+    print(e)
