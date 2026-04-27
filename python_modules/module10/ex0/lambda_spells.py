@@ -55,7 +55,7 @@ except Exception as e:
 print()
 
 try:
-    for spell in spell_transformer(spell_transformer(spells)):
+    for spell in spell_transformer(spells):
         print(spell)
 except Exception as e:
     print(e)
