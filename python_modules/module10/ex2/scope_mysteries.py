@@ -8,7 +8,6 @@ def mage_counter() -> Callable:
         nonlocal inter_counter
         inter_counter += 1
         return inter_counter
-
     return count
 
 
@@ -29,7 +28,6 @@ def enchantment_factory(enchantment_type: str) -> Callable:
         nonlocal enchantment
         enchanted_item = enchantment + item
         return enchanted_item
-
     return enchant
 
 
@@ -47,25 +45,28 @@ def memory_vault() -> dict[str, Callable]:
     return {"store": store, "recall": recall}
 
 
-print("=== Mage Counter ===")
-counting = mage_counter()
-print(counting())
-print(counting())
+try:
+    print("=== Mage Counter ===")
+    counting = mage_counter()
+    print(counting())
+    print(counting())
 
-print("=== Mage Accumulator ===")
-accumulator = spell_accumulator(5)
-print(accumulator(5))
-print(accumulator(50))
-print(accumulator(45))
+    print("=== Mage Accumulator ===")
+    accumulator = spell_accumulator(5)
+    print(accumulator(5))
+    print(accumulator(50))
+    print(accumulator(45))
 
-print("=== Enchantment Factory ===")
-enchantment = enchantment_factory("Flaming")
-print(enchantment('Sword'))
-enchantment = enchantment_factory("Ice")
-print(enchantment('Staff'))
+    print("=== Enchantment Factory ===")
+    enchantment = enchantment_factory("Flaming")
+    print(enchantment('Sword'))
+    enchantment = enchantment_factory("Ice")
+    print(enchantment('Staff'))
 
-print("=== Memory Vault ===")
-vault = memory_vault()
-vault["store"]("secret", 42)
-print(vault["recall"]("secret"))
-print(vault["recall"]("secret2"))
+    print("=== Memory Vault ===")
+    vault = memory_vault()
+    vault["store"]("secret", 42)
+    print(vault["recall"]("secret"))
+    print(vault["recall"]("secret2"))
+except Exception as e:
+    print(e)
