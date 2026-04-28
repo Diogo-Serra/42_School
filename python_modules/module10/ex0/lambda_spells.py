@@ -38,31 +38,17 @@ def mage_stats(mages: list[dict]) -> dict:
     return stats
 
 
-try:
-    for artifact in artifact_sorter(artifacts):
-        print(artifact)
-except Exception as e:
-    print(e)
-
-print()
-
-try:
-    for mage in power_filter(mages, 80):
-        print(mage)
-except Exception as e:
-    print(e)
-
-print()
-
-try:
-    for spell in spell_transformer(spells):
-        print(spell)
-except Exception as e:
-    print(e)
-
-print()
-
-try:
-    print(mage_stats(mages))
-except Exception as e:
-    print(e)
+if __name__ == "__main__":
+    try:
+        for artifact in artifact_sorter(artifacts):
+            print(artifact)
+        print()
+        for mage in power_filter(mages, 80):
+            print(mage)
+        print()
+        for spell in spell_transformer(spells):
+            print(spell)
+        print()
+        print(mage_stats(mages))
+    except Exception as e:
+        print(e)

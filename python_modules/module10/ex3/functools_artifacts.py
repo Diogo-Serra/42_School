@@ -1,5 +1,6 @@
-from functools import reduce, partial, lru_cache
+from functools import reduce, partial, lru_cache, singledispatch
 from collections.abc import Callable
+from typing import Any
 
 
 """
@@ -52,6 +53,26 @@ def memoized_fibonacci(n: int) -> int:
     return memoized_fibonacci(n - 1) + memoized_fibonacci(n - 2)
 
 
+def spell_dispatcher() -> Callable[[Any], str]:
+    @singledispatch
+    def cast(spell: Any) -> str:
+        return "Unknown spell type"
+
+    @cast.register
+    def _(spell: int) -> str:
+        return f"Damage spell deals {spell} damage"
+
+    @cast.register
+    def _(spell: str) -> str:
+        return f"Enchantment cast: {spell}"
+
+    @cast.register
+    def _(spell: list) -> str:
+        return f"Multi-cast with {len(spell)} spells"
+
+    return cast
+
+
 if __name__ == "__main__":
     result = spell_reducer(spells, "add")
     print(result)
@@ -66,3 +87,11 @@ if __name__ == "__main__":
 
     result = partial_enchanter(base_enchantment)
     print(result['ice']())
+
+    print(memoized_fibonacci(10))
+
+    cast_spell = spell_dispatcher()
+    print(cast_spell(42))
+    print(cast_spell("shield"))
+    print(cast_spell(["fire", "ice", "wind"]))
+    print(cast_spell(3.14))
