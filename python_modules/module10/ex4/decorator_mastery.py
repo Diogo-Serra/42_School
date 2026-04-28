@@ -3,18 +3,6 @@ from functools import wraps
 from time import sleep
 
 
-class MageGuild:
-    @staticmethod
-    def validate_mage_name(name: str) -> bool:
-        cleaned = name.strip()
-        return len(cleaned) >= 3 and all(
-            c.isalpha() or c.isspace() for c in name
-        )
-
-    def cast_spell(self, spell_name: str, power: int) -> str:
-        return f"Successfully cast {spell_name} with {power} power"
-
-
 def spell_timer(func: Callable) -> Callable:
     from time import perf_counter
 
@@ -49,7 +37,17 @@ def power_validator(min_power: int) -> Callable:
     return decorator
 
 
-MageGuild.cast_spell = power_validator(10)(MageGuild.cast_spell)
+class MageGuild:
+    @staticmethod
+    def validate_mage_name(name: str) -> bool:
+        cleaned = name.strip()
+        return len(cleaned) >= 3 and all(
+            c.isalpha() or c.isspace() for c in name
+        )
+
+    @power_validator(10)
+    def cast_spell(self, spell_name: str, power: int) -> str:
+        return f"Successfully cast {spell_name} with {power} power"
 
 
 def retry_spell(max_attempts: int) -> Callable:

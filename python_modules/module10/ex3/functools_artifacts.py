@@ -20,7 +20,7 @@ def base_enchantment(
     return f"Power: {power}, Element: {element}, Target: {target}"
 
 
-def spell_reducer(spells: list[int], operation: str) -> int:
+def spell_reducer(spells: list[int], operation: str) -> int | str:
     if not spells:
         return 0
     try:
@@ -36,6 +36,7 @@ def spell_reducer(spells: list[int], operation: str) -> int:
             return "Operation not recognized"
     except Exception as e:
         print(e)
+        return 0
 
 
 def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]:
@@ -74,19 +75,19 @@ def spell_dispatcher() -> Callable[[Any], str]:
 
 
 if __name__ == "__main__":
-    result = spell_reducer(spells, "add")
-    print(result)
-    result = spell_reducer(spells, "mul")
-    print(result)
-    result = spell_reducer(spells, "max")
-    print(result)
-    result = spell_reducer(spells, "min")
-    print(result)
-    result = spell_reducer(spells, "test")
-    print(result)
+    reduced_add = spell_reducer(spells, "add")
+    print(reduced_add)
+    reduced_mul = spell_reducer(spells, "mul")
+    print(reduced_mul)
+    reduced_max = spell_reducer(spells, "max")
+    print(reduced_max)
+    reduced_min = spell_reducer(spells, "min")
+    print(reduced_min)
+    reduced_unknown = spell_reducer(spells, "test")
+    print(reduced_unknown)
 
-    result = partial_enchanter(base_enchantment)
-    print(result['ice']())
+    enchantments = partial_enchanter(base_enchantment)
+    print(enchantments['ice']())
 
     print(memoized_fibonacci(10))
 
