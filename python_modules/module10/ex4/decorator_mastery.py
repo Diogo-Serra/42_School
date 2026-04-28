@@ -45,9 +45,7 @@ def power_validator(min_power: int) -> Callable:
             if power < min_power:
                 return "Insufficient power for this spell"
             return func(*args, **kwargs)
-
         return wrapper
-
     return decorator
 
 
@@ -70,9 +68,7 @@ def retry_spell(max_attempts: int) -> Callable:
                         )
                     attempt += 1
             return f"Spell casting failed after {max_attempts} attempts"
-
         return wrapper
-
     return decorator
 
 
