@@ -1,15 +1,10 @@
 from functools import reduce, partial, lru_cache, singledispatch
 from collections.abc import Callable
 from typing import Any
+import operator
 
 
-"""
-def memoized_fibonacci(n: int) -> int
-def spell_dispatcher() -> Callable[[Any], str]
-"""
-
-
-spells = [1, 5, 7, 2, 3]
+spells = [10, 20, 30, 40]
 
 
 def base_enchantment(
@@ -25,9 +20,9 @@ def spell_reducer(spells: list[int], operation: str) -> int | str:
         return 0
     try:
         if operation == "add":
-            return reduce(lambda x, y: x + y, spells)
-        elif operation == "mul":
-            return reduce(lambda x, y: x * y, spells)
+            return reduce(operator.add, spells)
+        elif operation == "multiply":
+            return reduce(operator.mul, spells)
         elif operation == "max":
             return reduce(lambda x, y: x if x > y else y, spells)
         elif operation == "min":
@@ -41,9 +36,9 @@ def spell_reducer(spells: list[int], operation: str) -> int | str:
 
 def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]:
     return {
-        "fire": partial(base_enchantment, 50, "fire", "itself"),
-        "ice": partial(base_enchantment, 50, "ice", "itself"),
-        "lightning": partial(base_enchantment, 50, "lightning", "itself"),
+        "fire": partial(base_enchantment, 50, "fire"),
+        "ice": partial(base_enchantment, 50, "ice"),
+        "lightning": partial(base_enchantment, 50, "lightning"),
     }
 
 
@@ -61,38 +56,38 @@ def spell_dispatcher() -> Callable[[Any], str]:
 
     @cast.register
     def _(spell: int) -> str:
-        return f"Damage spell deals {spell} damage"
+        return f"Damage spell: {spell} damage"
 
     @cast.register
     def _(spell: str) -> str:
-        return f"Enchantment cast: {spell}"
+        return f"Enchantment: {spell}"
 
     @cast.register
     def _(spell: list) -> str:
-        return f"Multi-cast with {len(spell)} spells"
+        return f"Multi-cast: {len(spell)} spells"
 
     return cast
 
 
 if __name__ == "__main__":
-    reduced_add = spell_reducer(spells, "add")
-    print(reduced_add)
-    reduced_mul = spell_reducer(spells, "mul")
-    print(reduced_mul)
-    reduced_max = spell_reducer(spells, "max")
-    print(reduced_max)
-    reduced_min = spell_reducer(spells, "min")
-    print(reduced_min)
-    reduced_unknown = spell_reducer(spells, "test")
-    print(reduced_unknown)
+    print("Testing spell reducer...")
+    print(f"Sum: {spell_reducer(spells, 'add')}")
+    print(f"Product: {spell_reducer(spells, 'multiply')}")
+    print(f"Max: {spell_reducer(spells, 'max')}")
 
+    print("Testing partial enchanter...")
     enchantments = partial_enchanter(base_enchantment)
-    print(enchantments['ice']())
+    print(enchantments['ice']("Dragon"))
 
-    print(memoized_fibonacci(10))
+    print("Testing memoized fibonacci...")
+    print(f"Fib(0): {memoized_fibonacci(0)}")
+    print(f"Fib(1): {memoized_fibonacci(1)}")
+    print(f"Fib(10): {memoized_fibonacci(10)}")
+    print(f"Fib(15): {memoized_fibonacci(15)}")
 
+    print("Testing spell dispatcher...")
     cast_spell = spell_dispatcher()
     print(cast_spell(42))
-    print(cast_spell("shield"))
+    print(cast_spell("fireball"))
     print(cast_spell(["fire", "ice", "wind"]))
     print(cast_spell(3.14))

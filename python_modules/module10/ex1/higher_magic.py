@@ -1,4 +1,4 @@
-from typing import Callable
+from collections.abc import Callable
 
 
 def fireball(target: str, power: int) -> str:
@@ -10,37 +10,43 @@ def heal(target: str, power: int) -> str:
 
 
 def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
-    return lambda target, power: spell1(target, power) + spell2(target, power)
+    return lambda target, power: (spell1(target, power), spell2(target, power))
 
 
 def power_amplifier(base_spell: Callable, multiplier: int) -> Callable:
     return lambda target, power: base_spell(target, power * multiplier)
 
 
-def conditional_caster(condition: Callable,
-                       spell: Callable = lambda target, power: True
-                       if power > 50 else False) -> Callable:
+def conditional_caster(condition: Callable, spell: Callable) -> Callable:
     return lambda target, power: spell(
-            target, power) if condition is True else False
+        target, power) if condition(target, power) else "Spell fizzled"
 
 
 def spell_sequence(spells: list[Callable]) -> Callable:
     return lambda target, power: [spell(target, power) for spell in spells]
 
 
-try:
-    spell_list: list[Callable] = [fireball, heal]
-    combined = spell_combiner(fireball, heal)
-    print(combined("Wizard", 50))
+if __name__ == "__main__":
+    try:
+        spell_list: list[Callable] = [fireball, heal]
 
-    amplified = power_amplifier(fireball, 5)
-    print(amplified("Wizard", 5))
+        print("Testing spell combiner...")
+        combined = spell_combiner(fireball, heal)
+        result = combined("Dragon", 50)
+        print(f"Combined spell result: {result[0]}, {result[1]}")
 
-    conditional = conditional_caster(lambda target, power: (
-        True if power > 50 else False, fireball))
-    print(conditional("Wizard", 30))
+        print("Testing power amplifier...")
+        amplified = power_amplifier(fireball, 3)
+        print(f"Original: {fireball('Dragon', 10)}")
+        print(f"Amplified: {amplified('Dragon', 10)}")
 
-    unpack_spells = spell_sequence(spell_list)
-    print(unpack_spells('Wizard', 30))
-except Exception as e:
-    print(e)
+        print("Testing conditional caster...")
+        cond = conditional_caster(lambda t, p: p > 50, fireball)
+        print(cond("Dragon", 60))
+        print(cond("Dragon", 30))
+
+        print("Testing spell sequence...")
+        seq = spell_sequence(spell_list)
+        print(seq("Dragon", 50))
+    except Exception as e:
+        print(e)

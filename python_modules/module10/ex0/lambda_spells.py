@@ -22,7 +22,7 @@ def artifact_sorter(artifacts: list[dict]) -> list[dict]:
 
 
 def power_filter(mages: list[dict], min_power: int) -> list[dict]:
-    return list(filter(lambda x: x['power'] > min_power, mages))
+    return list(filter(lambda x: x['power'] >= min_power, mages))
 
 
 def spell_transformer(spells: list[str]) -> list[str]:
@@ -40,15 +40,14 @@ def mage_stats(mages: list[dict]) -> dict:
 
 if __name__ == "__main__":
     try:
-        for artifact in artifact_sorter(artifacts):
-            print(artifact)
-        print()
-        for mage in power_filter(mages, 80):
-            print(mage)
-        print()
-        for spell in spell_transformer(spells):
-            print(spell)
-        print()
-        print(mage_stats(mages))
+        print("Testing artifact sorter...")
+        sorted_artifacts = artifact_sorter(artifacts)
+        print(
+            f"{sorted_artifacts[0]['name']} ({sorted_artifacts[0]['power']} power)"
+            f" comes before"
+            f" {sorted_artifacts[1]['name']} ({sorted_artifacts[1]['power']} power)"
+        )
+        print("Testing spell transformer...")
+        print(" ".join(spell_transformer(spells)))
     except Exception as e:
         print(e)
