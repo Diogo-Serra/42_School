@@ -4,9 +4,6 @@ from typing import Any
 import operator
 
 
-spells = [10, 20, 30, 40]
-
-
 def base_enchantment(
     power: int,
     element: str,
@@ -50,6 +47,7 @@ def memoized_fibonacci(n: int) -> int:
 
 
 def spell_dispatcher() -> Callable[[Any], str]:
+
     @singledispatch
     def cast(spell: Any) -> str:
         return "Unknown spell type"
@@ -70,21 +68,27 @@ def spell_dispatcher() -> Callable[[Any], str]:
 
 
 if __name__ == "__main__":
-    print("Testing spell reducer...")
-    print(f"Sum: {spell_reducer(spells, 'add')}")
-    print(f"Product: {spell_reducer(spells, 'multiply')}")
-    print(f"Max: {spell_reducer(spells, 'max')}")
 
+    spell_powers = [27, 43, 40, 37, 37, 49]
+
+    print("Testing spell reducer...")
+    print(f"Sum: {spell_reducer(spell_powers, 'add')}")
+    print(f"Max: {spell_reducer(spell_powers, 'max')}")
+    print(f"Min: {spell_reducer(spell_powers, 'min')}")
+    print(f"Product: {spell_reducer(spell_powers, 'multiply')}")
+
+    print()
     print("Testing partial enchanter...")
     enchantments = partial_enchanter(base_enchantment)
     print(enchantments['ice']("Dragon"))
 
+    print()
     print("Testing memoized fibonacci...")
-    print(f"Fib(0): {memoized_fibonacci(0)}")
-    print(f"Fib(1): {memoized_fibonacci(1)}")
-    print(f"Fib(10): {memoized_fibonacci(10)}")
     print(f"Fib(15): {memoized_fibonacci(15)}")
+    print(f"Fib(20): {memoized_fibonacci(20)}")
+    print(f"Fib(16): {memoized_fibonacci(16)}")
 
+    print()
     print("Testing spell dispatcher...")
     cast_spell = spell_dispatcher()
     print(cast_spell(42))
