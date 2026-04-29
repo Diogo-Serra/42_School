@@ -23,12 +23,17 @@ def mage_stats(mages: list[dict]) -> dict:
 
 
 if __name__ == "__main__":
-    from data_generator import FuncMageDataGenerator
+    try:
+        from data_generator import FuncMageDataGenerator
+    except ImportError as error:
+        print(error)
+
     artifacts = FuncMageDataGenerator.generate_artifacts(5)
     mages = FuncMageDataGenerator.generate_mages(5)
     spells = FuncMageDataGenerator.generate_spells(5)
 
     try:
+        print()
         print("Testing artifact sorter...")
         sorted_artifacts = artifact_sorter(artifacts)
         print(
@@ -36,7 +41,22 @@ if __name__ == "__main__":
             f" comes before"
             f" {sorted_artifacts[1]['name']} ({sorted_artifacts[1]['power']} power)"
         )
+        print()
+
+        print("Testing mage filter...")
+        mages_filter = power_filter(mages, 80)
+        if not mages_filter:
+            print("No mages with this power")
+        for mage in mages_filter:
+            print(mage)
+        print()
+
         print("Testing spell transformer...")
         print(" ".join(spell_transformer(spells)))
-    except Exception as e:
-        print(e)
+        print()
+
+        print("Testing mage stats...")
+        mage_stats = mage_stats(mages)
+        print(mage_stats)
+    except Exception as error:
+        print(error)
