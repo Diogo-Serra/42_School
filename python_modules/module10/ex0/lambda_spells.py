@@ -1,22 +1,6 @@
 #!/usr/bin/env python3
 
 
-artifacts = [
-    {'name': "Fire staff", 'power': 98, 'type': "fire"},
-    {'name': "Water staff", 'power': 76, 'type': "water"},
-    {'name': "Dark staff", 'power': 100, 'type': "dark"}]
-
-mages = [
-    {'name': "Fire mage", 'power': 98, 'element': "fire"},
-    {'name': "Water mage", 'power': 76, 'element': "water"},
-    {'name': "Dark mage", 'power': 100, 'element': "dark"}]
-
-spells = [
-    "fireball",
-    "heal",
-    "shield"]
-
-
 def artifact_sorter(artifacts: list[dict]) -> list[dict]:
     return sorted(artifacts, key=lambda x: x['power'], reverse=True)
 
@@ -39,6 +23,11 @@ def mage_stats(mages: list[dict]) -> dict:
 
 
 if __name__ == "__main__":
+    from data_generator import FuncMageDataGenerator
+    artifacts = FuncMageDataGenerator.generate_artifacts(5)
+    mages = FuncMageDataGenerator.generate_mages(5)
+    spells = FuncMageDataGenerator.generate_spells(5)
+
     try:
         print("Testing artifact sorter...")
         sorted_artifacts = artifact_sorter(artifacts)
