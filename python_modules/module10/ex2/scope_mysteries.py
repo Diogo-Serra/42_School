@@ -79,8 +79,8 @@ if __name__ == "__main__":
 
         print("Testing memory vault...")
         vault = memory_vault()
+        print("Store 'secret' = 42")
         vault["store"]("secret", 42)
-        print(f"Store 'secret' = 42")
         print(f"Recall 'secret': {vault['recall']('secret')}")
         print(f"Recall 'unknown': {vault['recall']('unknown')}")
 
