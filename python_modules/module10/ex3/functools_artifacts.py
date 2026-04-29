@@ -71,27 +71,32 @@ if __name__ == "__main__":
 
     spell_powers = [27, 43, 40, 37, 37, 49]
 
-    print("Testing spell reducer...")
-    print(f"Sum: {spell_reducer(spell_powers, 'add')}")
-    print(f"Max: {spell_reducer(spell_powers, 'max')}")
-    print(f"Min: {spell_reducer(spell_powers, 'min')}")
-    print(f"Product: {spell_reducer(spell_powers, 'multiply')}")
+    try:
 
-    print()
-    print("Testing partial enchanter...")
-    enchantments = partial_enchanter(base_enchantment)
-    print(enchantments['ice']("Dragon"))
+        print("Testing spell reducer...")
+        print(f"Sum: {spell_reducer(spell_powers, 'add')}")
+        print(f"Max: {spell_reducer(spell_powers, 'max')}")
+        print(f"Min: {spell_reducer(spell_powers, 'min')}")
+        print(f"Product: {spell_reducer(spell_powers, 'multiply')}")
 
-    print()
-    print("Testing memoized fibonacci...")
-    print(f"Fib(15): {memoized_fibonacci(15)}")
-    print(f"Fib(20): {memoized_fibonacci(20)}")
-    print(f"Fib(16): {memoized_fibonacci(16)}")
+        print()
+        print("Testing partial enchanter...")
+        enchantments = partial_enchanter(base_enchantment)
+        print(enchantments['ice']("Dragon"))
 
-    print()
-    print("Testing spell dispatcher...")
-    cast_spell = spell_dispatcher()
-    print(cast_spell(42))
-    print(cast_spell("fireball"))
-    print(cast_spell(["fire", "ice", "wind"]))
-    print(cast_spell(3.14))
+        print()
+        print("Testing memoized fibonacci...")
+        print(f"Fib(15): {memoized_fibonacci(15)}")
+        print(f"Fib(20): {memoized_fibonacci(20)}")
+        print(f"Fib(16): {memoized_fibonacci(16)}")
+
+        print()
+        print("Testing spell dispatcher...")
+        cast_spell = spell_dispatcher()
+        print(cast_spell(42))
+        print(cast_spell("fireball"))
+        print(cast_spell(["fire", "ice", "wind"]))
+        print(cast_spell(3.14))
+
+    except Exception as error:
+        print(error)
