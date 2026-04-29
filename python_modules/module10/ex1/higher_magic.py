@@ -2,11 +2,11 @@ from collections.abc import Callable
 
 
 def fireball(target: str, power: int) -> str:
-    return f"{target} attacks with fireball with {power} attack power"
+    return f"Fireball hits {target} with {power} attack power"
 
 
 def heal(target: str, power: int) -> str:
-    return f"{target} heals itself {power}HP"
+    return f"Heal restores {target} for {power} HP"
 
 
 def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
@@ -27,26 +27,35 @@ def spell_sequence(spells: list[Callable]) -> Callable:
 
 
 if __name__ == "__main__":
+
+    spell_list: list[Callable] = [fireball, heal]
+
     try:
-        spell_list: list[Callable] = [fireball, heal]
 
         print("Testing spell combiner...")
         combined = spell_combiner(fireball, heal)
         result = combined("Dragon", 50)
         print(f"Combined spell result: {result[0]}, {result[1]}")
 
+        print()
+
         print("Testing power amplifier...")
         amplified = power_amplifier(fireball, 3)
         print(f"Original: {fireball('Dragon', 10)}")
         print(f"Amplified: {amplified('Dragon', 10)}")
 
+        print()
+
         print("Testing conditional caster...")
-        cond = conditional_caster(lambda t, p: p > 50, fireball)
-        print(cond("Dragon", 60))
-        print(cond("Dragon", 30))
+        conditional = conditional_caster(lambda t, p: p > 50, fireball)
+        print(conditional("Dragon", 60))
+        print(conditional("Dragon", 30))
+
+        print()
 
         print("Testing spell sequence...")
-        seq = spell_sequence(spell_list)
-        print(seq("Dragon", 50))
-    except Exception as e:
-        print(e)
+        sequence = spell_sequence(spell_list)
+        print(sequence("Dragon", 50))
+
+    except Exception as error:
+        print(error)
