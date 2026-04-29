@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
+from sys import exit
 
 
 def artifact_sorter(artifacts: list[dict]) -> list[dict]:
-    return sorted(artifacts, key=lambda x: x['power'], reverse=True)
+    return list(sorted(artifacts, key=lambda x: x['power'], reverse=True))
 
 
 def power_filter(mages: list[dict], min_power: int) -> list[dict]:
@@ -23,24 +24,40 @@ def mage_stats(mages: list[dict]) -> dict:
 
 
 if __name__ == "__main__":
-    try:
-        from data_generator import FuncMageDataGenerator
-    except ImportError as error:
-        print(error)
 
-    artifacts = FuncMageDataGenerator.generate_artifacts(5)
-    mages = FuncMageDataGenerator.generate_mages(5)
-    spells = FuncMageDataGenerator.generate_spells(5)
+    try:
+
+        artifacts = [
+            {'name': 'Storm Crown', 'power': 74, 'type': 'armor'},
+            {'name': 'Fire Staff', 'power': 102, 'type': 'armor'},
+            {'name': 'Lightning Rod', 'power': 115, 'type': 'focus'},
+            {'name': 'Light Prism', 'power': 67, 'type': 'relic'}]
+
+        mages = [
+            {'name': 'Riley', 'power': 61, 'element': 'lightning'},
+            {'name': 'Ember', 'power': 87, 'element': 'ice'},
+            {'name': 'Morgan', 'power': 61, 'element': 'water'},
+            {'name': 'River', 'power': 76, 'element': 'lightning'},
+            {'name': 'Zara', 'power': 89, 'element': 'lightning'}]
+
+        spells = ['tsunami', 'flash', 'lightning', 'blizzard']
+
+    except Exception as error:
+        print(error)
+        exit(1)
 
     try:
         print()
+
         print("Testing artifact sorter...")
         sorted_artifacts = artifact_sorter(artifacts)
         print(
-            f"{sorted_artifacts[0]['name']} ({sorted_artifacts[0]['power']} power)"
+            f"{sorted_artifacts[0]['name']} "
+            f"({sorted_artifacts[0]['power']} power)"
             f" comes before"
-            f" {sorted_artifacts[1]['name']} ({sorted_artifacts[1]['power']} power)"
-        )
+            f" {sorted_artifacts[1]['name']} "
+            f"({sorted_artifacts[1]['power']} power)")
+
         print()
 
         print("Testing mage filter...")
@@ -49,14 +66,18 @@ if __name__ == "__main__":
             print("No mages with this power")
         for mage in mages_filter:
             print(mage)
+
         print()
 
         print("Testing spell transformer...")
         print(" ".join(spell_transformer(spells)))
+
         print()
 
         print("Testing mage stats...")
-        mage_stats = mage_stats(mages)
-        print(mage_stats)
+        stats_mage = mage_stats(mages)
+        print(stats_mage)
+
     except Exception as error:
         print(error)
+        exit(1)
