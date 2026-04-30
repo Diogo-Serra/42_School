@@ -25,10 +25,9 @@ def spell_reducer(spells: list[int], operation: str) -> int | str:
         elif operation == "min":
             return reduce(lambda x, y: x if x < y else y, spells)
         else:
-            return "Operation not recognized"
-    except Exception as e:
-        print(e)
-        return 0
+            raise ValueError("Operation not recognized")
+    except Exception as error:
+        raise ValueError(f"Error on reduce operation: {operation}")
 
 
 def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]:
@@ -73,6 +72,7 @@ if __name__ == "__main__":
 
     try:
 
+        print()
         print("Testing spell reducer...")
         print(f"Sum: {spell_reducer(spell_powers, 'add')}")
         print(f"Max: {spell_reducer(spell_powers, 'max')}")
@@ -97,6 +97,7 @@ if __name__ == "__main__":
         print(cast_spell("fireball"))
         print(cast_spell(["fire", "ice", "wind"]))
         print(cast_spell(3.14))
+        print()
 
     except Exception as error:
         print(error)
