@@ -99,17 +99,26 @@ def waaagh_spell() -> str:
 
 if __name__ == "__main__":
 
-    print("Testing spell timer...")
-    result = fireball()
-    print(f"Result: {result}")
+    try:
 
-    print("Testing retrying spell...")
-    print(broken_spell())
-    print(waaagh_spell())
+        print()
+        print("Testing spell timer...")
+        result = fireball()
+        print(f"Result: {result}")
 
-    print("Testing MageGuild...")
-    guild = MageGuild()
-    print(MageGuild.validate_mage_name("Gandalf"))
-    print(MageGuild.validate_mage_name("x1"))
-    print(guild.cast_spell("Lightning", 15))
-    print(guild.cast_spell("Lightning", 5))
+        print()
+        print("Testing retrying spell...")
+        print(broken_spell())
+        print(waaagh_spell())
+
+        print()
+        print("Testing MageGuild...")
+        guild = MageGuild()
+        print(MageGuild.validate_mage_name("Gandalf"))
+        print(MageGuild.validate_mage_name("x1"))
+        print(guild.cast_spell("Lightning", 15))
+        print(guild.cast_spell("Lightning", 5))
+        print()
+
+    except Exception as error:
+        print(error)

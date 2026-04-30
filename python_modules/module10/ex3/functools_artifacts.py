@@ -26,7 +26,7 @@ def spell_reducer(spells: list[int], operation: str) -> int | str:
             return reduce(lambda x, y: x if x < y else y, spells)
         else:
             raise ValueError("Operation not recognized")
-    except Exception as error:
+    except Exception:
         raise ValueError(f"Error on reduce operation: {operation}")
 
 
