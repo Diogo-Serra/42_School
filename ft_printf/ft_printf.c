@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int	print_nbr(va_list pargs, const char flag);
 static int	print_chr(va_list pargs, const char flag);
 static int	print_handler(va_list pargs, const char flag);
 
-/* int	main(void)
+int	main(void)
 {
 	int				ret1;
 	char			*str;
@@ -38,8 +39,9 @@ static int	print_handler(va_list pargs, const char flag);
 	ft_printf("Pointer: %p\n", ptr);
 	ft_printf("Null pointer: %p\n", NULL);
 	ft_printf("Null string: %s\n", (char *) NULL);
+	ft_printf(0);
 	return (0);
-} */
+}
 
 int	ft_printf(const char *src, ...)
 {
@@ -49,6 +51,8 @@ int	ft_printf(const char *src, ...)
 
 	i = 0;
 	count = 0;
+	if (!src)
+		return 0;
 	va_start(pargs, src);
 	while (src[i])
 	{
