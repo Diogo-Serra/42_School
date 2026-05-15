@@ -15,24 +15,26 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 
 ### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="24" height="24" alt="C"/> C Curriculum
 
-
-| [![Reloaded](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/volunteerm.png)](https://github.com/Diogo-Serra/42_School/tree/main/get_next_line) | [![Libft](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/libftm.png)](https://github.com/Diogo-Serra/42_School/tree/main/libft) | [![Born2beroot](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/born2beroote.png)](https://github.com/Diogo-Serra/42_School/tree/main/Born2beRoot) | [![ft_printf](https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/ft_printfe.png)](https://github.com/Diogo-Serra/42_School/tree/main/ft_printf) |
-
 <div align="center">
-  <table>
-    <tr>
-      <td colspan="2" align="center">
-        <a href="https://github.com/Diogo-Serra/42_School/tree/main/reloaded">
-          <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/get_next_linee.png" alt="get_next_line"/>
-        </a>
-      </td>
-      <td colspan="2" align="center">
-        <a href="https://github.com/Diogo-Serra/42_School/tree/main/push_swap">
-          <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/push_swape.png" alt="push_swap"/>
-        </a>
-      </td>
-    </tr>
-  </table>
+  <a href="https://github.com/Diogo-Serra/42_School/tree/main/get_next_line">
+    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/volunteerm.png" alt="Reloaded"/>
+  </a>
+  <a href="https://github.com/Diogo-Serra/42_School/tree/main/libft">
+    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/libftm.png" alt="Libft"/>
+  </a>
+  <a href="https://github.com/Diogo-Serra/42_School/tree/main/Born2beRoot">
+    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/born2beroote.png" alt="Born2beroot"/>
+  </a>
+  <a href="https://github.com/Diogo-Serra/42_School/tree/main/ft_printf">
+    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/ft_printfe.png" alt="ft_printf"/>
+  </a>
+  <br/>
+  <a href="https://github.com/Diogo-Serra/42_School/tree/main/reloaded">
+    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/get_next_linee.png" alt="get_next_line"/>
+  </a>
+  <a href="https://github.com/Diogo-Serra/42_School/tree/main/push_swap">
+    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/push_swape.png" alt="push_swap"/>
+  </a>
 </div>
 
 ---
