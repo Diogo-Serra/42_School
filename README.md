@@ -47,11 +47,16 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
   <a href="https://github.com/Diogo-Serra/42_School/tree/main/A-Maze-ing">
     <img src="https://img.shields.io/badge/A--Maze--ing-blue?style=for-the-badge&logo=python&logoColor=white" alt="A-Maze-ing"/>
   </a>
+  <br/>
+  <a href="https://github.com/Diogo-Serra/Fly-in">
+    <img src="https://img.shields.io/badge/Fly--in-blue?style=for-the-badge&logo=python&logoColor=white" alt="Fly-in"/>
+  </a>
 </div>
 
 <p align="center">
   <b>Python Modules</b>: Progressive exercises and concepts in Python.<br>
-  <b>A-Maze-ing</b>: Maze generation and validation in Python.
+  <b>A-Maze-ing</b>: Maze generation and validation in Python.<br>
+  <b>Fly-in</b>: Drone fleet routing system with pathfinding across zone networks.
 </p>
 
 ---
