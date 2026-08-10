@@ -69,6 +69,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 ### Tech & Tools
 
 ![Tech & Tools](https://skillicons.dev/icons?i=c,python,bash,cmake,git,vim,vscode,linux,apple,pytorch,docker&theme=dark)
+
 <img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face"/>
 <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow"/>
 <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
