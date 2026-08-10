@@ -60,8 +60,8 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 <p align="center">
   <b>Python Modules</b>: Progressive exercises and concepts in Python.<br>
   <b>A-Maze-ing</b>: Maze generation and validation in Python.<br>
-  <b>Fly-in</b>: Drone fleet routing system with pathfinding across zone networks.
-  <b>Call_me_maybe</b>: Constrained decoding engine that turns natural-language prompts into structured function calls for LLMs.
+  <b>Fly-in</b>: Drone fleet routing system with pathfinding across zone networks.<br>
+  <b>Call_me_maybe</b>: Constrained decoding engine that turns natural-language prompts into structured function calls for LLMs.<br>
 </p>
 
 ---
