@@ -74,7 +74,6 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 
 ### Connect
 
-<a href="https://profile.intra.42.fr/users/diogo-serra"><img src="https://img.shields.io/badge/42_Profile-diogo--serra-2ecc71?style=for-the-badge" alt="42 Profile"/></a>  
 <a href="https://www.linkedin.com/in/diogoserra90/"><img src="https://img.shields.io/badge/LinkedIn-Diogo--Serra-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
 
 </div>
