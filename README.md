@@ -55,6 +55,9 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
     <a href="https://github.com/Diogo-Serra/Call_Me_Maybe">
     <img src="https://img.shields.io/badge/Call--me--maybe-blue?style=for-the-badge&logo=python&logoColor=white" alt="Fly-in"/>
   </a>
+  <a href="https://github.com/Diogo-Serra/Codexion">
+    <img src="https://img.shields.io/badge/Codexion-blue?style=for-the-badge&logo=python&logoColor=white" alt="Codexion"/>
+  </a>
 </div>
 
 <p align="center">
@@ -62,6 +65,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
   <b>A-Maze-ing</b>: Maze generation and validation in Python.<br>
   <b>Fly-in</b>: Drone fleet routing system with pathfinding across zone networks.<br>
   <b>Call_me_maybe</b>: Decoding engine that turns natural-language prompts into function calls for LLMs.<br>
+  <b>Codexion</b>: Python project focused on building and managing a structured code knowledge system.<br>
 </p>
 
 ---
