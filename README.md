@@ -60,7 +60,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
     <img src="https://img.shields.io/badge/Fly--in-blue?style=for-the-badge&logo=python&logoColor=white" alt="Fly-in"/>
   </a>
     <a href="https://github.com/Diogo-Serra/Call_Me_Maybe">
-    <img src="https://img.shields.io/badge/Call--me--maybe-blue?style=for-the-badge&logo=python&logoColor=white" alt="Fly-in"/>
+    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/philosopherse.png" alt="Call Me Maybe"/>
   </a>
 </div>
 
