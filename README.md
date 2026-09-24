@@ -35,14 +35,10 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
   <a href="https://github.com/Diogo-Serra/42_School/tree/main/push_swap">
     <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/push_swape.png" alt="push_swap"/>
   </a>
-  <a href="https://github.com/Diogo-Serra/Codexion">
+  <a href="https://github.com/Diogo-Serra/42_School/tree/main/Codexion">
     <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/philosophersn.png" alt="Codexion"/>
   </a>
 </div>
-
-<p align="center">
-  <b>Codexion</b>: Concurrent programming with threads, processes, and synchronization.<br>
-</p>
 
 ---
 

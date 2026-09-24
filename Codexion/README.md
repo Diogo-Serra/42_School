@@ -1,4 +1,4 @@
-# Codexion
+# Codexion (formerly Philosophers)
 
 This project is present here: https://github.com/Diogo-Serra/Codexion
 
