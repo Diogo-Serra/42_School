@@ -36,7 +36,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
     <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/push_swape.png" alt="push_swap"/>
   </a>
   <a href="https://github.com/Diogo-Serra/Codexion">
-    <img src="https://img.shields.io/badge/Codexion-blue?style=for-the-badge&logo=c&logoColor=white" alt="Codexion"/>
+    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/philosophersn.png" alt="Codexion"/>
   </a>
 </div>
 
@@ -60,7 +60,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
     <img src="https://img.shields.io/badge/Fly--in-blue?style=for-the-badge&logo=python&logoColor=white" alt="Fly-in"/>
   </a>
     <a href="https://github.com/Diogo-Serra/Call_Me_Maybe">
-    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/philosophersn.png" alt="Call Me Maybe"/>
+    <img src="https://img.shields.io/badge/Call--me--maybe-blue?style=for-the-badge&logo=python&logoColor=white" alt="Call Me Maybe"/>
   </a>
 </div>
 
