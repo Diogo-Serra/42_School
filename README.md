@@ -35,43 +35,9 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
   <a href="https://github.com/Diogo-Serra/42_School/tree/main/push_swap">
     <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/push_swape.png" alt="push_swap"/>
   </a>
-  <a href="https://github.com/Diogo-Serra/Codexion">
-    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/philosophersn.png" alt="Codexion (formerly Philosophers)"/>
-  </a>
 </div>
 
 ---
-
-### Codexion — threads, mutexes & scheduling
-
-**Codexion** (formerly *Philosophers*) is a concurrency simulation written in C. Coders sit around a circular co-working hub and need **two adjacent USB dongles** to compile quantum code. Each coder is a POSIX thread, so the real subject of the project is coordinating shared state without deadlocks, starvation, or data races.
-
-<div align="center">
-  <a href="https://github.com/Diogo-Serra/Codexion">
-    <img src="https://img.shields.io/badge/C-POSIX_Threads-00599C?style=for-the-badge&logo=c&logoColor=white" alt="C / POSIX Threads"/>
-  </a>
-  <a href="https://github.com/Diogo-Serra/Codexion">
-    <img src="https://img.shields.io/badge/Scheduler-FIFO_%7C_EDF-6A5ACD?style=for-the-badge" alt="FIFO / EDF"/>
-  </a>
-</div>
-
-- **Threads:** one thread per coder plus a dedicated monitor thread for burnout detection.
-- **Synchronization:** per-dongle mutexes and condition variables, a logging mutex, and a scheduler mutex guarding the shared termination state.
-- **Arbitration:** FIFO and Earliest-Deadline-First scheduling backed by a binary-heap priority queue; dongles are granted in a fixed order to break the circular wait.
-- **Timing rules:** a dongle cooldown between uses and a burnout deadline that stops the simulation within 10 ms.
-- **Output:** timestamped, serialized logs for dongle pickup, compiling, debugging, refactoring, and burnout.
-
-```sh
-make
-./codexion 5 800 200 200 200 7 100 edf
-#          coders burnout compile debug refactor required cooldown scheduler
-```
-
-[Source code](https://github.com/Diogo-Serra/Codexion) · [Project notes in this repo](https://github.com/Diogo-Serra/42_School/tree/main/Codexion)
-
----
-
-<div align="center">
 
 ### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="24" height="24" alt="Python"/> Python Curriculum
 
@@ -88,6 +54,9 @@ make
   </a>
     <a href="https://github.com/Diogo-Serra/Call_Me_Maybe">
     <img src="https://img.shields.io/badge/Call--me--maybe-blue?style=for-the-badge&logo=python&logoColor=white" alt="Call Me Maybe"/>
+  </a>
+  <a href="https://github.com/Diogo-Serra/42_School/tree/main/Codexion">
+    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/philosophersn.png" alt="Codexion"/>
   </a>
 </div>
 
