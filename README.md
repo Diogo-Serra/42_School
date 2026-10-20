@@ -13,7 +13,7 @@ Each project follows the school's philosophy: *learn by doing, fail fast, and bu
 
 ---
 
-### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="24" height="24" alt="C"/> C Curriculum
+### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="24" height="24" alt="C"/>  Curriculum
 
 <div align="center">
   <a href="https://github.com/Diogo-Serra/42_School/tree/main/get_next_line">
