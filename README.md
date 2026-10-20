@@ -1,90 +1,45 @@
-<div align="center">
-  
 <p align="center">
-  <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/banner42.png" alt="Banner">
+  <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/banner42.png" width="100%" alt="42 Common Core banner">
 </p>
 
----
+# 42 Common Core
 
-### About
+Selected projects completed as part of the 42 Common Core curriculum. The work covers low-level systems programming in C, algorithmic problem solving, Unix administration, networking, and Python applications.
 
-This repository documents my journey through the **42 Common Core**, from foundational C projects to advanced Unix, and now Python programming with the new common core update.  
-Each project follows the school's philosophy: *learn by doing, fail fast, and build resilience through autonomy.*
+Each project lives in its own directory with its own README, build instructions, and technical documentation.
 
----
+## Algorithms & Data Structures
 
-### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="24" height="24" alt="C"/>  Curriculum
+| Project | Description | Language |
+| --- | --- | --- |
+| [push_swap](push_swap) | Sorts integers across two stacks using a restricted instruction set, with an indexed radix sort for large inputs. | C |
+| [A-Maze-ing](https://github.com/Diogo-Serra/A-Maze-ing) | Generates fully connected, solvable mazes with depth-first search, seeded reproducibility, and file-based configuration. | Python |
+| [Fly-in](https://github.com/Diogo-Serra/Fly-in) | Routes a drone fleet through a constrained zone network using pathfinding and turn-based scheduling. | Python |
 
-<div align="center">
-  <a href="https://github.com/Diogo-Serra/42_School/tree/main/get_next_line">
-    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/volunteerm.png" alt="Reloaded"/>
-  </a>
-  <a href="https://github.com/Diogo-Serra/42_School/tree/main/libft">
-    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/libftm.png" alt="Libft"/>
-  </a>
-  <a href="https://github.com/Diogo-Serra/42_School/tree/main/Born2beRoot">
-    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/born2beroote.png" alt="Born2beroot"/>
-  </a>
-  <a href="https://github.com/Diogo-Serra/42_School/tree/main/ft_printf">
-    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/ft_printfe.png" alt="ft_printf"/>
-  </a>
-  <br/>
-  <a href="https://github.com/Diogo-Serra/42_School/tree/main/reloaded">
-    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/get_next_linee.png" alt="get_next_line"/>
-  </a>
-  <a href="https://github.com/Diogo-Serra/42_School/tree/main/push_swap">
-    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/push_swape.png" alt="push_swap"/>
-  </a>
-  <a href="https://github.com/Diogo-Serra/42_School/tree/main/Codexion">
-    <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/badges/philosophersn.png" alt="Codexion"/>
-  </a>
-</div>
+## Systems Programming
 
----
+| Project | Description | Language |
+| --- | --- | --- |
+| [reloaded](reloaded) | C bootcamp exercises covering pointers, memory, file descriptors, and data structures. | C |
+| [libft](libft) | Reimplementation of core C standard library functions, plus linked-list utilities. | C |
+| [ft_printf](ft_printf) | Recreation of `printf`, including format conversions and variadic argument handling. | C |
+| [get_next_line](get_next_line) | Line-by-line file descriptor reader with static buffer management. | C |
+| [Codexion](https://github.com/Diogo-Serra/Codexion) | Threaded resource-sharing simulation with deadlock avoidance and FIFO/EDF scheduling. | C |
 
-### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="24" height="24" alt="Python"/> Python Curriculum
+## Networking & System Administration
 
-<div align="center">
-  <a href="https://github.com/Diogo-Serra/42_School/tree/main/python_modules">
-    <img src="https://img.shields.io/badge/Python_Modules-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python Modules"/>
-  </a>
-  <a href="https://github.com/Diogo-Serra/42_School/tree/main/A-Maze-ing">
-    <img src="https://img.shields.io/badge/A--Maze--ing-blue?style=for-the-badge&logo=python&logoColor=white" alt="A-Maze-ing"/>
-  </a>
-  <br/>
-  <a href="https://github.com/Diogo-Serra/Fly-in">
-    <img src="https://img.shields.io/badge/Fly--in-blue?style=for-the-badge&logo=python&logoColor=white" alt="Fly-in"/>
-  </a>
-    <a href="https://github.com/Diogo-Serra/Call_Me_Maybe">
-    <img src="https://img.shields.io/badge/Call--me--maybe-blue?style=for-the-badge&logo=python&logoColor=white" alt="Call Me Maybe"/>
-  </a>
-</div>
+| Project | Description | Language |
+| --- | --- | --- |
+| [Net_Practice](https://github.com/Diogo-Serra/Net_Practice) | IPv4 subnetting and routing exercises across ten simulated topologies, with a written study guide. | Networking |
+| [Born2beRoot](Born2beRoot) | Hardened Debian server setup covering users, SSH, password policy, firewall, and monitoring. | Linux / Bash |
 
-<p align="center">
-  <b>Python Modules</b>: Progressive exercises and concepts in Python.<br>
-  <b>A-Maze-ing</b>: Maze generation and validation in Python.<br>
-  <b>Fly-in</b>: Drone fleet routing system with pathfinding across zone networks.<br>
-  <b>Call_me_maybe</b>: Decoding engine that turns natural-language prompts into function calls for LLMs.<br>
-  <b>Codexion</b>: The old Philosophers dining problem. Concurrency simulation written in C.<br>
-</p>
+## Python & Applied AI
 
----
+| Project | Description | Language |
+| --- | --- | --- |
+| [python_modules](python_modules) | Eleven progressive modules covering syntax, data structures, OOP, file handling, and algorithms. | Python |
+| [Call-Me-Maybe](https://github.com/Diogo-Serra/Call_Me_Maybe) | LLM function calling via constrained decoding, producing schema-valid JSON from natural-language prompts. | Python |
 
-### Tech & Tools
+## Contact
 
-![Tech & Tools](https://skillicons.dev/icons?i=c,python,bash,cmake,git,vim,vscode,linux,apple,pytorch,docker&theme=dark)
-
-<img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face"/>
-<img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow"/>
-<img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
-<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy"/>
-<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"/>
-<img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=plotly&logoColor=white" alt="Matplotlib"/>
-
----
-
-### Connect
-
-<a href="https://www.linkedin.com/in/diogoserra90/"><img src="https://img.shields.io/badge/LinkedIn-Diogo--Serra-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-
-</div>
+[LinkedIn](https://www.linkedin.com/in/diogoserra90/) · [GitHub](https://github.com/Diogo-Serra)
