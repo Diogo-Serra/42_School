@@ -1,4 +1,3 @@
-```markdown
 <p align="center">
   <img src="https://github.com/Diogo-Serra/42-project-badges/blob/main/covers/banner42.png" width="100%" alt="42 Common Core banner">
 </p>
@@ -47,4 +46,3 @@ Each project lives in its own directory or dedicated repository, with its own RE
 ## Contact
 
 [LinkedIn](https://www.linkedin.com/in/diogoserra90/)
-```
