@@ -42,4 +42,4 @@ Each project lives in its own directory with its own README, build instructions,
 
 ## Contact
 
-[LinkedIn](https://www.linkedin.com/in/diogoserra90/) · [GitHub](https://github.com/Diogo-Serra)
+[LinkedIn](https://www.linkedin.com/in/diogoserra90/)
