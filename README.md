@@ -6,7 +6,7 @@
 
 A collection of projects developed throughout the **42 Common Core curriculum**, covering systems programming, algorithms and data structures, Unix administration, networking, and applied artificial intelligence.
 
-The work combines **low-level engineering in C**, algorithmic problem solving, and **Python development**, with a growing focus on **AI, machine learning, and Large Language Model (LLM) systems**. Projects explore multithreading, resource scheduling, graph algorithms, constrained LLM decoding, function calling, and Retrieval-Augmented Generation (RAG).
+The work combines **low-level engineering in C**, algorithmic problem solving, and **Python development**, with a growing focus on **AI, machine learning, and Large Language Model (LLM) systems**.
 
 Each project lives in its own directory or dedicated repository, with its own README, build instructions, and technical documentation.
 
