@@ -39,6 +39,7 @@ Each project lives in its own directory with its own README, build instructions,
 | --- | --- | --- |
 | [python_modules](python_modules) | Eleven progressive modules covering syntax, data structures, OOP, file handling, and algorithms. | Python |
 | [Call-Me-Maybe](https://github.com/Diogo-Serra/Call_Me_Maybe) | LLM function calling via constrained decoding, producing schema-valid JSON from natural-language prompts. | Python |
+| [RAG Against the Machine](https://github.com/Diogo-Serra/<repository-name>) | Retrieval-Augmented Generation system over the vLLM codebase, combining chunked lexical retrieval, grounded answers from Qwen3-0.6B, and recall@k evaluation. | Python |
 
 ## Contact
 
